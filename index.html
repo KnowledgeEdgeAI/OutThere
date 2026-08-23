@@ -1,0 +1,1027 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OutThere v3 · One Plan Room — Clickable Prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+ --page:radial-gradient(900px 500px at 12% -8%,#FAF3E6 0%,transparent 55%),radial-gradient(900px 600px at 108% 108%,#E3F1EA 0%,transparent 55%),linear-gradient(135deg,#F6F2E9,#F1EBDF 55%,#E9F0EA);
+ --headbg:rgba(253,251,246,.85);
+ --phbg:#FDFCF8;--surf:#FFFFFF;--soft:#F1EEE6;--line:#EAE5DA;
+ --text:#1B1E28;--ink:#1B1E28;--mut:#71768A;--faint:#9BA0B0;
+ --coral:#FF6B4A;--butter:#FFC24B;--butterbg:#FFF3D9;
+ --mint:#2FBF9B;--mintbg:#DFF4EC;--lilac:#8B8CF0;--lilacbg:#ECECFC;
+ --peachbg:#FFE9E2;--pos:#1F8F6E;--green:#2FBF9B;
+ --inkg:linear-gradient(135deg,#2B2F4C,#181B27);
+ --suntile:linear-gradient(135deg,#FFC24B,#FF6B4A);
+ --skytile:linear-gradient(180deg,#BFD9FF,#8B8CF0);
+ --minttile:linear-gradient(135deg,#E2F6EE,#CBEADD);
+ --pillbg:#1B1E28;--pillfg:#FFFFFF;--togoff:#D8D3C6;--knob:#FFFFFF;--tintfg:#1B1E28;
+ --toastbg:#1B1E28;--toastfg:#FFFFFF;
+}
+html.dark{
+ --page:radial-gradient(900px 500px at 12% -8%,#1B1C26 0%,transparent 55%),linear-gradient(135deg,#131420,#16171F 55%,#12181B);
+ --headbg:rgba(19,20,32,.85);
+ --phbg:#17181F;--surf:#1F212B;--soft:#262938;--line:#303444;
+ --text:#EDECE6;--mut:#9BA0B5;--faint:#6E7488;
+ --butterbg:#3E3421;--mintbg:#1D332C;--lilacbg:#2C2D4A;--peachbg:#3D2B25;
+ --pos:#5BC9A8;--green:#2FBF9B;
+ --pillbg:#EDECE6;--pillfg:#17181F;--togoff:#3A3E4E;--knob:#17181F;--tintfg:#EDECE6;
+ --toastbg:#EDECE6;--toastfg:#17181F;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{margin:0;font-family:'DM Sans',system-ui,-apple-system,sans-serif;color:var(--text);background:var(--page);transition:background .35s,color .35s}
+button{font-family:inherit;color:inherit}
+
+header{position:fixed;top:0;left:0;right:0;height:54px;display:flex;align-items:center;gap:8px;padding:0 14px;background:var(--headbg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:60}
+.brand{display:flex;align-items:center;gap:8px;font-weight:800;font-size:17px;letter-spacing:-.4px;margin-right:4px;white-space:nowrap}
+.mark{width:20px;height:20px;border-radius:50%;position:relative;flex:none}
+.mark::before,.mark::after{content:"";position:absolute;top:1px;width:15px;height:15px;border-radius:50%}
+.mark::before{left:0;background:var(--coral)}
+.mark::after{right:0;background:var(--lilac);opacity:.85;mix-blend-mode:multiply}
+.brand span{font-size:10px;font-weight:800;letter-spacing:1.2px;color:var(--mut);margin-left:2px}
+.hbtn{border:1px solid var(--line);background:var(--surf);border-radius:10px;height:32px;padding:0 11px;font-size:12px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:6px;white-space:nowrap}
+.hbtn:hover{border-color:var(--faint)}
+.hbtn.on{background:var(--pillbg);color:var(--pillfg);border-color:var(--pillbg)}
+.scrname{font-size:12.5px;color:var(--mut);font-weight:700;margin-left:auto;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+select.scrsel{max-width:170px;height:32px;border-radius:10px;border:1px solid var(--line);background:var(--surf);font-size:12px;font-weight:700;color:var(--text)}
+@media(max-width:900px){.scrsel{display:none}}
+@media(max-width:640px){.scrname{display:none}.hbtn{padding:0 8px;font-size:11px}}
+
+.stage{padding:70px 16px 14px;display:flex;flex-direction:column;align-items:center;min-height:100%}
+.fitbox{position:relative}
+.phone{width:390px;height:844px;background:var(--phbg);border-radius:46px;border:1px solid var(--line);box-shadow:0 34px 90px rgba(20,22,30,.35),0 4px 18px rgba(20,22,30,.14);position:relative;overflow:hidden;transform-origin:top left}
+.island{position:absolute;top:13px;left:50%;transform:translateX(-50%);width:116px;height:31px;background:#101124;border-radius:18px;z-index:45}
+.sb{position:absolute;top:0;left:0;right:0;height:56px;display:flex;justify-content:space-between;align-items:flex-end;padding:0 28px 6px;font-weight:700;font-size:14px;z-index:40;pointer-events:none}
+.sb .batt{width:22px;height:11px;border:1.5px solid currentColor;border-radius:3.5px;position:relative;opacity:.9}
+.sb .batt::before{content:"";position:absolute;inset:1.5px;background:currentColor;border-radius:1.5px;width:70%}
+.sb .batt::after{content:"";position:absolute;right:-4px;top:3px;width:2px;height:5px;background:currentColor;border-radius:1px}
+
+.screens{position:absolute;inset:0}
+.screen{position:absolute;inset:0;padding:58px 0 120px;overflow-y:auto;overscroll-behavior:contain;opacity:0;transform:translateX(18px);pointer-events:none;transition:opacity .26s ease,transform .26s ease;scrollbar-width:none}
+.screen::-webkit-scrollbar{display:none}
+.screen.active{opacity:1;transform:none;pointer-events:auto}
+.pad{padding:0 24px}
+h1.title{font-weight:800;font-size:29px;letter-spacing:-1px;margin:10px 0 4px}
+h2.sec{font-weight:800;font-size:19px;letter-spacing:-.5px;margin:14px 0 8px}
+.sub{color:var(--mut);font-size:14px;margin:0 0 6px}
+.eb{font-size:10px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--mut);margin:18px 0 8px}
+.eb.lt{color:rgba(255,255,255,.72)}
+.small{font-size:12px}.muted{color:var(--mut)}
+.card{background:var(--surf);border:1px solid var(--line);border-radius:22px;padding:18px;margin-top:12px}
+.soft{background:var(--soft);border-color:transparent}
+.darkc{background:var(--inkg);border-color:transparent;color:#fff}
+.mintg{background:var(--minttile);border:none}
+.suny{background:var(--butterbg);border:none}
+.peachy{background:var(--peachbg);border:none}
+.lilacbg{background:var(--lilacbg);border:none}
+.mintbg{background:var(--mintbg);border:none}
+.btn{display:flex;align-items:center;justify-content:center;width:100%;height:54px;border-radius:18px;background:var(--coral);color:#fff;font-weight:800;font-size:15px;border:0;cursor:pointer;margin-top:16px;transition:transform .06s}
+.btn:active{transform:scale(.98)}
+.btn.dark{background:var(--ink)}
+.btn.ghost{background:transparent;border:1.5px solid var(--line);color:var(--text)}
+.btn.mini{width:auto;height:36px;padding:0 16px;font-size:13px;border-radius:14px;margin:0}
+.btn[disabled]{opacity:.45;cursor:default}
+.chip{display:inline-flex;align-items:center;justify-content:center;height:32px;padding:0 14px;border-radius:16px;background:var(--soft);font-size:11.5px;font-weight:700;letter-spacing:.3px;border:0;cursor:pointer}
+.chip.on{background:var(--pillbg);color:var(--pillfg)}
+.chip.mintc{background:var(--mintbg)}.chip.butterc{background:var(--butterbg)}
+.chipline{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.avatar{border-radius:50%;display:inline-grid;place-items:center;font-weight:800;font-size:11px;width:40px;height:40px;position:relative;flex:none;color:#fff}
+.avatar.sm{width:32px;height:32px;font-size:9px}
+.avatar.dk{color:var(--text)}
+.dot-on{position:absolute;right:-1px;bottom:-1px;width:12px;height:12px;background:var(--green);border:2.5px solid var(--phbg);border-radius:50%}
+.ring-here{box-shadow:0 0 0 2.5px var(--phbg),0 0 0 5px var(--mint)}
+.ring-route{box-shadow:0 0 0 2.5px var(--phbg),0 0 0 5px var(--butter)}
+.rowit{display:flex;align-items:center;gap:14px;background:var(--surf);border:1px solid var(--line);border-radius:18px;padding:14px 16px;margin-top:10px;cursor:pointer}
+.rowit .t{flex:1;min-width:0}
+.rowit .t b{display:block;font-size:14px}
+.rowit .t span{font-size:12px;color:var(--mut)}
+.chev{color:var(--faint);font-size:20px;line-height:1}
+.toggle{flex:none;width:44px;height:26px;border-radius:13px;background:var(--togoff);position:relative;border:0;cursor:pointer;transition:background .2s}
+.toggle::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;background:#fff;border-radius:50%;transition:left .2s}
+.toggle.on{background:var(--pillbg)}
+.toggle.on::after{left:21px}
+.backbar{display:flex;align-items:center;justify-content:space-between;padding:6px 24px 0}
+.circbtn{width:38px;height:38px;border-radius:50%;background:var(--soft);border:0;font-size:20px;cursor:pointer;display:grid;place-items:center}
+.tabbar{position:absolute;left:0;right:0;bottom:0;height:86px;background:var(--phbg);border-top:1px solid var(--line);display:none;justify-content:space-around;align-items:flex-start;padding-top:10px;z-index:35}
+.tabbar.show{display:flex}
+.tab{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:8.5px;font-weight:800;letter-spacing:1.1px;color:var(--mut);background:none;border:0;cursor:pointer;width:66px;position:relative}
+.tab .ic{width:34px;height:34px;border-radius:50%;display:grid;place-items:center}
+.tab.active{color:var(--text)}
+.tab.active .ic{background:var(--pillbg)}
+.tab.active .ic svg{stroke:var(--phbg)}
+.tab .newic{width:38px;height:38px;border-radius:50%;background:var(--ink);display:grid;place-items:center;margin-top:-2px}
+.tab.active .newic{outline:3px solid rgba(127,127,144,.35)}
+.badge{position:absolute;top:-4px;right:10px;background:var(--coral);color:#fff;border-radius:999px;font-size:9px;min-width:16px;height:16px;display:inline-flex;align-items:center;justify-content:center;padding:0 4px;font-weight:800}
+.ptab{background:none;border:0;font-size:10px;font-weight:800;letter-spacing:1.4px;color:var(--faint);cursor:pointer;padding:6px 2px 8px;border-bottom:3px solid transparent}
+.ptab.active{color:var(--text);border-bottom-color:var(--text)}
+.seg{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-around;align-items:center;padding:14px 0 24px;z-index:35;background:linear-gradient(rgba(0,0,0,0),var(--phbg) 45%)}
+.msgrow{display:flex;gap:10px;margin-top:14px;align-items:flex-end}
+.bub{background:var(--soft);border-radius:18px;padding:10px 14px;font-size:13px;max-width:230px}
+.bub.me{background:var(--ink);color:#fff;margin-left:auto}
+.sysbub{background:var(--lilacbg);border-radius:14px;padding:10px 14px;font-size:12px;color:var(--mut);text-align:center;margin-top:14px}
+.inputbar{display:flex;gap:8px;align-items:center;margin-top:16px;background:var(--surf);border:1px solid var(--line);border-radius:20px;padding:8px 8px 8px 14px}
+.inputbar input{flex:1;border:0;outline:none;font-size:13px;background:transparent;font-family:inherit;color:var(--text);min-width:0}
+.inputbar input::placeholder{color:var(--faint)}
+.artbtn{width:34px;height:34px;border-radius:50%;background:var(--soft);border:0;font-size:13px;font-weight:800;cursor:pointer;flex:none;display:grid;place-items:center}
+.sendbtn{width:36px;height:36px;border-radius:50%;background:var(--ink);color:#fff;border:0;font-size:15px;cursor:pointer;flex:none}
+.otprow{display:flex;gap:10px;justify-content:space-between;margin-top:14px}
+.otp{flex:1;aspect-ratio:.84;border:1.5px solid var(--line);border-radius:14px;display:grid;place-items:center;font-size:22px;font-weight:800;background:var(--surf)}
+.otp.fill{border-color:var(--text)}
+.venn{position:relative;height:225px;margin-top:10px}
+.venn div{position:absolute;top:8px;width:160px;height:160px;border-radius:50%;animation:bob 5s ease-in-out infinite}
+.venn .l{left:28px;background:linear-gradient(135deg,#FF9770,#f08a70);opacity:.95}
+.venn .r{left:128px;background:linear-gradient(225deg,#8B8CF0,#7677d6);opacity:.92;animation-delay:1.2s}
+.venn b{position:absolute;z-index:2;font-size:15px;color:#fff}
+.venn i{position:absolute;top:172px;font-size:12px;color:var(--mut);font-style:normal}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.toast{position:absolute;left:50%;bottom:104px;transform:translateX(-50%) translateY(8px);background:var(--toastbg);color:var(--toastfg);font-size:13px;font-weight:700;padding:11px 18px;border-radius:16px;opacity:0;transition:.25s;pointer-events:none;z-index:55;max-width:320px;text-align:center;box-shadow:0 10px 26px rgba(10,12,20,.35)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.caption{margin:16px auto 20px;max-width:680px;text-align:center;color:var(--mut);font-size:14px;line-height:1.5;padding:0 12px}
+.caption b{color:var(--text)}
+body.hints [data-go],body.hints .btn,body.hints .toggle,body.hints .chip,body.hints .circbtn,body.hints .tab,body.hints .ptab,body.hints .rowit,body.hints .opt{outline:2px dashed var(--coral);outline-offset:2px}
+.kbd{border:1px solid var(--line);border-radius:5px;background:var(--surf);padding:1px 6px;font-size:11px;font-weight:700}
+.feelbox{background:var(--soft);border:none;border-radius:20px;padding:18px;margin-top:14px;min-height:56px;font-size:15px;font-style:italic;outline:none;line-height:1.5}
+.feelbox:empty::before{content:"casual badminton, then filter coffee…";color:var(--faint)}
+.slotrow{display:flex;align-items:center;gap:10px;background:var(--surf);border:1px solid var(--line);border-radius:14px;padding:10px 14px;margin-top:8px}
+.slotrow .bar{flex:1;height:8px;border-radius:4px;background:var(--soft);overflow:hidden}
+.slotrow .bar i{display:block;height:8px;border-radius:4px;background:var(--coral)}
+.slotrow .bar i.b2{background:var(--butter)}
+.quip{display:flex;gap:10px;align-items:center;background:var(--surf);border:1px solid var(--line);border-radius:14px;padding:9px 12px;margin-top:8px;font-size:13px}
+.quip .who{font-weight:800;font-size:11px;color:#fff}
+.tiles{display:flex;gap:10px;margin-top:10px}
+.tile{flex:1;aspect-ratio:1;border-radius:16px;position:relative;overflow:hidden;cursor:pointer}
+.tile .tchip{position:absolute;left:8px;bottom:8px;background:rgba(27,30,40,.78);color:#fff;font-size:8.5px;font-weight:800;letter-spacing:.8px;padding:4px 8px;border-radius:10px}
+.tile .star{position:absolute;right:8px;top:8px;font-size:14px}
+.tile.gone{opacity:.32;filter:grayscale(1);pointer-events:none}
+.tile .hideb{position:absolute;right:8px;bottom:8px;border:0;background:rgba(27,30,40,.78);color:#fff;font-size:9px;font-weight:800;padding:4px 9px;border-radius:10px;cursor:pointer}
+.play{position:absolute;inset:0;display:grid;place-items:center}
+.play i{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;font-style:normal;font-size:12px;color:var(--ink)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.qr{width:58px;height:58px;border-radius:10px;background:conic-gradient(var(--ink) 25%,#fff 0 50%,var(--ink) 0 75%,#fff 0);background-size:14px 14px;border:5px solid #fff;box-shadow:0 0 0 1px var(--line);flex:none}
+.rsvpseg{display:flex;background:var(--soft);border-radius:15px;padding:4px;margin-top:12px}
+.rsvpseg button{flex:1;height:32px;border:0;border-radius:11px;background:transparent;font-size:11.5px;font-weight:800;color:var(--mut);cursor:pointer}
+.rsvpseg button.on{background:var(--pillbg);color:var(--pillfg)}
+.dateb{width:46px;height:46px;border-radius:50%;background:var(--lilacbg);display:grid;place-items:center;text-align:center;flex:none;line-height:1.05}
+.dateb b{font-size:8.5px;letter-spacing:1px;display:block}.dateb span{font-size:13px;font-weight:800}
+.cover{width:52px;height:52px;border-radius:14px;flex:none}
+.sheet{position:absolute;inset:0;z-index:50}
+.sheet[hidden]{display:none}
+.sheet .backdrop{position:absolute;inset:0;background:rgba(15,16,24,.45)}
+.sheet .menu{position:absolute;left:0;right:0;bottom:0;background:var(--phbg);border-radius:28px 28px 0 0;padding:12px 18px 26px;transform:translateY(105%);transition:transform .3s cubic-bezier(.24,.8,.24,1)}
+.sheet.open .menu{transform:translateY(0)}
+.grab{width:40px;height:4px;border-radius:2px;background:var(--line);margin:0 auto 10px}
+.opt{width:100%;display:flex;align-items:center;gap:12px;text-align:left;border:0;background:transparent;cursor:pointer;padding:11px 8px;border-radius:16px}
+.opt:hover{background:var(--soft)}
+.opt .ic{width:38px;height:38px;border-radius:12px;flex:none;display:grid;place-items:center;font-weight:800;font-size:16px}
+.opt b{display:block;font-size:14.5px}
+.opt span span{display:block;font-size:11.5px;color:var(--mut);margin-top:1px}
+.browser{display:flex;align-items:center;gap:8px;background:var(--soft);border-radius:14px;padding:9px 12px;margin-top:14px}
+.browser .dots{display:flex;gap:5px}
+.browser .dots i{width:9px;height:9px;border-radius:50%}
+.browser .url{flex:1;background:var(--surf);border-radius:9px;font-size:11px;font-weight:700;color:var(--mut);padding:6px 10px}
+.map{background:#E7F2EA;border-radius:18px;height:120px;margin-top:12px;position:relative;overflow:hidden}
+.map .path{position:absolute;left:8%;right:8%;top:58%;border-top:2px dashed #9CC3AA;transform:rotate(-7deg)}
+.map .pin{position:absolute;left:46%;top:30%;width:22px;height:22px;border-radius:50% 50% 50% 0;background:var(--coral);transform:rotate(-45deg);box-shadow:0 4px 10px rgba(255,107,74,.5)}
+.map .pin::after{content:"";position:absolute;inset:7px;background:#fff;border-radius:50%}
+.map span{position:absolute;left:55%;top:38%;font-size:11px;font-weight:800}
+.wcard{transition:opacity .3s}
+.wcard.gone{opacity:.45;pointer-events:none}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand"><span class="mark"></span>OutThere<span>V3 · DEMO</span></div>
+  <button class="hbtn" id="prevBtn">◀</button>
+  <button class="hbtn" id="nextBtn">▶</button>
+  <select class="scrsel" id="scrSel"></select>
+  <button class="hbtn" id="themeBtn">Theme: Auto</button>
+  <button class="hbtn" id="hintsBtn" title="Highlight tappable things (H)">Hints</button>
+  <button class="hbtn" id="restartBtn" title="Restart demo (R)">Restart</button>
+  <a class="hbtn" href="outthere-v3-design.svg" target="_blank" style="text-decoration:none">Sheet ↗</a>
+  <div class="scrname" id="scrName"></div>
+</header>
+
+<div class="stage">
+  <div class="fitbox" id="fitbox">
+    <div class="phone" id="phone">
+      <div class="island"></div>
+      <div class="sb"><span>9:41</span><span class="batt"></span></div>
+      <div class="screens">
+
+        <section class="screen" id="s-welcome" data-cap="<b>Welcome.</b> Passwordless, trust-first onboarding.">
+          <div style="position:relative;height:140px;margin-top:48px">
+            <div style="position:absolute;left:120px;top:6px;width:94px;height:94px;border-radius:50%;background:linear-gradient(135deg,#FF9770,#f0856a);opacity:.95"></div>
+            <div style="position:absolute;left:176px;top:6px;width:94px;height:94px;border-radius:50%;background:linear-gradient(315deg,#8B8CF0,#7677d6);opacity:.82"></div>
+          </div>
+          <div class="pad" style="text-align:center">
+            <h1 class="title" style="margin-top:18px">Plans start close.</h1>
+            <p class="sub">For your people — and the right strangers.</p>
+          </div>
+          <div class="pad">
+            <div class="eb" style="margin-top:26px">Your phone number</div>
+            <div class="rowit" style="cursor:text"><b>IN&nbsp;&nbsp;+91</b><span style="border-left:1px solid var(--line);height:26px;margin:0 4px"></span><span class="muted small">Enter mobile number</span></div>
+            <p class="small muted" style="text-align:center;margin-top:12px">We text a 6-digit code. No passwords, ever.</p>
+            <button class="btn" data-go="s-otp">Continue with phone</button>
+            <div class="card soft" style="display:flex;gap:12px;align-items:center"><div class="avatar sm" style="background:var(--mintbg);color:var(--pos)">✓</div><div><b style="font-size:13.5px">Your number stays private</b><br><span class="small muted">Shared only inside confirmed plans.</span></div></div>
+            <div class="card soft" style="display:flex;gap:12px;align-items:center"><div class="avatar sm" style="background:var(--mintbg);color:var(--pos)">✓</div><div><b style="font-size:13.5px">No public profiles</b><br><span class="small muted">Strangers meet through mutual Opens only.</span></div></div>
+            <div class="card soft" style="display:flex;gap:12px;align-items:center"><div class="avatar sm" style="background:var(--mintbg);color:var(--pos)">✓</div><div><b style="font-size:13.5px">Leave anytime</b><br><span class="small muted">Circles, matches, data — gone on request.</span></div></div>
+            <p class="small muted" style="text-align:center;margin-top:18px">Terms · Privacy · Community care</p>
+          </div>
+        </section>
+
+        <section class="screen" id="s-otp" data-cap="<b>Check your phone.</b> Tap “Autofill demo code”, then verify.">
+          <div class="backbar"><button class="circbtn" data-go="s-welcome">‹</button><span></span></div>
+          <div class="pad">
+            <div class="avatar" style="background:var(--lilacbg);color:var(--tintfg);width:56px;height:56px;font-size:22px;margin-top:22px">✉</div>
+            <h1 class="title">Check your phone</h1>
+            <p class="sub">We sent a 6-digit code to<br><b style="color:var(--text)">+91 98••• 42••</b></p>
+            <div class="eb">Enter code</div>
+            <div class="otprow">
+              <div class="otp"></div><div class="otp"></div><div class="otp"></div><div class="otp"></div><div class="otp"></div><div class="otp"></div>
+            </div>
+            <p class="small muted" style="text-align:center;margin-top:12px">Code expires in 00:42 · resend available</p>
+            <button class="btn ghost" id="btnOtpFill">Autofill demo code</button>
+            <button class="btn" id="btnOtpGo" disabled>Verify and continue</button>
+          </div>
+        </section>
+
+        <section class="screen" id="s-tonight" data-tab="main" data-tabnav="tonight" data-cap="<b>Tonight.</b> Your day in one glance — live plan, Open status, what's waiting on you.">
+          <div class="pad">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px">
+              <span class="small muted" style="font-weight:700;letter-spacing:1px">SAT · AUG 22 · INDIRANAGAR</span>
+              <span class="avatar" style="background:var(--lilacbg);color:var(--tintfg)">DG</span>
+            </div>
+            <h1 class="title">Tonight looks good.</h1>
+            <p class="sub">2 plans ahead · you're Open 5–8 PM.</p>
+            <div class="rowit" data-go="s-inbox">
+              <div class="t"><span class="eb" style="margin:0 0 3px">Waiting on you</span><b>Brunch RSVP · Sara's ripple</b></div>
+              <span class="badge" style="position:static">2</span><span class="chev">›</span>
+            </div>
+            <div class="card darkc">
+              <div class="eb lt" style="margin:0 0 4px">Live · 6:30 PM · Toit, Indiranagar</div>
+              <b style="font-size:22px;letter-spacing:-.5px">Office dinner</b>
+              <div style="display:flex;align-items:center;gap:6px;margin-top:12px">
+                <span class="avatar sm" style="background:var(--coral)">AK</span>
+                <span class="avatar sm" style="background:var(--lilac)">SG</span>
+                <span class="avatar sm" style="background:var(--butter);color:var(--ink)">RN</span>
+                <span class="small" style="opacity:.78;margin-left:4px">3 here · 2 en route</span>
+              </div>
+              <div style="display:flex;gap:8px;margin-top:14px">
+                <button class="btn mini" id="imHere" style="flex:1">I'm here</button>
+                <button class="btn mini ghost" data-toast="Directions opened — pinned spot, not live tracking" style="flex:1;color:#fff;border-color:rgba(255,255,255,.35)">Directions</button>
+              </div>
+            </div>
+            <div class="card lilacbg" data-go="s-overlap" style="display:flex;align-items:center;gap:14px;cursor:pointer">
+              <span class="avatar" style="background:rgba(139,140,240,.28);color:var(--tintfg)">☾</span>
+              <div class="t"><b>You're Open · Sat 5–8 PM</b><span>2 overlaps waiting · tap to peek</span></div>
+              <span class="chev">›</span>
+            </div>
+            <div class="eb">Tomorrow · Sun</div>
+            <div class="rowit" data-toast="After it ends, it wraps itself — money, photos, next seed">
+              <span class="dateb"><b>SUN</b><span>23</span></span>
+              <div class="t"><b>Round 2: sunset badminton</b><span>5:00 PM · Cubbon Park · 6 going</span></div>
+              <span class="chev">›</span>
+            </div>
+            <div class="rowit" data-toast="Sara is hosting — RSVP straight from the plan card">
+              <span class="dateb" style="background:var(--peachbg)"><b>MON</b><span>24</span></span>
+              <div class="t"><b>Clay and coffee</b><span>11:00 AM · Sara is hosting · 3 going</span></div>
+              <span class="chev">›</span>
+            </div>
+            <p class="small muted" style="text-align:center;margin-top:16px">Everything else lands in your 9 PM digest.</p>
+          </div>
+        </section>
+
+        <section class="screen" id="s-circles" data-tab="main" data-tabnav="circles" data-cap="<b>Circles.</b> Your people. Inside a circle there are no approvals — just RSVP. The Board holds open loops, all with TTLs.">
+          <div class="backbar"><button class="circbtn" data-toast="Back to all circles">‹</button><button class="circbtn" data-toast="Circle settings — roles, plus-ones, auto-sleep">•••</button></div>
+          <div class="pad">
+            <h1 class="title">Flat 402</h1>
+            <p class="sub">4 people · your building · since March</p>
+            <div style="display:flex;gap:14px;margin-top:14px">
+              <span class="avatar" style="background:var(--coral)">DG<span class="dot-on"></span></span>
+              <span class="avatar" style="background:var(--lilac)">SG<span class="dot-on"></span></span>
+              <span class="avatar" style="background:var(--butter);color:var(--ink)">RN</span>
+              <span class="avatar" style="background:var(--peachbg);color:var(--tintfg)">MJ</span>
+              <span class="avatar" style="background:transparent;border:1.6px dashed var(--faint);color:var(--faint)" data-toast="Invite link — anyone asks, you approve">+</span>
+            </div>
+            <div class="eb">Next up</div>
+            <div class="card">
+              <div class="eb" style="margin:0 0 4px">Sat · 11:00 AM · Third Wave</div>
+              <b style="font-size:18px;letter-spacing:-.4px">Brunch at Third Wave</b>
+              <div class="chipline">
+                <span class="chip mintc">3 YES</span><span class="chip butterc">1 MAYBE</span>
+              </div>
+              <div class="rsvpseg" id="brunchRsvp">
+                <button class="on">IN ✓</button><button>Maybe</button><button>Out</button>
+              </div>
+            </div>
+            <div class="eb">Circle board · open loops</div>
+            <div class="rowit lilacbg" data-go="s-ripple">
+              <span class="avatar sm" style="background:rgba(139,140,240,.3);color:var(--tintfg)">〜</span>
+              <div class="t"><b>Who's in Sunday? · ripple</b><span>3 in · 1 maybe · ends in 19h</span></div>
+              <span class="chev">›</span>
+            </div>
+            <div class="rowit" data-toast="Poll auto-closes at plan start — result pins as a decision">
+              <span class="avatar sm" style="background:var(--butterbg);color:var(--tintfg)">▤</span>
+              <div class="t"><b>Filter coffee after?</b><span>Poll · 4 yes · closes at start</span></div>
+              <span class="chev">›</span>
+            </div>
+            <div class="rowit" data-toast="Link copied — anyone with it asks to join, you approve">
+              <span class="avatar sm" style="background:var(--lilacbg);color:var(--tintfg)">＋</span>
+              <div class="t"><b>Invite link · settings</b><span>outthere.app/c/flat402</span></div>
+              <span class="chev">›</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" id="s-newplan" data-tab="main" data-tabnav="new" data-cap="<b>New plan.</b> One screen. Natural language parses into when / where / who — send and RSVPs roll in, no approvals.">
+          <div class="backbar"><button class="hbtn" data-go="s-tonight" style="border:0;background:none;font-size:12px;font-weight:800;color:var(--mut)">CANCEL</button><span class="eb" style="margin:0">New plan</span></div>
+          <div class="pad">
+            <div class="feelbox" contenteditable="true">casual badminton, then filter coffee</div>
+            <div class="chipline">
+              <span class="chip butterc">SAT 5:00 PM ✓</span><span class="chip butterc">CUBBON PARK ✓</span>
+              <span class="small muted" style="align-self:center">auto-filled from your words</span>
+            </div>
+            <div class="eb">Who</div>
+            <div class="rowit"><span class="avatar sm" style="background:var(--lilac)">◍</span><div class="t"><b>Flat 402</b><span>4 people</span></div><button class="toggle on" data-circle="Flat 402"></button></div>
+            <div class="rowit"><span class="avatar sm" style="background:var(--peachbg);color:var(--tintfg)">◍</span><div class="t"><b>Office crew</b><span>11 people</span></div><button class="toggle" data-circle="Office crew"></button></div>
+            <div class="rowit"><span class="avatar sm" style="background:var(--mintbg);color:var(--pos)">🔗</span><div class="t"><b>Link invite</b><span>Anyone asks, you approve</span></div><button class="toggle on" data-toast="Link invite on — plan gets a signed, expiring URL"></button></div>
+            <div class="rowit" data-toast="Fuzzy time — “around 5” is fine. Changes later become a mini poll."><div class="t"><b>Sat 5:00 PM</b><span>fuzzy — “around 5”</span></div><span class="chev">›</span></div>
+            <div class="rowit" data-toast="Pinned meeting point — recipients tap “Got it”, receipts not blue ticks"><div class="t"><b>Cubbon Park, Gate 2</b><span>pinned meeting point</span></div><span class="chev">›</span></div>
+            <button class="btn" id="sendPlan">Send plan →</button>
+            <p class="small muted" style="text-align:center;margin-top:12px">Inside circles there are no approvals — just RSVP.</p>
+          </div>
+        </section>
+
+        <section class="screen" id="s-ripple" data-tab="main" data-tabnav="new" data-cap="<b>Ripple.</b> The soft ask — a feeling and a slot, not a plan. Taps not chat; the tally ranks slots and converges.">
+          <div class="backbar"><button class="circbtn" data-go="s-tonight">‹</button><span class="eb" style="margin:0">Ends in 19h</span></div>
+          <div class="pad">
+            <h1 class="title">Ripple</h1>
+            <p class="sub">The soft ask — a feeling and a slot, not a plan.</p>
+            <div class="card peachy">
+              <div class="eb" style="margin:0 0 4px">You asked · 2h ago</div>
+              <b style="font-size:15px">“anyone up for badminton this weekend?”</b>
+              <div class="chipline"><span class="chip">SAT 5–8</span><span class="chip">SUN 9–11</span></div>
+              <p class="small muted" style="margin:10px 0 0">To Flat 402 + Aarav · voice note 0:12</p>
+            </div>
+            <div class="eb">Responses · taps, not chat</div>
+            <div class="chipline" style="margin-top:0">
+              <span class="chip mintc">3 IN</span><span class="chip butterc">1 MAYBE</span><span class="chip">1 OUT</span>
+            </div>
+            <div class="quip"><span class="avatar sm" style="background:var(--coral)">AK</span>“loser buys the chai”</div>
+            <div class="quip"><span class="avatar sm" style="background:var(--lilac)">SG</span>“in if it's under 40°”</div>
+            <div class="eb">Slots ranked</div>
+            <div class="slotrow"><span style="font-weight:800;font-size:12px">SAT 5–8</span><div class="bar"><i style="width:80%"></i></div><b>4</b></div>
+            <div class="slotrow"><span style="font-weight:800;font-size:12px">SUN 9–11</span><div class="bar"><i class="b2" style="width:40%"></i></div><b>2</b></div>
+            <button class="btn" id="convertRipple">Turn into a plan · Sat 5–8</button>
+            <p class="small muted" style="text-align:center;margin-top:12px;cursor:pointer" data-go="s-open"><u>or widen into an Open for the weekend</u></p>
+          </div>
+        </section>
+
+        <section class="screen" id="s-inbox" data-tab="main" data-tabnav="inbox" data-cap="<b>Inbox.</b> Everything waiting on you — RSVP deadlines, ripples, overlap cards, gentle money nudges. Nothing else.">
+          <div class="pad">
+            <h1 class="title">Inbox</h1>
+            <p class="sub">Everything waiting on you. Nothing else.</p>
+            <div class="eb">Answer today</div>
+            <div class="card peachy" id="rsvpAsk">
+              <div class="eb" style="margin:0 0 4px">RSVP · closes 8 PM</div>
+              <b style="font-size:15px">Brunch at Third Wave — in?</b>
+              <div class="rsvpseg" id="inboxRsvp">
+                <button>In ✓</button><button>Maybe</button><button>Out</button>
+              </div>
+            </div>
+            <div class="card lilacbg" style="display:flex;align-items:center;gap:12px">
+              <div style="flex:1"><div class="eb" style="margin:0 0 4px">Ripple from Sara · ends tonight</div><b>Pottery on Sunday — 2 slots</b></div>
+              <button class="btn mini dark" data-go="s-ripple">Reply</button>
+            </div>
+            <div class="eb">Matches · mutual only</div>
+            <div class="rowit" data-go="s-overlap">
+              <span class="avatar sm" style="background:transparent;border:2px solid var(--coral);color:transparent;position:relative">·<span style="position:absolute;inset:0;border:2px solid var(--lilac);border-radius:50%;transform:translateX(5px)"></span></span>
+              <div class="t"><b>Sat 5–8 PM · badminton · &lt;1 km</b><span>Anonymous until you both say hi</span></div>
+              <span class="chev">›</span>
+            </div>
+            <div class="rowit" data-go="s-overlap">
+              <span class="avatar sm" style="background:transparent;border:2px solid var(--coral)"></span>
+              <div class="t"><b>Sun 9–11 AM · chai · 2 km</b><span>Anonymous until you both say hi</span></div>
+              <span class="chev">›</span>
+            </div>
+            <div class="eb">Money</div>
+            <div class="rowit mintbg" data-go="s-money">
+              <div class="t"><b>Aarav owes you ₹120 net</b><span>from 3 plans · nudges: 1 left this week</span></div>
+              <button class="btn mini dark" data-toast="Gentle nudge sent — max 1 per person per week">Nudge</button>
+            </div>
+            <p class="small muted" style="text-align:center;margin-top:16px">Realtime only on plan day. The rest rides the 9 PM digest.</p>
+          </div>
+        </section>
+
+        <section class="screen" id="s-live" data-tab="plan" data-tabnav="live" data-cap="<b>Live.</b> Plan day: arrivals with rings (mint = here, butter = en route), the pinned spot with Got-it receipts, polls that close at start.">
+          <div class="backbar"><button class="circbtn" data-go="s-tonight">‹</button><button class="circbtn" data-toast="Plan settings — guests, plus-ones, cancel with grace">•••</button></div>
+          <div class="pad">
+            <div style="display:flex;align-items:center;gap:8px;margin-top:4px">
+              <span class="chip" style="background:var(--coral);color:#fff">● LIVE</span>
+            </div>
+            <h1 class="title">Round 2 · badminton</h1>
+            <p class="sub">Sat 5:00 PM · Cubbon Park, Gate 2</p>
+            <div class="card darkc">
+              <div class="eb lt" style="margin:0 0 4px">Meet now · Gate 2</div>
+              <b style="font-size:22px;letter-spacing:-.5px"><span id="hereN">3</span> here · <span id="routeN">2</span> en route</b>
+              <div style="display:flex;gap:12px;margin-top:14px">
+                <span class="avatar sm ring-here" style="background:var(--coral)">DG</span>
+                <span class="avatar sm ring-here" style="background:var(--lilac)">SG</span>
+                <span class="avatar sm ring-here" style="background:var(--butter);color:var(--ink)">RN</span>
+                <span class="avatar sm ring-route" style="background:var(--soft);color:var(--text)">MJ</span>
+                <span class="avatar sm" style="background:var(--soft);color:var(--mut)">PK</span>
+              </div>
+              <p class="small" style="opacity:.7;margin:10px 0 0">Rings: mint = here · butter = en route</p>
+              <button class="btn mini" id="imHere2" style="margin-top:12px;width:100%">I'm here</button>
+            </div>
+            <div class="eb">Quick update</div>
+            <div class="chipline" style="margin-top:0">
+              <button class="chip" data-toast="Posted quietly to chat — latecomers catch up">At Gate 2 ✓</button>
+              <button class="chip" data-toast="Court change posted to the whole plan">Court changed</button>
+              <button class="chip" data-toast="“5 min late” — no typing, no calls">5 min late</button>
+            </div>
+            <div class="eb">Pinned spot</div>
+            <div class="card lilacbg" style="display:flex;align-items:center;gap:12px">
+              <span class="avatar sm" style="background:rgba(139,140,240,.3);color:var(--tintfg)">📍</span>
+              <div style="flex:1"><b style="font-size:14px">Gate 2, Cubbon Park</b><br><span class="small muted">pinned meeting point</span></div>
+              <button class="btn mini dark" id="gotIt">Got it · 5/6</button>
+            </div>
+            <div class="card">
+              <div class="eb" style="margin:0 0 4px">Poll · closes at start</div>
+              <div style="display:flex;align-items:center;gap:10px">
+                <b style="flex:1;font-size:15px">Filter coffee after?</b>
+                <button class="chip mintc" id="pollYes">Yes · 4</button>
+                <button class="chip" data-toast="Noted — results pin as a decision">No · 1</button>
+              </div>
+            </div>
+            <p class="small muted" style="text-align:center;margin-top:14px">Updates post quietly to chat, so latecomers catch up.</p>
+          </div>
+        </section>
+
+        <section class="screen" id="s-chat" data-tab="plan" data-tabnav="chat" data-cap="<b>Chat.</b> Light planning talk — every meaningful message becomes an artifact. No typing dots, no read receipts.">
+          <div class="backbar"><button class="circbtn" data-go="s-tonight">‹</button><span class="eb" style="margin:0">Plan chat · 6 people</span></div>
+          <div class="pad" id="msgList" style="padding-bottom:0">
+            <div class="sysbub">Sara pinned Gate 2 — quiet note posted to all</div>
+            <div class="card lilacbg" style="display:flex;align-items:center;gap:12px;margin-top:14px">
+              <span class="avatar sm" style="background:rgba(139,140,240,.3);color:var(--tintfg)">📍</span>
+              <div style="flex:1"><b style="font-size:14px">Gate 2, Cubbon Park</b><br><span class="small muted">pin · tap for directions</span></div>
+              <button class="btn mini dark" data-toast="“Got it” receipt sent — agency, not surveillance">Got it</button>
+            </div>
+            <div class="msgrow">
+              <span class="avatar sm" style="background:var(--coral)">AK</span>
+              <div class="bub">Court 3 free at 5.<br>Loser buys the chai?</div>
+            </div>
+            <div class="card suny">
+              <div class="eb" style="margin:0 0 4px">Ticket · from a forward</div>
+              <div style="display:flex;gap:12px;align-items:center">
+                <div style="flex:1"><b style="font-size:15px">Sunburn early bird · ₹1,200</b><br>
+                  <span class="chip" style="margin-top:8px" data-go="s-money">→ split in Money</span>
+                  <span class="chip" style="margin-top:8px" data-toast="Added to calendar — gate time, entry name">→ calendar</span>
+                </div>
+                <div class="qr"></div>
+              </div>
+            </div>
+            <p class="small muted" style="text-align:center;margin-top:10px">Aarav forwarded a booking — it became the ticket ↑</p>
+            <div class="card">
+              <div class="eb" style="margin:0 0 4px">Bring list</div>
+              <span class="small">racquets — <b>Aarav ✓</b> · shuttle tubes — <button class="chip" style="height:24px;padding:0 10px;font-size:10px" id="claimBtn">claim</button></span>
+            </div>
+            <div class="msgrow">
+              <div class="bub me">Deal. I'll bring the tubes.</div>
+            </div>
+            <p class="eb" style="text-align:center;margin:16px 0 0">No typing dots · no read receipts · presence = arrival</p>
+          </div>
+          <div class="pad">
+            <div class="inputbar">
+              <button class="artbtn" data-toast="Pin a place or a time change — it becomes a card">📍</button>
+              <button class="artbtn" data-toast="Poll — chips here and on Live, closes at start">▤</button>
+              <button class="artbtn" data-toast="Forward a booking — it becomes a ticket card">🎟</button>
+              <input id="msgInput" placeholder="Say something…">
+              <button class="sendbtn" id="msgSend">↑</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" id="s-album" data-tab="plan" data-tabnav="album" data-cap="<b>Album.</b> Dump-first: upload = done, visible to the plan. Auto-dedupe merges copies and bursts. Hide replaces tagging — silent, instant.">
+          <div class="backbar"><button class="circbtn" data-go="s-tonight">‹</button><span class="eb" style="margin:0">Album · Round 2</span></div>
+          <div class="pad">
+            <h1 class="title">Dump it all. Sorted.</h1>
+            <div class="card mintbg" style="display:flex;gap:12px;align-items:center">
+              <div class="avatar sm" style="background:var(--mint);color:#fff">✓</div>
+              <div><b style="font-size:13.5px">Seen by the 6 who were there</b><br><span class="small muted">Tap hide on any photo of you — silent, instant</span></div>
+            </div>
+            <div style="display:flex;gap:10px;margin-top:12px">
+              <button class="btn mini dark" id="addPhotos" style="flex:1.6">＋ Add photos &amp; videos</button>
+              <button class="btn mini ghost" style="flex:1" data-toast="23 items · 6 videos · originals stay full-size">23 items</button>
+            </div>
+            <p class="small muted" style="margin-top:10px">2 duplicate copies merged · 1 burst → best shot kept</p>
+            <div class="grid2">
+              <div class="tile" style="background:var(--suntile)" data-toast="Full-size original — credited to AK and you"><span class="tchip">COPIES ×3 → 1</span></div>
+              <div class="tile" style="background:var(--lilacbg)" data-toast="Burst of 6 — best shot kept, rest folded away"><span class="tchip" style="background:var(--butter);color:var(--ink)">BURST · KEPT 1</span></div>
+              <div class="tile" style="background:var(--peachbg)" data-toast="Video · 0:42 — same dedupe pipeline as photos"><div class="play"><i>▶</i></div><span class="tchip">0:42</span></div>
+              <div class="tile wcard" id="photo4" style="background:var(--skytile)">
+                <span class="star">★</span>
+                <span class="tchip">MOST-LOVED ♥</span>
+                <button class="hideb" data-hide="photo4">hide</button>
+              </div>
+            </div>
+            <div class="eb">Send pics to</div>
+            <div class="chipline" style="margin-top:0">
+              <button class="chip" data-toast="Expiring link sent to Aarav — 12 photos, originals">AK · 12</button>
+              <button class="chip" data-toast="Expiring link sent to Sara — 8 photos">SG · 8</button>
+              <button class="chip" data-toast="Expiring link sent — 5 photos">RN · 5</button>
+              <button class="chip on" data-toast="Share sheet — link, or straight to WhatsApp">All 23</button>
+            </div>
+            <div class="card soft" style="display:flex;gap:10px;align-items:center;margin-top:14px">
+              <span class="avatar sm" style="background:var(--lilacbg);color:var(--tintfg)">◌</span>
+              <span class="small muted">Maya hid 1 photo of herself. Nobody was told.</span>
+            </div>
+            <p class="small muted" style="text-align:center;margin-top:12px">Nothing leaves the app without Share.</p>
+          </div>
+        </section>
+
+        <section class="screen" id="s-money" data-tab="plan" data-tabnav="money" data-cap="<b>Money.</b> Netted across all plans into one number per person. Settle via UPI, nudge gently — money never blocks a plan.">
+          <div class="backbar"><button class="circbtn" data-go="s-tonight">‹</button><span class="eb" style="margin:0">Money · netted</span></div>
+          <div class="pad">
+            <h1 class="title">One number, not ten.</h1>
+            <div class="card darkc" style="display:flex;align-items:center;gap:12px">
+              <div style="flex:1">
+                <div class="eb lt" style="margin:0 0 4px">You owe · net of 3 plans</div>
+                <b style="font-size:24px;letter-spacing:-.6px" id="netBig">₹120 → Aarav</b>
+                <p class="small" style="opacity:.72;margin:4px 0 0">Court + coffee, minus what Sara owes you</p>
+              </div>
+              <button class="btn mini" id="payUp">Pay · UPI</button>
+            </div>
+            <div class="eb">This plan</div>
+            <div class="card" style="display:flex;align-items:center;gap:12px">
+              <div style="flex:1"><b style="font-size:14px">Round 2 · badminton</b><br><span class="small muted">Court ₹600 + coffee ₹480 → ₹180 each</span></div>
+              <span class="chip mintc">SETTLED ✓</span>
+            </div>
+            <div class="eb">By person</div>
+            <div class="rowit">
+              <span class="avatar sm" style="background:var(--lilac)">SG</span>
+              <div class="t"><b>Sara owes you ₹190</b><span>across 2 plans</span></div>
+              <button class="btn mini dark" data-toast="Nudge sent — 1 of 1 this week, framed gently">Nudge</button>
+            </div>
+            <div class="rowit">
+              <span class="avatar sm" style="background:var(--coral)">AK</span>
+              <div class="t"><b>You owe Aarav ₹120</b><span>net of 3 plans</span></div>
+              <button class="btn mini" id="payUp2">Pay</button>
+            </div>
+            <div class="card soft">
+              <span class="small">Nudges: max 1 per person per week.</span><br>
+              <span class="small muted">Gentle by design — money never blocks a plan.</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" id="s-wrap" data-tab="plan" data-tabnav="" data-cap="<b>Wrap.</b> The handoff, not a memento — timeline auto-drafts first, highlights float to Scrapbook, money shows settled, next one seeded.">
+          <div class="backbar"><button class="circbtn" data-go="s-tonight">‹</button><span class="eb" style="margin:0">Wrap · last night · 2.5 hrs</span></div>
+          <div class="pad">
+            <h1 class="title">That was good.</h1>
+            <div class="card">
+              <div class="eb" style="margin:0 0 6px">Auto-drafted before anyone uploaded</div>
+              <span class="small">6:02 · met at Gate 2 — crew within 12 min</span><br>
+              <span class="small">6:15 · game on · poll: coffee after ✓ 4</span><br>
+              <span class="small">8:30 · filter coffee at Third Wave</span>
+            </div>
+            <div class="eb">Highlights · floating to Scrapbook</div>
+            <div class="tiles">
+              <div class="tile" style="background:var(--suntile)" data-toast="Picked by 4 of 5 — floats to everyone's Scrapbook"></div>
+              <div class="tile" style="background:var(--lilacbg)" data-toast="Picked by 3 of 5"></div>
+              <div class="tile" style="background:var(--peachbg)" data-toast="Most-loved ♥"></div>
+            </div>
+            <div class="card lilacbg" style="display:flex;align-items:center;gap:12px">
+              <div style="flex:1"><div class="eb" style="margin:0 0 4px">Vibe check · private</div><b>How was it?</b><br><span class="small muted">Aggregate only — never public per-event</span></div>
+              <button class="chip on" data-toast="Noted — powers your community score, privately">Good</button>
+              <button class="chip" data-toast="Noted — honest signals make better circles">Meh</button>
+            </div>
+            <div class="card" style="display:flex;align-items:center;gap:12px">
+              <div style="flex:1"><b style="font-size:15px">Same time next Saturday?</b><br><span class="small muted">3 of you free — toss a ripple?</span></div>
+              <button class="chip on" id="seedIn">In ✓</button>
+              <button class="chip" data-toast="Maybe — Sara will see it in her digest">Maybe</button>
+            </div>
+            <div class="rowit mintbg" style="cursor:default">
+              <div class="t"><b>₹180 each · settled ✓</b><span>album sorted ✓ · consent intact ✓</span></div>
+            </div>
+            <div style="display:flex;gap:10px;margin-top:14px">
+              <button class="btn ghost" style="flex:1;margin-top:0" data-go="s-live">Open plan</button>
+              <button class="btn" style="flex:1.4;margin-top:0" id="saveScrap">★ Save to Scrapbook</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" id="s-open" data-tab="main" data-tabnav="new" data-cap="<b>Open.</b> A quiet availability signal — matched, never posted. Self-expiring, comfort filters on, k-anonymity gated.">
+          <div class="backbar"><button class="circbtn" data-go="s-tonight">‹</button><span class="eb" style="margin:0">Self-expiring</span></div>
+          <div class="pad">
+            <h1 class="title">Go Open.</h1>
+            <p class="sub">A quiet signal. Matched, never posted.</p>
+            <div class="rowit" data-toast="Coarse window — never live location"><div class="t"><b>Sat · 5:00–8:00 PM</b><span>coarse window, not live location</span></div><span class="chev">›</span></div>
+            <div class="eb">Up for</div>
+            <div class="chipline" style="margin-top:0">
+              <button class="chip on">Badminton ✓</button><button class="chip">Chai ✓</button><button class="chip">Anything easy</button>
+            </div>
+            <div class="rowit" data-toast="Distance band only — neighbourhood stays coarse"><div class="t"><b>Within 2 km of Indiranagar</b><span>distance band only</span></div><span class="chev">›</span></div>
+            <div class="eb">Comfort filters</div>
+            <div class="card" style="padding:6px 18px">
+              <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)"><div style="flex:1"><b style="font-size:14px">Women-only matches</b><br><span class="small muted">needs selfie-verified badge — honest filter</span></div><button class="toggle on"></button></div>
+              <div style="display:flex;align-items:center;gap:12px;padding:12px 0"><div style="flex:1"><b style="font-size:14px">Phone-verified people only</b><br><span class="small muted">the floor everyone already passes</span></div><button class="toggle on"></button></div>
+            </div>
+            <div class="card suny">
+              <span class="small">Closes itself at 8 PM. Never on your profile —</span><br>
+              <span class="small">it only ever matches.</span>
+            </div>
+            <button class="btn" id="goOpen">Go Open</button>
+            <p class="small muted" style="text-align:center;margin-top:12px">Max 2 Opens · card delivery jittered ±20 min</p>
+          </div>
+        </section>
+
+        <section class="screen" id="s-overlap" data-tab="main" data-tabnav="inbox" data-cap="<b>Overlap.</b> Two Opens meeting. Anonymous until both say hi — pass quietly and nothing ever happens.">
+          <div class="pad">
+            <div style="display:flex;justify-content:space-between;margin-top:6px">
+              <span class="eb" style="margin:0">Overlap · Saturday evening</span>
+              <span class="eb" style="margin:0">&lt; 1 km</span>
+            </div>
+            <div class="venn">
+              <div class="l"></div><div class="r"></div>
+              <b style="left:74px;top:78px">DG</b><b style="left:174px;top:78px">AK</b>
+              <i style="left:86px">You</i><i style="left:186px">Aarav</i>
+            </div>
+            <div class="pad" style="text-align:center;padding:0 24px">
+              <h2 class="sec" style="margin-top:6px">Your evenings overlap.</h2>
+              <p class="sub">Same window, same vibes, 900 m apart.</p>
+              <div class="chipline" style="justify-content:center">
+                <span class="chip">Badminton</span><span class="chip">Chai</span><span class="chip">Both free 5–8</span>
+              </div>
+            </div>
+            <div class="card lilacbg">
+              <span class="small">Nothing shows until you both tap hi — then a private Hello opens for 24h.</span>
+              <b style="display:block;margin-top:6px">Zero cold messages. Ever.</b>
+            </div>
+            <button class="btn" data-go="s-hello" data-toast="Hi sent — quiet, until it isn't mutual">Say hi</button>
+            <p class="small muted" style="text-align:center;margin-top:12px;cursor:pointer" id="passQuiet"><u>Pass quietly — they'll never know</u></p>
+            <p class="eb" style="text-align:center;margin-top:14px">Cards only when ≥3 people could match</p>
+          </div>
+        </section>
+
+        <section class="screen" id="s-hello" data-cap="<b>Hello room.</b> Opens on mutual hi. 24h to say the plan out loud and lock it — first names until lock, safety one tap away.">
+          <div class="backbar"><button class="circbtn" data-go="s-inbox">‹</button><span></span></div>
+          <div class="pad" style="text-align:center">
+            <b style="font-size:19px;letter-spacing:-.4px">You + Aarav</b><br>
+            <span class="small muted">Hello · closes in <b id="wmClock" style="color:var(--text)">21:04</b></span>
+            <div style="height:4px;border-radius:2px;background:var(--soft);margin-top:10px;overflow:hidden"><div id="wmBar" style="height:4px;border-radius:2px;background:var(--coral);width:78%"></div></div>
+          </div>
+          <div class="pad">
+            <div class="sysbub">You both said hi. Say the plan out loud.</div>
+            <div class="msgrow">
+              <span class="avatar sm" style="background:var(--coral)">AK</span>
+              <div class="bub">Court 3 is free at 5.<br>Loser buys the chai?</div>
+            </div>
+            <div class="msgrow"><div class="bub me">Deal. Bring the good racquets?</div></div>
+            <div class="card mintg">
+              <div class="eb" style="margin:0 0 4px">Proposal</div>
+              <b style="font-size:16px">Tomorrow · 5:00 PM</b>
+              <p class="small muted" style="margin:4px 0 0">Court 3, Cubbon Park Gate 2</p>
+              <button class="btn mini dark" id="lockIt" style="margin-top:12px">Lock it in</button>
+            </div>
+            <div class="rowit" data-toast="One 48h extension — locking plans with strangers takes logistics">
+              <div class="t"><b>Need more time?</b><span>One +48h extension, then it closes itself</span></div><span class="chev">›</span>
+            </div>
+            <div class="card soft"><span class="small">First names only until a plan locks.</span><br><span class="small muted">Then full profiles unlock — for both of you.</span></div>
+            <div class="rowit" data-toast="Report · Block · Pause — reachable in one tap throughout">
+              <span class="avatar sm" style="background:var(--peachbg);color:var(--tintfg)">🛡</span>
+              <div class="t"><b>Report · Block · Pause</b><span>one tap, always</span></div><span class="chev">›</span>
+            </div>
+          </div>
+          <div class="seg">
+            <button class="ptab active">ROOM</button>
+            <button class="ptab" data-toast="Profile: first names until lock">PROFILE</button>
+            <button class="ptab" data-toast="Safety: block, pause, report — one tap">SAFETY</button>
+          </div>
+        </section>
+
+        <section class="screen" id="s-safety" data-tab="main" data-tabnav="you" data-cap="<b>Safety.</b> Structural, not settings — ghost mode, check-ins, 2-tap reports with human review.">
+          <div class="backbar"><button class="circbtn" data-go="s-you">‹</button><span></span></div>
+          <div class="pad">
+            <h1 class="title">Safety, built in.</h1>
+            <p class="sub">Structural, not settings. Boring on purpose.</p>
+            <div class="card darkc" style="display:flex;align-items:center;gap:12px">
+              <div style="flex:1"><div class="eb lt" style="margin:0 0 4px">Pause</div><b>Ghost mode</b><br><span class="small" style="opacity:.72">Invisible everywhere. Your plans stay.</span></div>
+              <button class="toggle" id="tglPause"></button>
+            </div>
+            <div class="rowit" data-toast="Blocked: silent, mutual, instant — they never learn">
+              <div class="t"><b>Blocked · 2 people</b><span>Instant, silent, mutual.</span></div><span class="chev">›</span>
+            </div>
+            <div class="card peachy" style="display:flex;align-items:center;gap:12px">
+              <div style="flex:1"><div class="eb" style="margin:0 0 4px">Check-ins</div><b>Out late? We check on you.</b><br><span class="small muted">No safe-home tap → we nudge your chosen contact.</span></div>
+              <button class="toggle on"></button>
+            </div>
+            <div class="rowit" data-toast="Women-only matching — selfie-verified, applied symmetrically">
+              <div class="t"><b>Women-only · selfie-verified</b><span>Symmetric. Both ways or not at all.</span></div><span class="chev">›</span>
+            </div>
+            <div class="rowit" data-toast="Report: 2 taps → human review → serious flags pause matches instantly">
+              <div class="t"><b>Reports — 2 taps. Humans review.</b><span>Serious flags suspend matches immediately.</span></div><span class="chev">›</span>
+            </div>
+            <p class="small muted" style="text-align:center;margin-top:16px">No search exists. No public profiles. Nothing discoverable.</p>
+          </div>
+        </section>
+
+        <section class="screen" id="s-scrapbook" data-tab="main" data-tabnav="you" data-cap="<b>Scrapbook.</b> The memory ledger — every plan you showed up to on one shelf, auto-filled from albums, shareable as one expiring link.">
+          <div class="pad">
+            <h1 class="title">Scrapbook</h1>
+            <p class="sub">Every plan you showed up to — one shelf.</p>
+            <div class="chipline" style="margin-top:12px">
+              <button class="chip on">All ▾</button><button class="chip">Flat 402</button><button class="chip">Office crew</button><button class="chip">2026</button>
+            </div>
+            <div class="card mintbg">
+              <b style="font-size:15px">August · 3 plans · 41 photos · 6 videos</b>
+              <p class="small muted" style="margin:4px 0 0">₹0 unsettled · next up: Round 3, Saturday</p>
+            </div>
+            <div class="eb">Pinned</div>
+            <div class="tiles">
+              <div class="tile" style="background:var(--suntile)"><span class="star">★</span></div>
+              <div class="tile" style="background:var(--minttile)"><span class="star">★</span></div>
+              <div class="tile" style="background:var(--peachbg)"><span class="star">★</span></div>
+            </div>
+            <div class="eb">Recent plans</div>
+            <div class="rowit" data-toast="Album opens — 18 photos · 2 videos · everyone consented by default">
+              <span class="cover" style="background:var(--suntile)"></span>
+              <div class="t"><b>Round 2 · badminton</b><span>Sat 22 · Flat 402 · 18 photos · 2 videos</span></div><span class="chev">›</span>
+            </div>
+            <div class="rowit" data-toast="Album opens — 9 photos · 1 video">
+              <span class="cover" style="background:var(--lilacbg)"></span>
+              <div class="t"><b>Office dinner</b><span>Fri 15 · Work circle · 9 photos · 1 video</span></div><span class="chev">›</span>
+            </div>
+            <div class="rowit" data-toast="Album opens — 31 photos">
+              <span class="cover" style="background:var(--skytile)"></span>
+              <div class="t"><b>Court trial + chai</b><span>Sun 27 Jul · Flat 402 · 31 photos</span></div><span class="chev">›</span>
+            </div>
+            <div class="rowit" data-toast="Link copied — signed, expiring. You choose the expiry.">
+              <div class="t"><b>Share shelf</b><span>One signed, expiring link — everything on it</span></div><span class="chev">›</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" id="s-you" data-tab="main" data-tabnav="you" data-cap="<b>You.</b> Scrapbook, safety and privacy live here. No follower counts, no public anything.">
+          <div class="pad">
+            <div style="display:flex;align-items:center;gap:14px;margin-top:10px">
+              <span class="avatar" style="background:var(--lilac);width:56px;height:56px;font-size:16px">DG</span>
+              <div><h1 class="title" style="margin:0">Divya</h1><span class="small muted">Flat 402 · Office crew · selfie-verified ✓</span></div>
+            </div>
+            <div class="eb">Yours</div>
+            <div class="rowit" data-go="s-scrapbook">
+              <span class="avatar sm" style="background:var(--butterbg);color:var(--tintfg)">★</span>
+              <div class="t"><b>Scrapbook</b><span>Every plan's media, one shelf</span></div><span class="chev">›</span>
+            </div>
+            <div class="rowit" data-go="s-safety">
+              <span class="avatar sm" style="background:var(--peachbg);color:var(--tintfg)">🛡</span>
+              <div class="t"><b>Safety</b><span>Ghost mode, check-ins, reports</span></div><span class="chev">›</span>
+            </div>
+            <div class="rowit" data-toast="Who sees what — structural by default, not a settings maze">
+              <span class="avatar sm" style="background:var(--lilacbg);color:var(--tintfg)">◐</span>
+              <div class="t"><b>Who sees what</b><span>Circle · Match · Nearby — fixed, honest</span></div><span class="chev">›</span>
+            </div>
+            <div class="rowit" data-toast="Invite link copied — circles grow by hand, never by search">
+              <span class="avatar sm" style="background:var(--mintbg);color:var(--pos)">＋</span>
+              <div class="t"><b>Start a circle</b><span>Invite-only, 3–15, always</span></div><span class="chev">›</span>
+            </div>
+            <p class="small muted" style="text-align:center;margin-top:18px">Export my data · Delete account</p>
+          </div>
+        </section>
+
+        <section class="screen" id="s-webcard" data-cap="<b>Web plan card.</b> The WhatsApp bridge — guests RSVP, get directions, no app required. Signed, expiring link.">
+          <div class="pad">
+            <div class="browser">
+              <span class="dots"><i style="background:var(--coral)"></i><i style="background:var(--butter)"></i><i style="background:var(--mint)"></i></span>
+              <span class="url">🔒 outthere.app/p/round-2</span>
+            </div>
+            <div class="eb" style="margin-top:20px">You're invited</div>
+            <h1 class="title">Round 2 · badminton</h1>
+            <p class="sub">SAT · 5:00 PM · CUBBON PARK, GATE 2</p>
+            <div class="chipline"><span class="chip mintc">6 GOING</span><span class="chip butterc">2 MAYBE</span></div>
+            <div class="map"><div class="path"></div><div class="pin"></div><span>Gate 2 · meet here</span></div>
+            <div style="display:flex;gap:10px;margin-top:12px">
+              <button class="btn dark" style="flex:1;margin-top:0" data-toast="Opens maps to the pinned point">Directions</button>
+              <button class="btn ghost" style="flex:1;margin-top:0" data-toast="Calendar entry added — gate time included">Add to calendar</button>
+            </div>
+            <div class="eb">Your RSVP</div>
+            <div class="rsvpseg" id="webRsvp"><button class="on">In ✓</button><button>Maybe</button><button>Out</button></div>
+            <p class="small muted" style="margin-top:12px">Hosted by Divya · Flat 402 circle</p>
+            <div class="card lilacbg">
+              <span class="small">No app needed. This link is signed and</span><br>
+              <span class="small">expires when the plan does.</span>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="sheet" id="sheet" hidden>
+        <div class="backdrop" data-close></div>
+        <div class="menu">
+          <div class="grab"></div>
+          <button class="opt" data-go="s-newplan"><span class="ic" style="background:var(--peachbg)">＋</span><span><b>New plan</b><span>What · when · who — in one screen</span></span></button>
+          <button class="opt" data-go="s-ripple"><span class="ic" style="background:var(--lilacbg)">≈</span><span><b>Toss a ripple</b><span>The soft ask — a feeling and a slot</span></span></button>
+          <button class="opt" data-go="s-open"><span class="ic" style="background:var(--butterbg)">◐</span><span><b>Go Open</b><span>Free soon? Let nearby plans find you</span></span></button>
+          <button class="opt" data-go="s-circles" data-toast="New circle — invite-only, 3 to 15, always"><span class="ic" style="background:var(--mintbg)">◎</span><span><b>New circle</b><span>Your people — invite-only, 3 to 15</span></span></button>
+          <button class="btn ghost" data-close style="margin-top:8px">Cancel</button>
+        </div>
+      </div>
+
+      <div class="tabbar" id="mainbar"></div>
+      <div class="tabbar" id="planbar" style="justify-content:space-around;align-items:center"></div>
+      <div class="toast" id="toast"></div>
+    </div>
+  </div>
+  <div class="caption" id="cap"></div>
+  <div class="caption" style="margin-top:-10px;font-size:12px"><span class="kbd">←</span> <span class="kbd">→</span> story &nbsp;·&nbsp; <span class="kbd">H</span> hints &nbsp;·&nbsp; <span class="kbd">T</span> theme &nbsp;·&nbsp; <span class="kbd">R</span> restart &nbsp;·&nbsp; tap the bars below — everything is thumb-first</div>
+</div>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const STORY=["s-welcome","s-otp","s-tonight","s-circles","s-newplan","s-ripple","s-inbox","s-live","s-chat","s-album","s-money","s-wrap","s-open","s-overlap","s-hello","s-scrapbook","s-you","s-safety","s-webcard"];
+let cur=null;
+
+const ICONS={
+ tonight:'<svg width="20" height="20" viewBox="-10 -10 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 -8a8.5 8.5 0 1 0 6 15 9.5 9.5 0 0 1-6-15z"/></svg>',
+ circles:'<svg width="20" height="20" viewBox="-10 -10 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="-4" cy="-1" r="4.6"/><circle cx="6" cy="-2" r="4.6"/><path d="M-9 9c1.6-4.6 8.4-4.6 10 0M1 9c1.6-4.6 8.4-4.6 10 0"/></svg>',
+ plus:'<svg width="16" height="16" viewBox="-8 -8 16 16" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><path d="M-5 0h10M0 -5v10"/></svg>',
+ inbox:'<svg width="20" height="20" viewBox="-10 -10 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M-9 4v-8h5l2 3h4l2-3h5v8a3 3 0 0 1-3 3h-12a3 3 0 0 1-3-3z"/></svg>',
+ you:'<svg width="20" height="20" viewBox="-10 -10 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cy="-3" r="5.4"/><path d="M-8.5 9c2-6.5 15-6.5 17 0"/></svg>'};
+
+const MAINNAV=[["tonight","TONIGHT","s-tonight"],["circles","CIRCLES","s-circles"],["new","＋",""],["inbox","INBOX","s-inbox"],["you","YOU","s-you"]];
+const PLANNAV=[["live","LIVE","s-live"],["chat","CHAT","s-chat"],["album","ALBUM","s-album"],["money","MONEY","s-money"]];
+const mainbar=$("#mainbar"),planbar=$("#planbar");
+MAINNAV.forEach(([k,label,target])=>{
+ const b=document.createElement("button");b.className="tab";b.dataset.tabnav=k;b.dataset.go=target;
+ if(k==="new"){b.innerHTML=`<span class="newic">${ICONS.plus}</span>NEW`;b.onclick=openSheet;}
+ else{b.innerHTML=`<span class="ic">${ICONS[k]}</span>${label}${k==="inbox"?'<span class="badge">2</span>':''}`;b.addEventListener("click",()=>go(target));}
+ mainbar.appendChild(b);
+});
+PLANNAV.forEach(([k,label,target])=>{
+ const b=document.createElement("button");b.className="ptab";b.dataset.tabnav=k;b.textContent=label;
+ b.addEventListener("click",()=>go(target));planbar.appendChild(b);
+});
+
+function go(id){
+ if(!id)return;
+ const scr=document.getElementById(id);if(!scr)return;
+ if(cur&&cur!==id)window._prev=cur;
+ $$(".screen").forEach(s=>s.classList.remove("active"));
+ scr.classList.add("active");cur=id;
+ scr.scrollTop=0;
+ $("#cap").innerHTML=scr.dataset.cap||"";
+ const h=scr.querySelector("h1");
+ $("#scrName").textContent=h?h.textContent:id.replace("s-","");
+ $("#scrSel").value=id;
+ const t=scr.dataset.tab;
+ mainbar.classList.toggle("show",t==="main");
+ planbar.classList.toggle("show",t==="plan");
+ const nav=t==="main"?mainbar:planbar;
+ if(nav)nav.querySelectorAll(".tab,.ptab").forEach(b=>b.classList.toggle("active",b.dataset.tabnav===scr.dataset.tabnav));
+}
+function next(d=1){let i=STORY.indexOf(cur);if(i<0)i=0;i=(i+d+STORY.length)%STORY.length;go(STORY[i]);}
+$("#nextBtn").onclick=()=>next(1);$("#prevBtn").onclick=()=>next(-1);
+
+const sel=$("#scrSel");
+STORY.forEach(id=>{const o=document.createElement("option");o.value=id;o.textContent=document.getElementById(id).querySelector("h1")?.textContent||id;sel.appendChild(o);});
+sel.onchange=e=>go(e.target.value);
+$("#restartBtn").onclick=()=>location.reload();
+$("#hintsBtn").onclick=e=>{document.body.classList.toggle("hints");e.currentTarget.classList.toggle("on");};
+addEventListener("keydown",e=>{
+ if(e.target.tagName==="INPUT"||e.target.isContentEditable)return;
+ const k=e.key.toLowerCase();
+ if(e.key==="ArrowRight")next(1);else if(e.key==="ArrowLeft")next(-1);
+ else if(k==="h")$("#hintsBtn").click();
+ else if(k==="t")$("#themeBtn").click();
+ else if(k==="r")location.reload();
+});
+
+let toastT;
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove("show"),2000);}
+
+const sheet=$("#sheet");
+function openSheet(){sheet.hidden=false;requestAnimationFrame(()=>sheet.classList.add("open"));}
+function closeSheet(){sheet.classList.remove("open");setTimeout(()=>sheet.hidden=true,300);}
+sheet.addEventListener("click",e=>{
+ if(e.target.closest("[data-close]"))return closeSheet();
+ const g=e.target.closest("[data-go]");
+ if(g){closeSheet();if(g.dataset.toast)toast(g.dataset.toast);setTimeout(()=>go(g.dataset.go),g.dataset.toast?500:0);}
+});
+
+document.addEventListener("click",e=>{
+ if(e.target.closest("#sheet"))return;
+ const g=e.target.closest("[data-go]"),tt=e.target.closest("[data-toast]");
+ if(g&&g.id!=="passQuiet"){if(tt)toast(tt.dataset.toast);go(g.dataset.go);return;}
+ if(tt){toast(tt.dataset.toast);}
+ const tg=e.target.closest(".toggle");
+ if(tg){tg.classList.toggle("on");
+   if(tg.id==="tglPause")setTimeout(()=>toast(tg.classList.contains("on")?"Paused — invisible everywhere. Plans stay.":"Visible again."),0);
+   return;}
+ const pk=e.target.closest(".chip");
+ if(pk&&pk.parentElement&&pk.parentElement.classList.contains("chipline")&&pk.closest(".chipline").querySelectorAll(".chip").length>2&&!pk.dataset.toast){/* filter rows toggle */}
+});
+
+/* RSVP segments */
+function wireRsvp(id,msg){
+ const seg=document.getElementById(id);if(!seg)return;
+ seg.querySelectorAll("button").forEach(b=>b.onclick=()=>{
+  seg.querySelectorAll("button").forEach(x=>x.classList.remove("on"));b.classList.add("on");
+  toast(msg.replace("{a}",b.textContent));
+ });
+}
+wireRsvp("brunchRsvp","{a} — no approvals inside circles, just RSVP");
+wireRsvp("inboxRsvp","Answered: {a}. Sara sees it instantly — taps, not chat.");
+wireRsvp("webRsvp","RSVP saved — see you at Gate 2");
+
+$("#inboxRsvp").addEventListener("click",()=>setTimeout(()=>{
+ $("#rsvpAsk").style.borderColor="var(--mint)";},50));
+
+/* tonight + live arrivals */
+[["#imHere",null],["#imHere2",null]].forEach(([sel])=>{
+ const b=$(sel);if(!b)return;
+ b.onclick=()=>{b.textContent="You're here ✓";b.disabled=true;
+  toast("Marked here — visible to this plan only, expires with it");};
+});
+$("#gotIt").onclick=e=>{e.currentTarget.textContent="Got it ✓ 6/6";e.currentTarget.disabled=true;toast("Receipt sent — no blue ticks, just certainty");};
+$("#pollYes").onclick=e=>{if(!e.currentTarget.classList.contains("on")){e.currentTarget.classList.add("on");e.currentTarget.textContent="Yes · 5 ✓";toast("Voted — poll updates for everyone");}};
+
+/* new plan */
+$("#sendPlan").onclick=()=>{toast("Plan sent — RSVPs roll in, no approvals needed");setTimeout(()=>go("s-tonight"),800);};
+
+/* ripple */
+$("#convertRipple").onclick=()=>{toast("Plan drafted — 4 pre-invited, best slot pre-filled");setTimeout(()=>go("s-newplan"),800);};
+
+/* album */
+$("#addPhotos").onclick=e=>{e.currentTarget.textContent="Uploading…";setTimeout(()=>{e.currentTarget.textContent="＋ Add 2 more";toast("2 uploaded · 1 duplicate copy merged automatically");},900);};
+$$("#s-album .hideb").forEach(b=>b.onclick=e=>{
+ e.stopPropagation();
+ const t=document.getElementById(b.dataset.hide);t.classList.add("gone");
+ toast("Hidden for everyone — silently. Nobody was told.");});
+
+/* money */
+function settle(btn){
+ btn.textContent="Paid ✓";btn.disabled=true;
+ const big=$("#netBig");if(big){big.textContent="₹0 — all settled ✓";}
+ toast("Settled via UPI — netted across all plans");}
+$("#payUp").onclick=e=>settle(e.currentTarget);
+$("#payUp2").onclick=e=>settle(e.currentTarget);
+
+/* wrap */
+$("#saveScrap").onclick=()=>{toast("Highlights saved — your Scrapbook, always yours");setTimeout(()=>go("s-scrapbook"),800);};
+$("#seedIn").onclick=e=>{if(!e.currentTarget.classList.contains("on")){e.currentTarget.classList.add("on");e.currentTarget.textContent="In ✓";toast("Seeded — Saturday plan drafted for 4, ripple optional");}};
+
+/* open */
+$("#goOpen").onclick=()=>{toast("You're Open till 8 PM — listening quietly");setTimeout(()=>go("s-overlap"),1100);};
+
+/* overlap */
+$("#passQuiet").onclick=e=>{e.currentTarget.innerHTML="<u>Passed. Nothing was sent — they'll never know.</u>";e.currentTarget.style.opacity=.6;};
+
+/* hello */
+$("#lockIt").onclick=()=>{toast("Plan locked — full profiles unlocked for both ✓");setTimeout(()=>go("s-live"),900);};
+
+/* chat */
+const msgInput=$("#msgInput"),msgList=$("#msgList");
+function sendMsg(){const v=msgInput.value.trim();if(!v)return;
+ const r=document.createElement("div");r.className="msgrow";const b=document.createElement("div");b.className="bub me";b.textContent=v;r.appendChild(b);
+ msgList.appendChild(r);msgInput.value="";msgList.scrollIntoView({block:"end"});}
+$("#msgSend").onclick=sendMsg;
+msgInput.addEventListener("keydown",e=>{if(e.key==="Enter")sendMsg();});
+$("#claimBtn").onclick=e=>{e.currentTarget.textContent="claimed ✓";e.currentTarget.classList.add("mintc");toast("“shuttle tubes — you” posted to the plan");};
+
+/* timers */
+let wmSecs=21*3600+4*60;
+setInterval(()=>{
+ wmSecs=Math.max(0,wmSecs-1);
+ const wc=$("#wmClock");if(wc)wc.textContent=Math.floor(wmSecs/3600)+":"+String(Math.floor(wmSecs%3600/60)).padStart(2,"0");
+ const wb=$("#wmBar");if(wb)wb.style.width=(wmSecs/(24*3600)*100)+"%";
+},1000);
+
+/* otp */
+const otpBoxes=$$(".otp"),btnFill=$("#btnOtpFill"),btnGo=$("#btnOtpGo");
+btnFill.onclick=()=>{btnFill.disabled=true;"482519".split("").forEach((d,i)=>setTimeout(()=>{otpBoxes[i].textContent=d;otpBoxes[i].classList.add("fill");},i*150));
+ setTimeout(()=>{btnGo.disabled=false;toast("Code filled — verifying…");},1100);};
+btnGo.onclick=()=>{toast("Welcome in, Divya");go("s-tonight");};
+
+/* theme */
+const mm=matchMedia("(prefers-color-scheme: dark)");
+let pref=localStorage.getItem("ot3-theme")||"auto";
+function applyTheme(){document.documentElement.classList.toggle("dark",pref==="dark"||(pref==="auto"&&mm.matches));
+ $("#themeBtn").textContent="Theme: "+pref[0].toUpperCase()+pref.slice(1);}
+$("#themeBtn").onclick=()=>{pref=pref==="auto"?"light":pref==="light"?"dark":"auto";localStorage.setItem("ot3-theme",pref);applyTheme();};
+mm.addEventListener?.("change",()=>{if(pref==="auto")applyTheme();});
+applyTheme();
+
+function fit(){const s=Math.min(1,(innerHeight-190)/844,(innerWidth-36)/392);
+ const fb=$("#fitbox"),ph=$("#phone");ph.style.transform=`scale(${s})`;fb.style.width=390*s+"px";fb.style.height=844*s+"px";}
+addEventListener("resize",fit);fit();
+go("s-welcome");
+</script>
+</body>
+</html>

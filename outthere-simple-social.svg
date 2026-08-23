@@ -1,0 +1,276 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1900" height="1060" viewBox="0 0 1900 1060">
+  <defs>
+    <linearGradient id="canvas" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#F4F0E8"/>
+      <stop offset="1" stop-color="#E7EFE8"/>
+    </linearGradient>
+    <linearGradient id="hero" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FFC98C"/>
+      <stop offset=".55" stop-color="#F47C5B"/>
+      <stop offset="1" stop-color="#586F64"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-15%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#19332A" flood-opacity=".13"/>
+    </filter>
+    <style>
+      text{font-family:Inter,Arial,sans-serif;fill:#14281F}
+      .display{font-family:Georgia,serif;font-size:30px;letter-spacing:-.8px}
+      .h2{font-family:Georgia,serif;font-size:21px;letter-spacing:-.3px}
+      .body{font-size:14px}
+      .small{font-size:12px}
+      .label{font-size:14px;font-weight:700}
+      .cap{font-size:9px;font-weight:800;letter-spacing:1.1px}
+      .muted{fill:#718078}
+      .white{fill:#FFFDF8}
+      .center{text-anchor:middle}
+      .right{text-anchor:end}
+      .line{stroke:#DDE4DC;stroke-width:1}
+      .stroke{stroke:#DDE4DC;stroke-width:1}
+      .icon{fill:none;stroke:#14281F;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    </style>
+    <g id="status">
+      <text x="24" y="36" class="small" font-weight="700">9:41</text>
+      <path d="M334 32h2v-4h-2zm5 0h2v-7h-2zm5 0h2v-10h-2z" fill="#14281F"/>
+      <path d="M352 28c5-5 11-5 16 0M356 31c3-3 6-3 9 0" class="icon"/>
+      <rect x="371" y="24" width="13" height="9" rx="3" fill="#14281F"/>
+    </g>
+    <g id="nav">
+      <rect y="770" width="390" height="74" rx="0 0 32 32" fill="#FFFDF9"/>
+      <line y1="770" x2="390" y2="770" class="line"/>
+      <g transform="translate(39 790)">
+        <path d="M-7-5h14M-7 1h11M-7 7h7" class="icon"/>
+        <text y="37" class="cap center" style="font-size:7px">PLANS</text>
+      </g>
+      <g transform="translate(117 790)">
+        <circle r="15" fill="#E4F1B4"/>
+        <path d="M-7 2l7-7 7 7M0-5v12" class="icon"/>
+        <text y="37" class="cap center" style="font-size:7px">EXPLORE</text>
+      </g>
+      <g transform="translate(195 790)">
+        <circle r="17" fill="#163329"/>
+        <path d="M-7 0h14M0-7v14" stroke="#fff" stroke-width="2"/>
+        <text y="37" class="cap center" style="font-size:7px">CREATE</text>
+      </g>
+      <g transform="translate(273 790)">
+        <circle cx="-5" cy="-2" r="5" class="icon"/>
+        <circle cx="6" cy="-2" r="5" class="icon"/>
+        <path d="M-13 10c3-6 11-6 15 0M0 10c3-6 11-6 15 0" class="icon"/>
+        <text y="37" class="cap center" style="font-size:6.2px">CONNECTIONS</text>
+      </g>
+      <g transform="translate(351 790)">
+        <circle cy="-2" r="6" class="icon"/>
+        <path d="M-10 11c3-7 17-7 20 0" class="icon"/>
+        <text y="37" class="cap center" style="font-size:7px">PROFILE</text>
+      </g>
+    </g>
+  </defs>
+
+  <rect width="1900" height="1060" fill="url(#canvas)"/>
+  <text x="60" y="54" class="cap">OUTTHERE / SIMPLIFIED SOCIAL LOOP</text>
+  <text x="60" y="91" class="display">Ideas first. Plans when people lean in.</text>
+  <text x="1840" y="72" class="small muted right">Public ideas + plans in one stream · five familiar tabs · one clear next step</text>
+
+  <!-- 01 HOME: lightweight composer + feed -->
+  <text x="60" y="125" class="cap muted">01 · EXPLORE</text>
+  <g transform="translate(60 145)" filter="url(#shadow)">
+    <rect width="390" height="844" rx="32" fill="#FBFAF6"/>
+    <use href="#status"/>
+    <text x="24" y="82" class="small muted">Indiranagar · within 3 km</text>
+    <circle cx="350" cy="77" r="19" fill="#E7ECE6"/><text x="350" y="82" class="small center" font-weight="700">DG</text>
+    <text x="24" y="125" class="display">Let’s get out there.</text>
+    <text x="24" y="152" class="body muted">Public ideas and plans from people nearby.</text>
+
+    <g transform="translate(24 176)">
+      <rect width="342" height="82" rx="23" fill="#FFFFFF" class="stroke"/>
+      <circle cx="39" cy="41" r="22" fill="#D8F06D"/>
+      <path d="M30 41h18M39 32v18" class="icon"/>
+      <text x="74" y="34" class="label">Share an idea or make a plan</text>
+      <text x="74" y="56" class="small muted">Start loosely — details can come later</text>
+      <text x="318" y="48" class="h2 center">›</text>
+    </g>
+
+    <g transform="translate(24 278)">
+      <rect width="342" height="280" rx="25" fill="#FFFFFF" class="stroke"/>
+      <rect width="342" height="151" rx="25" fill="url(#hero)"/>
+      <circle cx="277" cy="51" r="31" fill="#FFE4B7"/>
+      <path d="M0 124c65-30 116-12 170 5s102 16 172-15v37H0z" fill="#314C40" opacity=".72"/>
+      <rect x="14" y="14" width="82" height="25" rx="13" fill="#FFFDF8"/>
+      <text x="55" y="31" class="cap center">PLAN · TODAY 5 PM</text>
+      <text x="18" y="185" class="h2">Sunset badminton?</text>
+      <text x="18" y="210" class="small muted">Aarav · Cubbon Park · beginner friendly</text>
+      <g transform="translate(18 228)">
+        <circle cx="11" cy="11" r="11" fill="#F47C5B"/>
+        <circle cx="29" cy="11" r="11" fill="#8DB6A0"/>
+        <circle cx="47" cy="11" r="11" fill="#F0C36C"/>
+        <text x="68" y="15" class="small">6 interested</text>
+        <rect x="225" y="-2" width="99" height="30" rx="15" fill="#E8F5B5"/>
+        <text x="275" y="18" class="small center" font-weight="700">I’m interested</text>
+      </g>
+    </g>
+
+    <g transform="translate(24 580)">
+      <text y="18" class="h2">Fresh nearby</text>
+      <g transform="translate(0 37)">
+        <circle cx="27" cy="27" r="27" fill="#E6DDF7"/><text x="27" y="32" class="small center" font-weight="700">SM</text>
+        <text x="68" y="10" class="cap muted">IDEA · FLEXIBLE</text>
+        <text x="68" y="30" class="label">Coffee + work break?</text>
+        <text x="68" y="49" class="small muted">Sara · tomorrow morning · 800 m</text>
+        <text x="342" y="33" class="h2 right">›</text>
+      </g>
+      <line x1="0" y1="101" x2="342" y2="101" class="line"/>
+      <g transform="translate(0 115)">
+        <circle cx="27" cy="27" r="27" fill="#F6E1D0"/><text x="27" y="32" class="small center" font-weight="700">RN</text>
+        <text x="68" y="10" class="cap muted">PLAN · SUN 4:30 PM</text>
+        <text x="68" y="30" class="label">Sketch walk at Lalbagh</text>
+        <text x="68" y="49" class="small muted">Rina · 4 going · 3 spots open</text>
+        <text x="342" y="33" class="h2 right">›</text>
+      </g>
+    </g>
+    <use href="#nav"/>
+  </g>
+
+  <!-- 02 QUICK POST: progressive disclosure -->
+  <text x="520" y="125" class="cap muted">02 · QUICK POST</text>
+  <g transform="translate(520 145)" filter="url(#shadow)">
+    <rect width="390" height="844" rx="32" fill="#E9ECE6"/>
+    <use href="#status" opacity=".45"/>
+    <g opacity=".32">
+      <text x="24" y="125" class="display">Let’s get out there.</text>
+      <rect x="24" y="176" width="342" height="82" rx="23" fill="#fff"/>
+      <rect x="24" y="278" width="342" height="280" rx="25" fill="#fff"/>
+    </g>
+    <rect y="176" width="390" height="668" rx="32" fill="#FBFAF6"/>
+    <rect x="174" y="190" width="42" height="4" rx="2" fill="#C8D0C8"/>
+    <text x="24" y="235" class="display">Create something</text>
+    <text x="24" y="264" class="body muted">Start with an idea, or post a ready plan.</text>
+
+    <g transform="translate(24 288)">
+      <rect width="342" height="48" rx="17" fill="#EDEFEA"/>
+      <rect x="4" y="4" width="165" height="40" rx="14" fill="#163329"/>
+      <text x="86" y="30" class="label white center">Idea</text>
+      <text x="255" y="30" class="label center">Plan</text>
+    </g>
+
+    <g transform="translate(24 351)">
+      <rect width="342" height="112" rx="22" fill="#FFFFFF" class="stroke"/>
+      <text x="18" y="29" class="cap muted">WHAT ARE YOU THINKING?</text>
+      <text x="18" y="60" class="body">“Sunset badminton today?”</text>
+      <text x="18" y="88" class="small muted">Ideas only need enough detail to spark interest.</text>
+      <circle cx="307" cy="77" r="21" fill="#163329"/>
+      <path d="M307 66v16M300 76c0 10 14 10 14 0M299 88h16" stroke="#fff" fill="none" stroke-width="2"/>
+    </g>
+
+    <text x="24" y="495" class="cap muted">OPTIONAL FOR AN IDEA</text>
+    <g transform="translate(24 511)">
+      <rect width="164" height="58" rx="18" fill="#F0F2ED"/>
+      <text x="16" y="23" class="small muted">Rough timing</text><text x="16" y="44" class="label">Today evening</text>
+      <rect x="178" width="164" height="58" rx="18" fill="#F0F2ED"/>
+      <text x="194" y="23" class="small muted">Area</text><text x="194" y="44" class="label">Within 3 km</text>
+    </g>
+
+    <g transform="translate(24 589)">
+      <rect width="342" height="62" rx="20" fill="#E9F1E8"/>
+      <circle cx="34" cy="31" r="17" fill="#CFE86B"/>
+      <path d="M27 31h14M34 24v14" class="icon"/>
+      <text x="64" y="26" class="label">Public in Explore</text>
+      <text x="64" y="47" class="small muted">People nearby can show interest</text>
+    </g>
+
+    <g transform="translate(24 674)">
+      <rect width="88" height="34" rx="17" fill="#EFE8F8"/><text x="44" y="22" class="small center">Sport</text>
+      <rect x="96" width="92" height="34" rx="17" fill="#F5E5D9"/><text x="142" y="22" class="small center">Casual</text>
+      <rect x="196" width="68" height="34" rx="17" fill="#E3EFE9"/><text x="230" y="22" class="small center">Free</text>
+    </g>
+    <rect x="24" y="742" width="342" height="56" rx="19" fill="#D4F36D"/>
+    <text x="195" y="777" class="label center">Post idea</text>
+  </g>
+
+  <!-- 03 IDEA DETAIL: interest before commitment -->
+  <text x="980" y="125" class="cap muted">03 · IDEA</text>
+  <g transform="translate(980 145)" filter="url(#shadow)">
+    <rect width="390" height="844" rx="32" fill="#FBFAF6"/>
+    <use href="#status"/>
+    <circle cx="35" cy="79" r="19" fill="#EEF0EB"/><text x="35" y="86" class="h2 center">‹</text>
+    <text x="195" y="84" class="label center">Idea nearby</text>
+    <text x="354" y="84" class="h2 center">♡</text>
+
+    <rect x="20" y="115" width="350" height="218" rx="25" fill="url(#hero)"/>
+    <circle cx="296" cy="64" r="38" fill="#FFE4B7"/>
+    <path d="M20 278c62-36 129-20 184-3s100 23 166-14v72H20z" fill="#314C40" opacity=".72"/>
+    <text x="24" y="375" class="cap muted">TODAY · AROUND 5 PM</text>
+    <text x="24" y="417" class="display">Sunset badminton?</text>
+    <text x="24" y="447" class="body muted">Cubbon Park area · about 1.2 km away</text>
+
+    <g transform="translate(24 477)">
+      <circle cx="28" cy="28" r="28" fill="#F47C5B"/><text x="28" y="34" class="label white center">AK</text>
+      <text x="72" y="21" class="label">Aarav</text>
+      <text x="72" y="44" class="small muted">18 plans · vouched for by 3 people</text>
+    </g>
+    <line x1="24" y1="548" x2="366" y2="548" class="line"/>
+
+    <text x="24" y="588" class="h2">The idea</text>
+    <text x="24" y="619" class="body">Casual doubles around sunset. Beginners welcome.</text>
+    <text x="24" y="642" class="body">If enough people are in, we’ll lock the court.</text>
+
+    <g transform="translate(24 674)">
+      <circle cx="11" cy="11" r="11" fill="#E7F0E6"/>
+      <path d="M6 11l4 4 7-8" class="icon"/>
+      <text x="34" y="16" class="small muted">Exact meeting point is shared after confirmation</text>
+    </g>
+    <g transform="translate(24 716)">
+      <circle cx="14" cy="14" r="14" fill="#F47C5B"/>
+      <circle cx="35" cy="14" r="14" fill="#8DB6A0"/>
+      <circle cx="56" cy="14" r="14" fill="#F0C36C"/>
+      <text x="82" y="19" class="small">6 interested · 2 more makes it happen</text>
+    </g>
+    <rect x="20" y="770" width="350" height="54" rx="18" fill="#163329"/>
+    <text x="195" y="803" class="label white center">I’m interested</text>
+  </g>
+
+  <!-- 04 MOMENT OF CONVERSION -->
+  <text x="1440" y="125" class="cap muted">04 · IT’S A PLAN</text>
+  <g transform="translate(1440 145)" filter="url(#shadow)">
+    <rect width="390" height="844" rx="32" fill="#FBFAF6"/>
+    <use href="#status"/>
+    <circle cx="195" cy="128" r="56" fill="#D4F36D"/>
+    <path d="M166 129l18 18 38-43" fill="none" stroke="#163329" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="195" y="224" class="display center">You made a plan.</text>
+    <text x="195" y="252" class="body muted center">Enough people leaned in. Details are now locked.</text>
+
+    <g transform="translate(24 292)">
+      <rect width="342" height="196" rx="24" fill="#163329"/>
+      <text x="20" y="31" class="cap white" opacity=".7">TODAY · 5:00 PM</text>
+      <text x="20" y="68" class="h2 white">Sunset badminton</text>
+      <text x="20" y="96" class="small white" opacity=".75">Court 2 · Cubbon Park</text>
+      <g transform="translate(20 119)">
+        <circle cx="20" cy="20" r="20" fill="#F47C5B"/>
+        <circle cx="53" cy="20" r="20" fill="#8DB6A0"/>
+        <circle cx="86" cy="20" r="20" fill="#F0C36C"/>
+        <circle cx="119" cy="20" r="20" fill="#E6DDF7"/>
+      </g>
+      <rect x="219" y="120" width="103" height="40" rx="16" fill="#D4F36D"/>
+      <text x="270" y="145" class="small center" font-weight="700">Open plan</text>
+    </g>
+
+    <text x="24" y="535" class="h2">Everything you need</text>
+    <g transform="translate(24 558)">
+      <rect width="164" height="91" rx="21" fill="#E9F1E8"/>
+      <circle cx="30" cy="30" r="17" fill="#CFE86B"/>
+      <path d="M23 29c0-4 3-7 7-7s7 3 7 7c0 6-7 12-7 12s-7-6-7-12z" class="icon"/>
+      <text x="18" y="70" class="label">Meeting point</text>
+      <rect x="178" width="164" height="91" rx="21" fill="#F6E5D9"/>
+      <circle cx="208" cy="30" r="17" fill="#F3C192"/>
+      <path d="M201 30h14M208 23v14" class="icon"/>
+      <text x="196" y="70" class="label">Group chat</text>
+    </g>
+    <g transform="translate(24 667)">
+      <rect width="342" height="68" rx="20" fill="#FFFFFF" class="stroke"/>
+      <text x="18" y="28" class="label">Can’t make it?</text>
+      <text x="18" y="49" class="small muted">Leave early so someone else can join.</text>
+      <text x="322" y="42" class="h2 right">›</text>
+    </g>
+    <use href="#nav"/>
+  </g>
+
+  <text x="60" y="1030" class="small muted">Design principle: Explore is one public stream. Ideas invite low-pressure interest; plans have confirmed details and open spots. Both are created from the same central flow.</text>
+</svg>

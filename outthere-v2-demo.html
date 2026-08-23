@@ -1,0 +1,1141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OutThere v2 · Closer First — Clickable Prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+:root{
+ --page:linear-gradient(135deg,#F5F3FF,#FFF8F2 52%,#E9F5FF);
+ --headbg:rgba(254,252,248,.85);
+ --phbg:#FBFAF7;--surf:#FFFFFF;--surf2:#FFFFFF;
+ --soft:#F0F1FF;--line:#E0E3F2;
+ --text:#25265C;--navy:#25265C;--mut:#737895;--faint:#9AA0BD;
+ --coral:#FF7668;--lilac:#E7E4FF;--lilacbg:#E9EDFF;
+ --sunbg:#FFEBCF;--peach:#FFE3D6;--peachbg:#FFF0E7;--peachln:#F3C9B8;
+ --sage:#A9B4F7;--amber:#FFC86B;--lav:#DFE4FF;--lime:#C9F26B;--green:#53A66A;--pos:#3E9B63;
+ --mintg:linear-gradient(135deg,#E7E4FF,#C9D9FF);
+ --togoff:#C9CEDE;--pillbg:#25265C;--pillfg:#FFFFFF;--knob:#FFFFFF;--tintfg:#25265C;
+ --toastbg:#25265C;--toastfg:#FFFFFF;
+}
+html.dark{
+ --page:linear-gradient(135deg,#12132A,#171930 52%,#101a2e);
+ --headbg:rgba(20,22,43,.85);
+ --phbg:#181A31;--surf:#22254A;--surf2:#1E2140;
+ --soft:#262A55;--line:#34386A;
+ --text:#EAECFF;--mut:#9AA0C8;--faint:#767CA8;
+ --lilac:#3E4384;--lilacbg:#31356B;
+ --sunbg:#4A3F27;--peach:#5A4038;--peachbg:#46332C;--peachln:#64483C;
+ --lav:#3A3E77;--pos:#7CC98F;
+ --mintg:linear-gradient(135deg,#31356B,#2C3765);
+ --togoff:#3A3E6E;--pillbg:#EAECFF;--pillfg:#181A31;--knob:#181A31;--tintfg:#EAECFF;
+ --toastbg:#EAECFF;--toastfg:#181A31;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{margin:0;font-family:'DM Sans',system-ui,-apple-system,sans-serif;color:var(--text);background:var(--page);transition:background .35s,color .35s}
+button{font-family:inherit;color:inherit}
+
+header{position:fixed;top:0;left:0;right:0;height:54px;display:flex;align-items:center;gap:8px;padding:0 14px;background:var(--headbg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:60}
+.brand{font-family:'DM Serif Display',Georgia,serif;font-size:19px;margin-right:4px;white-space:nowrap}
+.brand span{color:var(--coral)}
+.hbtn{border:1px solid var(--line);background:var(--surf2);border-radius:10px;height:32px;padding:0 11px;font-size:12px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:6px;white-space:nowrap}
+.hbtn:hover{border-color:var(--faint)}
+.hbtn.on{background:var(--pillbg);color:var(--pillfg);border-color:var(--pillbg)}
+.scrname{font-size:12.5px;color:var(--mut);font-weight:600;margin-left:auto;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+select.scrsel{max-width:160px;height:32px;border-radius:10px;border:1px solid var(--line);background:var(--surf2);font-size:12px;font-weight:600;color:var(--text)}
+@media(max-width:900px){.scrsel{display:none}}
+@media(max-width:640px){.scrname{display:none}.hbtn{padding:0 8px;font-size:11px}}
+
+.stage{padding:70px 16px 14px;display:flex;flex-direction:column;align-items:center;min-height:100%}
+.fitbox{position:relative}
+.phone{width:390px;height:844px;background:var(--phbg);border-radius:46px;border:1px solid var(--line);box-shadow:0 34px 90px rgba(10,12,40,.45),0 4px 18px rgba(10,12,40,.18);position:relative;overflow:hidden;transform-origin:top left}
+.island{position:absolute;top:13px;left:50%;transform:translateX(-50%);width:116px;height:31px;background:#101124;border-radius:18px;z-index:45}
+.sb{position:absolute;top:0;left:0;right:0;height:56px;display:flex;justify-content:space-between;align-items:flex-end;padding:0 28px 6px;font-weight:700;font-size:14px;z-index:40;pointer-events:none}
+.sb .batt{width:22px;height:11px;border:1.5px solid currentColor;border-radius:3.5px;position:relative;opacity:.9}
+.sb .batt::before{content:"";position:absolute;inset:1.5px;background:currentColor;border-radius:1.5px;width:70%}
+.sb .batt::after{content:"";position:absolute;right:-4px;top:3px;width:2px;height:5px;background:currentColor;border-radius:1px}
+
+.screens{position:absolute;inset:0}
+.screen{position:absolute;inset:0;padding:58px 0 120px;overflow-y:auto;overscroll-behavior:contain;opacity:0;transform:translateX(18px);pointer-events:none;transition:opacity .26s ease,transform .26s ease;scrollbar-width:none}
+.screen::-webkit-scrollbar{display:none}
+.screen.active{opacity:1;transform:none;pointer-events:auto}
+.pad{padding:0 24px}
+h1.title{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:30px;letter-spacing:-.8px;margin:10px 0 4px}
+h2.sec{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:20px;letter-spacing:-.4px;margin:14px 0 8px}
+.sub{color:var(--mut);font-size:14px;margin:0 0 6px}
+.eb{font-size:10px;font-weight:700;letter-spacing:1.25px;text-transform:uppercase;color:var(--mut);margin:18px 0 8px}
+.eb.lt{color:rgba(255,255,255,.85)}
+.small{font-size:12px}.muted{color:var(--mut)}
+.card{background:var(--surf);border:1px solid var(--line);border-radius:22px;padding:18px;margin-top:12px}
+.soft{background:var(--soft);border-color:transparent}
+.darkc{background:var(--navy);border-color:var(--navy);color:#fff}
+.duo{background:linear-gradient(100deg,#FF977A,#A9B4F7);border:none;color:#fff}
+.mintg{background:var(--mintg);border:none}
+.suny{background:var(--sunbg);border:none}
+.peachy{background:var(--peachbg);border-color:var(--peachln)}
+.lilacbg{background:var(--lilacbg);border:none}
+.btn{display:flex;align-items:center;justify-content:center;width:100%;height:54px;border-radius:18px;background:var(--coral);color:#fff;font-weight:700;font-size:15px;border:0;cursor:pointer;margin-top:16px;transition:transform .06s}
+.btn:active{transform:scale(.98)}
+.btn.dark{background:var(--navy)}
+.btn.ghost{background:transparent;border:1.5px solid var(--line);color:var(--text)}
+.btn.mini{width:auto;height:36px;padding:0 16px;font-size:13px;border-radius:14px;margin:0}
+.btn[disabled]{opacity:.45;cursor:default}
+.chip{display:inline-flex;align-items:center;justify-content:center;height:32px;padding:0 14px;border-radius:16px;background:var(--soft);font-size:11px;font-weight:700;letter-spacing:.3px;border:0;cursor:pointer}
+.chip.on{background:var(--pillbg);color:var(--pillfg)}
+.chipline{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.avatar{border-radius:50%;display:inline-grid;place-items:center;font-weight:700;font-size:11px;width:40px;height:40px;position:relative;flex:none}
+.avatar.sm{width:32px;height:32px;font-size:9px}
+.dot-on{position:absolute;right:-1px;bottom:-1px;width:12px;height:12px;background:var(--green);border:2.5px solid var(--phbg);border-radius:50%}
+.rowit{display:flex;align-items:center;gap:14px;background:var(--surf);border:1px solid var(--line);border-radius:18px;padding:14px 16px;margin-top:10px;cursor:pointer}
+.rowit .t{flex:1;min-width:0}
+.rowit .t b{display:block;font-size:14px}
+.rowit .t span{font-size:12px;color:var(--mut)}
+.rowit .val{font-weight:700;font-size:14px;white-space:nowrap}
+.val.neg{color:var(--text)}.val.pos{color:var(--pos)}
+.chev{color:var(--faint);font-size:20px;line-height:1}
+.toggle{flex:none;width:44px;height:26px;border-radius:13px;background:var(--togoff);position:relative;border:0;cursor:pointer;transition:background .2s}
+.toggle::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;background:#fff;border-radius:50%;transition:left .2s,background .2s}
+.toggle.on{background:var(--pillbg)}
+.toggle.on::after{left:21px;background:var(--knob)}
+.backbar{display:flex;align-items:center;justify-content:space-between;padding:6px 24px 0}
+.circbtn{width:38px;height:38px;border-radius:50%;background:var(--soft);border:0;font-size:20px;cursor:pointer;display:grid;place-items:center}
+.tabbar{position:absolute;left:0;right:0;bottom:0;height:86px;background:var(--phbg);border-top:1px solid var(--line);display:none;justify-content:space-around;padding-top:10px;z-index:35}
+.tabbar.show{display:flex}
+.tab{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:8px;font-weight:700;letter-spacing:1px;color:var(--mut);background:none;border:0;cursor:pointer;width:66px}
+.tab .ic{width:34px;height:34px;border-radius:50%;display:grid;place-items:center}
+.tab.active{color:var(--text)}
+.tab.active .ic{background:var(--soft)}
+.seg{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-around;padding:14px 0 24px;z-index:35;background:linear-gradient(rgba(0,0,0,0),var(--phbg) 45%)}
+.seg button{background:none;border:0;font-size:10px;font-weight:700;letter-spacing:1.25px;color:var(--faint);cursor:pointer;padding:4px 10px}
+.seg button.active{color:var(--text);border-bottom:3px solid var(--text);padding-bottom:5px}
+.segin{display:flex;gap:6px;background:var(--soft);border-radius:16px;padding:4px;margin-top:14px}
+.segin button{flex:1;height:34px;border:0;border-radius:12px;background:transparent;font-size:11px;font-weight:700;letter-spacing:1px;color:var(--mut);cursor:pointer}
+.segin button.active{background:var(--surf);color:var(--text);box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.pane{display:none}.pane.active{display:block}
+.msgrow{display:flex;gap:10px;margin-top:14px;align-items:flex-end}
+.bub{background:var(--soft);border-radius:18px;padding:10px 14px;font-size:13px;max-width:230px}
+.bub.me{background:var(--navy);color:#fff;margin-left:auto}
+.sysbub{background:var(--lilacbg);border-radius:14px;padding:10px 14px;font-size:12px;color:var(--mut);text-align:center;margin-top:14px}
+.inputbar{display:flex;gap:10px;align-items:center;margin-top:16px;background:var(--surf);border:1px solid var(--line);border-radius:17px;padding:8px 8px 8px 16px}
+.inputbar input{flex:1;border:0;outline:none;font-size:13px;background:transparent;font-family:inherit;color:var(--text)}
+.inputbar input::placeholder{color:var(--faint)}
+.sendbtn{width:36px;height:36px;border-radius:50%;background:var(--navy);color:#fff;border:0;font-size:15px;cursor:pointer;flex:none}
+.otprow{display:flex;gap:10px;justify-content:space-between;margin-top:14px}
+.otp{flex:1;aspect-ratio:.84;border:1.5px solid var(--line);border-radius:14px;display:grid;place-items:center;font-size:22px;font-family:'DM Serif Display',serif;background:var(--surf)}
+.otp.fill{border-color:var(--text)}
+.venn{position:relative;height:230px;margin-top:6px}
+.venn div{position:absolute;top:8px;width:164px;height:164px;border-radius:50%;animation:bob 5s ease-in-out infinite}
+.venn .l{left:26px;background:linear-gradient(135deg,#FF977A,#e98d92);opacity:.95}
+.venn .r{left:126px;background:linear-gradient(225deg,#A9B4F7,#8f97dd);opacity:.95;animation-delay:1.2s}
+.venn b{position:absolute;z-index:2;font-size:15px;color:#fff}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.mv{position:relative;width:36px;height:26px;flex:none}
+.mv i{position:absolute;top:0;width:26px;height:26px;border-radius:50%}
+.mv .a{left:0;background:linear-gradient(135deg,#FF977A,#e98d92);opacity:.9}
+.mv .b{left:10px;background:linear-gradient(225deg,#A9B4F7,#8f97dd);opacity:.9}
+.matrix{display:flex;align-items:center;background:var(--surf);border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin-top:10px}
+.matrix .lbl{flex:1;font-weight:700;font-size:13.5px}
+.mdot{width:26px;text-align:center}
+.md i{display:inline-block;width:12px;height:12px;border-radius:50%;vertical-align:middle}
+.md.full i{background:var(--text)}
+.md.part i{background:linear-gradient(90deg,var(--text) 50%,transparent 50%);border:1.5px solid var(--text)}
+.md.nev i{border:1.5px solid var(--text);background:transparent}
+.legend{display:flex;gap:18px;font-size:12px;color:var(--mut);margin:8px 0 2px}
+.toast{position:absolute;left:50%;bottom:104px;transform:translateX(-50%) translateY(8px);background:var(--toastbg);color:var(--toastfg);font-size:13px;font-weight:600;padding:11px 18px;border-radius:16px;opacity:0;transition:.25s;pointer-events:none;z-index:55;max-width:320px;text-align:center;box-shadow:0 10px 26px rgba(10,12,40,.35)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.caption{margin:16px auto 20px;max-width:680px;text-align:center;color:var(--mut);font-size:14px;line-height:1.5;padding:0 12px}
+.caption b{color:var(--text)}
+body.hints [data-go],body.hints .btn,body.hints .toggle,body.hints .chip,body.hints .circbtn,body.hints .tab,body.hints .seg button,body.hints .segin button,body.hints .pick,body.hints .rowit{outline:2px dashed #7268E8;outline-offset:2px}
+.kbd{border:1px solid var(--line);border-radius:5px;background:var(--surf2);padding:1px 6px;font-size:11px;font-weight:700}
+.wcard{transition:opacity .3s}
+.wcard.gone{opacity:.45;pointer-events:none}
+.feelbox{background:var(--soft);border:none;border-radius:20px;padding:18px;margin-top:14px;min-height:84px;font-size:15px;font-style:italic;outline:none;line-height:1.5}
+.feelbox:empty::before{content:"what feels right this weekend?";color:var(--faint);font-style:italic}
+.slotbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.slotrow{display:flex;align-items:center;gap:10px;background:var(--surf);border:1px solid var(--line);border-radius:14px;padding:10px 14px;margin-top:8px}
+.slotrow .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.slotrow .bar i{display:block;height:6px;border-radius:3px;background:var(--coral)}
+.quip{display:flex;gap:10px;align-items:center;margin-top:10px;font-size:13px}
+.quip .who{font-weight:700;font-size:12px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">OutThere<span>·v2</span></div>
+  <button class="hbtn" id="prevBtn">◀</button>
+  <button class="hbtn" id="nextBtn">▶</button>
+  <select class="scrsel" id="scrSel"></select>
+  <button class="hbtn" id="themeBtn">Theme: Auto</button>
+  <button class="hbtn" id="hintsBtn" title="Highlight tappable things (H)">Hints</button>
+  <button class="hbtn" id="restartBtn" title="Restart demo (R)">Restart</button>
+  <div class="scrname" id="scrName"></div>
+</header>
+
+<div class="stage">
+  <div class="fitbox" id="fitbox">
+    <div class="phone" id="phone">
+      <div class="island"></div>
+      <div class="sb"><span>9:41</span><span class="batt"></span></div>
+      <div class="screens">
+
+        <section class="screen" id="s-welcome" data-cap="<b>Welcome.</b> Passwordless, trust-first onboarding — under 4 minutes to first plan.">
+          <div style="position:relative;height:150px;margin-top:44px">
+            <div style="position:absolute;left:118px;top:6px;width:96px;height:96px;border-radius:50%;background:linear-gradient(135deg,#FF977A,#f08a86);opacity:.95"></div>
+            <div style="position:absolute;left:176px;top:6px;width:96px;height:96px;border-radius:50%;background:linear-gradient(315deg,#A9B4F7,#8f97dd);opacity:.82"></div>
+          </div>
+          <div class="pad" style="text-align:center">
+            <h1 class="title" style="margin-top:16px">Plans start close.</h1>
+            <p class="sub">For your people — and the right strangers.</p>
+          </div>
+          <div class="pad">
+            <div class="eb" style="margin-top:26px">Your phone number</div>
+            <div class="rowit" style="cursor:text"><b>IN&nbsp;&nbsp;+91</b><span style="borderLeft:1px solid var(--line);height:26px;margin:0 4px"></span><span class="muted small">Enter mobile number</span></div>
+            <p class="small muted" style="text-align:center;margin-top:12px">We text a 6-digit code. No passwords, ever.</p>
+            <button class="btn" data-go="s-otp">Continue with phone</button>
+            <div class="card soft" style="display:flex;gap:12px;align-items:center"><div class="avatar sm" style="background:var(--lilac);color:var(--tintfg)">✓</div><div><b style="font-size:13.5px">Your number stays private</b><br><span class="small muted">Shared only inside confirmed plans.</span></div></div>
+            <div class="card soft" style="display:flex;gap:12px;align-items:center"><div class="avatar sm" style="background:var(--lilac);color:var(--tintfg)">✓</div><div><b style="font-size:13.5px">No public profiles</b><br><span class="small muted">Strangers meet through mutual windows only.</span></div></div>
+            <div class="card soft" style="display:flex;gap:12px;align-items:center"><div class="avatar sm" style="background:var(--lilac);color:var(--tintfg)">✓</div><div><b style="font-size:13.5px">Leave anytime</b><br><span class="small muted">Circles, matches, data — gone on request.</span></div></div>
+            <p class="small muted" style="text-align:center;margin-top:18px">Terms · Privacy · Community care</p>
+          </div>
+        </section>
+
+        <section class="screen" id="s-otp" data-cap="<b>Check your phone.</b> Tap “Autofill demo code”, then verify.">
+          <div class="backbar"><button class="circbtn" data-go="s-welcome">‹</button><span></span></div>
+          <div class="pad">
+            <div class="avatar" style="background:var(--lilac);color:var(--tintfg);width:56px;height:56px;font-size:22px;margin-top:22px">✉</div>
+            <h1 class="title">Check your phone</h1>
+            <p class="sub">We sent a 6-digit code to<br><b style="color:var(--text)">+91 98••• 42••</b></p>
+            <div class="eb">Enter code</div>
+            <div class="otprow">
+              <div class="otp"></div><div class="otp"></div><div class="otp"></div><div class="otp"></div><div class="otp"></div><div class="otp"></div>
+            </div>
+            <p class="small muted" style="text-align:center;margin-top:12px">Code expires in 00:42 · resend available</p>
+            <button class="btn dark" id="btnOtpFill" style="background:var(--soft);color:var(--text)">Autofill demo code</button>
+            <button class="btn" id="btnOtpGo" disabled>Verify and continue</button>
+          </div>
+        </section>
+
+        <section class="screen" id="s-tonight" data-tab="tonight" data-cap="<b>Today.</b> Your day at a glance — plans, window state, and any ripples waiting for your one-tap answer.">
+          <div class="pad" style="display:flex;justify-content:space-between;align-items:center">
+            <span class="small muted">Indiranagar, Bengaluru</span>
+            <span class="avatar" style="background:var(--lilac);color:var(--tintfg)" data-go="s-you">DG</span>
+          </div>
+          <div class="pad">
+            <h1 class="title">Today looks good.</h1>
+            <p class="sub">Two plans ahead. Your window is open.</p>
+            <div class="card duo">
+              <div class="eb lt" style="margin-top:0">Your window · Sat 5–8 PM</div>
+              <div style="font-family:'DM Serif Display',Georgia,serif;font-size:21px;letter-spacing:-.4px">Open to something nearby</div>
+              <div class="small" style="opacity:.85;margin-top:4px">Only people whose window overlaps can find you</div>
+              <div style="display:flex;align-items:center;gap:10px;margin-top:12px">
+                <span style="background:rgba(255,255,255,.24);border-radius:15px;padding:7px 12px;font-size:10px;font-weight:700;letter-spacing:1px">2 OVERLAPS WAITING</span>
+                <button class="btn mini dark" style="margin-left:auto" data-go="s-overlapsList">See them ›</button>
+              </div>
+            </div>
+            <div class="rowit" data-go="s-rippleIn">
+              <span class="mv"><i class="a"></i><i class="b"></i></span>
+              <span class="t"><b>Sara's ripple · waiting for you</b><span>"coffee &amp; a walk — Sunday morning?"</span></span><span class="chev">›</span>
+            </div>
+            <div class="eb">Tonight</div>
+            <div class="card darkc">
+              <div class="eb lt" style="margin-top:0">6:30 PM · Toit, Indiranagar</div>
+              <div style="font-family:'DM Serif Display',Georgia,serif;font-size:21px">Office dinner, +1s welcome</div>
+              <div style="display:flex;align-items:center;gap:8px;margin-top:12px">
+                <span class="avatar sm" style="background:var(--coral)">AK</span><span class="avatar sm" style="background:var(--sage);color:var(--navy)">SG</span><span class="avatar sm" style="background:var(--amber);color:var(--navy)">RN</span>
+                <span class="small" style="opacity:.75;margin-left:4px">Work circle · you're in</span>
+                <button class="btn mini" style="margin-left:auto;background:var(--coral)" data-toast="Directions opened in Maps ↗">Directions</button>
+              </div>
+            </div>
+            <div class="eb">Tomorrow</div>
+            <div class="rowit" data-go="s-live">
+              <span class="avatar" style="background:var(--lilac);color:var(--tintfg);flex-direction:column;font-size:8px;letter-spacing:1px"><span>SUN</span><b style="font-size:13px">24</b></span>
+              <span class="t"><b>Round 2: sunset badminton</b><span>5:00 PM · Cubbon Park · 6 going</span></span><span class="chev">›</span>
+            </div>
+            <div class="rowit" data-toast="Opening Clay &amp; coffee…">
+              <span class="avatar" style="background:var(--peach);color:var(--tintfg);flex-direction:column;font-size:8px;letter-spacing:1px"><span>MON</span><b style="font-size:13px">25</b></span>
+              <span class="t"><b>Clay and coffee</b><span>11:00 AM · Sara is hosting · 3 going</span></span><span class="chev">›</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" id="s-circlesList" data-tab="circles" data-cap="<b>Circles.</b> All your small groups in one list — plus a way to start a new one. Plans never require a circle.">
+          <div class="pad" style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+            <h1 class="title" style="margin:0">Your circles</h1>
+            <span class="avatar" style="background:var(--coral);width:38px;height:38px;font-size:20px" data-go="s-newCircle">+</span>
+          </div>
+          <div class="pad">
+            <p class="sub">Small groups. Real plans.</p>
+            <div class="rowit" data-go="s-circle">
+              <span class="avatar" style="background:var(--coral)">F4<i class="dot-on"></i></span>
+              <span class="t"><b>Flat 402</b><span>4 members · Brunch, Sat 11 AM</span></span><span class="chev">›</span>
+            </div>
+            <div class="rowit" data-toast="Opening Office crew…">
+              <span class="avatar" style="background:var(--sage);color:var(--navy)">OC</span>
+              <span class="t"><b>Office crew</b><span>11 members · Dinner, tonight 6:30 PM</span></span><span class="chev">›</span>
+            </div>
+            <div class="rowit" data-toast="Opening Sunday cyclists…">
+              <span class="avatar" style="background:var(--amber);color:var(--navy)">SC</span>
+              <span class="t"><b>Sunday cyclists</b><span>8 members · Nothing planned yet</span></span><span class="chev">›</span>
+            </div>
+            <div class="card lilacbg" style="display:flex;align-items:center">
+              <div style="flex:1">
+                <div class="eb" style="margin:0 0 4px">New</div>
+                <b style="font-family:'DM Serif Display',Georgia,serif;font-size:19px;font-weight:400">Start a circle</b>
+                <div class="small muted">Friends, flatmates, colleagues — capped at 15.</div>
+              </div>
+              <button class="btn mini" style="background:var(--coral)" data-go="s-newCircle">Create</button>
+            </div>
+            <p class="small muted" style="margin-top:14px">Plans don't need a circle — you can always invite people directly.</p>
+          </div>
+        </section>
+
+        <section class="screen" id="s-circle" data-tab="circles" data-cap="<b>Inside a circle.</b> Intimate groups of 3–15. No approvals inside a circle — just RSVP.">
+          <div class="backbar"><button class="circbtn" data-go="s-circlesList">‹</button><button class="circbtn" data-toast="Circle settings: invite rule, plus-ones, quiet hours">•••</button></div>
+          <div class="pad">
+            <h1 class="title">Flat 402</h1>
+            <p class="sub">4 people · your building · since March</p>
+            <div style="display:flex;gap:16px;margin-top:14px">
+              <span class="avatar" style="background:var(--coral)">DG<i class="dot-on"></i></span>
+              <span class="avatar" style="background:var(--sage);color:var(--navy)">SG<i class="dot-on"></i></span>
+              <span class="avatar" style="background:var(--amber);color:var(--navy)">RN</span>
+              <span class="avatar" style="background:var(--lilac);color:var(--tintfg)">MJ</span>
+              <button class="avatar" style="background:transparent;border:1.6px dashed var(--faint);color:var(--mut)" data-go="s-grow">+</button>
+            </div>
+            <div class="eb">Next up</div>
+            <div class="card">
+              <div class="eb" style="margin-top:0">Sat · 11:00 AM</div>
+              <div style="font-family:'DM Serif Display',Georgia,serif;font-size:21px">Brunch at Third Wave</div>
+              <div class="chipline">
+                <span class="chip" style="background:var(--lilacbg);cursor:default">3 YES</span>
+                <span class="chip" style="background:var(--peachbg);cursor:default">1 MAYBE</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;margin-top:12px">
+                <span class="small muted" style="font-weight:700">Your reply:</span>
+                <button class="chip pick on" data-radio>IN ✓</button>
+                <button class="chip pick" data-radio>Maybe</button>
+                <button class="chip pick" data-radio>No</button>
+              </div>
+            </div>
+            <div class="card lilacbg" style="display:flex;align-items:center">
+              <div style="flex:1">
+                <div class="eb" style="margin:0 0 4px">Nothing planned yet?</div>
+                <div style="font-family:'DM Serif Display',Georgia,serif;font-size:20px">Toss a ripple</div>
+                <div class="small muted">"who's up for something Sunday?" — no plan needed</div>
+              </div>
+              <button class="avatar" style="background:var(--coral);font-size:18px" data-go="s-ripple">〜</button>
+            </div>
+            <div class="rowit" data-go="s-grow"><span class="avatar sm" style="background:var(--lilac);color:var(--tintfg)">⌁</span><span class="t"><b>Invite link and settings</b><span>Grow the circle, cap at 15</span></span><span class="chev">›</span></div>
+          </div>
+        </section>
+
+        <section class="screen" id="s-newCircle" data-tab="circles" data-cap="<b>New circle.</b> Name it, pick the flavour, share the link. Invite-only, always.">
+          <div class="backbar"><button class="circbtn" data-go="s-circlesList">‹</button><span></span></div>
+          <div class="pad">
+            <h1 class="title">Start a circle.</h1>
+            <p class="sub">Invite-only. Capped at 15 — small stays warm.</p>
+            <div class="inputbar" style="margin-top:14px"><input id="circleName" placeholder="Circle name… e.g. Flat 402"></div>
+            <div class="eb">What kind of circle?</div>
+            <div class="chipline" style="margin-top:0">
+              <button class="chip pick on" data-radio>Flatmates</button>
+              <button class="chip pick" data-radio>Friends</button>
+              <button class="chip pick" data-radio>Colleagues</button>
+              <button class="chip pick" data-radio>Gym buds</button>
+            </div>
+            <div class="card soft">
+              <b style="font-size:14px">Only people you approve get in.</b>
+              <div class="small muted">No discovery, no search — circles grow by link or QR, or when an overlap becomes a friendship.</div>
+            </div>
+            <button class="btn" data-toast="Circle created ✓" data-go="s-grow">Create circle</button>
+            <p class="small muted" style="text-align:center">Next up: share the invite link</p>
+          </div>
+        </section>
+
+        <section class="screen" id="s-grow" data-tab="circles" data-cap="<b>Growth.</b> Invite links and table QRs — new faces otherwise arrive only through overlaps.">
+          <div class="backbar"><button class="circbtn" data-go="s-circlesList">‹</button><span></span></div>
+          <div class="pad">
+            <h1 class="title">Grow your circle.</h1>
+            <p class="sub">Small stays warm. Cap it at 15.</p>
+            <div class="card darkc">
+              <div class="eb lt" style="margin-top:0">Flat 402 · invite link</div>
+              <b style="font-size:15px">outthere.app/c/flat402</b>
+              <div class="small" style="opacity:.75;margin-top:6px">Anyone with the link can ask to join; you approve. Always.</div>
+              <div style="display:flex;justify-content:flex-end;margin-top:10px">
+                <button class="btn mini" id="copyLink">Copy link</button>
+              </div>
+            </div>
+            <div class="rowit" data-toast="Sharing to WhatsApp…"><span class="avatar sm" style="background:var(--green)">✆</span><span class="t"><b>Share to WhatsApp</b><span>Where your group already lives</span></span><span class="chev">›</span></div>
+            <div class="card" style="display:flex;gap:16px;align-items:center">
+              <svg width="88" height="88" viewBox="0 0 88 88" style="flex:none;color:var(--text)" stroke="currentColor"><rect x="2" y="2" width="84" height="84" rx="10" fill="none" stroke-width="2"/><rect x="10" y="10" width="22" height="22" fill="currentColor"/><rect x="56" y="10" width="22" height="22" fill="currentColor"/><rect x="10" y="56" width="22" height="22" fill="currentColor"/><rect x="40" y="42" width="8" height="8" fill="currentColor"/><rect x="52" y="54" width="8" height="8" fill="currentColor"/><rect x="64" y="42" width="8" height="8" fill="currentColor"/><rect x="40" y="66" width="8" height="8" fill="currentColor"/></svg>
+              <div><b>Show this at the table</b><br><span class="small muted">Perfect for offices, cafes and Sunday mornings at the park.</span></div>
+            </div>
+            <div class="card soft">
+              <div class="eb" style="margin-top:0">Later</div>
+              <div class="small">New faces join through overlaps — not search.<br>That is the whole idea.</div>
+            </div>
+            <div style="margin-top:16px"><span style="font-size:11px;font-weight:700;color:var(--mut)">3 of 15 spots used</span>
+              <div style="height:6px;border-radius:3px;background:var(--line);margin-top:6px"><div style="width:20%;height:6px;border-radius:3px;background:var(--coral)"></div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" id="s-create" data-tab="create" data-cap="<b>Creating.</b> Plans are independent of circles: pick circles, add people directly, share a link — or toss a ripple / open a window.">
+          <div class="pad" style="display:flex;justify-content:space-between"><span class="small muted" style="font-weight:700;cursor:pointer" data-go="s-tonight">Cancel</span><span class="small muted" style="font-weight:700">STEP 2 OF 3</span></div>
+          <div class="pad">
+            <div class="card soft" style="margin-top:10px;font-style:italic">"Casual badminton, then filter coffee"</div>
+            <h1 class="title">Who's it for?</h1>
+            <p class="sub">Any mix — or none at all.</p>
+            <div class="eb" style="margin-top:12px">Circles</div>
+            <div class="rowit">
+              <span class="avatar sm" style="background:var(--coral)">F4</span>
+              <span class="t"><b>Flat 402</b><span>4 people</span></span>
+              <button class="toggle on" data-circle="Flat 402"></button>
+            </div>
+            <div class="rowit">
+              <span class="avatar sm" style="background:var(--sage);color:var(--navy)">OC</span>
+              <span class="t"><b>Office crew</b><span>11 people</span></span>
+              <button class="toggle" data-circle="Office crew"></button>
+            </div>
+            <div class="eb" style="margin-bottom:0">Or add people directly</div>
+            <div class="chipline" style="margin-top:8px">
+              <button class="chip pick on" data-person="Aarav">Aarav ✓</button>
+              <button class="chip pick" data-person="Sara">Sara</button>
+              <button class="chip pick" data-person="Rina">Rina</button>
+              <button class="chip pick" data-person="Maya">Maya</button>
+            </div>
+            <div class="rowit" data-go="s-newCircle">
+              <span class="avatar sm" style="background:var(--lilac);color:var(--tintfg)">＋</span>
+              <span class="t"><b>Create a circle instead</b><span>If this crew will hang out again</span></span><span class="chev">›</span>
+            </div>
+            <div class="rowit" data-go="s-ripple">
+              <span class="mv"><i class="a"></i><i class="b"></i></span>
+              <span class="t"><b>Toss a ripple instead</b><span>Nothing decided? Ask around first — one tap each</span></span><span class="chev">›</span>
+            </div>
+            <div class="card mintg">
+              <div class="eb" style="margin-top:0">No fixed group at all?</div>
+              <b style="font-size:14.5px">Leave a window open instead</b>
+              <div class="small muted" style="margin-top:4px">Nearby people whose free time overlaps can wave. Both must say hi.</div>
+              <div style="display:flex;justify-content:flex-end;margin-top:8px"><button class="toggle" id="tglWin"></button></div>
+            </div>
+            <p class="small muted">Inside circles there are no approvals — just RSVP. Direct friends confirm too.</p>
+            <button class="btn" id="createCta" data-go="s-createWhen">Next: when and where</button>
+          </div>
+        </section>
+
+        <section class="screen" id="s-ripple" data-cap="<b>Ripple.</b> The soft ask: a feeling + rough slots + your people. No time locked, no thread — one-tap answers.">
+          <div class="backbar"><button class="circbtn" id="rippleBack">‹</button><span class="small muted" style="font-weight:700">RIPPLE · NOT A PLAN YET</span></div>
+          <div class="pad">
+            <h1 class="title">Toss a ripple.</h1>
+            <p class="sub">A feeling, out to your people. They tap, you lock.</p>
+            <div class="feelbox" id="feelBox" contenteditable="true" spellcheck="false">something outdoorsy Saturday afternoon?</div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px">
+              <span class="small muted">Describe it naturally — no details needed</span>
+              <button class="circbtn" style="width:34px;height:34px;font-size:14px" data-toast="Voice note attached (12s) — rides along with your ripple">🎙</button>
+            </div>
+            <div class="eb" style="margin-bottom:0">Rough slots (optional)</div>
+            <div class="chipline" style="margin-top:8px">
+              <button class="chip pick on" data-rslot>Sat arvo ✓</button>
+              <button class="chip pick on" data-rslot>Sat evening ✓</button>
+              <button class="chip pick" data-rslot>Sun morning</button>
+              <button class="chip pick" data-rslot>Flexible</button>
+            </div>
+            <div class="eb">Ask</div>
+            <div class="rowit">
+              <span class="avatar sm" style="background:var(--coral)">F4</span>
+              <span class="t"><b>Flat 402</b><span>4 people</span></span>
+              <button class="toggle on" data-rcircle="Flat 402"></button>
+            </div>
+            <div class="rowit">
+              <span class="avatar sm" style="background:var(--sage);color:var(--navy)">OC</span>
+              <span class="t"><b>Office crew</b><span>11 people</span></span>
+              <button class="toggle" data-rcircle="Office crew"></button>
+            </div>
+            <div class="chipline" style="margin-top:10px">
+              <button class="chip pick on" data-rperson="Aarav">Aarav ✓</button>
+              <button class="chip pick" data-rperson="Sara">Sara</button>
+              <button class="chip pick" data-rperson="Rina">Rina</button>
+              <button class="chip pick" data-rperson="Maya">Maya</button>
+            </div>
+            <div class="card suny">
+              <div class="small">Ripples fade in 48 hours. Act or drop — no zombie threads.</div>
+              <div class="small" style="margin-top:2px">Answers are taps, not chat. Max 2 active ripples.</div>
+            </div>
+            <button class="btn" id="sendRipple">Send ripple · 5 people</button>
+          </div>
+        </section>
+
+        <section class="screen" id="s-rippleLive" data-cap="<b>Ripple, live.</b> Tally + ranked slots + quiet quips. At 2+ yes, one tap turns it into a real plan with everyone pre-invited.">
+          <div class="backbar"><button class="circbtn" data-go="s-create">‹</button><button class="circbtn" data-toast="Ripple settings · drop silently anytime">•••</button></div>
+          <div class="pad" style="text-align:center">
+            <div style="font-family:'DM Serif Display',Georgia,serif;font-size:22px" id="ripTitle">Something outdoorsy?</div>
+            <div class="small muted">your ripple · fades in <b id="ripClock" style="color:var(--text)">46:12</b></div>
+            <div style="height:3px;border-radius:2px;background:var(--line);margin-top:8px"><div id="ripBar" style="width:38%;height:3px;border-radius:2px;background:var(--coral)"></div></div>
+          </div>
+          <div class="pad">
+            <div class="card">
+              <div style="display:flex;gap:14px">
+                <div style="flex:1;text-align:center">
+                  <div style="display:flex;justify-content:center;margin-bottom:6px">
+                    <span class="avatar sm" style="background:var(--sage);color:var(--navy);margin-right:-8px">SG</span>
+                    <span class="avatar sm" style="background:var(--amber);color:var(--navy)">RN</span>
+                  </div>
+                  <b style="font-size:16px">2 in</b>
+                  <div class="small muted">so far</div>
+                </div>
+                <div style="width:1px;background:var(--line)"></div>
+                <div style="flex:1;text-align:center">
+                  <span class="avatar sm" style="background:var(--peach);color:var(--tintfg);display:inline-grid;margin-bottom:6px">AK</span>
+                  <b style="font-size:16px;display:block">1 can't</b>
+                  <div class="small muted">zero guilt</div>
+                </div>
+                <div style="width:1px;background:var(--line)"></div>
+                <div style="flex:1;text-align:center">
+                  <b style="font-size:16px;display:block;margin-top:14px">1 waiting</b>
+                  <div class="small muted">Maya</div>
+                </div>
+              </div>
+            </div>
+            <div class="eb" style="margin-bottom:0">When works</div>
+            <div class="slotrow"><span class="small" style="width:86px;font-weight:700">Sat evening</span><span class="bar"><i style="width:66%"></i></span><b class="small">2</b></div>
+            <div class="slotrow"><span class="small" style="width:86px;font-weight:700">Sat arvo</span><span class="bar"><i style="width:33%"></i></span><b class="small">1</b></div>
+            <div class="card mintg">
+              <div class="eb" style="margin-top:0">Ready to lock?</div>
+              <b style="font-size:14.5px">Saturday evening leads (2)</b>
+              <div class="small muted" style="margin-top:4px">Court 3 is usually free · weather looks clear · Sara &amp; Rina in</div>
+              <div style="display:flex;justify-content:flex-end;margin-top:10px"><button class="btn mini dark" id="convertRipple">Turn into plan →</button></div>
+            </div>
+            <div class="quip"><span class="avatar sm" style="background:var(--sage);color:var(--navy)">SG</span><span class="who">Sara</span><span class="muted">"in! can we bring the dog?"</span></div>
+            <div class="quip"><span class="avatar sm" style="background:var(--amber);color:var(--navy)">RN</span><span class="who">Rina</span><span class="muted">voted Sat evening</span></div>
+            <div class="quip"><span class="avatar sm" style="background:var(--peach);color:var(--tintfg)">AK</span><span class="who">Aarav</span><span class="muted">"family thing this one — next for sure"</span></div>
+            <div class="rowit" data-toast="Gentle nudge sent to Maya — once, politely">
+              <span class="avatar sm" style="background:var(--lilac);color:var(--tintfg)">MJ</span>
+              <span class="t"><b>Maya hasn't answered</b><span>Nudge once · never twice</span></span>
+              <button class="btn mini" style="background:var(--soft);color:var(--text)">Nudge</button>
+            </div>
+            <div class="rowit">
+              <span class="avatar sm" style="background:var(--lilac);color:var(--tintfg)">◎</span>
+              <span class="t"><b>Also let nearby people join?</b><span>Spawns your window with these vibes</span></span>
+              <button class="toggle" data-toast="Window will open with the plan — same vibes, 2 km"></button>
+            </div>
+            <p class="small muted" style="text-align:center;margin-top:14px;letter-spacing:1px;font-weight:700;font-size:10px">RESPONSES NEVER PING · DIGEST ONLY · EXPIRES QUIETLY</p>
+          </div>
+        </section>
+
+        <section class="screen" id="s-rippleIn" data-cap="<b>Receiving a ripple.</b> One tap — no chat required, no pressure. Counter-offer by tapping another slot; pass guilt-free.">
+          <div class="backbar"><button class="circbtn" data-go="s-tonight">‹</button><span class="small muted" style="font-weight:700">EXPIRES IN 46H</span></div>
+          <div class="pad">
+            <div class="eb" style="margin-top:10px">Sara's ripple · to you + 3 others</div>
+            <div class="card" style="margin-top:6px">
+              <div style="display:flex;gap:12px;align-items:center">
+                <span class="avatar" style="background:var(--sage);color:var(--navy)">SG</span>
+                <div style="flex:1;font-family:'DM Serif Display',Georgia,serif;font-size:20px;line-height:1.3">"coffee &amp; a walk —<br>Sunday morning?"</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;margin-top:14px">
+                <span class="small muted" style="font-weight:700">Already in:</span>
+                <span class="avatar sm" style="background:var(--coral)">DG</span>
+                <span class="avatar sm" style="background:var(--amber);color:var(--navy)">RN</span>
+                <span class="small muted">2 in · 1 waiting</span>
+              </div>
+            </div>
+            <div id="rinAsk">
+              <div class="eb">Your answer — one tap</div>
+              <button class="btn" style="margin-top:8px" data-rin="in">I'm in</button>
+              <button class="btn dark" style="background:var(--soft);color:var(--text)" data-rin="later">Sunday evening better</button>
+              <button class="btn ghost" data-rin="cant">Can't this time</button>
+              <p class="small muted" style="text-align:center;margin-top:12px">Add a word if you like — 140 characters, totally optional.</p>
+              <div class="inputbar"><input id="rinQuip" placeholder="a quick quip (optional)…"><button class="sendbtn" id="rinQuipSend">→</button></div>
+            </div>
+            <div id="rinDone" style="display:none">
+              <div class="card lilacbg" style="text-align:center;padding:26px 18px">
+                <div class="avatar" style="background:var(--green);margin:0 auto 10px;width:52px;height:52px;font-size:20px">✓</div>
+                <b id="rinTitle" style="font-size:16px">You're in</b>
+                <div class="small muted" id="rinSub" style="margin-top:4px">Sara now sees 3 in.</div>
+              </div>
+              <button class="btn dark" data-go="s-tonight">Done</button>
+            </div>
+            <div class="card soft">
+              <div class="small">No chat opens. No read receipts. Sara gets your tap in her digest.</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" id="s-createWhen" data-tab="create" data-cap="<b>Step 3.</b> Time and fuzzy place. Converting a ripple pre-fills the audience with respondents and the winning slot.">
+          <div class="pad" style="display:flex;justify-content:space-between"><span class="small muted" style="font-weight:700;cursor:pointer" data-go="s-create">Back</span><span class="small muted" style="font-weight:700">STEP 3 OF 3</span></div>
+          <div class="pad">
+            <h1 class="title">When and where?</h1>
+            <p class="sub">Details stay light until people are in.</p>
+            <div class="rowit"><span class="avatar sm" style="background:var(--lilac);color:var(--tintfg)">◷</span><span class="t"><b id="whenLabel">Tomorrow · 5:00–7:00 PM</b><span id="whenHint">Tap to change</span></span><span class="chev">›</span></div>
+            <div class="rowit"><span class="avatar sm" style="background:var(--peach);color:var(--tintfg)">◎</span><span class="t"><b>Cubbon Park, Gate 2</b><span>Fuzzy until the plan goes live</span></span><span class="chev">›</span></div>
+            <div class="card soft">
+              <div class="eb" style="margin-top:0">Visibility</div>
+              <b id="audTitle" style="font-size:14px">Flat 402 · Aarav</b>
+              <div class="small muted" id="audSub">Members and guests just RSVP — nobody outside can see it.</div>
+            </div>
+            <button class="btn" data-toast="Plan posted ✓" data-go="s-circlesList">Create plan</button>
+          </div>
+        </section>
+
+        <section class="screen" id="s-window" data-tab="overlaps" data-cap="<b>The window.</b> A quiet availability signal. Never a post, never a profile — it only matches.">
+          <div class="pad" style="display:flex;justify-content:space-between"><span class="small muted" style="font-weight:700;cursor:pointer" data-go="s-tonight">Cancel</span><span class="small muted" style="font-weight:700">PRIVATE SIGNAL</span></div>
+          <div class="pad">
+            <h1 class="title">Leave a window open.</h1>
+            <p class="sub">A quiet signal. Not a post, not a profile.</p>
+            <div class="rowit"><span class="avatar sm" style="background:var(--lilac);color:var(--tintfg)">◷</span><span class="t"><b>Saturday · 5:00–8:00 PM</b><span>When</span></span><span class="chev">›</span></div>
+            <div class="eb" style="margin-bottom:0">Up for</div>
+            <div class="chipline">
+              <button class="chip pick on">Badminton ✓</button>
+              <button class="chip pick on">Chai ✓</button>
+              <button class="chip pick">Anything easy</button>
+            </div>
+            <div class="rowit"><span class="avatar sm" style="background:var(--peach);color:var(--tintfg)">◎</span><span class="t"><b>Within 2 km of Indiranagar</b><span>Distance band, never exact spot</span></span><span class="chev">›</span></div>
+            <div class="card">
+              <div class="eb" style="margin-top:0">Comfort filters</div>
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px"><b style="font-size:14px">Women-only matches</b><button class="toggle on"></button></div>
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-top:14px"><b style="font-size:14px">Phone-verified people only</b><button class="toggle on"></button></div>
+            </div>
+            <div class="card suny">
+              <div class="small">Closes by itself when the window ends.</div>
+              <div class="small" style="margin-top:2px">It is never posted anywhere — it only matches.</div>
+            </div>
+            <button class="btn" id="openWinBtn">Open my window</button>
+          </div>
+        </section>
+
+        <section class="screen" id="s-overlapsList" data-tab="overlaps" data-cap="<b>Overlap inbox.</b> Many windows, one list. Every card needs a mutual hi — pass silently anytime.">
+          <div class="pad">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+              <h1 class="title" style="margin:0">Overlaps</h1>
+              <button class="btn mini dark" data-go="s-window">Edit window</button>
+            </div>
+            <p class="sub" style="margin-top:6px">Both-way handshakes, sorted by timing.</p>
+            <div class="card duo">
+              <div style="display:flex;align-items:center">
+                <div style="flex:1">
+                  <div class="eb lt" style="margin:0 0 4px">Your window · Sat 5–8 PM</div>
+                  <b style="font-size:14.5px">Open · within 2 km</b>
+                  <div class="small" style="opacity:.85">Expires Sat 8 PM · nothing is posted</div>
+                </div>
+              </div>
+            </div>
+            <div class="eb">Waiting for both of you (2)</div>
+            <div class="card wcard">
+              <div style="display:flex;gap:12px;align-items:center">
+                <span class="mv"><i class="a"></i><i class="b"></i></span>
+                <div style="flex:1"><b style="font-size:14px">Saturday evening · under 1 km</b><br><span class="small muted">Badminton · Chai · both free 5–8 PM</span></div>
+              </div>
+              <div style="display:flex;gap:8px;margin-top:12px">
+                <button class="chip on" data-go="s-overlap" style="flex:1">Say hi</button>
+                <button class="chip wpass" style="flex:1">Pass quietly</button>
+              </div>
+            </div>
+            <div class="card wcard">
+              <div style="display:flex;gap:12px;align-items:center">
+                <span class="mv"><i class="a"></i><i class="b"></i></span>
+                <div style="flex:1"><b style="font-size:14px">Sunday morning · 1.5 km</b><br><span class="small muted">Coffee · Slow vibe · both free 9–11 AM</span></div>
+              </div>
+              <div style="display:flex;gap:8px;margin-top:12px">
+                <button class="chip on" data-go="s-overlap" style="flex:1">Say hi</button>
+                <button class="chip wpass" style="flex:1">Pass quietly</button>
+              </div>
+            </div>
+            <div class="eb">Locked in</div>
+            <div class="rowit" data-go="s-warmroom">
+              <span class="avatar sm" style="background:var(--coral)">AK</span>
+              <span class="t"><b>Aarav — badminton × chai?</b><span>Warm room closes in 21:04</span></span><span class="chev">›</span>
+            </div>
+            <div class="eb">Earlier</div>
+            <div class="rowit" data-toast="Maya passed quietly. No feelings hurt, nothing sent." style="opacity:.75">
+              <span class="mv"><i class="a"></i><i class="b"></i></span>
+              <span class="t"><b style="font-size:13.5px">Maya · Tuesday run</b><span>Passed · they'll never know</span></span>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" id="s-overlap" data-tab="overlaps" data-cap="<b>The moment.</b> Two-way or nothing. If both tap hi → private warm room. Pass = they never know.">
+          <div class="backbar"><button class="circbtn" data-go="s-overlapsList">‹</button><span class="small muted" style="font-weight:700">UNDER 1 KM</span></div>
+          <div class="venn pad">
+            <div class="l"></div><div class="r"></div>
+            <b style="left:96px;top:76px">DG</b><b style="left:196px;top:76px">AK</b>
+          </div>
+          <div class="pad" style="text-align:center">
+            <h1 class="title" style="margin-top:2px">Your evenings overlap.</h1>
+            <p class="sub">Same window, same vibes, 900 m apart.</p>
+            <div class="chipline" style="justify-content:center">
+              <span class="chip" style="cursor:default">Badminton</span><span class="chip" style="cursor:default">Chai</span><span class="chip" style="cursor:default">Both free 5–8</span>
+            </div>
+            <div class="card soft" style="text-align:left;margin-top:16px">
+              <div class="small">If you both tap hi, we open a private room to plan something real. Nobody sees anything until —</div>
+              <b style="font-size:14px;display:block;margin-top:4px">both sides say hi.</b>
+            </div>
+            <button class="btn" data-go="s-warmroom" id="sayHi">Say hi</button>
+            <p class="small muted" style="cursor:pointer" id="passQuiet"><u>Pass quietly — they'll never know</u></p>
+            <div class="eb" style="margin-top:2px">No profile browsing · No cold texts</div>
+          </div>
+        </section>
+
+        <section class="screen" id="s-warmroom" data-cap="<b>Warm room.</b> 24 hours, first names only. Its only job: lock an actual plan. Then profiles unlock.">
+          <div class="backbar"><button class="circbtn" data-go="s-overlapsList">‹</button><button class="circbtn" data-toast="Report · Block · Pause — one tap away">•••</button></div>
+          <div class="pad" style="text-align:center">
+            <div style="font-family:'DM Serif Display',Georgia,serif;font-size:21px">You + Aarav</div>
+            <div class="small muted">warm room · closes in <b id="wmClock" style="color:var(--text)">21:04</b></div>
+            <div style="height:3px;border-radius:2px;background:var(--line);margin-top:8px"><div id="wmBar" style="width:62%;height:3px;border-radius:2px;background:var(--coral)"></div></div>
+          </div>
+          <div class="pad">
+            <div class="sysbub">You both said hi. Say the plan out loud.</div>
+            <div class="msgrow">
+              <span class="avatar sm" style="background:var(--coral)">AK</span>
+              <div class="bub">Court 3 is free at 5. Loser buys the chai?</div>
+            </div>
+            <div class="msgrow"><div class="bub me">Deal. Bring the good racquets?</div></div>
+            <div id="msgList"></div>
+            <div class="inputbar">
+              <input id="msgInput" placeholder="Message Aarav…">
+              <button class="sendbtn" id="msgSend">→</button>
+            </div>
+            <div class="card mintg" style="margin-top:16px">
+              <div class="eb" style="margin-top:0">Proposal</div>
+              <b>Tomorrow · 5:00 PM</b>
+              <div class="small muted">Court 3, Cubbon Park Gate 2</div>
+              <div style="display:flex;justify-content:flex-end;margin-top:8px"><button class="btn mini dark" data-toast="Plan locked — full profiles unlocked for you both" data-go="s-live">Lock it in</button></div>
+            </div>
+            <div class="card" style="display:flex;gap:12px;align-items:center">
+              <span class="avatar sm" style="background:var(--lilac);color:var(--tintfg)">◔</span>
+              <span class="small">Full profiles unlock once a plan is locked. Until then: first names only.</span>
+            </div>
+            <p class="small muted" style="text-align:center;margin-top:14px;letter-spacing:1px;font-weight:700;font-size:10px">REPORT · BLOCK · PAUSE — ALWAYS ONE TAP AWAY</p>
+          </div>
+          <div class="seg"><button class="active">ROOM</button><button data-toast="Profile preview: first name + shared vibes only">PROFILE</button><button data-go="s-safety">SAFETY</button></div>
+        </section>
+
+        <section class="screen" id="s-live" data-cap="<b>Plan day.</b> Arrivals, one-tap updates, polls — and splits living in the same room.">
+          <div class="backbar"><button class="circbtn" data-go="s-tonight">‹</button><button class="circbtn" data-toast="Plan settings">•••</button></div>
+          <div class="pad">
+            <div class="eb" style="margin-top:2px">Live · arrival mode</div>
+            <h1 class="title" style="margin-top:2px">Round 2, badminton</h1>
+            <div class="card darkc">
+              <div class="eb lt" style="margin-top:0">Meet now · Gate 2</div>
+              <div style="font-family:'DM Serif Display',Georgia,serif;font-size:21px"><b id="hereN">3</b> here · <b id="routeN">2</b> en route</div>
+              <div class="small" style="opacity:.72;margin-top:4px">Aarav brought spare racquets</div>
+              <div style="display:flex;align-items:center;gap:8px;margin-top:12px">
+                <span class="avatar sm" style="background:var(--coral)">AK</span><span class="avatar sm" style="background:var(--sage);color:var(--navy)">SG</span><span class="avatar sm" style="background:var(--amber);color:var(--navy)">RN</span>
+                <button class="btn mini" style="margin-left:auto;background:var(--coral)" id="imHere">I'm here</button>
+              </div>
+            </div>
+            <div class="eb">Quick update</div>
+            <div class="chipline" style="margin-top:0">
+              <button class="chip" data-toast="Everyone sees: running 5 min late">5 min late</button>
+              <button class="chip" data-toast="Everyone sees: at Gate 2">At Gate 2</button>
+              <button class="chip" data-toast="Host pinged to help you">Need help</button>
+            </div>
+            <h2 class="sec">What's next</h2>
+            <div class="card">
+              <div style="display:flex;gap:12px"><span style="width:14px;height:14px;border-radius:50%;background:var(--lime);border:2px solid var(--navy);flex:none;margin-top:2px"></span>
+                <div><span class="small muted">5:00 PM</span> &nbsp;<b>Game starts</b><div class="small muted">Court 3 · Aarav and Sara from today's overlap</div></div></div>
+              <hr style="border:0;border-top:1px solid var(--line);margin:14px 0">
+              <div style="display:flex;gap:12px;align-items:flex-start"><span style="width:14px;height:14px;border-radius:50%;background:var(--surf);border:2px solid var(--faint);flex:none;margin-top:2px"></span>
+                <div style="flex:1"><span class="small muted">6:45 PM</span> &nbsp;<b>Filter coffee after?</b></div>
+                <button class="chip" id="pollYes">Yes · 4</button>
+              </div>
+            </div>
+            <h2 class="sec">Plan pulse</h2>
+            <div class="card soft" style="display:flex;gap:12px;align-items:center">
+              <span class="avatar sm" style="background:var(--coral)">AK</span>
+              <div><b style="font-size:13.5px">Aarav joined via overlap</b><br><span class="small muted">Met through Saturday windows</span></div>
+            </div>
+          </div>
+          <div class="seg">
+            <button class="active" data-pane="now">NOW</button>
+            <button data-pane="chat">CHAT</button>
+            <button data-pane="splits">SPLITS</button>
+          </div>
+          <div class="pane" id="pane-chat" data-for="chat" style="position:absolute;inset:58px 0 70px;padding:0 24px;overflow-y:auto;background:var(--phbg)">
+            <div class="sysbub" style="margin-top:6px">Pinned · Meet at Gate 2 · host wearing orange</div>
+            <div class="msgrow"><span class="avatar sm" style="background:var(--coral)">AK</span><div class="bub">I'm at the entrance. Court 3 straight ahead past the café.</div></div>
+            <div class="msgrow"><div class="bub me">Running 5 minutes late 🙈</div></div>
+            <div class="msgrow"><span class="avatar sm" style="background:var(--sage);color:var(--navy)">SG</span><div class="bub">No stress — we're warming up.</div></div>
+            <div class="inputbar"><input placeholder="Message everyone…"><button class="sendbtn" data-toast="Sent to the plan ✓">→</button></div>
+          </div>
+          <div class="pane" id="pane-splits" data-for="splits" style="position:absolute;inset:58px 0 70px;padding:0 24px;overflow-y:auto;background:var(--phbg)">
+            <div class="rowit" style="margin-top:8px" data-go="s-splits"><span class="t"><b>All splits across plans</b><span>Plan-wise and person-wise</span></span><span class="chev">›</span></div>
+            <div class="card darkc">
+              <div class="eb lt" style="margin-top:0">Group total</div>
+              <div style="font-family:'DM Serif Display',Georgia,serif;font-size:28px">₹1,860</div>
+              <div class="small" style="opacity:.72">3 expenses · 7 people</div>
+            </div>
+            <div class="card lilacbg" style="display:flex;align-items:center">
+              <div style="flex:1"><span class="eb" style="margin:0">You owe</span><br><b>₹180 to Aarav</b></div>
+              <button class="btn mini dark" data-toast="Settled via UPI request ✓">Settle</button>
+            </div>
+            <div class="rowit" style="cursor:default"><span class="avatar sm" style="background:var(--peach);color:var(--tintfg)">🏸</span><span class="t"><b>Court booking</b><span>Paid by Aarav · split equally</span></span><span class="val neg">₹1,200</span></div>
+            <div class="rowit" style="cursor:default"><span class="avatar sm" style="background:var(--soft);color:var(--tintfg)">🥤</span><span class="t"><b>Racquet rental</b><span>Paid by Sara · 3 people</span></span><span class="val neg">₹360</span></div>
+            <div class="rowit" style="cursor:default"><span class="avatar sm" style="background:var(--sunbg);color:var(--tintfg)">☕</span><span class="t"><b>Chai</b><span>Paid by Rina · 5 people</span></span><span class="val neg">₹300</span></div>
+            <button class="btn dark" style="height:46px" data-toast="Reminder sent privately — no group awkwardness">Remind privately</button>
+          </div>
+        </section>
+
+        <section class="screen" id="s-recap" data-cap="<b>Recap.</b> Every plan ends settled: photos scoped to attendees, money done, next one seeded.">
+          <div class="backbar"><button class="circbtn" data-go="s-live">‹</button><span></span></div>
+          <div class="pad">
+            <div class="eb" style="margin-top:2px">Last night · 2.5 hrs</div>
+            <h1 class="title" style="margin-top:2px">That was good.</h1>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px">
+              <div style="height:118px;border-radius:18px;background:linear-gradient(135deg,#A8B8FF,#FF8A72)"></div>
+              <div style="height:118px;border-radius:18px;background:var(--mintg)"></div>
+              <div style="height:118px;border-radius:18px;background:var(--peach)"></div>
+              <div style="height:118px;border-radius:18px;background:var(--lav)"></div>
+            </div>
+            <div class="card lilacbg">
+              <div class="eb" style="margin-top:0">Split · court + coffee — ALL SETTLED ✓</div>
+              <b style="font-size:15px">₹180 each</b>
+              <div class="small muted">Aarav, Sara, Rina, you</div>
+            </div>
+            <div class="card">
+              <b style="font-size:14.5px">Same time next Saturday?</b>
+              <div class="chipline">
+                <button class="chip pick" data-radio data-toast="Seeded for next Saturday ✓">In ✓</button>
+                <button class="chip pick" data-radio>Maybe</button>
+                <button class="chip pick" data-radio>Skip</button>
+              </div>
+            </div>
+            <div class="card peachy">
+              <div class="small">"Best rally partner. Same again?" — Aarav</div>
+              <div class="eb" style="margin:6px 0 0">Private note · only you see this</div>
+            </div>
+            <p class="small muted" style="text-align:center;margin-top:14px">Recaps live only with the people who were there.</p>
+          </div>
+        </section>
+
+        <section class="screen" id="s-splits" data-cap="<b>Splits.</b> All money across plans — view by plan or by person, settle without the awkward ping.">
+          <div class="backbar"><button class="circbtn" data-go="s-you">‹</button><span></span></div>
+          <div class="pad">
+            <h1 class="title">Splits</h1>
+            <p class="sub">Every rupee across your plans.</p>
+            <div class="card darkc">
+              <div class="eb lt" style="margin-top:0">Net balance</div>
+              <div style="font-family:'DM Serif Display',Georgia,serif;font-size:28px">You owe ₹420</div>
+              <div class="small" style="opacity:.72">Across 3 active plans</div>
+              <div style="display:flex;justify-content:flex-end;margin-top:8px"><button class="btn mini" style="background:var(--lime);color:var(--navy)" data-toast="Settle-up links sent privately ✓">Settle all</button></div>
+            </div>
+            <div style="display:flex;gap:12px;margin-top:12px">
+              <div class="card soft" style="flex:1;margin:0"><div class="eb" style="margin:0 0 4px">You owe</div><b style="font-size:17px">₹720</b><div class="small muted">to 4 people</div></div>
+              <div class="card peachy" style="flex:1;margin:0"><div class="eb" style="margin:0 0 4px">Owed to you</div><b style="font-size:17px">₹300</b><div class="small muted">from 2 people</div></div>
+            </div>
+            <div class="segin">
+              <button class="active" data-stab="plan">BY PLAN</button>
+              <button data-stab="people">BY PERSON</button>
+            </div>
+            <div id="stab-plan">
+              <div class="rowit" data-go="s-live">
+                <span class="avatar sm" style="background:var(--coral)">🏸</span>
+                <span class="t"><b>Sunset badminton</b><span>Today · 3 expenses</span></span><span class="val neg">owe ₹180</span>
+              </div>
+              <div class="rowit">
+                <span class="avatar sm" style="background:var(--amber);color:var(--navy)">☕</span>
+                <span class="t"><b>Clay and coffee</b><span>Sat · settled ✓</span></span><span class="val pos">owed ₹300</span>
+              </div>
+              <div class="rowit">
+                <span class="avatar sm" style="background:var(--sage);color:var(--navy)">🚲</span>
+                <span class="t"><b>Weekend cycling</b><span>Last Sunday · 4 expenses</span></span><span class="val neg">owe ₹540</span>
+              </div>
+            </div>
+            <div id="stab-people" style="display:none">
+              <div class="rowit">
+                <span class="avatar sm" style="background:var(--coral)">AK</span>
+                <span class="t"><b>Aarav Kapoor</b><span>Badminton court + chai</span></span>
+                <span class="val neg">₹180</span>
+                <button class="btn mini dark" data-toast="UPI request sent to Aarav ✓">Settle</button>
+              </div>
+              <div class="rowit">
+                <span class="avatar sm" style="background:var(--sage);color:var(--navy)">SG</span>
+                <span class="t"><b>Sara Gupta</b><span>Racquet rental share</span></span>
+                <span class="val pos">₹300</span>
+                <button class="btn mini" style="background:var(--soft);color:var(--text)" data-toast="Gentle reminder sent to Sara ✓">Remind</button>
+              </div>
+              <div class="rowit">
+                <span class="avatar sm" style="background:var(--amber);color:var(--navy)">RN</span>
+                <span class="t"><b>Rina Nair</b><span>Cycling trips · all even</span></span><span class="val pos">even ✓</span>
+              </div>
+              <div class="rowit">
+                <span class="avatar sm" style="background:var(--lilac);color:var(--tintfg)">MJ</span>
+                <span class="t"><b>Maya Jain</b><span>Pizza Friday · office crew</span></span>
+                <span class="val neg">₹120</span>
+                <button class="btn mini dark" data-toast="UPI request sent to Maya ✓">Settle</button>
+              </div>
+            </div>
+            <p class="small muted" style="text-align:center;margin-top:14px">Money never blocks a plan. Settle whenever.</p>
+          </div>
+        </section>
+
+        <section class="screen" id="s-you" data-tab="you" data-cap="<b>You.</b> Everything routes through here — vibe, stats, splits, privacy, safety.">
+          <div class="pad" style="text-align:center;margin-top:8px">
+            <span class="avatar" style="background:var(--coral);width:76px;height:76px;font-size:22px;margin:0 auto;display:grid">DG</span>
+            <h1 class="title" style="margin-top:12px">Divya Gupta</h1>
+            <p class="sub">Indiranagar · joined recently · <span class="chip" style="height:24px;background:var(--lilacbg);cursor:default">✓ Verified</span></p>
+          </div>
+          <div class="pad">
+            <div class="card darkc" style="text-align:center;padding:16px">
+              <div class="eb lt" style="margin:0 0 4px">Your vibe</div>
+              <div style="font-family:'DM Serif Display',Georgia,serif;font-size:19px">Curious, low-key, outdoorsy</div>
+            </div>
+            <div style="display:flex;gap:12px;margin-top:12px">
+              <div class="card soft" style="flex:1;text-align:center;margin:0"><div style="font-family:'DM Serif Display',serif;font-size:22px">3</div><span class="small muted">plans joined</span></div>
+              <div class="card soft" style="flex:1;text-align:center;margin:0"><div style="font-family:'DM Serif Display',serif;font-size:22px">1</div><span class="small muted">hosted</span></div>
+              <div class="card soft" style="flex:1;text-align:center;margin:0"><div style="font-family:'DM Serif Display',serif;font-size:22px">5</div><span class="small muted">new people</span></div>
+            </div>
+            <div class="rowit" data-go="s-splits"><span class="avatar sm" style="background:var(--lime);color:var(--navy)">₹</span><span class="t"><b>Splits and settlements</b><span>You owe ₹720 · owed ₹300</span></span><span class="chev">›</span></div>
+            <div class="rowit" data-go="s-privacy"><span class="avatar sm" style="background:var(--lilac);color:var(--tintfg)">◍</span><span class="t"><b>Plan preferences and visibility</b><span>Who sees what, honestly</span></span><span class="chev">›</span></div>
+            <div class="rowit" data-go="s-safety"><span class="avatar sm" style="background:var(--peach);color:var(--tintfg)">✓</span><span class="t"><b>Trust and safety</b><span>Pause, block, check-ins, reports</span></span><span class="chev">›</span></div>
+            <div class="rowit" data-toast="Help centre opens"><span class="avatar sm" style="background:var(--lilac);color:var(--tintfg)">?</span><span class="t"><b>Help and support</b><span>We reply like humans</span></span><span class="chev">›</span></div>
+          </div>
+        </section>
+
+        <section class="screen" id="s-privacy" data-cap="<b>Privacy center.</b> The visibility matrix, stated honestly. Live location off by default, per-plan only.">
+          <div class="backbar"><button class="circbtn" data-go="s-you">‹</button><span></span></div>
+          <div class="pad">
+            <h1 class="title">Who sees what.</h1>
+            <div class="legend">
+              <span><i style="display:inline-block;width:11px;height:11px;border-radius:50%;background:var(--text)"></i>&nbsp;Circle</span>
+              <span><i style="display:inline-block;width:11px;height:11px;border-radius:50%;border:1.5px solid var(--text);background:linear-gradient(90deg,var(--text) 50%,transparent 50%)"></i>&nbsp;Match</span>
+              <span><i style="display:inline-block;width:11px;height:11px;border-radius:50%;border:1.5px solid var(--text)"></i>&nbsp;Nearby</span>
+            </div>
+            <div class="matrix"><span class="lbl">Photo and full name</span><span class="mdot md full"><i></i></span><span class="mdot md part"><i></i></span><span class="mdot md nev"><i></i></span></div>
+            <div class="matrix"><span class="lbl">Your free window</span><span class="mdot md full"><i></i></span><span class="mdot md part"><i></i></span><span class="mdot md nev"><i></i></span></div>
+            <div class="matrix"><span class="lbl">Neighbourhood</span><span class="mdot md full"><i></i></span><span class="mdot md part"><i></i></span><span class="mdot md part"><i></i></span></div>
+            <div class="matrix"><span class="lbl">Past plans and recaps</span><span class="mdot md full"><i></i></span><span class="mdot md nev"><i></i></span><span class="mdot md nev"><i></i></span></div>
+            <div class="matrix"><span class="lbl">Live location</span><span class="mdot md part"><i></i></span><span class="mdot md nev"><i></i></span><span class="mdot md nev"><i></i></span></div>
+            <p class="small muted" style="text-align:right;font-size:10px;letter-spacing:.5px;margin:4px 6px 0">MATCH = FIRST NAME + OVERLAP ONLY</p>
+            <div class="card soft"><b style="font-size:14px">Live location: off by default</b><div class="small muted">Share per plan. Auto-expires when it ends.</div></div>
+            <div class="card soft"><b style="font-size:14px">Not searchable, ever</b><div class="small muted">No search exists. Strangers need mutual hi.</div></div>
+            <p class="small muted" style="text-align:center;margin-top:16px;cursor:pointer" data-toast="Export started — we'll email it">Export my data · Delete account</p>
+          </div>
+        </section>
+
+        <section class="screen" id="s-safety" data-cap="<b>Safety.</b> Silent mutual blocking, ghost mode, first-meet defaults, late-night check-ins. Boring by design.">
+          <div class="backbar"><button class="circbtn" data-go="s-you">‹</button><span></span></div>
+          <div class="pad">
+            <h1 class="title">Safety, built in.</h1>
+            <p class="sub">Boring by design. That is the point.</p>
+            <div class="card soft" style="display:flex;align-items:center">
+              <div style="flex:1"><div class="eb" style="margin:0 0 4px">Ghost mode</div><b>Pause my window</b><div class="small muted">Invisible everywhere. Your plans stay.</div></div>
+              <button class="toggle on" id="tglPause"></button>
+            </div>
+            <div class="rowit" data-toast="Blocked list: silent, mutual, instant — they never learn"><span class="t"><b>Boundaries — blocked · 2 people</b><span>Removed everywhere, both directions, silently</span></span><span class="chev">›</span></div>
+            <div class="card">
+              <div class="eb" style="margin-top:0">First-meet defaults</div>
+              <b style="font-size:14px">Public places · groups of 4+</b>
+              <div class="small muted">Warm-room proposals are filtered to match.</div>
+            </div>
+            <div class="card peachy" style="display:flex;align-items:center">
+              <div style="flex:1"><div class="eb" style="margin:0 0 4px">Check-ins · new</div><b>Late plan? We check on you.</b><div class="small muted">No reply, and we nudge the contact you chose.</div></div>
+              <button class="toggle on" id="tglCheck"></button>
+            </div>
+            <div class="rowit" data-toast="Report: pick reason → humans review → serious flags pause matches instantly"><span class="t"><b>Reports — 2 taps. Humans review.</b><span>Harassment flags suspend matches instantly</span></span><span class="chev">›</span></div>
+          </div>
+        </section>
+
+      </div>
+      <div class="tabbar" id="tabbar"></div>
+      <div class="toast" id="toast"></div>
+    </div>
+  </div>
+  <div class="caption" id="cap"></div>
+  <div class="caption" style="margin-top:-10px;font-size:12px"><span class="kbd">←</span> <span class="kbd">→</span> slides &nbsp;·&nbsp; <span class="kbd">H</span> hints &nbsp;·&nbsp; <span class="kbd">T</span> theme &nbsp;·&nbsp; <span class="kbd">R</span> restart &nbsp;·&nbsp; click anything that glows</div>
+</div>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const STORY=["s-welcome","s-otp","s-tonight","s-circlesList","s-circle","s-newCircle","s-grow","s-create","s-ripple","s-rippleLive","s-rippleIn","s-createWhen","s-window","s-overlapsList","s-overlap","s-warmroom","s-live","s-recap","s-splits","s-you","s-privacy","s-safety"];
+let cur=null;
+
+const ICONS={
+ tonight:'<svg width="20" height="20" viewBox="-10 -10 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 -8a8.5 8.5 0 1 0 6 15 9.5 9.5 0 0 1-6-15z"/></svg>',
+ circles:'<svg width="20" height="20" viewBox="-10 -10 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="-4" cy="-1" r="4.6"/><circle cx="6" cy="-2" r="4.6"/><path d="M-9 9c1.6-4.6 8.4-4.6 10 0M1 9c1.6-4.6 8.4-4.6 10 0"/></svg>',
+ create:'<svg width="16" height="16" viewBox="-8 -8 16 16" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M-5 0h10M0 -5v10"/></svg>',
+ overlaps:'<svg width="20" height="20" viewBox="-10 -10 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="-3.5" cy="0" r="7"/><circle cx="3.5" cy="0" r="7"/></svg>',
+ you:'<svg width="20" height="20" viewBox="-10 -10 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cy="-3" r="5.4"/><path d="M-8.5 9c2-6.5 15-6.5 17 0"/></svg>'};
+
+const TABTARGET={tonight:"s-tonight",circles:"s-circlesList",create:"s-create",overlaps:"s-overlapsList",you:"s-you"};
+const TABLABEL={tonight:"TODAY",circles:"CIRCLES",create:"CREATE",overlaps:"OVERLAPS",you:"YOU"};
+const tabbar=$("#tabbar");
+["tonight","circles","create","overlaps","you"].forEach(t=>{
+ const b=document.createElement("button");b.className="tab";b.dataset.tabnav=t;b.dataset.go=TABTARGET[t];
+ b.innerHTML=`<span class="ic"${t==="create"?` style="background:var(--navy)"`:``}>${ICONS[t]}</span>${TABLABEL[t]}`;
+ b.addEventListener("click",()=>go(b.dataset.go));tabbar.appendChild(b);
+});
+
+function go(id){
+ if(!id)return;
+ const scr=document.getElementById(id);if(!scr)return;
+ if(cur&&cur!==id)window._prev=cur;
+ $$(".screen").forEach(s=>s.classList.remove("active"));
+ scr.classList.add("active");cur=id;
+ scr.scrollTop=0;
+ $("#cap").innerHTML=scr.dataset.cap||"";
+ const h=scr.querySelector("h1");
+ $("#scrName").textContent=h?h.textContent:id.replace("s-","");
+ $("#scrSel").value=id;
+ if(id==="s-createWhen")renderAud();
+ const t=scr.dataset.tab;tabbar.classList.toggle("show",!!t);
+ $$(".tab").forEach(b=>b.classList.toggle("active",b.dataset.tabnav===t));
+}
+function next(d=1){let i=STORY.indexOf(cur);if(i<0)i=0;i=(i+d+STORY.length)%STORY.length;go(STORY[i]);}
+$("#nextBtn").onclick=()=>next(1);$("#prevBtn").onclick=()=>next(-1);
+
+const sel=$("#scrSel");
+STORY.forEach(id=>{const o=document.createElement("option");o.value=id;o.textContent=document.getElementById(id).querySelector("h1")?.textContent||id;sel.appendChild(o);});
+sel.onchange=e=>go(e.target.value);
+$("#restartBtn").onclick=()=>location.reload();
+$("#hintsBtn").onclick=e=>{document.body.classList.toggle("hints");e.currentTarget.classList.toggle("on");};
+addEventListener("keydown",e=>{
+ if(e.target.tagName==="INPUT"||e.target.isContentEditable)return;
+ const k=e.key.toLowerCase();
+ if(e.key==="ArrowRight")next(1);else if(e.key==="ArrowLeft")next(-1);
+ else if(k==="h")$("#hintsBtn").click();
+ else if(k==="t")$("#themeBtn").click();
+ else if(k==="r")location.reload();
+});
+
+let toastT;
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove("show"),2000);}
+
+document.addEventListener("click",e=>{
+ const g=e.target.closest("[data-go]"),tt=e.target.closest("[data-toast]");
+ if(g&&tt){toast(tt.dataset.toast);setTimeout(()=>go(g.dataset.go),650);return;}
+ if(g){go(g.dataset.go);return;}
+ if(tt){toast(tt.dataset.toast);}
+ const tg=e.target.closest(".toggle");
+ if(tg){
+   tg.classList.toggle("on");
+   if(tg.dataset.circle){syncAud();updateCreateCta();}
+   if(tg.dataset.rcircle){syncRip();updateRippleCta();}
+   if(tg.id==="tglWin"){updateCreateCta();}
+   return;
+ }
+ const pk=e.target.closest(".pick");
+ if(pk){
+   if(pk.hasAttribute("data-radio"))pk.parentElement.querySelectorAll(".pick").forEach(p=>p.classList.remove("on"));
+   pk.classList.toggle("on");
+   if(pk.dataset.person){pk.textContent=pk.dataset.person+(pk.classList.contains("on")?" ✓":"");syncAud();updateCreateCta();}
+   if(pk.dataset.rperson){pk.textContent=pk.dataset.rperson+(pk.classList.contains("on")?" ✓":"");syncRip();updateRippleCta();}
+   if(pk.dataset.rslot!==undefined&&pk.closest("#s-ripple")){pk.textContent=pk.dataset.rslot===""?pk.textContent:pk.dataset.rslot.replace(/ ✓$/,"")+(pk.classList.contains("on")?" ✓":"");}
+ }
+});
+
+const aud={circles:new Set(["Flat 402"]),people:new Set(["Aarav"]),win:false};
+function syncAud(){
+ $$('#s-create [data-circle]').forEach(t=>{t.classList.contains("on")?aud.circles.add(t.dataset.circle):aud.circles.delete(t.dataset.circle);});
+ $$('#s-create [data-person]').forEach(p=>{p.classList.contains("on")?aud.people.add(p.dataset.person):aud.people.delete(p.dataset.person);});
+ aud.win=$("#tglWin").classList.contains("on");
+}
+function updateCreateCta(){
+ syncAud();const cta=$("#createCta");
+ if(aud.win){cta.textContent="Open a window instead";cta.dataset.go="s-window";}
+ else if(aud.circles.size||aud.people.size){cta.textContent="Next: when and where";cta.dataset.go="s-createWhen";}
+ else{cta.textContent="Next — share as invite link";cta.dataset.go="s-createWhen";}
+}
+function renderAud(){
+ syncAud();
+ const parts=[];
+ if(aud.circles.size)parts.push([...aud.circles].join(" · "));
+ if(aud.people.size)parts.push([...aud.people].join(", ")+" directly");
+ const t=$("#audTitle"),s=$("#audSub");
+ if(parts.length){t.textContent=parts.join("  +  ");s.textContent="They just RSVP — no approvals needed. Nobody outside can see it.";}
+ else{t.textContent="Invite link only";s.textContent="No circle, no problem — anyone with the link asks to join, you approve.";}
+}
+updateCreateCta();
+
+const rip={circles:new Set(["Flat 402"]),people:new Set(["Aarav"])};
+const RCOUNT={"Flat 402":4,"Office crew":11};
+function syncRip(){
+ $$('#s-ripple [data-rcircle]').forEach(t=>{t.classList.contains("on")?rip.circles.add(t.dataset.rcircle):rip.circles.delete(t.dataset.rcircle);});
+ $$('#s-ripple [data-rperson]').forEach(p=>{p.classList.contains("on")?rip.people.add(p.dataset.rperson):rip.people.delete(p.dataset.rperson);});
+}
+function updateRippleCta(){
+ syncRip();let n=0;
+ rip.circles.forEach(c=>n+=RCOUNT[c]||0);
+ n+=rip.people.size;
+ const b=$("#sendRipple");
+ if(n===0){b.textContent="Pick people first";b.disabled=true;}
+ else{b.textContent="Send ripple · "+n+" people";b.disabled=false;}
+}
+updateRippleCta();
+$("#rippleBack").onclick=()=>go(window._prev&&window._prev!=="s-ripple"?window._prev:"s-create");
+$("#sendRipple").onclick=()=>{toast("Ripple sent — answers roll in quietly");setTimeout(()=>go("s-rippleLive"),900);};
+$("#convertRipple").onclick=()=>{
+ aud.circles=new Set(["Flat 402"]);aud.people=new Set(["Sara","Rina","Maya"]);aud.win=false;
+ $("#tglWin").classList.remove("on");
+ updateCreateCta();
+ $("#whenLabel").textContent="Saturday · 5:00–7:00 PM";$("#whenHint").textContent="Best slot from your ripple";
+ toast("Plan drafted with 4 people ✓");setTimeout(()=>go("s-createWhen"),650);
+};
+$$("#s-rippleLive [data-toast]").forEach(()=>{});
+
+$$("[data-rin]").forEach(b=>b.onclick=()=>{
+ const k=b.dataset.rin;
+ $("#rinAsk").style.display="none";$("#rinDone").style.display="block";
+ if(k==="in"){$("#rinTitle").textContent="You're in ✓";$("#rinSub").textContent="Sara now sees 3 in.";toast("Answered — Sara sees it in her digest");}
+ else if(k==="later"){$("#rinTitle").textContent="Counter-offer sent";$("#rinSub").textContent="Sara sees: Sunday evening works better?";toast("Counter-offer sent — still just a tap for Sara");}
+ else{$("#rinTitle").textContent="Passed quietly";$("#rinSub").textContent="Sara sees: can't this time. Zero guilt.";toast("Passed — no notification, no guilt");}
+});
+$("#rinQuipSend").onclick=()=>{const q=$("#rinQuip");if(!q.value.trim())return toast("Type a quip first");q.value="";toast("Quip sent with your answer");};
+$("#rinQuip").addEventListener("keydown",e=>{if(e.key==="Enter")$("#rinQuipSend").click();});
+
+const otpBoxes=$$(".otp"),btnFill=$("#btnOtpFill"),btnGo=$("#btnOtpGo");
+btnFill.onclick=()=>{btnFill.disabled=true;"482519".split("").forEach((d,i)=>setTimeout(()=>{otpBoxes[i].textContent=d;otpBoxes[i].classList.add("fill");},i*160));
+ setTimeout(()=>{btnGo.disabled=false;toast("Code filled — verifying…");},1200);};
+btnGo.onclick=()=>{toast("Welcome in, Divya");go("s-tonight");};
+
+$("#openWinBtn").onclick=()=>{toast("Window open until 8 PM — listening…");setTimeout(()=>{toast("2 overlaps found near you");go("s-overlapsList");},1100);};
+$("#passQuiet").onclick=e=>{e.currentTarget.innerHTML="<u>Passed. Nothing was sent.</u>";e.currentTarget.style.opacity=.6;$("#sayHi").disabled=true;};
+$("#imHere").onclick=e=>{$("#hereN").textContent=4;$("#routeN").textContent=1;e.currentTarget.textContent="You're here ✓";e.currentTarget.disabled=true;toast("Marked safe and here — arrivals visible to this plan only");};
+$("#pollYes").onclick=e=>{if(!e.currentTarget.classList.contains("on")){e.currentTarget.classList.add("on");e.currentTarget.textContent="Yes · 5 ✓";toast("Voted — poll updates for everyone");}};
+$("#copyLink").onclick=e=>{const url="https://outthere.app/c/flat402";
+ (navigator.clipboard?navigator.clipboard.writeText(url):Promise.reject()).then(()=>toast("Link copied ✓")).catch(()=>toast(url));
+ e.currentTarget.textContent="Copied ✓";setTimeout(()=>e.currentTarget.textContent="Copy link",1800);};
+
+$$(".wpass").forEach(b=>b.onclick=e=>{const c=e.target.closest(".wcard");c.classList.add("gone");toast("Passed quietly — they'll never know");});
+
+const msgInput=$("#msgInput"),msgList=$("#msgList");
+function sendMsg(){const v=msgInput.value.trim();if(!v)return;
+ const r=document.createElement("div");r.className="msgrow";const b=document.createElement("div");b.className="bub me";b.textContent=v;r.appendChild(b);
+ msgList.appendChild(r);msgInput.value="";msgList.scrollIntoView({block:"end"});}
+$("#msgSend").onclick=sendMsg;
+msgInput.addEventListener("keydown",e=>{if(e.key==="Enter")sendMsg();});
+
+let wmSecs=21*3600+4*60+33,ripSecs=46*3600+12*60;
+setInterval(()=>{
+ wmSecs=Math.max(0,wmSecs-1);
+ const wc=$("#wmClock");if(wc){wc.textContent=Math.floor(wmSecs/3600)+":"+String(Math.floor(wmSecs%3600/60)).padStart(2,"0");$("#wmBar").style.width=(wmSecs/(24*3600)*100)+"%";}
+ ripSecs=Math.max(0,ripSecs-1);
+ const rc=$("#ripClock");if(rc){rc.textContent=Math.floor(ripSecs/3600)+":"+String(Math.floor(ripSecs%3600/60)).padStart(2,"0");$("#ripBar").style.width=(ripSecs/(48*3600)*100)+"%";}
+},1000);
+
+$$("#s-live .seg button[data-pane]").forEach(b=>b.addEventListener("click",()=>{
+ $$("#s-live .seg button").forEach(x=>x.classList.remove("active"));b.classList.add("active");
+ $$("#s-live .pane").forEach(p=>p.classList.toggle("active",p.dataset.for===b.dataset.pane));}));
+
+$$("#s-splits .segin button").forEach(b=>b.addEventListener("click",()=>{
+ $$("#s-splits .segin button").forEach(x=>x.classList.remove("active"));b.classList.add("active");
+ $("#stab-plan").style.display=b.dataset.stab==="plan"?"block":"none";
+ $("#stab-people").style.display=b.dataset.stab==="people"?"block":"none";}));
+
+$("#tglPause").addEventListener("click",()=>setTimeout(()=>toast($("#tglPause").classList.contains("on")?"Paused — invisible everywhere. Plans stay.":"Visible again."),0));
+
+const mm=matchMedia("(prefers-color-scheme: dark)");
+let pref=localStorage.getItem("ot-theme")||"auto";
+function applyTheme(){document.documentElement.classList.toggle("dark",pref==="dark"||(pref==="auto"&&mm.matches));
+ $("#themeBtn").textContent="Theme: "+pref[0].toUpperCase()+pref.slice(1);}
+$("#themeBtn").onclick=()=>{pref=pref==="auto"?"light":pref==="light"?"dark":"auto";localStorage.setItem("ot-theme",pref);applyTheme();};
+mm.addEventListener?.("change",()=>{if(pref==="auto")applyTheme();});
+applyTheme();
+
+function fit(){const s=Math.min(1,(innerHeight-190)/844,(innerWidth-36)/392);
+ const fb=$("#fitbox"),ph=$("#phone");ph.style.transform=`scale(${s})`;fb.style.width=390*s+"px";fb.style.height=844*s+"px";}
+addEventListener("resize",fit);fit();
+go("s-welcome");
+</script>
+</body>
+</html>

@@ -1,0 +1,999 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2360" height="4100" viewBox="0 0 2360 4100">
+  <defs>
+    <linearGradient id="canvas" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F7F4ED"/><stop offset=".5" stop-color="#FAEFE2"/><stop offset="1" stop-color="#E7F3ED"/></linearGradient>
+    <linearGradient id="inkG" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2B2F4C"/><stop offset="1" stop-color="#181B27"/></linearGradient>
+    <linearGradient id="duo" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FF9770"/><stop offset="1" stop-color="#8B8CF0"/></linearGradient>
+    <linearGradient id="duoR" x1="1" y1="0" x2="0" y2="0"><stop stop-color="#FF9770"/><stop offset="1" stop-color="#8B8CF0"/></linearGradient>
+    <linearGradient id="mintG" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#E2F6EE"/><stop offset="1" stop-color="#CBEADD"/></linearGradient>
+    <linearGradient id="sunsetG" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFC24B"/><stop offset="1" stop-color="#FF6B4A"/></linearGradient>
+    <linearGradient id="skyG" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#BFD9FF"/><stop offset="1" stop-color="#8B8CF0"/></linearGradient>
+    <filter id="ph" x="-20%" y="-15%" width="140%" height="150%"><feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#1B1E28" flood-opacity=".12"/></filter>
+    <style>
+      text{font-family:'DM Sans','Inter',Arial,sans-serif;fill:#1B1E28}
+      .disp{font-size:30px;font-weight:800;letter-spacing:-1px}
+      .big{font-size:24px;font-weight:800;letter-spacing:-.6px}
+      .sec{font-size:26px;font-weight:800;letter-spacing:-.8px}
+      .eyebrow{font-size:10px;font-weight:800;letter-spacing:1.4px}
+      .meta{font-size:11px;font-weight:700}
+      .small{font-size:12px}
+      .body{font-size:14px}
+      .label{font-size:14px;font-weight:700}
+      .muted{fill:#71768A}
+      .light{fill:#FFFFFF}
+      .center{text-anchor:middle}
+      .right{text-anchor:end}
+      .line{stroke:#EAE5DA;stroke-width:1}
+      .icon{fill:none;stroke:#1B1E28;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+      .iconm{fill:none;stroke:#8A8FA3;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+      .iconw{fill:none;stroke:#FFFFFF;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    </style>
+    <rect id="hi" x="155" y="833" width="80" height="5" rx="2.5" fill="#1B1E28" opacity=".14"/>
+
+    <!-- status bar -->
+    <g id="sb">
+      <text x="30" y="40" class="meta">9:41</text>
+      <path d="M318 37h3v-5h-3zm6 0h3v-8h-3zm6 0h3v-11h-3z" fill="#1B1E28"/>
+      <path d="M342 32c5-5 11-5 16 0M346 35c3-3 7-3 10 0" class="icon"/>
+      <rect x="364" y="27" width="16" height="10" rx="3" fill="#1B1E28"/><rect x="381" y="30" width="2" height="4" rx="1" fill="#1B1E28"/>
+    </g>
+
+    <!-- bottom navs -->
+    <g id="navT">
+      <rect width="390" height="74" fill="#FDFCF8"/><line x1="0" y1="0" x2="390" y2="0" class="line"/>
+      <g transform="translate(39 22)"><circle r="17" fill="#1B1E28"/><path d="M2 -8a8.5 8.5 0 1 0 6 15 9.5 9.5 0 0 1-6-15z" class="iconw"/></g>
+      <text x="39" y="60" class="eyebrow center">TONIGHT</text>
+      <g transform="translate(117 22)"><circle cx="-4" cy="0" r="5" class="iconm"/><circle cx="8" cy="-2" r="5" class="iconm"/><path d="M-8 10c2-5 8-5 10 0M4 10c2-5 8-5 10 0" class="iconm"/></g>
+      <text x="117" y="60" class="eyebrow muted center">CIRCLES</text>
+      <g transform="translate(195 22)"><circle r="15" fill="#1B1E28"/><path d="M-6 0h12M0-6v12" stroke="#fff" stroke-width="2" stroke-linecap="round"/></g>
+      <text x="195" y="60" class="eyebrow muted center">NEW</text>
+      <g transform="translate(273 22)"><path d="M-9 4v-8h5l2 3h4l2-3h5v8a3 3 0 0 1-3 3h-12a3 3 0 0 1-3-3z" class="iconm"/><circle cx="9" cy="-9" r="5.5" fill="#FF6B4A"/><text x="9" y="-6" class="center light" style="font-size:7px;font-weight:800">2</text></g>
+      <text x="273" y="60" class="eyebrow muted center">INBOX</text>
+      <g transform="translate(351 22)"><circle cy="-4" r="5" class="iconm"/><path d="M-9 10c2.5-6 15.5-6 18 0" class="iconm"/></g>
+      <text x="351" y="60" class="eyebrow muted center">YOU</text>
+      <use href="#hi" xlink:href="#hi"/>
+    </g>
+    <g id="navC">
+      <rect width="390" height="74" fill="#FDFCF8"/><line x1="0" y1="0" x2="390" y2="0" class="line"/>
+      <g transform="translate(39 22)"><path d="M2 -8a8.5 8.5 0 1 0 6 15 9.5 9.5 0 0 1-6-15z" class="iconm"/></g>
+      <text x="39" y="60" class="eyebrow muted center">TONIGHT</text>
+      <g transform="translate(117 22)"><circle r="17" fill="#1B1E28"/><g class="iconw"><circle cx="-4" cy="0" r="5"/><circle cx="8" cy="-2" r="5"/><path d="M-8 10c2-5 8-5 10 0M4 10c2-5 8-5 10 0"/></g></g>
+      <text x="117" y="60" class="eyebrow center">CIRCLES</text>
+      <g transform="translate(195 22)"><circle r="15" fill="#1B1E28"/><path d="M-6 0h12M0-6v12" stroke="#fff" stroke-width="2" stroke-linecap="round"/></g>
+      <text x="195" y="60" class="eyebrow muted center">NEW</text>
+      <g transform="translate(273 22)"><path d="M-9 4v-8h5l2 3h4l2-3h5v8a3 3 0 0 1-3 3h-12a3 3 0 0 1-3-3z" class="iconm"/><circle cx="9" cy="-9" r="5.5" fill="#FF6B4A"/><text x="9" y="-6" class="center light" style="font-size:7px;font-weight:800">2</text></g>
+      <text x="273" y="60" class="eyebrow muted center">INBOX</text>
+      <g transform="translate(351 22)"><circle cy="-4" r="5" class="iconm"/><path d="M-9 10c2.5-6 15.5-6 18 0" class="iconm"/></g>
+      <text x="351" y="60" class="eyebrow muted center">YOU</text>
+      <use href="#hi" xlink:href="#hi"/>
+    </g>
+    <g id="navP">
+      <rect width="390" height="74" fill="#FDFCF8"/><line x1="0" y1="0" x2="390" y2="0" class="line"/>
+      <g transform="translate(39 22)"><path d="M2 -8a8.5 8.5 0 1 0 6 15 9.5 9.5 0 0 1-6-15z" class="iconm"/></g>
+      <text x="39" y="60" class="eyebrow muted center">TONIGHT</text>
+      <g transform="translate(117 22)"><circle cx="-4" cy="0" r="5" class="iconm"/><circle cx="8" cy="-2" r="5" class="iconm"/><path d="M-8 10c2-5 8-5 10 0M4 10c2-5 8-5 10 0" class="iconm"/></g>
+      <text x="117" y="60" class="eyebrow muted center">CIRCLES</text>
+      <g transform="translate(195 22)"><circle r="19" fill="none" stroke="#1B1E28" stroke-opacity=".3" stroke-width="1.5"/><circle r="15" fill="#1B1E28"/><path d="M-6 0h12M0-6v12" stroke="#fff" stroke-width="2" stroke-linecap="round"/></g>
+      <text x="195" y="60" class="eyebrow center">NEW</text>
+      <g transform="translate(273 22)"><path d="M-9 4v-8h5l2 3h4l2-3h5v8a3 3 0 0 1-3 3h-12a3 3 0 0 1-3-3z" class="iconm"/><circle cx="9" cy="-9" r="5.5" fill="#FF6B4A"/><text x="9" y="-6" class="center light" style="font-size:7px;font-weight:800">2</text></g>
+      <text x="273" y="60" class="eyebrow muted center">INBOX</text>
+      <g transform="translate(351 22)"><circle cy="-4" r="5" class="iconm"/><path d="M-9 10c2.5-6 15.5-6 18 0" class="iconm"/></g>
+      <text x="351" y="60" class="eyebrow muted center">YOU</text>
+      <use href="#hi" xlink:href="#hi"/>
+    </g>
+    <g id="navI">
+      <rect width="390" height="74" fill="#FDFCF8"/><line x1="0" y1="0" x2="390" y2="0" class="line"/>
+      <g transform="translate(39 22)"><path d="M2 -8a8.5 8.5 0 1 0 6 15 9.5 9.5 0 0 1-6-15z" class="iconm"/></g>
+      <text x="39" y="60" class="eyebrow muted center">TONIGHT</text>
+      <g transform="translate(117 22)"><circle cx="-4" cy="0" r="5" class="iconm"/><circle cx="8" cy="-2" r="5" class="iconm"/><path d="M-8 10c2-5 8-5 10 0M4 10c2-5 8-5 10 0" class="iconm"/></g>
+      <text x="117" y="60" class="eyebrow muted center">CIRCLES</text>
+      <g transform="translate(195 22)"><circle r="15" fill="#1B1E28"/><path d="M-6 0h12M0-6v12" stroke="#fff" stroke-width="2" stroke-linecap="round"/></g>
+      <text x="195" y="60" class="eyebrow muted center">NEW</text>
+      <g transform="translate(273 22)"><circle r="17" fill="#1B1E28"/><path d="M-9 4v-8h5l2 3h4l2-3h5v8a3 3 0 0 1-3 3h-12a3 3 0 0 1-3-3z" class="iconw"/><circle cx="9" cy="-9" r="5.5" fill="#FF6B4A"/><text x="9" y="-6" class="center light" style="font-size:7px;font-weight:800">2</text></g>
+      <text x="273" y="60" class="eyebrow center">INBOX</text>
+      <g transform="translate(351 22)"><circle cy="-4" r="5" class="iconm"/><path d="M-9 10c2.5-6 15.5-6 18 0" class="iconm"/></g>
+      <text x="351" y="60" class="eyebrow muted center">YOU</text>
+      <use href="#hi" xlink:href="#hi"/>
+    </g>
+    <g id="navY">
+      <rect width="390" height="74" fill="#FDFCF8"/><line x1="0" y1="0" x2="390" y2="0" class="line"/>
+      <g transform="translate(39 22)"><path d="M2 -8a8.5 8.5 0 1 0 6 15 9.5 9.5 0 0 1-6-15z" class="iconm"/></g>
+      <text x="39" y="60" class="eyebrow muted center">TONIGHT</text>
+      <g transform="translate(117 22)"><circle cx="-4" cy="0" r="5" class="iconm"/><circle cx="8" cy="-2" r="5" class="iconm"/><path d="M-8 10c2-5 8-5 10 0M4 10c2-5 8-5 10 0" class="iconm"/></g>
+      <text x="117" y="60" class="eyebrow muted center">CIRCLES</text>
+      <g transform="translate(195 22)"><circle r="15" fill="#1B1E28"/><path d="M-6 0h12M0-6v12" stroke="#fff" stroke-width="2" stroke-linecap="round"/></g>
+      <text x="195" y="60" class="eyebrow muted center">NEW</text>
+      <g transform="translate(273 22)"><path d="M-9 4v-8h5l2 3h4l2-3h5v8a3 3 0 0 1-3 3h-12a3 3 0 0 1-3-3z" class="iconm"/><circle cx="9" cy="-9" r="5.5" fill="#FF6B4A"/><text x="9" y="-6" class="center light" style="font-size:7px;font-weight:800">2</text></g>
+      <text x="273" y="60" class="eyebrow muted center">INBOX</text>
+      <g transform="translate(351 22)"><circle r="17" fill="#1B1E28"/><circle cy="-4" r="5" class="iconw"/><path d="M-9 10c2.5-6 15.5-6 18 0" class="iconw"/></g>
+      <text x="351" y="60" class="eyebrow center">YOU</text>
+      <use href="#hi" xlink:href="#hi"/>
+    </g>
+
+    <!-- plan-room tabs -->
+    <g id="tabL">
+      <rect width="390" height="74" fill="#FDFCF8"/><line x1="0" y1="0" x2="390" y2="0" class="line"/>
+      <text x="48.75" y="36" class="meta center">LIVE</text><rect x="24.75" y="46" width="48" height="3" rx="1.5" fill="#1B1E28"/>
+      <text x="146.25" y="36" class="meta muted center">CHAT</text>
+      <text x="243.75" y="36" class="meta muted center">ALBUM</text>
+      <text x="341.25" y="36" class="meta muted center">MONEY</text>
+      <use href="#hi" xlink:href="#hi"/>
+    </g>
+    <g id="tabC">
+      <rect width="390" height="74" fill="#FDFCF8"/><line x1="0" y1="0" x2="390" y2="0" class="line"/>
+      <text x="48.75" y="36" class="meta muted center">LIVE</text>
+      <text x="146.25" y="36" class="meta center">CHAT</text><rect x="122.25" y="46" width="48" height="3" rx="1.5" fill="#1B1E28"/>
+      <text x="243.75" y="36" class="meta muted center">ALBUM</text>
+      <text x="341.25" y="36" class="meta muted center">MONEY</text>
+      <use href="#hi" xlink:href="#hi"/>
+    </g>
+    <g id="tabA">
+      <rect width="390" height="74" fill="#FDFCF8"/><line x1="0" y1="0" x2="390" y2="0" class="line"/>
+      <text x="48.75" y="36" class="meta muted center">LIVE</text>
+      <text x="146.25" y="36" class="meta muted center">CHAT</text>
+      <text x="243.75" y="36" class="meta center">ALBUM</text><rect x="219.75" y="46" width="48" height="3" rx="1.5" fill="#1B1E28"/>
+      <text x="341.25" y="36" class="meta muted center">MONEY</text>
+      <use href="#hi" xlink:href="#hi"/>
+    </g>
+    <g id="tabM">
+      <rect width="390" height="74" fill="#FDFCF8"/><line x1="0" y1="0" x2="390" y2="0" class="line"/>
+      <text x="48.75" y="36" class="meta muted center">LIVE</text>
+      <text x="146.25" y="36" class="meta muted center">CHAT</text>
+      <text x="243.75" y="36" class="meta muted center">ALBUM</text>
+      <text x="341.25" y="36" class="meta center">MONEY</text><rect x="317.25" y="46" width="48" height="3" rx="1.5" fill="#1B1E28"/>
+      <use href="#hi" xlink:href="#hi"/>
+    </g>
+  </defs>
+
+  <rect width="2360" height="4100" fill="url(#canvas)"/>
+  <text x="64" y="52" class="eyebrow">OUTTHERE / V3 — ONE PLAN ROOM</text>
+  <text x="64" y="88" class="disp">Plans that end settled.</text>
+  <text x="2296" y="70" class="small muted right">Tonight · Circles · ＋ · Inbox · You — albums auto-sort into your Scrapbook</text>
+
+  <!-- ============ ROW 1 / THE EVERYDAY LOOP ============ -->
+
+  <!-- 01 TONIGHT -->
+  <g transform="translate(64 125)" filter="url(#ph)">
+    <rect width="390" height="844" rx="44" fill="#FDFCF8" stroke="#ECE7DC"/>
+    <use href="#sb" xlink:href="#sb"/>
+    <text x="28" y="86" class="small muted">SAT · AUG 22 · INDIRANAGAR</text>
+    <circle cx="352" cy="80" r="18" fill="#ECECFC"/><text x="352" y="85" class="meta center">DG</text>
+    <text x="28" y="132" class="disp">Tonight looks good.</text>
+    <text x="28" y="160" class="body muted">2 plans ahead · you're Open 5–8 PM.</text>
+    <g transform="translate(24 176)">
+      <rect width="342" height="64" rx="20" fill="#FFFFFF" stroke="#EAE5DA"/>
+      <text x="20" y="26" class="eyebrow muted">WAITING ON YOU</text>
+      <text x="20" y="50" class="label">Brunch RSVP · Sara's ripple</text>
+      <circle cx="298" cy="32" r="11" fill="#FF6B4A"/><text x="298" y="36" class="meta center light" style="font-size:9px">2</text>
+      <text x="330" y="38" class="big right muted">›</text>
+    </g>
+    <g transform="translate(24 256)">
+      <rect width="342" height="176" rx="26" fill="url(#inkG)"/>
+      <text x="20" y="32" class="eyebrow light" opacity=".72">LIVE · 6:30 PM · TOIT, INDIRANAGAR</text>
+      <text x="20" y="66" class="big light">Office dinner</text>
+      <circle cx="40" cy="96" r="15" fill="#FF6B4A"/><text x="40" y="100" class="meta center light" style="font-size:9px">AK</text>
+      <circle cx="68" cy="96" r="15" fill="#8B8CF0"/><text x="68" y="100" class="meta center light" style="font-size:9px">SG</text>
+      <circle cx="96" cy="96" r="15" fill="#FFC24B"/><text x="96" y="100" class="meta center" style="font-size:9px">RN</text>
+      <text x="122" y="101" class="small light" opacity=".78">3 here · 2 en route</text>
+      <rect x="20" y="124" width="110" height="36" rx="14" fill="#FF6B4A"/><text x="75" y="147" class="meta light center">I'm here</text>
+      <rect x="138" y="124" width="118" height="36" rx="14" fill="none" stroke="#FFFFFF" stroke-opacity=".35"/><text x="197" y="147" class="meta light center">Directions</text>
+    </g>
+    <g transform="translate(24 448)">
+      <rect width="342" height="76" rx="20" fill="#ECECFC"/>
+      <circle cx="34" cy="38" r="16" fill="#DDD9FA"/><path d="M37 31a8.5 8.5 0 1 0 6 15 9.5 9.5 0 0 1-6-15z" class="icon"/>
+      <text x="62" y="33" class="label">You're Open · Sat 5–8 PM</text>
+      <text x="62" y="53" class="small muted">2 overlaps waiting · tap to peek</text>
+      <text x="334" y="44" class="big right muted">›</text>
+    </g>
+    <text x="24" y="556" class="eyebrow muted">TOMORROW · SUN</text>
+    <g transform="translate(24 568)">
+      <rect width="342" height="72" rx="20" fill="#FFFFFF" stroke="#EAE5DA"/>
+      <circle cx="38" cy="36" r="22" fill="#ECECFC"/><text x="38" y="32" class="eyebrow center">SUN</text><text x="38" y="46" class="meta center">23</text>
+      <text x="76" y="31" class="label">Round 2: sunset badminton</text>
+      <text x="76" y="51" class="small muted">5:00 PM · Cubbon Park · 6 going</text>
+      <text x="330" y="42" class="big right muted">›</text>
+    </g>
+    <g transform="translate(24 652)">
+      <rect width="342" height="72" rx="20" fill="#FFFFFF" stroke="#EAE5DA"/>
+      <circle cx="38" cy="36" r="22" fill="#FFE9E2"/><text x="38" y="32" class="eyebrow center">MON</text><text x="38" y="46" class="meta center">24</text>
+      <text x="76" y="31" class="label">Clay and coffee</text>
+      <text x="76" y="51" class="small muted">11:00 AM · Sara is hosting · 3 going</text>
+      <text x="330" y="42" class="big right muted">›</text>
+    </g>
+    <text x="24" y="750" class="small muted">Everything else lands in your 9 PM digest.</text>
+    <use href="#navT" xlink:href="#navT"/>
+  </g>
+
+  <!-- 02 CIRCLES -->
+  <g transform="translate(518 125)" filter="url(#ph)">
+    <rect width="390" height="844" rx="44" fill="#FDFCF8" stroke="#ECE7DC"/>
+    <use href="#sb" xlink:href="#sb"/>
+    <g transform="translate(20 63)"><circle cx="18" cy="18" r="18" fill="#F1EEE6"/><text x="18" y="24" class="sec center">‹</text></g>
+    <g transform="translate(334 63)"><circle cx="18" cy="18" r="18" fill="#F1EEE6"/><text x="18" y="24" class="label center">•••</text></g>
+    <text x="24" y="144" class="disp">Flat 402</text>
+    <text x="24" y="172" class="body muted">4 people · your building · since March</text>
+    <g transform="translate(24 190)">
+      <circle cx="24" cy="24" r="24" fill="#FF6B4A"/><text x="24" y="29" class="meta light center">DG</text><circle cx="43" cy="40" r="6" fill="#2FBF9B" stroke="#FDFCF8" stroke-width="2.5"/>
+      <circle cx="96" cy="24" r="24" fill="#8B8CF0"/><text x="96" y="29" class="meta light center">SG</text><circle cx="115" cy="40" r="6" fill="#2FBF9B" stroke="#FDFCF8" stroke-width="2.5"/>
+      <circle cx="168" cy="24" r="24" fill="#FFC24B"/><text x="168" y="29" class="meta center">RN</text>
+      <circle cx="240" cy="24" r="24" fill="#FFE9E2"/><text x="240" y="29" class="meta center">MJ</text>
+      <circle cx="312" cy="24" r="23" fill="none" stroke="#C9C4B8" stroke-width="1.6" stroke-dasharray="4 4"/><path d="M312 17v14M305 24h14" class="icon"/><text x="312" y="66" class="small muted center">add</text>
+    </g>
+    <text x="24" y="320" class="eyebrow muted">NEXT UP</text>
+    <g transform="translate(24 332)">
+      <rect width="342" height="150" rx="24" fill="#FFFFFF" stroke="#EAE5DA"/>
+      <text x="20" y="30" class="eyebrow muted">SAT · 11:00 AM · THIRD WAVE</text>
+      <text x="20" y="62" class="big">Brunch at Third Wave</text>
+      <rect x="20" y="78" width="70" height="26" rx="13" fill="#DFF4EC"/><text x="55" y="95" class="meta center">3 YES</text>
+      <rect x="98" y="78" width="84" height="26" rx="13" fill="#FFF3D9"/><text x="140" y="95" class="meta center">1 MAYBE</text>
+      <rect x="20" y="114" width="220" height="30" rx="15" fill="#F1EEE6"/>
+      <rect x="20" y="114" width="74" height="30" rx="15" fill="#1B1E28"/><text x="57" y="133" class="meta light center">IN ✓</text>
+      <text x="155" y="133" class="meta center">Maybe</text>
+      <text x="222" y="133" class="meta center">Out</text>
+    </g>
+    <text x="24" y="530" class="eyebrow muted">CIRCLE BOARD · OPEN LOOPS</text>
+    <g transform="translate(24 546)">
+      <rect width="342" height="68" rx="18" fill="#ECECFC"/>
+      <circle cx="32" cy="34" r="15" fill="#DDD9FA"/><path d="M32 25a9 9 0 0 1 0 18M32 30a4.5 4.5 0 0 1 0 9" class="icon"/>
+      <text x="58" y="29" class="label">Who's in Sunday? · ripple</text>
+      <text x="58" y="49" class="small muted">3 in · 1 maybe · ends in 19h</text>
+      <text x="330" y="40" class="big right muted">›</text>
+    </g>
+    <g transform="translate(24 626)">
+      <rect width="342" height="68" rx="18" fill="#FFFFFF" stroke="#EAE5DA"/>
+      <circle cx="32" cy="34" r="15" fill="#FFF3D9"/><path d="M26 30h12M26 38h8" class="icon"/>
+      <text x="58" y="29" class="label">Filter coffee after?</text>
+      <text x="58" y="49" class="small muted">Poll · 4 yes · closes at start</text>
+      <text x="330" y="40" class="big right muted">›</text>
+    </g>
+    <g transform="translate(24 706)">
+      <rect width="342" height="50" rx="16" fill="#FFFFFF" stroke="#EAE5DA"/>
+      <circle cx="29" cy="25" r="14" fill="#ECECFC"/><path d="M22 25h14M29 18v14" class="icon"/>
+      <text x="54" y="30" class="label">Invite link · settings</text>
+      <text x="330" y="30" class="big right muted">›</text>
+    </g>
+    <use href="#navC" xlink:href="#navC"/>
+  </g>
+
+  <!-- 03 NEW PLAN (one screen) -->
+  <g transform="translate(972 125)" filter="url(#ph)">
+    <rect width="390" height="844" rx="44" fill="#FDFCF8" stroke="#ECE7DC"/>
+    <use href="#sb" xlink:href="#sb"/>
+    <text x="24" y="88" class="meta muted">CANCEL</text><text x="366" y="88" class="meta right">NEW PLAN</text>
+    <g transform="translate(24 104)">
+      <rect width="342" height="52" rx="16" fill="#F1EEE6"/>
+      <path d="M40 122l1.8 4.2 4.2 1.8-4.2 1.8L40 134l-1.8 4.2-4.2-4.2-4.2-1.8 4.2-1.8z" transform="translate(4 -116)" fill="#1B1E28"/>
+      <text x="64" y="32" class="small">"casual badminton, then filter coffee"</text>
+    </g>
+    <rect x="24" y="170" width="120" height="30" rx="15" fill="#FFF3D9"/><text x="84" y="189" class="meta center">SAT 5:00 PM ✓</text>
+    <rect x="152" y="170" width="142" height="30" rx="15" fill="#FFF3D9"/><text x="223" y="189" class="meta center">CUBBON PARK ✓</text>
+    <text x="24" y="240" class="eyebrow muted">WHO</text>
+    <g transform="translate(24 252)">
+      <rect width="342" height="56" rx="16" fill="#1B1E28"/>
+      <circle cx="30" cy="28" r="16" fill="#3A3E55"/><g class="iconw"><circle cx="-4" cy="0" r="4.4" transform="translate(30 28)"/><circle cx="7" cy="-2" r="4" transform="translate(30 28)"/><path d="M-7 8c1.6-4.2 6.4-4.2 8 0M3.4 7.4c1-3.4 5.2-3.4 6.2 0" transform="translate(30 28)"/></g>
+      <text x="56" y="24" class="label light">Flat 402</text>
+      <text x="56" y="43" class="small light" opacity=".65">4 people</text>
+      <circle cx="310" cy="28" r="10" fill="#2FBF9B"/><path d="M305 28l4 4 6-7" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g transform="translate(24 320)">
+      <rect width="342" height="56" rx="16" fill="#FFFFFF" stroke="#EAE5DA"/>
+      <circle cx="30" cy="28" r="16" fill="#FFE9E2"/><g class="icon"><circle cx="-4" cy="0" r="4.4" transform="translate(30 28)"/><circle cx="7" cy="-2" r="4" transform="translate(30 28)"/><path d="M-7 8c1.6-4.2 6.4-4.2 8 0M3.4 7.4c1-3.4 5.2-3.4 6.2 0" transform="translate(30 28)"/></g>
+      <text x="56" y="24" class="label">Office crew</text>
+      <text x="56" y="43" class="small muted">11 people</text>
+      <circle cx="310" cy="28" r="9" fill="none" stroke="#C9C4B8" stroke-width="1.6"/>
+    </g>
+    <g transform="translate(24 388)">
+      <rect width="342" height="44" rx="14" fill="#FFFFFF" stroke="#C9C4B8" stroke-dasharray="4 4"/>
+      <path d="M46 21h-3a4 4 0 0 0 0 8h3M54 21h3a4 4 0 0 1 0 8h-3M47 25h6" class="icon"/>
+      <text x="72" y="29" class="small">Link invite — anyone asks, you approve</text>
+      <rect x="290" y="10" width="40" height="24" rx="12" fill="#1B1E28"/><circle cx="318" cy="22" r="9" fill="#fff"/>
+    </g>
+    <g transform="translate(24 448)">
+      <rect width="342" height="56" rx="16" fill="#FFFFFF" stroke="#EAE5DA"/>
+      <circle cx="30" cy="28" r="16" fill="#FFF3D9"/><circle cx="30" cy="28" r="8" class="icon"/><path d="M30 24v4l3 2" class="icon"/>
+      <text x="56" y="24" class="label">Sat 5:00 PM</text>
+      <text x="56" y="43" class="small muted">fuzzy — "around 5"</text>
+      <text x="330" y="34" class="big right muted">›</text>
+    </g>
+    <g transform="translate(24 516)">
+      <rect width="342" height="56" rx="16" fill="#FFFFFF" stroke="#EAE5DA"/>
+      <circle cx="30" cy="28" r="16" fill="#FFE9E2"/><path d="M30 20c3.6 0 6 2.6 6 6 0 4.4-6 9-6 9s-6-4.6-6-9c0-3.4 2.4-6 6-6z" class="icon"/><circle cx="30" cy="26" r="2.2" class="icon"/>
+      <text x="56" y="24" class="label">Cubbon Park, Gate 2</text>
+      <text x="56" y="43" class="small muted">pinned meeting point</text>
+      <text x="330" y="34" class="big right muted">›</text>
+    </g>
+    <rect x="24" y="600" width="342" height="54" rx="18" fill="#FF6B4A"/><text x="195" y="633" class="label light center">Send plan →</text>
+    <text x="195" y="684" class="small muted center">Inside circles there are no approvals — just RSVP.</text>
+    <use href="#navP" xlink:href="#navP"/>
+  </g>
+
+  <!-- 04 RIPPLE -->
+  <g transform="translate(1426 125)" filter="url(#ph)">
+    <rect width="390" height="844" rx="44" fill="#FDFCF8" stroke="#ECE7DC"/>
+    <use href="#sb" xlink:href="#sb"/>
+    <text x="24" y="132" class="disp">Ripple</text>
+    <text x="24" y="160" class="body muted">The soft ask — a feeling and a slot, not a plan.</text>
+    <g transform="translate(24 180)">
+      <rect width="342" height="150" rx="24" fill="#FFE9E2"/>
+      <text x="20" y="28" class="eyebrow muted">YOU ASKED · 2H AGO</text>
+      <text x="20" y="56" class="label">"anyone up for badminton this weekend?"</text>
+      <rect x="20" y="70" width="92" height="28" rx="14" fill="#FFFFFF"/><text x="66" y="88" class="meta center">SAT 5–8</text>
+      <rect x="120" y="70" width="92" height="28" rx="14" fill="#FFFFFF"/><text x="166" y="88" class="meta center">SUN 9–11</text>
+      <text x="20" y="126" class="small muted">To Flat 402 + Aarav · voice note 0:12</text>
+    </g>
+    <text x="24" y="368" class="eyebrow muted">RESPONSES · TAPS, NOT CHAT</text>
+    <rect x="24" y="380" width="64" height="30" rx="15" fill="#DFF4EC"/><text x="56" y="399" class="meta center">3 IN</text>
+    <rect x="96" y="380" width="84" height="30" rx="15" fill="#FFF3D9"/><text x="138" y="399" class="meta center">1 MAYBE</text>
+    <rect x="188" y="380" width="64" height="30" rx="15" fill="#F1EEE6"/><text x="220" y="399" class="meta center">1 OUT</text>
+    <text x="366" y="399" class="meta muted right">ENDS 19H</text>
+    <g transform="translate(24 426)">
+      <rect width="342" height="40" rx="14" fill="#FFFFFF" stroke="#EAE5DA"/>
+      <circle cx="22" cy="20" r="13" fill="#FF6B4A"/><text x="22" y="24" class="meta center light" style="font-size:8px">AK</text>
+      <text x="44" y="25" class="small">"loser buys the chai"</text>
+    </g>
+    <g transform="translate(24 476)">
+      <rect width="342" height="40" rx="14" fill="#FFFFFF" stroke="#EAE5DA"/>
+      <circle cx="22" cy="20" r="13" fill="#8B8CF0"/><text x="22" y="24" class="meta center light" style="font-size:8px">SG</text>
+      <text x="44" y="25" class="small">"in if it's under 40°"</text>
+    </g>
+    <text x="24" y="550" class="eyebrow muted">SLOTS RANKED</text>
+    <text x="24" y="576" class="meta">SAT 5–8</text>
+    <rect x="110" y="564" width="180" height="14" rx="7" fill="#F1EEE6"/><rect x="110" y="564" width="144" height="14" rx="7" fill="#FF6B4A"/><text x="304" y="576" class="meta">4</text>
+    <text x="24" y="604" class="meta">SUN 9–11</text>
+    <rect x="110" y="592" width="180" height="14" rx="7" fill="#F1EEE6"/><rect x="110" y="592" width="72" height="14" rx="7" fill="#FFC24B"/><text x="304" y="604" class="meta">2</text>
+    <rect x="24" y="634" width="342" height="54" rx="18" fill="#FF6B4A"/><text x="195" y="667" class="label light center">Turn into a plan · Sat 5–8</text>
+    <text x="195" y="716" class="small muted center">or widen into an Open for the weekend</text>
+    <use href="#navP" xlink:href="#navP"/>
+  </g>
+
+  <!-- 05 INBOX -->
+  <g transform="translate(1880 125)" filter="url(#ph)">
+    <rect width="390" height="844" rx="44" fill="#FDFCF8" stroke="#ECE7DC"/>
+    <use href="#sb" xlink:href="#sb"/>
+    <text x="24" y="132" class="disp">Inbox</text>
+    <text x="24" y="160" class="body muted">Everything waiting on you. Nothing else.</text>
+    <text x="24" y="200" class="eyebrow muted">ANSWER TODAY</text>
+    <g transform="translate(24 214)">
+      <rect width="342" height="76" rx="20" fill="#FFE9E2"/>
+      <text x="20" y="26" class="eyebrow muted">RSVP · CLOSES 8 PM</text>
+      <text x="20" y="52" class="label">Brunch at Third Wave — in?</text>
+      <rect x="250" y="22" width="52" height="26" rx="13" fill="#1B1E28"/><text x="276" y="39" class="meta light center">In ✓</text>
+      <rect x="308" y="22" width="58" height="26" rx="13" fill="#FDFCF8"/><text x="337" y="39" class="meta center">Maybe</text>
+    </g>
+    <g transform="translate(24 302)">
+      <rect width="342" height="76" rx="20" fill="#ECECFC"/>
+      <text x="20" y="26" class="eyebrow muted">RIPPLE FROM SARA · ENDS TONIGHT</text>
+      <text x="20" y="52" class="label">Pottery on Sunday — 2 slots</text>
+      <rect x="282" y="24" width="64" height="28" rx="14" fill="#1B1E28"/><text x="314" y="42" class="meta light center">Reply</text>
+    </g>
+    <text x="24" y="412" class="eyebrow muted">MATCHES · MUTUAL ONLY</text>
+    <g transform="translate(24 426)">
+      <rect width="342" height="64" rx="18" fill="#FFFFFF" stroke="#EAE5DA"/>
+      <circle cx="30" cy="32" r="12" fill="none" stroke="#FF6B4A" stroke-width="2"/><circle cx="40" cy="32" r="12" fill="none" stroke="#8B8CF0" stroke-width="2"/>
+      <text x="64" y="27" class="label">Sat 5–8 PM · badminton · &lt;1 km</text>
+      <text x="64" y="47" class="small muted">Anonymous until you both say hi</text>
+      <text x="330" y="38" class="big right muted">›</text>
+    </g>
+    <g transform="translate(24 502)">
+      <rect width="342" height="64" rx="18" fill="#FFFFFF" stroke="#EAE5DA"/>
+      <circle cx="30" cy="32" r="12" fill="none" stroke="#FF6B4A" stroke-width="2"/><circle cx="40" cy="32" r="12" fill="none" stroke="#8B8CF0" stroke-width="2"/>
+      <text x="64" y="27" class="label">Sun 9–11 AM · chai · 2 km</text>
+      <text x="64" y="47" class="small muted">Anonymous until you both say hi</text>
+      <text x="330" y="38" class="big right muted">›</text>
+    </g>
+    <text x="24" y="600" class="eyebrow muted">MONEY</text>
+    <g transform="translate(24 614)">
+      <rect width="342" height="64" rx="18" fill="#DFF4EC"/>
+      <text x="20" y="27" class="label">Aarav owes you ₹120 net</text>
+      <text x="20" y="47" class="small muted">from 3 plans · nudges: 1 left this week</text>
+      <rect x="272" y="18" width="54" height="28" rx="14" fill="#1B1E28"/><text x="299" y="36" class="meta light center">Nudge</text>
+    </g>
+    <text x="24" y="714" class="small muted">Realtime only on plan day. The rest rides the 9 PM digest.</text>
+    <use href="#navI" xlink:href="#navI"/>
+  </g>
+
+  <text x="64" y="1000" class="meta">01 · Tonight — your day in one glance</text>
+  <text x="64" y="1020" class="small muted">Live plan, Open status, tomorrow rows</text>
+  <text x="518" y="1000" class="meta">02 · Circles — your people, no approvals</text>
+  <text x="518" y="1020" class="small muted">RSVP inline · Board of open loops with TTLs</text>
+  <text x="972" y="1000" class="meta">03 · New plan — one screen</text>
+  <text x="972" y="1020" class="small muted">Natural language parsed into when / where / who</text>
+  <text x="1426" y="1000" class="meta">04 · Ripple — the soft ask</text>
+  <text x="1426" y="1020" class="small muted">Taps not chat · tally ranks slots → converge to plan</text>
+  <text x="1880" y="1000" class="meta">05 · Inbox — everything waiting on you</text>
+  <text x="1880" y="1020" class="small muted">Overlaps folded in as cards · digest handles the rest</text>
+
+  <text x="64" y="1062" class="eyebrow">THE EVERYDAY LOOP</text>
+  <text x="64" y="1094" class="sec">From vibe to plan in three taps.</text>
+
+  <!-- ============ ROW 2 / THE PLAN ROOM ============ -->
+
+  <!-- 06 LIVE -->
+  <g transform="translate(64 1120)" filter="url(#ph)">
+    <rect width="390" height="844" rx="44" fill="#FDFCF8" stroke="#ECE7DC"/>
+    <use href="#sb" xlink:href="#sb"/>
+    <rect x="24" y="64" width="58" height="22" rx="11" fill="#FF6B4A"/><circle cx="37" cy="75" r="3" fill="#fff"/><text x="45" y="79" class="meta light">LIVE</text>
+    <g transform="translate(334 63)"><circle cx="18" cy="18" r="18" fill="#F1EEE6"/><text x="18" y="24" class="label center">•••</text></g>
+    <text x="24" y="128" class="disp">Round 2 · badminton</text>
+    <text x="24" y="152" class="small muted">Sat 5:00 PM · Cubbon Park, Gate 2</text>
+    <g transform="translate(24 168)">
+      <rect width="342" height="186" rx="26" fill="url(#inkG)"/>
+      <text x="20" y="30" class="eyebrow light" opacity=".7">MEET NOW · GATE 2</text>
+      <text x="20" y="62" class="big light">3 here · 2 en route</text>
+      <circle cx="36" cy="94" r="19" fill="none" stroke="#2FBF9B" stroke-width="2.5"/><circle cx="36" cy="94" r="15" fill="#FF6B4A"/><text x="36" y="98" class="meta center light" style="font-size:8px">DG</text>
+      <circle cx="82" cy="94" r="19" fill="none" stroke="#2FBF9B" stroke-width="2.5"/><circle cx="82" cy="94" r="15" fill="#8B8CF0"/><text x="82" y="98" class="meta center light" style="font-size:8px">SG</text>
+      <circle cx="128" cy="94" r="19" fill="none" stroke="#2FBF9B" stroke-width="2.5"/><circle cx="128" cy="94" r="15" fill="#FFC24B"/><text x="128" y="98" class="meta center" style="font-size:8px">RN</text>
+      <circle cx="174" cy="94" r="19" fill="none" stroke="#FFC24B" stroke-width="2.5"/><circle cx="174" cy="94" r="15" fill="#3A3E55"/><text x="174" y="98" class="meta center light" style="font-size:8px">MJ</text>
+      <circle cx="220" cy="94" r="19" fill="none" stroke="#3A3E55" stroke-width="2.5"/><circle cx="220" cy="94" r="15" fill="#3A3E55"/><text x="220" y="98" class="meta center light" opacity=".6" style="font-size:8px">PK</text>
+      <text x="20" y="136" class="small light" opacity=".75">Rings: mint = here · butter = en route</text>
+      <rect x="20" y="148" width="104" height="34" rx="13" fill="#FF6B4A"/><text x="72" y="169" class="meta light center">I'm here</text>
+      <rect x="132" y="148" width="128" height="34" rx="13" fill="none" stroke="#FFFFFF" stroke-opacity=".3"/><text x="196" y="169" class="meta light center">Running late</text>
+    </g>
+    <text x="24" y="388" class="eyebrow muted">QUICK UPDATE</text>
+    <rect x="24" y="400" width="106" height="34" rx="17" fill="#F1EEE6"/><text x="77" y="421" class="meta center">At Gate 2 ✓</text>
+    <rect x="138" y="400" width="112" height="34" rx="17" fill="#F1EEE6"/><text x="194" y="421" class="meta center">Court changed</text>
+    <rect x="258" y="400" width="86" height="34" rx="17" fill="#F1EEE6"/><text x="301" y="421" class="meta center">5 min late</text>
+    <text x="24" y="464" class="eyebrow muted">PINNED SPOT</text>
+    <g transform="translate(24 476)">
+      <rect width="342" height="76" rx="20" fill="#ECECFC"/>
+      <circle cx="32" cy="38" r="16" fill="#DDD9FA"/><path d="M32 30c3.6 0 6 2.6 6 6 0 4.4-6 9-6 9s-6-4.6-6-9c0-3.4 2.4-6 6-6z" class="icon"/><circle cx="32" cy="36" r="2.2" class="icon"/>
+      <text x="58" y="33" class="label">Gate 2, Cubbon Park</text>
+      <text x="58" y="53" class="small muted">pinned meeting point</text>
+      <rect x="238" y="23" width="88" height="30" rx="13" fill="#1B1E28"/><text x="282" y="42" class="meta light center" style="font-size:9px">GOT IT ✓ 5/6</text>
+    </g>
+    <g transform="translate(24 568)">
+      <rect width="342" height="72" rx="20" fill="#FFFFFF" stroke="#EAE5DA"/>
+      <text x="20" y="26" class="eyebrow muted">POLL · CLOSES AT START</text>
+      <text x="20" y="52" class="label">Filter coffee after?</text>
+      <rect x="240" y="22" width="56" height="28" rx="14" fill="#DFF4EC"/><text x="268" y="40" class="meta center">Yes · 4</text>
+      <rect x="302" y="22" width="48" height="28" rx="14" fill="#F1EEE6"/><text x="326" y="40" class="meta center">No · 1</text>
+    </g>
+    <text x="24" y="672" class="small muted">Updates post quietly to chat, so latecomers catch up.</text>
+    <use href="#tabL" xlink:href="#tabL"/>
+  </g>
+
+  <!-- 07 CHAT -->
+  <g transform="translate(518 1120)" filter="url(#ph)">
+    <rect width="390" height="844" rx="44" fill="#FDFCF8" stroke="#ECE7DC"/>
+    <use href="#sb" xlink:href="#sb"/>
+    <text x="24" y="88" class="eyebrow muted">PLAN CHAT · 6 PEOPLE</text>
+    <text x="24" y="126" class="disp">Round 2 · badminton</text>
+    <text x="195" y="158" class="small muted center">Sara pinned Gate 2 — quiet note posted to all</text>
+    <g transform="translate(24 172)">
+      <rect width="342" height="72" rx="18" fill="#ECECFC"/>
+      <circle cx="32" cy="36" r="15" fill="#DDD9FA"/><path d="M32 28c3.6 0 6 2.6 6 6 0 4.4-6 9-6 9s-6-4.6-6-9c0-3.4 2.4-6 6-6z" class="icon"/><circle cx="32" cy="34" r="2.2" class="icon"/>
+      <text x="56" y="31" class="label">Gate 2, Cubbon Park</text>
+      <text x="56" y="51" class="small muted">pin · tap for directions</text>
+      <rect x="264" y="23" width="62" height="26" rx="13" fill="#1B1E28"/><text x="295" y="40" class="meta light center" style="font-size:9px">GOT IT 5/6</text>
+    </g>
+    <g transform="translate(24 260)">
+      <circle cx="20" cy="20" r="15" fill="#FF6B4A"/><text x="20" y="24" class="meta center light" style="font-size:8px">AK</text>
+      <rect x="44" width="212" height="52" rx="16" fill="#F1EEE6"/>
+      <text x="60" y="21" class="small">Court 3 free at 5.</text>
+      <text x="60" y="39" class="small">Loser buys the chai?</text>
+    </g>
+    <g transform="translate(24 328)">
+      <rect width="342" height="96" rx="20" fill="#FFF3D9"/>
+      <text x="20" y="26" class="eyebrow muted">TICKET · FROM A FORWARD</text>
+      <text x="20" y="52" class="label">Sunburn early bird · ₹1,200</text>
+      <rect x="278" y="16" width="64" height="64" rx="8" fill="#FFFFFF"/>
+      <rect x="288" y="26" width="14" height="14" fill="#1B1E28"/><rect x="318" y="26" width="14" height="14" fill="#1B1E28"/><rect x="288" y="56" width="14" height="14" fill="#1B1E28"/><rect x="306" y="44" width="8" height="8" fill="#1B1E28"/><rect x="318" y="58" width="8" height="8" fill="#1B1E28"/>
+      <rect x="20" y="64" width="122" height="22" rx="11" fill="#FFFFFF"/><text x="81" y="79" class="meta center" style="font-size:9px">→ SPLIT IN MONEY</text>
+      <rect x="150" y="64" width="100" height="22" rx="11" fill="#FFFFFF"/><text x="200" y="79" class="meta center" style="font-size:9px">→ CALENDAR</text>
+    </g>
+    <text x="195" y="450" class="small muted center">Aarav forwarded a booking — it became the ticket ↑</text>
+    <g transform="translate(24 466)">
+      <rect width="342" height="56" rx="16" fill="#FFFFFF" stroke="#EAE5DA"/>
+      <text x="20" y="24" class="eyebrow muted">BRING LIST</text>
+      <text x="20" y="44" class="small">racquets — Aarav ✓ · shuttle tubes — claim</text>
+      <rect x="288" y="16" width="42" height="24" rx="12" fill="#F1EEE6"/><text x="309" y="32" class="meta center" style="font-size:9px">claim</text>
+    </g>
+    <g transform="translate(24 546)">
+      <rect x="106" width="216" height="44" rx="16" fill="#1B1E28"/>
+      <text x="122" y="20" class="small light">Deal. I'll bring the tubes.</text>
+      <text x="122" y="36" class="small light" opacity=".55">You · 5:03</text>
+    </g>
+    <text x="195" y="628" class="eyebrow muted center">NO TYPING DOTS · NO READ RECEIPTS · PRESENCE = ARRIVAL</text>
+    <g transform="translate(24 648)">
+      <rect width="270" height="52" rx="26" fill="#FFFFFF" stroke="#EAE5DA"/><text x="22" y="32" class="small muted">Say something…</text>
+      <circle cx="300" cy="26" r="17" fill="#1B1E28"/><path d="M300 19c3.2 0 5 2.2 5 5 0 3.6-5 7-5 7s-5-3.4-5-7c0-2.8 1.8-5 5-5z" class="iconw"/><circle cx="300" cy="24.5" r="1.6" fill="#fff"/>
+      <circle cx="342" cy="26" r="17" fill="#F1EEE6"/><path d="M336 22h12M336 27h8M336 32h10" class="icon"/>
+    </g>
+    <text x="24" y="740" class="small muted center"> </text>
+    <use href="#tabC" xlink:href="#tabC"/>
+  </g>
+
+  <!-- 08 ALBUM (dump-first, auto-sorted) -->
+  <g transform="translate(972 1120)" filter="url(#ph)">
+    <rect width="390" height="844" rx="44" fill="#FDFCF8" stroke="#ECE7DC"/>
+    <use href="#sb" xlink:href="#sb"/>
+    <text x="24" y="88" class="eyebrow muted">ALBUM · ROUND 2 · BADMINTON</text>
+    <text x="24" y="126" class="disp">Dump it all. Sorted.</text>
+    <g transform="translate(24 144)">
+      <rect width="342" height="64" rx="20" fill="#DFF4EC"/>
+      <circle cx="32" cy="32" r="14" fill="#2FBF9B"/><path d="M26 32l4 4 8-9" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="58" y="27" class="label">Seen by the 6 who were there</text>
+      <text x="58" y="47" class="small muted">Tap hide on any photo of you — silent, instant</text>
+    </g>
+    <rect x="24" y="222" width="208" height="48" rx="16" fill="#1B1E28"/><text x="128" y="251" class="meta light center">＋ Add photos &amp; videos</text>
+    <rect x="240" y="222" width="126" height="48" rx="16" fill="#FFFFFF" stroke="#EAE5DA"/><text x="303" y="251" class="meta center">23 items</text>
+    <text x="24" y="294" class="small muted">2 duplicate copies merged · 1 burst → best shot kept</text>
+    <g transform="translate(24 306)">
+      <rect width="166" height="120" rx="18" fill="url(#sunsetG)"/><path d="M20 96c30-16 60-6 126-24" stroke="#fff" opacity=".5" fill="none" stroke-width="2"/><circle cx="126" cy="30" r="14" fill="#FFF3D9" opacity=".9"/>
+      <rect x="10" y="92" width="104" height="22" rx="11" fill="#1B1E28" opacity=".78"/><text x="62" y="107" class="meta center light" style="font-size:9px">COPIES ×3 → 1</text>
+    </g>
+    <g transform="translate(200 306)">
+      <rect width="166" height="120" rx="18" fill="#ECECFC"/><path d="M20 88l30-34 26 26 20-18 34 30" stroke="#1B1E28" stroke-width="3.5" fill="none" stroke-linejoin="round"/>
+      <rect x="10" y="92" width="100" height="22" rx="11" fill="#FFC24B"/><text x="60" y="107" class="meta center" style="font-size:9px">BURST · KEPT 1</text>
+    </g>
+    <g transform="translate(24 438)">
+      <rect width="166" height="120" rx="18" fill="#FFE9E2"/><circle cx="83" cy="52" r="30" fill="none" stroke="#1B1E28" stroke-width="3.5"/><path d="M83 22v60M53 52h60" stroke="#1B1E28" stroke-width="3.5"/>
+      <circle cx="83" cy="52" r="16" fill="#FFFFFF" opacity=".92"/><path d="M77 44l14 8-14 8z" fill="#1B1E28"/>
+      <rect x="10" y="92" width="54" height="22" rx="11" fill="#1B1E28" opacity=".78"/><text x="37" y="107" class="meta center light" style="font-size:9px">0:42</text>
+    </g>
+    <g transform="translate(200 438)">
+      <rect width="166" height="120" rx="18" fill="url(#skyG)"/><path d="M0 92c40-24 90-14 166-40" stroke="#fff" opacity=".7" fill="none" stroke-width="2"/><circle cx="40" cy="52" r="12" fill="#FF6B4A" opacity=".85"/><circle cx="70" cy="64" r="12" fill="#FFC24B" opacity=".85"/>
+      <path d="M140 12l2.4 4.8 5.3.8-3.8 3.7.9 5.3-4.8-2.5-4.7 2.5.9-5.3-3.9-3.7 5.3-.8z" fill="#FFC24B" stroke="#1B1E28" stroke-width=".8"/>
+      <rect x="10" y="92" width="98" height="22" rx="11" fill="#1B1E28" opacity=".78"/><text x="59" y="107" class="meta center light" style="font-size:9px">MOST-LOVED ♥</text>
+    </g>
+    <text x="24" y="582" class="eyebrow muted">SEND PICS TO</text>
+    <g transform="translate(24 594)">
+      <rect width="84" height="40" rx="20" fill="#FFFFFF" stroke="#EAE5DA"/><circle cx="21" cy="20" r="13" fill="#FF6B4A"/><text x="21" y="24" class="meta center light" style="font-size:8px">AK</text><text x="58" y="25" class="meta center">12</text>
+      <rect x="94" width="84" height="40" rx="20" fill="#FFFFFF" stroke="#EAE5DA"/><circle cx="115" cy="20" r="13" fill="#8B8CF0"/><text x="115" y="24" class="meta center light" style="font-size:8px">SG</text><text x="128" y="25" class="meta center">8</text>
+      <rect x="188" width="74" height="40" rx="20" fill="#FFFFFF" stroke="#EAE5DA"/><circle cx="209" cy="20" r="13" fill="#FFC24B"/><text x="209" y="24" class="meta center" style="font-size:8px">RN</text><text x="219" y="25" class="meta center">5</text>
+      <rect x="272" width="70" height="40" rx="20" fill="#1B1E28"/><text x="307" y="25" class="meta light center">All 23</text>
+    </g>
+    <g transform="translate(24 656)">
+      <rect width="342" height="44" rx="14" fill="#F1EEE6"/>
+      <circle cx="24" cy="22" r="10" fill="#DDD9FA"/><path d="M19 17l10 10M21 22c1.2-2.2 5.8-2.2 7 0" class="icon" stroke-width="1.4"/>
+      <text x="44" y="27" class="small muted">Maya hid 1 photo of herself. Nobody was told.</text>
+    </g>
+    <text x="24" y="730" class="small muted">Originals stay full-size. Nothing leaves without Share.</text>
+    <use href="#tabA" xlink:href="#tabA"/>
+  </g>
+
+  <!-- 09 MONEY -->
+  <g transform="translate(1426 1120)" filter="url(#ph)">
+    <rect width="390" height="844" rx="44" fill="#FDFCF8" stroke="#ECE7DC"/>
+    <use href="#sb" xlink:href="#sb"/>
+    <text x="24" y="88" class="eyebrow muted">MONEY · NETTED ACROSS PLANS</text>
+    <text x="24" y="126" class="disp">One number, not ten.</text>
+    <g transform="translate(24 144)">
+      <rect width="342" height="120" rx="26" fill="url(#inkG)"/>
+      <text x="20" y="30" class="eyebrow light" opacity=".7">YOU OWE · NET OF 3 PLANS</text>
+      <text x="20" y="66" class="big light">₹120 → Aarav</text>
+      <text x="20" y="92" class="small light" opacity=".72">Court + coffee, minus what Sara owes you</text>
+      <rect x="234" y="40" width="92" height="40" rx="14" fill="#FF6B4A"/><text x="280" y="65" class="meta light center">Pay · UPI</text>
+    </g>
+    <text x="24" y="298" class="eyebrow muted">THIS PLAN</text>
+    <g transform="translate(24 310)">
+      <rect width="342" height="88" rx="20" fill="#FFFFFF" stroke="#EAE5DA"/>
+      <text x="20" y="30" class="label">Round 2 · badminton</text>
+      <text x="20" y="52" class="small muted">Court ₹600 + coffee ₹480 → ₹180 each</text>
+      <rect x="252" y="30" width="90" height="28" rx="14" fill="#DFF4EC"/><text x="297" y="48" class="meta center">SETTLED ✓</text>
+    </g>
+    <text x="24" y="434" class="eyebrow muted">BY PERSON</text>
+    <g transform="translate(24 448)">
+      <rect width="342" height="64" rx="18" fill="#FFFFFF" stroke="#EAE5DA"/>
+      <circle cx="30" cy="32" r="16" fill="#8B8CF0"/><text x="30" y="36" class="meta center light" style="font-size:8px">SG</text>
+      <text x="58" y="27" class="label">Sara owes you ₹190</text>
+      <text x="58" y="47" class="small muted">across 2 plans</text>
+      <rect x="272" y="18" width="54" height="28" rx="14" fill="#1B1E28"/><text x="299" y="36" class="meta light center">Nudge</text>
+    </g>
+    <g transform="translate(24 524)">
+      <rect width="342" height="64" rx="18" fill="#FFFFFF" stroke="#EAE5DA"/>
+      <circle cx="30" cy="32" r="16" fill="#FF6B4A"/><text x="30" y="36" class="meta center light" style="font-size:8px">AK</text>
+      <text x="58" y="27" class="label">You owe Aarav ₹120</text>
+      <text x="58" y="47" class="small muted">net of 3 plans</text>
+      <rect x="272" y="18" width="54" height="28" rx="14" fill="#FF6B4A"/><text x="299" y="36" class="meta light center">Pay</text>
+    </g>
+    <g transform="translate(24 612)">
+      <rect width="342" height="52" rx="16" fill="#F1EEE6"/>
+      <text x="20" y="22" class="small">Nudges: max 1 per person per week.</text>
+      <text x="20" y="40" class="small muted">Gentle by design — money never blocks a plan.</text>
+    </g>
+    <use href="#tabM" xlink:href="#tabM"/>
+  </g>
+
+  <!-- 10 WRAP -->
+  <g transform="translate(1880 1120)" filter="url(#ph)">
+    <rect width="390" height="844" rx="44" fill="#FDFCF8" stroke="#ECE7DC"/>
+    <use href="#sb" xlink:href="#sb"/>
+    <text x="24" y="88" class="eyebrow muted">WRAP · LAST NIGHT · 2.5 HRS</text>
+    <text x="24" y="126" class="disp">That was good.</text>
+    <g transform="translate(24 144)">
+      <rect width="342" height="140" rx="22" fill="#FFFFFF" stroke="#EAE5DA"/>
+      <text x="20" y="28" class="eyebrow muted">AUTO-DRAFTED BEFORE ANYONE UPLOADED</text>
+      <text x="20" y="54" class="small">6:02 · met at Gate 2 — crew within 12 min</text>
+      <text x="20" y="76" class="small">6:15 · game on · poll: coffee after ✓ 4</text>
+      <text x="20" y="98" class="small">8:30 · filter coffee at Third Wave</text>
+      <text x="20" y="122" class="small muted">Timeline exists first — photos land inside it.</text>
+    </g>
+    <text x="24" y="318" class="eyebrow muted">HIGHLIGHTS · FLOATING TO SCRAPBOOK</text>
+    <g transform="translate(24 332)">
+      <rect width="106" height="106" rx="18" fill="url(#sunsetG)"/><circle cx="76" cy="30" r="12" fill="#FFF3D9" opacity=".9"/>
+      <rect x="118" width="106" height="106" rx="18" fill="#ECECFC"/><path d="M20 78l24-28 20 20 16-14 26 22" stroke="#1B1E28" stroke-width="3" fill="none" stroke-linejoin="round"/>
+      <rect x="236" width="106" height="106" rx="18" fill="#FFE9E2"/><circle cx="53" cy="53" r="26" fill="none" stroke="#1B1E28" stroke-width="3"/><path d="M53 27v52M27 53h52" stroke="#1B1E28" stroke-width="3"/>
+    </g>
+    <g transform="translate(24 462)">
+      <rect width="342" height="72" rx="20" fill="#ECECFC"/>
+      <text x="20" y="26" class="eyebrow muted">VIBE CHECK · PRIVATE · AGGREGATE ONLY</text>
+      <text x="20" y="52" class="label">How was it?</text>
+      <rect x="230" y="24" width="52" height="26" rx="13" fill="#1B1E28"/><text x="256" y="41" class="meta light center">Good</text>
+      <rect x="288" y="24" width="46" height="26" rx="13" fill="#FDFCF8"/><text x="311" y="41" class="meta center">Meh</text>
+    </g>
+    <g transform="translate(24 550)">
+      <rect width="342" height="86" rx="20" fill="#FFFFFF" stroke="#EAE5DA"/>
+      <text x="20" y="30" class="label">Same time next Saturday?</text>
+      <text x="20" y="52" class="small muted">3 of you are free next weekend — toss a ripple?</text>
+      <rect x="236" y="24" width="52" height="28" rx="14" fill="#1B1E28"/><text x="262" y="42" class="meta light center">In ✓</text>
+      <rect x="294" y="24" width="60" height="28" rx="14" fill="#F1EEE6"/><text x="324" y="42" class="meta center">Maybe</text>
+    </g>
+    <g transform="translate(24 652)">
+      <rect width="342" height="48" rx="16" fill="#DFF4EC"/>
+      <text x="20" y="30" class="small">₹180 each · settled ✓ · album sorted ✓</text>
+    </g>
+    <g transform="translate(24 706)">
+      <rect width="158" height="50" rx="16" fill="#FFFFFF" stroke="#EAE5DA"/><text x="79" y="31" class="meta center">Open plan</text>
+      <rect x="170" width="172" height="50" rx="16" fill="#FF6B4A"/><text x="256" y="31" class="meta light center">★ Save to Scrapbook</text>
+    </g>
+    <use href="#hi" xlink:href="#hi"/>
+  </g>
+
+  <text x="64" y="2058" class="eyebrow">THE PLAN ROOM</text>
+  <text x="64" y="2090" class="sec">Live, Chat, Album, Money — then Wrap.</text>
+  <text x="2296" y="2090" class="small muted right">One room instead of a group chat + album link + split sheet</text>
+
+  <!-- ============ ROW 3 / STRANGERS BY MUTUAL ONLY ============ -->
+
+  <!-- 11 OPEN -->
+  <g transform="translate(64 2116)" filter="url(#ph)">
+    <rect width="390" height="844" rx="44" fill="#FDFCF8" stroke="#ECE7DC"/>
+    <use href="#sb" xlink:href="#sb"/>
+    <text x="24" y="88" class="meta muted">FROM ＋ · PRIVATE SIGNAL</text><text x="366" y="88" class="meta right muted">SELF-EXPIRING</text>
+    <text x="24" y="140" class="disp">Go Open.</text>
+    <text x="24" y="168" class="body muted">A quiet signal. Matched, never posted.</text>
+    <g transform="translate(24 192)">
+      <rect width="342" height="56" rx="16" fill="#FFFFFF" stroke="#EAE5DA"/>
+      <circle cx="30" cy="28" r="16" fill="#FFF3D9"/><circle cx="30" cy="28" r="8" class="icon"/><path d="M30 24v4l3 2" class="icon"/>
+      <text x="56" y="24" class="label">Sat · 5:00–8:00 PM</text>
+      <text x="56" y="43" class="small muted">coarse window, not live location</text>
+      <text x="330" y="34" class="big right muted">›</text>
+    </g>
+    <text x="24" y="284" class="eyebrow muted">UP FOR</text>
+    <rect x="24" y="296" width="112" height="34" rx="17" fill="#1B1E28"/><text x="80" y="317" class="meta light center">Badminton ✓</text>
+    <rect x="144" y="296" width="76" height="34" rx="17" fill="#F1EEE6"/><text x="182" y="317" class="meta center">Chai ✓</text>
+    <rect x="228" y="296" width="130" height="34" rx="17" fill="#F1EEE6"/><text x="293" y="317" class="meta center">Anything easy</text>
+    <g transform="translate(24 350)">
+      <rect width="342" height="56" rx="16" fill="#FFFFFF" stroke="#EAE5DA"/>
+      <circle cx="30" cy="28" r="16" fill="#FFE9E2"/><path d="M30 20c3.6 0 6 2.6 6 6 0 4.4-6 9-6 9s-6-4.6-6-9c0-3.4 2.4-6 6-6z" class="icon"/><circle cx="30" cy="26" r="2.2" class="icon"/>
+      <text x="56" y="24" class="label">Within 2 km of Indiranagar</text>
+      <text x="56" y="43" class="small muted">distance band only</text>
+      <text x="330" y="34" class="big right muted">›</text>
+    </g>
+    <text x="24" y="440" class="eyebrow muted">COMFORT FILTERS</text>
+    <g transform="translate(24 452)">
+      <rect width="342" height="108" rx="20" fill="#FFFFFF" stroke="#EAE5DA"/>
+      <text x="20" y="30" class="label">Women-only matches</text>
+      <text x="20" y="50" class="small muted">needs a selfie-verified badge — honest filter</text>
+      <rect x="282" y="14" width="40" height="24" rx="12" fill="#1B1E28"/><circle cx="310" cy="26" r="9" fill="#fff"/>
+      <line x1="20" y1="66" x2="322" y2="66" class="line"/>
+      <text x="20" y="90" class="label">Phone-verified people only</text>
+      <rect x="282" y="74" width="40" height="24" rx="12" fill="#1B1E28"/><circle cx="310" cy="86" r="9" fill="#fff"/>
+    </g>
+    <g transform="translate(24 584)">
+      <rect width="342" height="56" rx="18" fill="#FFF3D9"/>
+      <text x="20" y="23" class="small">Closes itself at 8 PM. Never appears on your</text>
+      <text x="20" y="41" class="small">profile — it only ever matches.</text>
+    </g>
+    <rect x="24" y="664" width="342" height="54" rx="18" fill="#FF6B4A"/><text x="195" y="697" class="label light center">Go Open</text>
+    <text x="195" y="744" class="small muted center">Max 2 Opens at a time · card delivery jittered ±20 min</text>
+    <use href="#navP" xlink:href="#navP"/>
+  </g>
+
+  <!-- 12 OVERLAP -->
+  <g transform="translate(518 2116)" filter="url(#ph)">
+    <rect width="390" height="844" rx="44" fill="#FDFCF8" stroke="#ECE7DC"/>
+    <use href="#sb" xlink:href="#sb"/>
+    <text x="24" y="88" class="eyebrow muted">OVERLAP · SATURDAY EVENING</text><text x="366" y="88" class="meta right muted">&lt; 1 KM</text>
+    <g transform="translate(0 104)">
+      <circle cx="140" cy="105" r="80" fill="url(#duo)" opacity=".94"/>
+      <circle cx="250" cy="105" r="80" fill="url(#duoR)" opacity=".94"/>
+      <text x="140" y="112" class="label light center">DG</text>
+      <text x="250" y="112" class="label light center">AK</text>
+      <text x="140" y="210" class="small muted center">You</text>
+      <text x="250" y="210" class="small muted center">Aarav</text>
+    </g>
+    <text x="195" y="366" class="big center">Your evenings overlap.</text>
+    <text x="195" y="392" class="body muted center">Same window, same vibes, 900 m apart.</text>
+    <rect x="55" y="410" width="100" height="32" rx="16" fill="#F1EEE6"/><text x="105" y="430" class="meta center">Badminton</text>
+    <rect x="163" y="410" width="64" height="32" rx="16" fill="#F1EEE6"/><text x="195" y="430" class="meta center">Chai</text>
+    <rect x="235" y="410" width="120" height="32" rx="16" fill="#F1EEE6"/><text x="295" y="430" class="meta center">Both free 5–8</text>
+    <g transform="translate(24 466)">
+      <rect width="342" height="96" rx="20" fill="#ECECFC"/>
+      <text x="20" y="26" class="small">Nothing shows until you both tap hi — then a</text>
+      <text x="20" y="44" class="small">private Hello opens for 24 hours.</text>
+      <text x="20" y="74" class="label">Zero cold messages. Ever.</text>
+    </g>
+    <rect x="24" y="586" width="342" height="56" rx="18" fill="#FF6B4A"/><text x="195" y="620" class="label light center">Say hi</text>
+    <text x="195" y="674" class="small muted center">Pass quietly — they'll never know</text>
+    <text x="195" y="708" class="eyebrow muted center">CARDS ONLY WHEN ≥3 PEOPLE COULD MATCH</text>
+    <use href="#navI" xlink:href="#navI"/>
+  </g>
+
+  <!-- 13 HELLO -->
+  <g transform="translate(972 2116)" filter="url(#ph)">
+    <rect width="390" height="844" rx="44" fill="#FDFCF8" stroke="#ECE7DC"/>
+    <use href="#sb" xlink:href="#sb"/>
+    <g transform="translate(20 63)"><circle cx="18" cy="18" r="18" fill="#F1EEE6"/><text x="18" y="24" class="sec center">‹</text></g>
+    <text x="195" y="97" class="big center">You + Aarav</text>
+    <text x="195" y="119" class="small muted center">Hello · closes in 21:04</text>
+    <rect x="24" y="130" width="200" height="4" rx="2" fill="#FF6B4A"/><rect x="224" y="130" width="142" height="4" rx="2" fill="#EAE5DA"/>
+    <g transform="translate(45 152)"><rect width="300" height="36" rx="14" fill="#ECECFC"/><text x="150" y="23" class="small muted center">You both said hi. Say the plan out loud.</text></g>
+    <g transform="translate(24 208)">
+      <circle cx="20" cy="20" r="15" fill="#FF6B4A"/><text x="20" y="24" class="meta center light" style="font-size:8px">AK</text>
+      <rect x="44" width="230" height="52" rx="16" fill="#F1EEE6"/>
+      <text x="60" y="21" class="small">Court 3 is free at 5.</text>
+      <text x="60" y="39" class="small">Loser buys the chai?</text>
+    </g>
+    <g transform="translate(24 284)">
+      <rect x="106" width="216" height="44" rx="16" fill="#1B1E28"/>
+      <text x="122" y="20" class="small light">Deal. Bring the good racquets?</text>
+      <text x="122" y="36" class="small light" opacity=".55">You · 5:03</text>
+    </g>
+    <g transform="translate(24 352)">
+      <rect width="342" height="110" rx="22" fill="url(#mintG)"/>
+      <text x="20" y="28" class="eyebrow muted">PROPOSAL</text>
+      <text x="20" y="56" class="label">Tomorrow · 5:00 PM</text>
+      <text x="20" y="78" class="small muted">Court 3, Cubbon Park Gate 2</text>
+      <rect x="214" y="66" width="108" height="36" rx="14" fill="#1B1E28"/><text x="268" y="89" class="meta light center">Lock it in</text>
+    </g>
+    <g transform="translate(24 478)">
+      <rect width="342" height="40" rx="14" fill="#FFFFFF" stroke="#EAE5DA"/>
+      <text x="20" y="25" class="small">Need more time? One +48h extension.</text>
+      <text x="330" y="25" class="meta right muted">USE</text>
+    </g>
+    <g transform="translate(24 534)">
+      <rect width="342" height="56" rx="16" fill="#F1EEE6"/>
+      <text x="20" y="24" class="small">First names only until a plan locks.</text>
+      <text x="20" y="42" class="small muted">Then full profiles unlock — for both of you.</text>
+    </g>
+    <g transform="translate(24 606)">
+      <rect width="342" height="48" rx="16" fill="#FFFFFF" stroke="#EAE5DA"/>
+      <circle cx="28" cy="24" r="14" fill="#FFE9E2"/><path d="M28 16l6 2.6v4.4c0 4.4-2.8 7-6 8-3.2-1-6-3.6-6-8v-4.4z" class="icon"/>
+      <text x="52" y="29" class="label">Report · Block · Pause</text>
+      <text x="330" y="29" class="small muted right">one tap, always</text>
+    </g>
+    <text x="195" y="700" class="small muted center">No lock by TTL → silent close, mutual invisibility restored.</text>
+    <g transform="translate(0 790)">
+      <text x="65" y="21" class="eyebrow center">ROOM</text><text x="195" y="21" class="eyebrow muted center">PROFILE</text><text x="325" y="21" class="eyebrow muted center">SAFETY</text>
+      <rect x="42" y="29" width="46" height="3" rx="1.5" fill="#1B1E28"/>
+    </g>
+    <use href="#hi" xlink:href="#hi"/>
+  </g>
+
+  <!-- 14 SAFETY -->
+  <g transform="translate(1426 2116)" filter="url(#ph)">
+    <rect width="390" height="844" rx="44" fill="#FDFCF8" stroke="#ECE7DC"/>
+    <use href="#sb" xlink:href="#sb"/>
+    <g transform="translate(20 63)"><circle cx="18" cy="18" r="18" fill="#F1EEE6"/><text x="18" y="24" class="sec center">‹</text></g>
+    <text x="24" y="144" class="disp">Safety, built in.</text>
+    <text x="24" y="172" class="body muted">Structural, not settings. Boring on purpose.</text>
+    <g transform="translate(24 196)">
+      <rect width="342" height="84" rx="22" fill="url(#inkG)"/>
+      <text x="20" y="28" class="eyebrow light" opacity=".6">PAUSE</text>
+      <text x="20" y="54" class="label light">Ghost mode</text>
+      <text x="20" y="74" class="small light" opacity=".7">Invisible everywhere. Your plans stay.</text>
+      <rect x="282" y="30" width="40" height="24" rx="12" fill="#2FBF9B"/><circle cx="310" cy="42" r="9" fill="#fff"/>
+    </g>
+    <g transform="translate(24 296)">
+      <rect width="342" height="72" rx="20" fill="#FFFFFF" stroke="#EAE5DA"/>
+      <text x="20" y="26" class="eyebrow muted">BOUNDARIES</text>
+      <text x="20" y="50" class="label">Blocked · 2 people</text>
+      <text x="20" y="66" class="small muted">Instant, silent, mutual.</text>
+      <text x="330" y="42" class="big right muted">›</text>
+    </g>
+    <g transform="translate(24 384)">
+      <rect width="342" height="88" rx="22" fill="#FFE9E2"/>
+      <text x="20" y="28" class="eyebrow muted">CHECK-INS</text>
+      <text x="20" y="54" class="label">Out late? We check on you.</text>
+      <text x="20" y="74" class="small muted">No safe-home tap → we nudge your chosen contact.</text>
+    </g>
+    <g transform="translate(24 488)">
+      <rect width="342" height="72" rx="20" fill="#FFFFFF" stroke="#EAE5DA"/>
+      <text x="20" y="26" class="eyebrow muted">MATCHING</text>
+      <text x="20" y="50" class="label">Women-only · selfie-verified</text>
+      <text x="20" y="66" class="small muted">Symmetric. Applied both ways or not at all.</text>
+    </g>
+    <g transform="translate(24 576)">
+      <rect width="342" height="72" rx="20" fill="#FFFFFF" stroke="#EAE5DA"/>
+      <text x="20" y="26" class="eyebrow muted">REPORTS</text>
+      <text x="20" y="50" class="label">2 taps. Humans review.</text>
+      <text x="20" y="66" class="small muted">Serious flags suspend active matches immediately.</text>
+    </g>
+    <text x="24" y="684" class="small muted">No search exists. No public profiles. Nothing discoverable.</text>
+    <use href="#navY" xlink:href="#navY"/>
+  </g>
+
+  <!-- 15 WELCOME -->
+  <g transform="translate(1880 2116)" filter="url(#ph)">
+    <rect width="390" height="844" rx="44" fill="#FDFCF8" stroke="#ECE7DC"/>
+    <use href="#sb" xlink:href="#sb"/>
+    <g transform="translate(157 96)">
+      <circle cx="22" cy="30" r="34" fill="#FF6B4A" opacity=".95"/>
+      <circle cx="56" cy="30" r="34" fill="#8B8CF0" opacity=".8"/>
+    </g>
+    <text x="195" y="216" class="disp center">Plans start close.</text>
+    <text x="195" y="244" class="body muted center">For your people — and the right strangers.</text>
+    <text x="24" y="302" class="eyebrow muted">PHONE NUMBER</text>
+    <g transform="translate(24 316)">
+      <rect width="342" height="58" rx="18" fill="#FFFFFF" stroke="#EAE5DA"/>
+      <text x="20" y="36" class="label">IN +91</text>
+      <line x1="88" y1="14" x2="88" y2="44" class="line"/>
+      <text x="106" y="36" class="body muted">Your number</text>
+    </g>
+    <text x="195" y="404" class="small muted center">We text a 6-digit code. No passwords, ever.</text>
+    <rect x="24" y="424" width="342" height="54" rx="18" fill="#FF6B4A"/><text x="195" y="457" class="label light center">Continue with phone</text>
+    <g transform="translate(24 512)">
+      <circle cx="16" cy="16" r="14" fill="#DFF4EC"/><path d="M9 16l5 5 9-11" class="icon"/>
+      <text x="44" y="13" class="label">Your number stays private</text>
+      <text x="44" y="33" class="small muted">Shared only inside confirmed plans.</text>
+    </g>
+    <g transform="translate(24 580)">
+      <circle cx="16" cy="16" r="14" fill="#DFF4EC"/><path d="M9 16l5 5 9-11" class="icon"/>
+      <text x="44" y="13" class="label">No public profiles</text>
+      <text x="44" y="33" class="small muted">Strangers via mutual Open matches only.</text>
+    </g>
+    <g transform="translate(24 648)">
+      <circle cx="16" cy="16" r="14" fill="#DFF4EC"/><path d="M9 16l5 5 9-11" class="icon"/>
+      <text x="44" y="13" class="label">Leave anytime</text>
+      <text x="44" y="33" class="small muted">Circles, matches, data — gone on request.</text>
+    </g>
+    <text x="195" y="750" class="small muted center">Terms · Privacy · Community care</text>
+    <use href="#hi" xlink:href="#hi"/>
+  </g>
+
+  <text x="64" y="3054" class="eyebrow">START + BRIDGE</text>
+  <text x="64" y="3086" class="sec">In through the phone. Out through any chat app.</text>
+
+  <!-- ============ ROW 4 / WEB CARD + WHY ============ -->
+
+  <!-- 16 WEB PLAN CARD -->
+  <g transform="translate(64 3112)" filter="url(#ph)">
+    <rect width="390" height="844" rx="44" fill="#FDFCF8" stroke="#ECE7DC"/>
+    <use href="#sb" xlink:href="#sb"/>
+    <rect x="0" y="60" width="390" height="48" fill="#F1EEE6"/>
+    <circle cx="34" cy="84" r="5" fill="#FF6B4A"/><circle cx="52" cy="84" r="5" fill="#FFC24B"/><circle cx="70" cy="84" r="5" fill="#2FBF9B"/>
+    <rect x="92" y="70" width="270" height="28" rx="14" fill="#FFFFFF"/>
+    <path d="M110 80v-2a4 4 0 0 1 8 0v2M108 80h12v8h-12z" class="icon" stroke-width="1.4"/>
+    <text x="128" y="88" class="small muted">outthere.app/p/round-2</text>
+    <text x="24" y="156" class="eyebrow muted">YOU'RE INVITED</text>
+    <text x="24" y="198" class="disp">Round 2 · badminton</text>
+    <text x="24" y="228" class="small muted">SAT · 5:00 PM · CUBBON PARK, GATE 2</text>
+    <rect x="24" y="244" width="84" height="28" rx="14" fill="#DFF4EC"/><text x="66" y="262" class="meta center">6 GOING</text>
+    <rect x="116" y="244" width="84" height="28" rx="14" fill="#FFF3D9"/><text x="158" y="262" class="meta center">2 MAYBE</text>
+    <g transform="translate(24 292)">
+      <rect width="342" height="110" rx="20" fill="#E7F2EA"/>
+      <path d="M20 90C80 60 240 40 322 24" stroke="#9CC3AA" stroke-width="2" stroke-dasharray="5 6" fill="none"/>
+      <path d="M171 34c7 0 11.5 5 11.5 11.5 0 8.5-11.5 17.5-11.5 17.5s-11.5-9-11.5-17.5c0-6.5 4.5-11.5 11.5-11.5z" fill="#FF6B4A"/><circle cx="171" cy="45.5" r="4" fill="#fff"/>
+      <text x="192" y="50" class="meta">Gate 2 · meet here</text>
+    </g>
+    <rect x="24" y="422" width="160" height="48" rx="16" fill="#1B1E28"/><text x="104" y="451" class="meta light center">Directions</text>
+    <rect x="196" y="422" width="170" height="48" rx="16" fill="#FFFFFF" stroke="#EAE5DA"/><text x="281" y="451" class="meta center">Add to calendar</text>
+    <text x="24" y="506" class="eyebrow muted">YOUR RSVP</text>
+    <rect x="24" y="520" width="342" height="44" rx="22" fill="#F1EEE6"/>
+    <rect x="24" y="520" width="114" height="44" rx="22" fill="#1B1E28"/><text x="81" y="547" class="meta light center">In ✓</text>
+    <text x="164" y="547" class="meta center">Maybe</text>
+    <text x="279" y="547" class="meta center">Out</text>
+    <text x="24" y="598" class="small muted">Hosted by Divya · Flat 402 circle</text>
+    <g transform="translate(24 620)">
+      <rect width="342" height="72" rx="18" fill="#ECECFC"/>
+      <text x="20" y="28" class="small">No app needed. This link is signed and</text>
+      <text x="20" y="48" class="small">expires when the plan does.</text>
+    </g>
+    <text x="195" y="736" class="small muted center">OutThere · plans that end settled</text>
+    <use href="#hi" xlink:href="#hi"/>
+  </g>
+
+  <!-- 17 SCRAPBOOK -->
+  <g transform="translate(972 3112)" filter="url(#ph)">
+    <rect width="390" height="844" rx="44" fill="#FDFCF8" stroke="#ECE7DC"/>
+    <use href="#sb" xlink:href="#sb"/>
+    <text x="24" y="132" class="disp">Scrapbook</text>
+    <text x="24" y="160" class="body muted">Every plan you showed up to — one shelf.</text>
+    <rect x="24" y="176" width="64" height="32" rx="16" fill="#1B1E28"/><text x="56" y="196" class="meta light center">All ▾</text>
+    <rect x="96" y="176" width="96" height="32" rx="16" fill="#F1EEE6"/><text x="144" y="196" class="meta center">Flat 402</text>
+    <rect x="200" y="176" width="110" height="32" rx="16" fill="#F1EEE6"/><text x="255" y="196" class="meta center">Office crew</text>
+    <rect x="318" y="176" width="48" height="32" rx="16" fill="#F1EEE6"/><text x="342" y="196" class="meta center">2026</text>
+    <g transform="translate(24 224)">
+      <rect width="342" height="56" rx="18" fill="#DFF4EC"/>
+      <text x="20" y="24" class="label">August · 3 plans · 41 photos · 6 videos</text>
+      <text x="20" y="44" class="small muted">₹0 unsettled · next up: Round 3, Saturday</text>
+    </g>
+    <text x="24" y="312" class="eyebrow muted">PINNED</text>
+    <g transform="translate(24 324)">
+      <rect width="106" height="106" rx="18" fill="url(#sunsetG)"/><path d="M20 88c22-12 46-4 66-16" stroke="#fff" opacity=".55" fill="none" stroke-width="2"/><path d="M86 14l2.4 4.8 5.3.8-3.8 3.7.9 5.3-4.8-2.5-4.7 2.5.9-5.3-3.9-3.7 5.3-.8z" fill="#fff"/>
+    </g>
+    <g transform="translate(142 324)">
+      <rect width="106" height="106" rx="18" fill="#ECECFC"/><path d="M20 78l24-28 20 20 16-14 26 22" stroke="#1B1E28" stroke-width="3" fill="none" stroke-linejoin="round"/><path d="M86 14l2.4 4.8 5.3.8-3.8 3.7.9 5.3-4.8-2.5-4.7 2.5.9-5.3-3.9-3.7 5.3-.8z" fill="#FFC24B" stroke="#1B1E28" stroke-width=".8"/>
+    </g>
+    <g transform="translate(260 324)">
+      <rect width="106" height="106" rx="18" fill="#FFE9E2"/><circle cx="53" cy="53" r="26" fill="none" stroke="#1B1E28" stroke-width="3"/><path d="M53 27v52M27 53h52" stroke="#1B1E28" stroke-width="3"/><path d="M86 14l2.4 4.8 5.3.8-3.8 3.7.9 5.3-4.8-2.5-4.7 2.5.9-5.3-3.9-3.7 5.3-.8z" fill="#fff"/>
+    </g>
+    <text x="24" y="462" class="eyebrow muted">RECENT PLANS</text>
+    <g transform="translate(24 474)">
+      <rect width="342" height="72" rx="18" fill="#FFFFFF" stroke="#EAE5DA"/>
+      <rect x="16" y="16" width="56" height="56" rx="14" fill="url(#sunsetG)"/><circle cx="56" cy="32" r="8" fill="#FFF3D9" opacity=".9"/>
+      <text x="88" y="30" class="label">Round 2 · badminton</text>
+      <text x="88" y="50" class="small muted">Sat 22 · Flat 402 · 18 photos · 2 videos</text>
+      <text x="330" y="42" class="big right muted">›</text>
+    </g>
+    <g transform="translate(24 554)">
+      <rect width="342" height="72" rx="18" fill="#FFFFFF" stroke="#EAE5DA"/>
+      <rect x="16" y="16" width="56" height="56" rx="14" fill="#DFE4FF"/><path d="M26 58l14-16 12 10 8-7 12 11" stroke="#1B1E28" stroke-width="2.6" fill="none" stroke-linejoin="round"/>
+      <text x="88" y="30" class="label">Office dinner</text>
+      <text x="88" y="50" class="small muted">Fri 15 · Work circle · 9 photos · 1 video</text>
+      <text x="330" y="42" class="big right muted">›</text>
+    </g>
+    <g transform="translate(24 634)">
+      <rect width="342" height="72" rx="18" fill="#FFFFFF" stroke="#EAE5DA"/>
+      <rect x="16" y="16" width="56" height="56" rx="14" fill="url(#skyG)"/><circle cx="34" cy="36" r="10" fill="#FF6B4A" opacity=".85"/>
+      <text x="88" y="30" class="label">Court trial + chai</text>
+      <text x="88" y="50" class="small muted">Sun 27 Jul · Flat 402 · 31 photos</text>
+      <text x="330" y="42" class="big right muted">›</text>
+    </g>
+    <text x="24" y="738" class="small muted">Share shelf → one signed, expiring link.</text>
+    <use href="#navY" xlink:href="#navY"/>
+  </g>
+
+  <!-- WHY PANEL -->
+  <g transform="translate(1426 3112)">
+    <rect width="870" height="420" rx="36" fill="url(#inkG)"/>
+    <text x="36" y="44" class="eyebrow light" opacity=".55">WHY PEOPLE SWITCH</text>
+    <text x="36" y="78" class="sec light">Three apps → one plan room.</text>
+    <text x="36" y="124" class="meta light" opacity=".5">WHATSAPP GROUP</text>
+    <text x="36" y="150" class="small light" opacity=".78">Plans dissolve in scroll.</text>
+    <text x="36" y="174" class="small light" opacity=".78">Pin lost at message #214.</text>
+    <text x="36" y="198" class="small light" opacity=".78">Forwards stay raw.</text>
+    <text x="312" y="124" class="meta light" opacity=".5">PHOTOS ALBUM</text>
+    <text x="312" y="150" class="small light" opacity=".78">Links nobody tags.</text>
+    <text x="312" y="174" class="small light" opacity=".78">Dumping feels like work.</text>
+    <text x="312" y="198" class="small light" opacity=".78">Who's in frame? Chaos.</text>
+    <text x="588" y="124" class="meta light" opacity=".5">SPLITWISE</text>
+    <text x="588" y="150" class="small light" opacity=".78">Money away from plan.</text>
+    <text x="588" y="174" class="small light" opacity=".78">Awkward manual nudges.</text>
+    <text x="588" y="198" class="small light" opacity=".78">Never nets across plans.</text>
+    <rect x="36" y="222" width="798" height="120" rx="22" fill="#FF6B4A" fill-opacity=".16" stroke="#FF6B4A" stroke-opacity=".8"/>
+    <text x="60" y="260" class="big light">Live · Chat · Album · Money — then Wrap</text>
+    <text x="60" y="290" class="small light" opacity=".85">Sorted album, netted money, next one seeded — every time.</text>
+    <text x="60" y="314" class="small light" opacity=".6">No feed. No streaks. No tagging chores.</text>
+    <text x="36" y="374" class="eyebrow light" opacity=".55">THE DEMO LOOP</text>
+    <text x="36" y="398" class="small light" opacity=".85">Ripple → Plan → Plan Room → Wrap → Scrapbook. Repeat weekly.</text>
+  </g>
+
+  <!-- V3 RENAMES -->
+  <g transform="translate(1426 3560)">
+    <rect width="870" height="270" rx="36" fill="#FFFFFF" stroke="#EAE5DA"/>
+    <text x="36" y="44" class="eyebrow muted">V3 CHANGES — SAME ENGINE, SIMPLER WORDS</text>
+    <text x="36" y="80" class="label">Open <tspan class="small muted" font-weight="400">— was Window</tspan></text>
+    <text x="36" y="112" class="label">Hello <tspan class="small muted" font-weight="400">— was Warm Room</tspan></text>
+    <text x="36" y="144" class="label">Wrap <tspan class="small muted" font-weight="400">— was Recap</tspan></text>
+    <text x="36" y="176" class="label">In / Maybe / Out <tspan class="small muted" font-weight="400">— was Yes / Maybe / No</tspan></text>
+    <text x="36" y="208" class="label">＋ New sheet <tspan class="small muted" font-weight="400">— was CREATE tab</tspan></text>
+    <text x="452" y="80" class="label">Plan-room tabs <tspan class="small muted" font-weight="400">— was NOW / WIRE / SPLITS</tspan></text>
+    <text x="452" y="112" class="label">Overlaps <tspan class="small muted" font-weight="400">— now cards in Inbox</tspan></text>
+    <text x="452" y="144" class="label">Board <tspan class="small muted" font-weight="400">— circle open loops, TTLs</tspan></text>
+    <text x="452" y="176" class="label">Album <tspan class="small muted" font-weight="400">— dump first, hide if you want</tspan></text>
+    <text x="452" y="208" class="label">Scrapbook <tspan class="small muted" font-weight="400">— new: all your plans' media</tspan></text>
+    <text x="36" y="244" class="small muted">Navigation: Tonight · Circles · ＋ · Inbox · You — everything thumb-reachable, bottom only</text>
+  </g>
+
+  <text x="64" y="3990" class="meta">15 · Welcome — phone in, plans out</text>
+  <text x="64" y="4010" class="small muted">Trust promises stated before signup</text>
+  <text x="518" y="3990" class="meta">16 · Web plan card — WhatsApp's way in</text>
+  <text x="518" y="4010" class="small muted">Guests RSVP with no app installed</text>
+  <text x="972" y="3990" class="meta">17 · Scrapbook — the memory ledger</text>
+  <text x="972" y="4010" class="small muted">Auto-collected from plan albums · shareable shelf</text>
+
+  <text x="64" y="4066" class="eyebrow">OUTTHERE / V3 — DEMO SHEET</text>
+  <text x="2296" y="4066" class="small muted right">Intimate plans first · strangers only through mutual consent · Aug 2026</text>
+</svg>

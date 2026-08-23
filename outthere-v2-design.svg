@@ -1,0 +1,606 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2360" height="3100" viewBox="0 0 2360 3100">
+  <defs>
+    <linearGradient id="canvas" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F5F3FF"/><stop offset=".52" stop-color="#FFF8F2"/><stop offset="1" stop-color="#E9F5FF"/></linearGradient>
+    <linearGradient id="sunset" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#A8B8FF"/><stop offset=".52" stop-color="#7268E8"/><stop offset="1" stop-color="#FF8A72"/></linearGradient>
+    <linearGradient id="mint" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#E7E4FF"/><stop offset="1" stop-color="#C9D9FF"/></linearGradient>
+    <linearGradient id="duo" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#FF977A"/><stop offset="1" stop-color="#A9B4F7"/></linearGradient>
+    <linearGradient id="duoR" x1="1" y1="0" x2="0" y2="0"><stop stop-color="#FF977A"/><stop offset="1" stop-color="#A9B4F7"/></linearGradient>
+    <filter id="phoneShadow" x="-20%" y="-15%" width="140%" height="150%"><feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#25265C" flood-opacity=".16"/></filter>
+    <style>
+      text{font-family:'DM Sans','Inter',Arial,sans-serif;fill:#25265C}.serif{font-family:'DM Serif Display','Iowan Old Style',Georgia,serif;font-weight:400;letter-spacing:-.8px}.eyebrow{font-size:10px;font-weight:700;letter-spacing:1.25px}.meta{font-size:11px;font-weight:600}.small{font-size:12px}.body{font-size:14px}.label{font-size:14px;font-weight:700}.title{font-size:30px}.section{font-size:20px}.muted{fill:#737895}.light{fill:#FFFFFF}.center{text-anchor:middle}.right{text-anchor:end}.line{stroke:#E0E3F2;stroke-width:1}.icon{fill:none;stroke:#25265C;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    </style>
+  </defs>
+  <rect width="2360" height="3100" fill="url(#canvas)"/>
+  <text x="64" y="52" class="eyebrow">OUTTHERE / V2 — CLOSER FIRST</text>
+  <text x="64" y="87" class="serif title">Intimate plans. Mutual strangers.</text>
+  <text x="2295" y="70" class="small muted right">Circles first • Both-way handshakes • Privacy as structure, not settings</text>
+
+  <!-- ============ ROW 1 / THE CORE LOOP ============ -->
+
+  <!-- 1. TONIGHT (HOME) -->
+  <g transform="translate(64 125)" filter="url(#phoneShadow)">
+    <rect width="390" height="844" rx="32" fill="#FBFAF7"/>
+    <text x="24" y="36" class="meta">9:41</text><path d="M334 33h2v-4h-2zm5 0h2v-7h-2zm5 0h2v-10h-2z" fill="#25265C"/><path d="M352 28c5-5 11-5 16 0M356 31c3-3 6-3 9 0" class="icon"/><rect x="370" y="25" width="14" height="9" rx="3" fill="#25265C"/>
+    <text x="24" y="83" class="small muted">Indiranagar, Bengaluru</text><circle cx="352" cy="78" r="18" fill="#E7E4FF"/><text x="352" y="83" class="meta center">DG</text>
+    <text x="24" y="127" class="serif title">Tonight looks good.</text>
+    <text x="24" y="155" class="body muted">Two plans ahead. Your window is open.</text>
+    <g transform="translate(24 181)">
+      <rect width="342" height="150" rx="24" fill="url(#duo)"/>
+      <text x="20" y="30" class="eyebrow light">YOUR WINDOW · SAT 5–8 PM</text>
+      <text x="20" y="60" class="serif section light">Open to something nearby</text>
+      <text x="20" y="84" class="small light" opacity=".8">Only people whose window overlaps can find you</text>
+      <rect x="20" y="98" width="150" height="30" rx="15" fill="#FFFFFF" opacity=".24"/>
+      <text x="95" y="117" class="meta light center">2 OVERLAPS WAITING</text>
+      <rect x="210" y="96" width="112" height="34" rx="15" fill="#25265C"/>
+      <text x="266" y="117" class="meta light center">See them ›</text>
+    </g>
+    <text x="24" y="372" class="eyebrow muted">TONIGHT</text>
+    <g transform="translate(24 388)">
+      <rect width="342" height="140" rx="24" fill="#25265C"/>
+      <text x="20" y="30" class="eyebrow light" opacity=".8">6:30 PM · TOIT, INDIRANAGAR</text>
+      <text x="20" y="62" class="serif section light">Office dinner, +1s welcome</text>
+      <circle cx="30" cy="88" r="15" fill="#FF977A"/><text x="30" y="92" class="meta light center" style="font-size:9px">AK</text>
+      <circle cx="58" cy="88" r="15" fill="#A9B4F7"/><text x="58" y="92" class="meta center" style="font-size:9px">SG</text>
+      <circle cx="86" cy="88" r="15" fill="#FFC86B"/><text x="86" y="92" class="meta center" style="font-size:9px">RN</text>
+      <text x="112" y="93" class="small light" opacity=".75">Work circle · you're in</text>
+      <rect x="240" y="76" width="82" height="30" rx="13" fill="#FF7668"/><text x="281" y="95" class="meta light center">Directions</text>
+    </g>
+    <text x="24" y="572" class="eyebrow muted">TOMORROW</text>
+    <g transform="translate(24 588)">
+      <rect width="342" height="72" rx="20" fill="#FFFFFF" stroke="#E0E3F2"/>
+      <circle cx="38" cy="36" r="22" fill="#E7E4FF"/><text x="38" y="32" class="eyebrow center">SUN</text><text x="38" y="46" class="meta center">24</text>
+      <text x="76" y="30" class="label">Round 2: sunset badminton</text>
+      <text x="76" y="50" class="small muted">5:00 PM · Cubbon Park · 6 going</text>
+      <text x="326" y="42" class="section right muted">›</text>
+    </g>
+    <g transform="translate(24 674)">
+      <rect width="342" height="72" rx="20" fill="#FFFFFF" stroke="#E0E3F2"/>
+      <circle cx="38" cy="36" r="22" fill="#FFE3D6"/><text x="38" y="32" class="eyebrow center">MON</text><text x="38" y="46" class="meta center">25</text>
+      <text x="76" y="30" class="label">Clay and coffee</text>
+      <text x="76" y="50" class="small muted">11:00 AM · Sara is hosting · 3 going</text>
+      <text x="326" y="42" class="section right muted">›</text>
+    </g>
+    <g transform="translate(0 770)"><rect width="390" height="74" fill="#FBFAF7"/><line x1="0" y1="0" x2="390" y2="0" class="line"/>
+      <g transform="translate(39 19)"><circle r="16" fill="#F0F1FF"/><path d="M2 -8a8.5 8.5 0 1 0 6 15 9.5 9.5 0 0 1-6-15z" class="icon"/><text y="39" class="eyebrow center" style="font-size:8px">TONIGHT</text></g>
+      <g transform="translate(117 19)"><circle r="5" class="icon"/><circle cx="12" cy="-2" r="5" class="icon"/><path d="M-8 10c2-5 8-5 10 0M4 10c2-5 8-5 10 0" class="icon"/><text y="39" class="eyebrow muted center" style="font-size:8px">CIRCLES</text></g>
+      <g transform="translate(195 19)"><circle r="15" fill="#25265C"/><path d="M-6 0h12M0-6v12" stroke="#fff" stroke-width="2"/><text y="39" class="eyebrow muted center" style="font-size:8px">CREATE</text></g>
+      <g transform="translate(273 19)"><circle cx="-4" cy="0" r="8" class="icon"/><circle cx="4" cy="0" r="8" class="icon"/><text y="39" class="eyebrow muted center" style="font-size:8px">OVERLAPS</text></g>
+      <g transform="translate(351 19)"><circle r="6" class="icon"/><path d="M-9 11c3-7 15-7 18 0" class="icon"/><text y="39" class="eyebrow muted center" style="font-size:8px">YOU</text></g>
+    </g>
+  </g>
+
+  <!-- 2. CIRCLE -->
+  <g transform="translate(518 125)" filter="url(#phoneShadow)">
+    <rect width="390" height="844" rx="32" fill="#FBFAF7"/>
+    <text x="24" y="36" class="meta">9:41</text><path d="M334 33h2v-4h-2zm5 0h2v-7h-2zm5 0h2v-10h-2z" fill="#25265C"/><rect x="370" y="25" width="14" height="9" rx="3" fill="#25265C"/>
+    <g transform="translate(20 63)"><circle cx="18" cy="18" r="18" fill="#F0F1FF"/><text x="18" y="24" class="section center">‹</text><circle cx="342" cy="18" r="18" fill="#F0F1FF"/><text x="342" y="23" class="label center">•••</text></g>
+    <text x="24" y="145" class="serif title">Flat 402</text>
+    <text x="24" y="172" class="body muted">4 people · your building · since March</text>
+    <g transform="translate(24 196)">
+      <circle cx="24" cy="24" r="24" fill="#FF977A"/><text x="24" y="29" class="meta light center">DG</text><circle cx="42" cy="40" r="6" fill="#53A66A" stroke="#FBFAF7" stroke-width="2.5"/>
+      <circle cx="96" cy="24" r="24" fill="#A9B4F7"/><text x="96" y="29" class="meta center">SG</text><circle cx="114" cy="40" r="6" fill="#53A66A" stroke="#FBFAF7" stroke-width="2.5"/>
+      <circle cx="168" cy="24" r="24" fill="#FFC86B"/><text x="168" y="29" class="meta center">RN</text>
+      <circle cx="240" cy="24" r="24" fill="#E7E4FF"/><text x="240" y="29" class="meta center">MJ</text>
+      <circle cx="312" cy="24" r="23" fill="none" stroke="#B9BEDA" stroke-width="1.6" stroke-dasharray="4 4"/><path d="M312 17v14M305 24h14" class="icon"/><text x="312" y="66" class="small muted center">add</text>
+    </g>
+    <text x="24" y="330" class="eyebrow muted">NEXT UP</text>
+    <g transform="translate(24 346)">
+      <rect width="342" height="150" rx="24" fill="#FFFFFF" stroke="#E0E3F2"/>
+      <text x="20" y="32" class="eyebrow muted">SAT · 11:00 AM</text>
+      <text x="20" y="64" class="serif section">Brunch at Third Wave</text>
+      <rect x="20" y="80" width="64" height="26" rx="13" fill="#E9EDFF"/><text x="52" y="97" class="meta center">3 YES</text>
+      <rect x="92" y="80" width="78" height="26" rx="13" fill="#FFF0E7"/><text x="131" y="97" class="meta center">1 MAYBE</text>
+      <text x="20" y="130" class="meta muted">Your reply:</text>
+      <rect x="102" y="112" width="52" height="26" rx="13" fill="#25265C"/><text x="128" y="129" class="meta light center">IN ✓</text>
+      <rect x="162" y="112" width="62" height="26" rx="13" fill="#F0F1FF"/><text x="193" y="129" class="meta center">Maybe</text>
+      <rect x="232" y="112" width="46" height="26" rx="13" fill="#F0F1FF"/><text x="255" y="129" class="meta center">No</text>
+    </g>
+    <g transform="translate(24 520)">
+      <rect width="342" height="110" rx="22" fill="#E9EDFF"/>
+      <text x="18" y="28" class="eyebrow muted">NOTHING PLANNED YET?</text>
+      <text x="18" y="58" class="serif section">Nudge the circle</text>
+      <text x="18" y="82" class="small muted">One tap sends "who's in for Sunday?"</text>
+      <circle cx="300" cy="55" r="24" fill="#FF7668"/><path d="M291 55h18M300 46v18" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+    </g>
+    <g transform="translate(24 654)">
+      <rect width="342" height="50" rx="18" fill="#FFFFFF" stroke="#E0E3F2"/><circle cx="29" cy="25" r="14" fill="#E7E4FF"/><path d="M22 25h14M29 18v14" class="icon"/><text x="56" y="30" class="label">Invite link and settings</text><text x="326" y="30" class="section right muted">›</text>
+    </g>
+    <g transform="translate(0 770)"><rect width="390" height="74" fill="#FBFAF7"/><line x1="0" y1="0" x2="390" y2="0" class="line"/>
+      <g transform="translate(39 19)"><path d="M2 -8a8.5 8.5 0 1 0 6 15 9.5 9.5 0 0 1-6-15z" class="icon"/><text y="39" class="eyebrow muted center" style="font-size:8px">TONIGHT</text></g>
+      <g transform="translate(117 19)"><circle r="16" fill="#F0F1FF"/><circle cx="-4" cy="0" r="5" fill="none" stroke="#25265C" stroke-width="1.8"/><circle cx="8" cy="-2" r="5" fill="none" stroke="#25265C" stroke-width="1.8"/><path d="M-8 10c2-5 8-5 10 0M4 10c2-5 8-5 10 0" fill="none" stroke="#25265C" stroke-width="1.8" stroke-linecap="round"/><text y="39" class="eyebrow center" style="font-size:8px">CIRCLES</text></g>
+      <g transform="translate(195 19)"><circle r="15" fill="#25265C"/><path d="M-6 0h12M0-6v12" stroke="#fff" stroke-width="2"/><text y="39" class="eyebrow muted center" style="font-size:8px">CREATE</text></g>
+      <g transform="translate(273 19)"><circle cx="-4" cy="0" r="8" class="icon"/><circle cx="4" cy="0" r="8" class="icon"/><text y="39" class="eyebrow muted center" style="font-size:8px">OVERLAPS</text></g>
+      <g transform="translate(351 19)"><circle r="6" class="icon"/><path d="M-9 11c3-7 15-7 18 0" class="icon"/><text y="39" class="eyebrow muted center" style="font-size:8px">YOU</text></g>
+    </g>
+  </g>
+
+  <!-- 3. CREATE / WHO -->
+  <g transform="translate(972 125)" filter="url(#phoneShadow)">
+    <rect width="390" height="844" rx="32" fill="#FBFAF7"/>
+    <text x="24" y="36" class="meta">9:41</text><path d="M334 33h2v-4h-2zm5 0h2v-7h-2zm5 0h2v-10h-2z" fill="#25265C"/><rect x="370" y="25" width="14" height="9" rx="3" fill="#25265C"/>
+    <text x="24" y="86" class="meta muted">CANCEL</text><text x="366" y="86" class="meta right">STEP 2 OF 3</text>
+    <g transform="translate(24 104)"><rect width="342" height="44" rx="14" fill="#F0F1FF"/><text x="16" y="27" class="small">"Casual badminton, then filter coffee"</text></g>
+    <text x="24" y="196" class="serif title">Who's it for?</text>
+    <text x="24" y="224" class="body muted">Intimate by default. Big only on purpose.</text>
+    <g transform="translate(24 248)">
+      <rect width="342" height="62" rx="18" fill="#F0F1FF"/><circle cx="31" cy="31" r="17" fill="#E7E4FF"/><circle cx="-3" cy="0" r="5" transform="translate(31 31)" fill="none" stroke="#25265C" stroke-width="1.8"/><circle cx="9" cy="-2" transform="translate(31 31)" r="5" fill="none" stroke="#25265C" stroke-width="1.8"/><text x="60" y="26" class="label">Flat 402</text><text x="60" y="46" class="small muted">4 people</text><circle cx="314" cy="31" r="10" fill="#25265C"/><circle cx="314" cy="31" r="4" fill="#fff"/>
+    </g>
+    <g transform="translate(24 324)">
+      <rect width="342" height="62" rx="18" fill="#FFFFFF" stroke="#E0E3F2"/><circle cx="31" cy="31" r="17" fill="#FFE3D6"/><circle cx="-3" cy="0" r="5" transform="translate(31 31)" fill="none" stroke="#25265C" stroke-width="1.8"/><circle cx="9" cy="-2" transform="translate(31 31)" r="5" fill="none" stroke="#25265C" stroke-width="1.8"/><text x="60" y="26" class="label">Office crew</text><text x="60" y="46" class="small muted">11 people</text><circle cx="314" cy="31" r="9" fill="none" stroke="#B9BEDA" stroke-width="1.6"/>
+    </g>
+    <g transform="translate(24 400)">
+      <rect width="342" height="62" rx="18" fill="#FFFFFF" stroke="#E0E3F2"/><circle cx="31" cy="31" r="17" fill="#DFE4FF"/><circle cx="-3" cy="0" r="5" transform="translate(31 31)" fill="none" stroke="#25265C" stroke-width="1.8"/><circle cx="9" cy="-2" transform="translate(31 31)" r="5" fill="none" stroke="#25265C" stroke-width="1.8"/><text x="60" y="26" class="label">Sunday cyclists</text><text x="60" y="46" class="small muted">8 people</text><circle cx="314" cy="31" r="9" fill="none" stroke="#B9BEDA" stroke-width="1.6"/>
+    </g>
+    <g transform="translate(24 492)">
+      <rect width="342" height="128" rx="22" fill="url(#mint)"/>
+      <text x="18" y="30" class="eyebrow muted">NO FIXED GROUP?</text>
+      <text x="18" y="56" class="label">Leave a window open instead</text>
+      <text x="18" y="78" class="small muted">Nearby people whose free time overlaps</text>
+      <text x="18" y="96" class="small muted">can wave. Both must say hi.</text>
+      <rect x="284" y="76" width="40" height="24" rx="12" fill="#25265C"/><circle cx="312" cy="88" r="9" fill="#fff"/>
+    </g>
+    <text x="24" y="652" class="small muted">Inside circles there are no approvals — just RSVP.</text>
+    <rect x="20" y="688" width="350" height="54" rx="18" fill="#FF7668"/><text x="195" y="721" class="label light center">Next: when and where</text>
+    <g transform="translate(0 770)"><rect width="390" height="74" fill="#FBFAF7"/><line x1="0" y1="0" x2="390" y2="0" class="line"/>
+      <g transform="translate(39 19)"><path d="M2 -8a8.5 8.5 0 1 0 6 15 9.5 9.5 0 0 1-6-15z" class="icon"/><text y="39" class="eyebrow muted center" style="font-size:8px">TONIGHT</text></g>
+      <g transform="translate(117 19)"><circle r="5" class="icon"/><circle cx="12" cy="-2" r="5" class="icon"/><path d="M-8 10c2-5 8-5 10 0M4 10c2-5 8-5 10 0" class="icon"/><text y="39" class="eyebrow muted center" style="font-size:8px">CIRCLES</text></g>
+      <g transform="translate(195 19)"><circle r="16" fill="#25265C"/><path d="M-6 0h12M0-6v12" stroke="#fff" stroke-width="2"/><text y="39" class="eyebrow center" style="font-size:8px">CREATE</text></g>
+      <g transform="translate(273 19)"><circle cx="-4" cy="0" r="8" class="icon"/><circle cx="4" cy="0" r="8" class="icon"/><text y="39" class="eyebrow muted center" style="font-size:8px">OVERLAPS</text></g>
+      <g transform="translate(351 19)"><circle r="6" class="icon"/><path d="M-9 11c3-7 15-7 18 0" class="icon"/><text y="39" class="eyebrow muted center" style="font-size:8px">YOU</text></g>
+    </g>
+  </g>
+
+  <!-- 4. WINDOW COMPOSER -->
+  <g transform="translate(1426 125)" filter="url(#phoneShadow)">
+    <rect width="390" height="844" rx="32" fill="#FBFAF7"/>
+    <text x="24" y="36" class="meta">9:41</text><path d="M334 33h2v-4h-2zm5 0h2v-7h-2zm5 0h2v-10h-2z" fill="#25265C"/><rect x="370" y="25" width="14" height="9" rx="3" fill="#25265C"/>
+    <text x="24" y="86" class="meta muted">CANCEL</text><text x="366" y="86" class="meta right muted">PRIVATE SIGNAL</text>
+    <text x="24" y="145" class="serif title">Leave a window open.</text>
+    <text x="24" y="173" class="body muted">A quiet signal. Not a post, not a profile.</text>
+    <g transform="translate(24 200)">
+      <rect width="342" height="66" rx="18" fill="#F0F1FF"/><circle cx="31" cy="33" r="16" fill="#E7E4FF"/><circle cx="31" cy="33" r="8" class="icon"/><path d="M31 29v4l3 2" class="icon"/><text x="60" y="28" class="meta muted">WHEN</text><text x="60" y="48" class="label">Saturday · 5:00–8:00 PM</text><text x="326" y="38" class="section right muted">›</text>
+    </g>
+    <text x="24" y="302" class="eyebrow muted">UP FOR</text>
+    <g transform="translate(24 316)">
+      <rect width="104" height="34" rx="17" fill="#25265C"/><text x="52" y="22" class="meta light center">Badminton ✓</text>
+      <rect x="114" width="66" height="34" rx="17" fill="#F0F1FF"/><text x="147" y="22" class="meta center">Chai ✓</text>
+      <rect x="190" width="132" height="34" rx="17" fill="#F0F1FF"/><text x="256" y="22" class="meta center">Anything easy</text>
+    </g>
+    <g transform="translate(24 374)">
+      <rect width="342" height="66" rx="18" fill="#F0F1FF"/><circle cx="31" cy="33" r="16" fill="#FFE3D6"/><path d="M24 31c0-4 3-7 7-7s7 3 7 7c0 6-7 12-7 12s-7-6-7-12z" class="icon"/><circle cx="31" cy="31" r="2.5" fill="#25265C"/><text x="60" y="28" class="meta muted">WHERE</text><text x="60" y="48" class="label">Within 2 km of Indiranagar</text><text x="326" y="38" class="section right muted">›</text>
+    </g>
+    <g transform="translate(24 464)">
+      <rect width="342" height="132" rx="22" fill="#FFFFFF" stroke="#E0E3F2"/>
+      <text x="18" y="30" class="eyebrow muted">COMFORT FILTERS</text>
+      <text x="18" y="62" class="label">Women-only matches</text>
+      <rect x="284" y="42" width="40" height="24" rx="12" fill="#25265C"/><circle cx="312" cy="54" r="9" fill="#fff"/>
+      <text x="18" y="110" class="label">Phone-verified people only</text>
+      <rect x="284" y="90" width="40" height="24" rx="12" fill="#25265C"/><circle cx="312" cy="102" r="9" fill="#fff"/>
+    </g>
+    <g transform="translate(24 620)">
+      <rect width="342" height="64" rx="18" fill="#FFEBCF"/>
+      <text x="18" y="26" class="small">Closes by itself when the window ends.</text>
+      <text x="18" y="46" class="small">It is never posted anywhere — it only matches.</text>
+    </g>
+    <rect x="20" y="702" width="350" height="54" rx="18" fill="#FF7668"/><text x="195" y="735" class="label light center">Open my window</text>
+    <g transform="translate(0 770)"><rect width="390" height="74" fill="#FBFAF7"/><line x1="0" y1="0" x2="390" y2="0" class="line"/>
+      <g transform="translate(39 19)"><path d="M2 -8a8.5 8.5 0 1 0 6 15 9.5 9.5 0 0 1-6-15z" class="icon"/><text y="39" class="eyebrow muted center" style="font-size:8px">TONIGHT</text></g>
+      <g transform="translate(117 19)"><circle r="5" class="icon"/><circle cx="12" cy="-2" r="5" class="icon"/><path d="M-8 10c2-5 8-5 10 0M4 10c2-5 8-5 10 0" class="icon"/><text y="39" class="eyebrow muted center" style="font-size:8px">CIRCLES</text></g>
+      <g transform="translate(195 19)"><circle r="15" fill="#25265C"/><path d="M-6 0h12M0-6v12" stroke="#fff" stroke-width="2"/><text y="39" class="eyebrow muted center" style="font-size:8px">CREATE</text></g>
+      <g transform="translate(273 19)"><circle r="16" fill="#F0F1FF"/><circle cx="-4" cy="0" r="8" fill="none" stroke="#25265C" stroke-width="1.8"/><circle cx="4" cy="0" r="8" fill="none" stroke="#25265C" stroke-width="1.8"/><text y="39" class="eyebrow center" style="font-size:8px">OVERLAPS</text></g>
+      <g transform="translate(351 19)"><circle r="6" class="icon"/><path d="M-9 11c3-7 15-7 18 0" class="icon"/><text y="39" class="eyebrow muted center" style="font-size:8px">YOU</text></g>
+    </g>
+  </g>
+
+  <!-- 5. OVERLAP MOMENT -->
+  <g transform="translate(1880 125)" filter="url(#phoneShadow)">
+    <rect width="390" height="844" rx="32" fill="#FBFAF7"/>
+    <text x="24" y="36" class="meta">9:41</text><path d="M334 33h2v-4h-2zm5 0h2v-7h-2zm5 0h2v-10h-2z" fill="#25265C"/><rect x="370" y="25" width="14" height="9" rx="3" fill="#25265C"/>
+    <text x="24" y="86" class="eyebrow muted">OVERLAP · SATURDAY EVENING</text><text x="366" y="86" class="meta right muted">UNDER 1 KM</text>
+    <g transform="translate(0 110)">
+      <circle cx="140" cy="105" r="82" fill="url(#duo)" opacity=".92"/>
+      <circle cx="250" cy="105" r="82" fill="url(#duoR)" opacity=".92"/>
+      <text x="140" y="112" class="label light center">DG</text>
+      <text x="250" y="112" class="label light center">AK</text>
+      <text x="140" y="212" class="small muted center">You</text>
+      <text x="250" y="212" class="small muted center">Aarav</text>
+    </g>
+    <text x="195" y="368" class="serif title center">Your evenings overlap.</text>
+    <text x="195" y="396" class="body muted center">Same window, same vibes, 900 m apart.</text>
+    <g transform="translate(24 424)">
+      <rect width="96" height="32" rx="16" fill="#F0F1FF"/><text x="48" y="20" class="meta center">Badminton</text>
+      <rect x="106" width="56" height="32" rx="16" fill="#F0F1FF"/><text x="134" y="20" class="meta center">Chai</text>
+      <rect x="172" width="120" height="32" rx="16" fill="#F0F1FF"/><text x="232" y="20" class="meta center">Both free 5–8</text>
+    </g>
+    <g transform="translate(24 486)">
+      <rect width="342" height="104" rx="20" fill="#F0F1FF"/>
+      <text x="18" y="30" class="small">If you both tap hi, we open a private room</text>
+      <text x="18" y="50" class="small">to plan something real. Nobody sees</text>
+      <text x="18" y="70" class="small">anything until —</text>
+      <text x="18" y="90" class="label">both sides say hi.</text>
+    </g>
+    <rect x="20" y="622" width="350" height="56" rx="18" fill="#FF7668"/><text x="195" y="656" class="label light center">Say hi</text>
+    <text x="195" y="712" class="small muted center">Pass quietly — they will never know</text>
+    <text x="195" y="742" class="eyebrow muted center">NO PROFILE BROWSING · NO COLD TEXTS</text>
+    <g transform="translate(0 770)"><rect width="390" height="74" fill="#FBFAF7"/><line x1="0" y1="0" x2="390" y2="0" class="line"/>
+      <g transform="translate(39 19)"><path d="M2 -8a8.5 8.5 0 1 0 6 15 9.5 9.5 0 0 1-6-15z" class="icon"/><text y="39" class="eyebrow muted center" style="font-size:8px">TONIGHT</text></g>
+      <g transform="translate(117 19)"><circle r="5" class="icon"/><circle cx="12" cy="-2" r="5" class="icon"/><path d="M-8 10c2-5 8-5 10 0M4 10c2-5 8-5 10 0" class="icon"/><text y="39" class="eyebrow muted center" style="font-size:8px">CIRCLES</text></g>
+      <g transform="translate(195 19)"><circle r="15" fill="#25265C"/><path d="M-6 0h12M0-6v12" stroke="#fff" stroke-width="2"/><text y="39" class="eyebrow muted center" style="font-size:8px">CREATE</text></g>
+      <g transform="translate(273 19)"><circle r="16" fill="#F0F1FF"/><circle cx="-4" cy="0" r="8" fill="none" stroke="#25265C" stroke-width="1.8"/><circle cx="4" cy="0" r="8" fill="none" stroke="#25265C" stroke-width="1.8"/><text y="39" class="eyebrow center" style="font-size:8px">OVERLAPS</text></g>
+      <g transform="translate(351 19)"><circle r="6" class="icon"/><path d="M-9 11c3-7 15-7 18 0" class="icon"/><text y="39" class="eyebrow muted center" style="font-size:8px">YOU</text></g>
+    </g>
+  </g>
+
+  <text x="64" y="1096" class="eyebrow">OUTTHERE / CORE LOOP</text>
+  <text x="64" y="1130" class="serif title">Windows in. Plans out.</text>
+
+  <!-- ============ ROW 2 / TRUST BY DEFAULT ============ -->
+
+  <!-- 6. WARM ROOM -->
+  <g transform="translate(64 1175)" filter="url(#phoneShadow)">
+    <rect width="390" height="844" rx="32" fill="#FBFAF7"/>
+    <text x="24" y="36" class="meta">9:41</text><path d="M334 33h2v-4h-2zm5 0h2v-7h-2zm5 0h2v-10h-2z" fill="#25265C"/><rect x="370" y="25" width="14" height="9" rx="3" fill="#25265C"/>
+    <g transform="translate(20 63)"><circle cx="18" cy="18" r="18" fill="#F0F1FF"/><text x="18" y="24" class="section center">‹</text></g>
+    <text x="195" y="91" class="serif section center">You + Aarav</text>
+    <text x="195" y="113" class="small muted center">warm room · closes in 21:04</text>
+    <rect x="24" y="126" width="200" height="3" rx="2" fill="#FF7668"/><rect x="224" y="126" width="142" height="3" rx="2" fill="#E0E3F2"/>
+    <g transform="translate(45 156)"><rect width="300" height="40" rx="14" fill="#E9EDFF"/><text x="150" y="25" class="small muted center">You both said hi. Say the plan out loud.</text></g>
+    <g transform="translate(24 222)">
+      <circle cx="20" cy="20" r="20" fill="#FF977A"/><text x="20" y="25" class="meta light center" style="font-size:9px">AK</text>
+      <rect x="52" width="240" height="58" rx="18" fill="#F0F1FF"/>
+      <text x="68" y="24" class="small">Court 3 is free at 5. Loser buys</text>
+      <text x="68" y="42" class="small">the chai?</text>
+      <text x="284" y="52" class="eyebrow muted">5:02</text>
+    </g>
+    <g transform="translate(74 306)">
+      <rect x="72" width="244" height="52" rx="18" fill="#25265C"/>
+      <text x="88" y="23" class="small light">Deal. Bring the good racquets?</text>
+      <text x="300" y="42" class="eyebrow light" opacity=".6">5:03</text>
+    </g>
+    <g transform="translate(24 392)">
+      <rect width="342" height="124" rx="22" fill="url(#mint)"/>
+      <text x="18" y="28" class="eyebrow muted">PROPOSAL</text>
+      <text x="18" y="56" class="label">Tomorrow · 5:00 PM</text>
+      <text x="18" y="78" class="small muted">Court 3, Cubbon Park Gate 2</text>
+      <rect x="214" y="82" width="112" height="34" rx="14" fill="#25265C"/><text x="270" y="103" class="meta light center">Lock it in</text>
+    </g>
+    <g transform="translate(24 540)">
+      <rect width="342" height="72" rx="18" fill="#FFFFFF" stroke="#E0E3F2"/>
+      <circle cx="29" cy="36" r="15" fill="#E7E4FF"/><path d="M22 36c0-6 14-6 14 0M25 33c0-4 8-4 8 0" class="icon"/>
+      <text x="56" y="30" class="small">Full profiles unlock once a plan is locked.</text>
+      <text x="56" y="50" class="small muted">Until then: first names only.</text>
+    </g>
+    <text x="195" y="672" class="eyebrow muted center">REPORT · BLOCK · PAUSE — ALWAYS ONE TAP AWAY</text>
+    <g transform="translate(0 812)"><text x="65" y="21" class="eyebrow center">ROOM</text><text x="195" y="21" class="eyebrow muted center">PROFILE</text><text x="325" y="21" class="eyebrow muted center">SAFETY</text><rect x="42" y="29" width="46" height="3" rx="2" fill="#25265C"/></g>
+  </g>
+
+  <!-- 7. LIVE PLAN -->
+  <g transform="translate(518 1175)" filter="url(#phoneShadow)">
+    <rect width="390" height="844" rx="32" fill="#FBFAF7"/>
+    <text x="24" y="36" class="meta">9:41</text><path d="M334 33h2v-4h-2zm5 0h2v-7h-2zm5 0h2v-10h-2z" fill="#25265C"/><rect x="370" y="25" width="14" height="9" rx="3" fill="#25265C"/>
+    <text x="24" y="78" class="eyebrow muted">LIVE · ARRIVAL MODE</text><text x="24" y="113" class="serif title">Round 2, badminton</text><circle cx="350" cy="91" r="18" fill="#F0F1FF"/><text x="350" y="97" class="label center">•••</text>
+    <g transform="translate(20 136)">
+      <rect width="350" height="180" rx="25" fill="#25265C"/>
+      <text x="20" y="28" class="eyebrow light" opacity=".8">MEET NOW · GATE 2</text>
+      <text x="20" y="64" class="serif section light">3 here · 2 en route</text>
+      <text x="20" y="89" class="small light" opacity=".72">Aarav brought spare racquets</text>
+      <g transform="translate(20 108)"><circle cx="18" cy="18" r="18" fill="#FF977A"/><text x="18" y="23" class="meta light center" style="font-size:9px">AK</text><circle cx="48" cy="18" r="18" fill="#A9B4F7"/><text x="48" y="23" class="meta center" style="font-size:9px">SG</text><circle cx="78" cy="18" r="18" fill="#FFC86B"/><text x="78" y="23" class="meta center" style="font-size:9px">RN</text></g>
+      <rect x="202" y="109" width="128" height="44" rx="17" fill="#FF7668"/><text x="266" y="136" class="label light center">I'm here</text>
+    </g>
+    <text x="24" y="352" class="eyebrow muted">QUICK UPDATE</text>
+    <g transform="translate(24 367)">
+      <rect width="95" height="38" rx="19" fill="#F0F1FF"/><text x="48" y="24" class="meta center">5 min late</text>
+      <rect x="103" width="88" height="38" rx="19" fill="#F0F1FF"/><text x="147" y="24" class="meta center">At Gate 2</text>
+      <rect x="199" width="100" height="38" rx="19" fill="#F0F1FF"/><text x="249" y="24" class="meta center">Court changed</text>
+    </g>
+    <text x="24" y="447" class="serif section">What's next</text>
+    <g transform="translate(24 465)">
+      <rect width="342" height="125" rx="22" fill="#FFFFFF" stroke="#E0E3F2"/>
+      <circle cx="26" cy="29" r="7" fill="#C9F26B" stroke="#25265C"/><text x="48" y="25" class="meta muted">5:00 PM</text><text x="126" y="25" class="label">Game starts</text>
+      <text x="48" y="48" class="small muted">Court 3 · Aarav and Sara from today's overlap</text>
+      <line x1="20" y1="66" x2="322" y2="66" class="line"/>
+      <circle cx="26" cy="92" r="7" fill="#FBFAF7" stroke="#A3A8C8"/><text x="48" y="96" class="meta muted">6:45 PM</text><text x="126" y="96" class="label">Filter coffee after?</text>
+      <rect x="286" y="80" width="56" height="28" rx="14" fill="#E9EDFF"/><text x="314" y="98" class="meta center">4 yes</text>
+    </g>
+    <g transform="translate(24 614)">
+      <text y="18" class="serif section">Plan pulse</text>
+      <g transform="translate(0 33)">
+        <rect width="342" height="76" rx="20" fill="#F0F1FF"/>
+        <circle cx="37" cy="38" r="22" fill="#FF977A"/><text x="37" y="43" class="meta light center" style="font-size:9px">AK</text>
+        <text x="74" y="31" class="label">Aarav joined via overlap</text>
+        <text x="74" y="53" class="small muted">Met through Saturday windows</text>
+      </g>
+    </g>
+    <g transform="translate(20 744)">
+      <rect width="350" height="52" rx="17" fill="#FFFFFF" stroke="#E0E3F2"/><text x="18" y="32" class="small muted">Message the plan…</text>
+      <circle cx="322" cy="26" r="17" fill="#25265C"/><path d="M315 26h13M323 20l6 6-6 6" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g transform="translate(0 812)"><text x="65" y="21" class="eyebrow center">NOW</text><text x="195" y="21" class="eyebrow muted center">CHAT</text><text x="325" y="21" class="eyebrow muted center">SPLITS</text><rect x="42" y="29" width="46" height="3" rx="2" fill="#25265C"/></g>
+  </g>
+
+  <!-- 8. RECAP -->
+  <g transform="translate(972 1175)" filter="url(#phoneShadow)">
+    <rect width="390" height="844" rx="32" fill="#FBFAF7"/>
+    <text x="24" y="36" class="meta">9:41</text><path d="M334 33h2v-4h-2zm5 0h2v-7h-2zm5 0h2v-10h-2z" fill="#25265C"/><rect x="370" y="25" width="14" height="9" rx="3" fill="#25265C"/>
+    <text x="24" y="86" class="eyebrow muted">LAST NIGHT · 2.5 HRS</text>
+    <text x="24" y="124" class="serif title">That was good.</text>
+    <g transform="translate(24 150)">
+      <rect width="164" height="120" rx="18" fill="url(#sunset)"/><path d="M20 96c30-16 60-6 124-24" stroke="#fff" opacity=".5" fill="none" stroke-width="2"/><circle cx="128" cy="30" r="16" fill="#FFEBCF" opacity=".9"/>
+      <rect x="178" width="164" height="120" rx="18" fill="#E7E4FF"/><path d="M198 84l30-34 26 26 20-18 34 30" stroke="#25265C" stroke-width="4" fill="none" stroke-linejoin="round"/>
+      <rect y="130" width="164" height="120" rx="18" fill="#FFE3D6"/><circle cx="82" cy="190" r="34" fill="none" stroke="#25265C" stroke-width="4"/><path d="M82 156v68M48 190h68" stroke="#25265C" stroke-width="4"/>
+      <rect x="178" y="130" width="164" height="120" rx="18" fill="#DFE4FF"/><path d="M0 210c40-24 90-14 164-40" stroke="#fff" opacity=".7" fill="none" stroke-width="2"/><circle cx="40" cy="170" r="12" fill="#FF977A" opacity=".85"/><circle cx="70" cy="182" r="12" fill="#A9B4F7" opacity=".85"/>
+    </g>
+    <text x="24" y="436" class="eyebrow muted">SPLIT · COURT + COFFEE</text>
+    <g transform="translate(24 452)">
+      <rect width="342" height="86" rx="22" fill="#E9EDFF"/>
+      <text x="18" y="30" class="eyebrow muted">ALL SETTLED ✓</text>
+      <text x="18" y="58" class="label">₹180 each</text>
+      <text x="18" y="78" class="small muted">Aarav, Sara, Rina, you</text>
+    </g>
+    <g transform="translate(24 562)">
+      <rect width="342" height="96" rx="22" fill="#FFFFFF" stroke="#E0E3F2"/>
+      <text x="18" y="34" class="label">Same time next Saturday?</text>
+      <rect x="18" y="50" width="56" height="30" rx="15" fill="#25265C"/><text x="46" y="69" class="meta light center">In ✓</text>
+      <rect x="84" y="50" width="70" height="30" rx="15" fill="#F0F1FF"/><text x="119" y="69" class="meta center">Maybe</text>
+      <rect x="164" y="50" width="62" height="30" rx="15" fill="#F0F1FF"/><text x="195" y="69" class="meta center">Skip</text>
+    </g>
+    <g transform="translate(24 682)">
+      <rect width="342" height="72" rx="18" fill="#FFF0E7"/>
+      <text x="18" y="28" class="small">"Best rally partner. Same again?" — Aarav</text>
+      <text x="18" y="52" class="eyebrow muted">PRIVATE NOTE · ONLY YOU SEE THIS</text>
+    </g>
+    <text x="24" y="790" class="small muted">Recaps live only in the circles that were there.</text>
+    <g transform="translate(0 812)"><text x="65" y="21" class="eyebrow muted center">NOW</text><text x="195" y="21" class="eyebrow muted center">CHAT</text><text x="325" y="21" class="eyebrow center">SPLITS</text><rect x="302" y="29" width="46" height="3" rx="2" fill="#25265C"/></g>
+  </g>
+
+  <!-- 9. PRIVACY CENTER -->
+  <g transform="translate(1426 1175)" filter="url(#phoneShadow)">
+    <rect width="390" height="844" rx="32" fill="#FBFAF7"/>
+    <text x="24" y="36" class="meta">9:41</text><path d="M334 33h2v-4h-2zm5 0h2v-7h-2zm5 0h2v-10h-2z" fill="#25265C"/><rect x="370" y="25" width="14" height="9" rx="3" fill="#25265C"/>
+    <g transform="translate(20 63)"><circle cx="18" cy="18" r="18" fill="#F0F1FF"/><text x="18" y="24" class="section center">‹</text></g>
+    <text x="24" y="145" class="serif title">Who sees what.</text>
+    <g transform="translate(24 168)">
+      <circle cx="6" cy="10" r="5" fill="#25265C"/><text x="18" y="14" class="small muted">Circle</text>
+      <path d="M96 5a5 5 0 0 1 0 10z" fill="#25265C"/><circle cx="96" cy="10" r="5" fill="none" stroke="#25265C" stroke-width="1.4"/><text x="108" y="14" class="small muted">Match</text>
+      <circle cx="192" cy="10" r="5" fill="none" stroke="#25265C" stroke-width="1.4"/><text x="204" y="14" class="small muted">Nearby</text>
+    </g>
+    <g transform="translate(24 200)">
+      <rect width="342" height="54" rx="16" fill="#FFFFFF" stroke="#E0E3F2"/><text x="18" y="33" class="label">Photo and full name</text><circle cx="262" cy="27" r="6" fill="#25265C"/><path d="M304 22a6 6 0 0 1 0 12z" fill="#25265C"/><circle cx="304" cy="27" r="6" fill="none" stroke="#25265C" stroke-width="1.4"/><circle cx="346" cy="27" r="6" fill="none" stroke="#25265C" stroke-width="1.4"/><text x="262" y="46" class="eyebrow muted center" style="font-size:7px">FIRST NAME ONLY</text>
+    </g>
+    <g transform="translate(24 266)">
+      <rect width="342" height="54" rx="16" fill="#FFFFFF" stroke="#E0E3F2"/><text x="18" y="33" class="label">Your free window</text><circle cx="262" cy="27" r="6" fill="#25265C"/><path d="M304 22a6 6 0 0 1 0 12z" fill="#25265C"/><circle cx="304" cy="27" r="6" fill="none" stroke="#25265C" stroke-width="1.4"/><circle cx="346" cy="27" r="6" fill="none" stroke="#25265C" stroke-width="1.4"/><text x="304" y="46" class="eyebrow muted center" style="font-size:7px">OVERLAP ONLY</text>
+    </g>
+    <g transform="translate(24 332)">
+      <rect width="342" height="54" rx="16" fill="#FFFFFF" stroke="#E0E3F2"/><text x="18" y="33" class="label">Neighbourhood</text><circle cx="262" cy="27" r="6" fill="#25265C"/><path d="M304 22a6 6 0 0 1 0 12z" fill="#25265C"/><circle cx="304" cy="27" r="6" fill="none" stroke="#25265C" stroke-width="1.4"/><path d="M346 22a6 6 0 0 1 0 12z" fill="#25265C"/><circle cx="346" cy="27" r="6" fill="none" stroke="#25265C" stroke-width="1.4"/><text x="325" y="46" class="eyebrow muted center" style="font-size:7px">DISTANCE BAND</text>
+    </g>
+    <g transform="translate(24 398)">
+      <rect width="342" height="54" rx="16" fill="#FFFFFF" stroke="#E0E3F2"/><text x="18" y="33" class="label">Past plans and recaps</text><circle cx="262" cy="27" r="6" fill="#25265C"/><circle cx="304" cy="27" r="6" fill="none" stroke="#25265C" stroke-width="1.4"/><circle cx="346" cy="27" r="6" fill="none" stroke="#25265C" stroke-width="1.4"/>
+    </g>
+    <g transform="translate(24 464)">
+      <rect width="342" height="54" rx="16" fill="#FFFFFF" stroke="#E0E3F2"/><text x="18" y="33" class="label">Live location</text><path d="M262 22a6 6 0 0 1 0 12z" fill="#25265C"/><circle cx="262" cy="27" r="6" fill="none" stroke="#25265C" stroke-width="1.4"/><circle cx="304" cy="27" r="6" fill="none" stroke="#25265C" stroke-width="1.4"/><circle cx="346" cy="27" r="6" fill="none" stroke="#25265C" stroke-width="1.4"/><text x="262" y="46" class="eyebrow muted center" style="font-size:7px">PER PLAN, EXPIRES</text>
+    </g>
+    <g transform="translate(24 546)">
+      <rect width="342" height="58" rx="18" fill="#F0F1FF"/><circle cx="29" cy="29" r="14" fill="#E7E4FF"/><path d="M22 29h14M29 22v14" class="icon"/><text x="56" y="24" class="label">Live location: off by default</text><text x="56" y="44" class="small muted">Share per plan. Auto-expires when it ends.</text>
+    </g>
+    <g transform="translate(24 616)">
+      <rect width="342" height="58" rx="18" fill="#F0F1FF"/><circle cx="29" cy="29" r="14" fill="#E7E4FF"/><circle cx="29" cy="26" r="5" class="icon"/><path d="M20 38c2-5 16-5 18 0" class="icon"/><text x="56" y="24" class="label">Not searchable, ever</text><text x="56" y="44" class="small muted">No search exists. Strangers need mutual hi.</text>
+    </g>
+    <text x="195" y="724" class="small muted center">Export my data · Delete account</text>
+    <g transform="translate(0 770)"><rect width="390" height="74" fill="#FBFAF7"/><line x1="0" y1="0" x2="390" y2="0" class="line"/>
+      <g transform="translate(39 19)"><path d="M2 -8a8.5 8.5 0 1 0 6 15 9.5 9.5 0 0 1-6-15z" class="icon"/><text y="39" class="eyebrow muted center" style="font-size:8px">TONIGHT</text></g>
+      <g transform="translate(117 19)"><circle r="5" class="icon"/><circle cx="12" cy="-2" r="5" class="icon"/><path d="M-8 10c2-5 8-5 10 0M4 10c2-5 8-5 10 0" class="icon"/><text y="39" class="eyebrow muted center" style="font-size:8px">CIRCLES</text></g>
+      <g transform="translate(195 19)"><circle r="15" fill="#25265C"/><path d="M-6 0h12M0-6v12" stroke="#fff" stroke-width="2"/><text y="39" class="eyebrow muted center" style="font-size:8px">CREATE</text></g>
+      <g transform="translate(273 19)"><circle cx="-4" cy="0" r="8" class="icon"/><circle cx="4" cy="0" r="8" class="icon"/><text y="39" class="eyebrow muted center" style="font-size:8px">OVERLAPS</text></g>
+      <g transform="translate(351 19)"><circle r="16" fill="#F0F1FF"/><circle r="6" fill="none" stroke="#25265C" stroke-width="1.8"/><path d="M-9 11c3-7 15-7 18 0" fill="none" stroke="#25265C" stroke-width="1.8" stroke-linecap="round"/><text y="39" class="eyebrow center" style="font-size:8px">YOU</text></g>
+    </g>
+  </g>
+
+  <!-- 10. SAFETY -->
+  <g transform="translate(1880 1175)" filter="url(#phoneShadow)">
+    <rect width="390" height="844" rx="32" fill="#FBFAF7"/>
+    <text x="24" y="36" class="meta">9:41</text><path d="M334 33h2v-4h-2zm5 0h2v-7h-2zm5 0h2v-10h-2z" fill="#25265C"/><rect x="370" y="25" width="14" height="9" rx="3" fill="#25265C"/>
+    <g transform="translate(20 63)"><circle cx="18" cy="18" r="18" fill="#F0F1FF"/><text x="18" y="24" class="section center">‹</text></g>
+    <text x="24" y="145" class="serif title">Safety, built in.</text>
+    <text x="24" y="173" class="body muted">Boring by design. That is the point.</text>
+    <g transform="translate(24 196)">
+      <rect width="342" height="84" rx="22" fill="#F0F1FF"/>
+      <text x="18" y="28" class="eyebrow muted">GHOST MODE</text>
+      <text x="18" y="54" class="label">Pause my window</text>
+      <text x="18" y="74" class="small muted">Invisible everywhere. Your plans stay.</text>
+      <rect x="284" y="30" width="40" height="24" rx="12" fill="#25265C"/><circle cx="312" cy="42" r="9" fill="#fff"/>
+    </g>
+    <g transform="translate(24 300)">
+      <rect width="342" height="84" rx="22" fill="#FFFFFF" stroke="#E0E3F2"/>
+      <text x="18" y="28" class="eyebrow muted">BOUNDARIES</text>
+      <text x="18" y="54" class="label">Blocked · 2 people</text>
+      <text x="18" y="74" class="small muted">Silent, mutual, instant. They never learn.</text>
+      <text x="326" y="52" class="section right muted">›</text>
+    </g>
+    <g transform="translate(24 404)">
+      <rect width="342" height="96" rx="22" fill="#FFFFFF" stroke="#E0E3F2"/>
+      <text x="18" y="28" class="eyebrow muted">FIRST-MEET DEFAULTS</text>
+      <text x="18" y="54" class="label">Public places · groups of 4+</text>
+      <text x="18" y="76" class="small muted">Warm-room proposals are filtered to match.</text>
+    </g>
+    <g transform="translate(24 520)">
+      <rect width="342" height="96" rx="22" fill="#FFF0E7" stroke="#F3C9B8"/>
+      <text x="18" y="28" class="eyebrow muted">CHECK-INS · NEW</text>
+      <text x="18" y="54" class="label">Late plan? We check on you.</text>
+      <text x="18" y="76" class="small muted">No reply, and we nudge the contact you chose.</text>
+    </g>
+    <g transform="translate(24 636)">
+      <rect width="342" height="84" rx="22" fill="#FFFFFF" stroke="#E0E3F2"/>
+      <text x="18" y="28" class="eyebrow muted">REPORTS</text>
+      <text x="18" y="54" class="label">2 taps. Humans review.</text>
+      <text x="18" y="74" class="small muted">Serious flags pause matches immediately.</text>
+    </g>
+    <g transform="translate(0 770)"><rect width="390" height="74" fill="#FBFAF7"/><line x1="0" y1="0" x2="390" y2="0" class="line"/>
+      <g transform="translate(39 19)"><path d="M2 -8a8.5 8.5 0 1 0 6 15 9.5 9.5 0 0 1-6-15z" class="icon"/><text y="39" class="eyebrow muted center" style="font-size:8px">TONIGHT</text></g>
+      <g transform="translate(117 19)"><circle r="5" class="icon"/><circle cx="12" cy="-2" r="5" class="icon"/><path d="M-8 10c2-5 8-5 10 0M4 10c2-5 8-5 10 0" class="icon"/><text y="39" class="eyebrow muted center" style="font-size:8px">CIRCLES</text></g>
+      <g transform="translate(195 19)"><circle r="15" fill="#25265C"/><path d="M-6 0h12M0-6v12" stroke="#fff" stroke-width="2"/><text y="39" class="eyebrow muted center" style="font-size:8px">CREATE</text></g>
+      <g transform="translate(273 19)"><circle cx="-4" cy="0" r="8" class="icon"/><circle cx="4" cy="0" r="8" class="icon"/><text y="39" class="eyebrow muted center" style="font-size:8px">OVERLAPS</text></g>
+      <g transform="translate(351 19)"><circle r="16" fill="#F0F1FF"/><circle r="6" fill="none" stroke="#25265C" stroke-width="1.8"/><path d="M-9 11c3-7 15-7 18 0" fill="none" stroke="#25265C" stroke-width="1.8" stroke-linecap="round"/><text y="39" class="eyebrow center" style="font-size:8px">YOU</text></g>
+    </g>
+  </g>
+
+  <text x="64" y="2096" class="eyebrow">OUTTHERE / TRUST AND COORDINATION</text>
+  <text x="64" y="2130" class="serif title">Every stranger is a mutual decision.</text>
+
+  <!-- ============ ROW 3 / START + SUBTRACT ============ -->
+
+  <!-- 11. WELCOME -->
+  <g transform="translate(64 2225)" filter="url(#phoneShadow)">
+    <rect width="390" height="844" rx="32" fill="#FBFAF7"/>
+    <text x="24" y="36" class="meta">9:41</text><path d="M334 33h2v-4h-2zm5 0h2v-7h-2zm5 0h2v-10h-2z" fill="#25265C"/><rect x="370" y="25" width="14" height="9" rx="3" fill="#25265C"/>
+    <g transform="translate(163 96)">
+      <circle cx="22" cy="30" r="36" fill="#FF977A" opacity=".92"/>
+      <circle cx="58" cy="30" r="36" fill="#A9B4F7" opacity=".78"/>
+    </g>
+    <text x="195" y="230" class="serif title center">Plans start close.</text>
+    <text x="195" y="258" class="body muted center">For your people — and the right strangers.</text>
+    <text x="24" y="316" class="eyebrow muted">YOUR PHONE NUMBER</text>
+    <g transform="translate(24 332)">
+      <rect width="342" height="60" rx="18" fill="#FFFFFF" stroke="#E0E3F2"/>
+      <text x="19" y="37" class="label">IN +91</text>
+      <line x1="91" y1="14" x2="91" y2="46" class="line"/>
+      <text x="111" y="37" class="body muted">Enter mobile number</text>
+    </g>
+    <text x="195" y="422" class="small muted center">We text a 6-digit code. No passwords, ever.</text>
+    <rect x="20" y="448" width="350" height="54" rx="18" fill="#FF7668"/><text x="195" y="481" class="label light center">Continue with phone</text>
+    <g transform="translate(24 548)">
+      <circle cx="16" cy="16" r="14" fill="#E7E4FF"/><path d="M9 16l5 5 9-11" class="icon"/>
+      <text x="44" y="13" class="label">Your number stays private</text>
+      <text x="44" y="33" class="small muted">Shared only inside confirmed plans.</text>
+    </g>
+    <g transform="translate(24 616)">
+      <circle cx="16" cy="16" r="14" fill="#E7E4FF"/><path d="M9 16l5 5 9-11" class="icon"/>
+      <text x="44" y="13" class="label">No public profiles</text>
+      <text x="44" y="33" class="small muted">Strangers meet through mutual windows only.</text>
+    </g>
+    <g transform="translate(24 684)">
+      <circle cx="16" cy="16" r="14" fill="#E7E4FF"/><path d="M9 16l5 5 9-11" class="icon"/>
+      <text x="44" y="13" class="label">Leave anytime</text>
+      <text x="44" y="33" class="small muted">Circles, matches, data — gone on request.</text>
+    </g>
+    <text x="195" y="762" class="small muted center">Terms · Privacy · Community care</text>
+  </g>
+
+  <!-- 12. GROW YOUR CIRCLE -->
+  <g transform="translate(518 2225)" filter="url(#phoneShadow)">
+    <rect width="390" height="844" rx="32" fill="#FBFAF7"/>
+    <text x="24" y="36" class="meta">9:41</text><path d="M334 33h2v-4h-2zm5 0h2v-7h-2zm5 0h2v-10h-2z" fill="#25265C"/><rect x="370" y="25" width="14" height="9" rx="3" fill="#25265C"/>
+    <g transform="translate(20 63)"><circle cx="18" cy="18" r="18" fill="#F0F1FF"/><text x="18" y="24" class="section center">‹</text></g>
+    <text x="24" y="145" class="serif title">Grow your circle.</text>
+    <text x="24" y="173" class="body muted">Small stays warm. Cap it at 15.</text>
+    <g transform="translate(24 196)">
+      <rect width="342" height="150" rx="24" fill="#25265C"/>
+      <text x="20" y="30" class="eyebrow light" opacity=".75">FLAT 402 · INVITE LINK</text>
+      <text x="20" y="62" class="label light">outthere.app/c/flat402</text>
+      <text x="20" y="88" class="small light" opacity=".72">Anyone with the link can ask to join;</text>
+      <text x="20" y="106" class="small light" opacity=".72">you approve. Always.</text>
+      <rect x="222" y="112" width="100" height="32" rx="13" fill="#FF7668"/><text x="272" y="132" class="meta light center">Copy link</text>
+    </g>
+    <g transform="translate(24 370)">
+      <rect width="342" height="62" rx="18" fill="#FFFFFF" stroke="#E0E3F2"/>
+      <circle cx="31" cy="31" r="16" fill="#53A66A"/><path d="M24 27c0-3 3-5 7-5s7 2 7 5-3 5-7 5h-6l-4 3z" fill="#fff"/>
+      <text x="60" y="37" class="label">Share to WhatsApp</text>
+      <text x="326" y="37" class="section right muted">›</text>
+    </g>
+    <g transform="translate(24 456)">
+      <rect width="342" height="130" rx="22" fill="#FFFFFF" stroke="#E0E3F2"/>
+      <rect x="18" y="20" width="90" height="90" rx="10" fill="none" stroke="#25265C" stroke-width="2"/>
+      <rect x="26" y="28" width="22" height="22" fill="#25265C"/><rect x="78" y="28" width="22" height="22" fill="#25265C"/><rect x="26" y="80" width="22" height="22" fill="#25265C"/>
+      <rect x="54" y="54" width="10" height="10" fill="#25265C"/><rect x="68" y="68" width="10" height="10" fill="#25265C"/><rect x="82" y="54" width="10" height="10" fill="#25265C"/><rect x="54" y="82" width="10" height="10" fill="#25265C"/>
+      <text x="126" y="48" class="label">Show this at the table</text>
+      <text x="126" y="70" class="small muted">Perfect for offices, cafes and</text>
+      <text x="126" y="88" class="small muted">Sunday mornings at the park.</text>
+    </g>
+    <g transform="translate(24 610)">
+      <rect width="342" height="72" rx="18" fill="#F0F1FF"/>
+      <text x="18" y="26" class="eyebrow muted">LATER</text>
+      <text x="18" y="48" class="small">New faces join through overlaps —</text>
+      <text x="18" y="66" class="small">not search. That is the whole idea.</text>
+    </g>
+    <text x="24" y="724" class="meta muted">3 of 15 spots used</text>
+    <rect x="24" y="734" width="342" height="6" rx="3" fill="#E0E3F2"/><rect x="24" y="734" width="68" height="6" rx="3" fill="#FF7668"/>
+    <g transform="translate(0 770)"><rect width="390" height="74" fill="#FBFAF7"/><line x1="0" y1="0" x2="390" y2="0" class="line"/>
+      <g transform="translate(39 19)"><path d="M2 -8a8.5 8.5 0 1 0 6 15 9.5 9.5 0 0 1-6-15z" class="icon"/><text y="39" class="eyebrow muted center" style="font-size:8px">TONIGHT</text></g>
+      <g transform="translate(117 19)"><circle r="16" fill="#F0F1FF"/><circle cx="-4" cy="0" r="5" fill="none" stroke="#25265C" stroke-width="1.8"/><circle cx="8" cy="-2" r="5" fill="none" stroke="#25265C" stroke-width="1.8"/><path d="M-8 10c2-5 8-5 10 0M4 10c2-5 8-5 10 0" fill="none" stroke="#25265C" stroke-width="1.8" stroke-linecap="round"/><text y="39" class="eyebrow center" style="font-size:8px">CIRCLES</text></g>
+      <g transform="translate(195 19)"><circle r="15" fill="#25265C"/><path d="M-6 0h12M0-6v12" stroke="#fff" stroke-width="2"/><text y="39" class="eyebrow muted center" style="font-size:8px">CREATE</text></g>
+      <g transform="translate(273 19)"><circle cx="-4" cy="0" r="8" class="icon"/><circle cx="4" cy="0" r="8" class="icon"/><text y="39" class="eyebrow muted center" style="font-size:8px">OVERLAPS</text></g>
+      <g transform="translate(351 19)"><circle r="6" class="icon"/><path d="M-9 11c3-7 15-7 18 0" class="icon"/><text y="39" class="eyebrow muted center" style="font-size:8px">YOU</text></g>
+    </g>
+  </g>
+
+  <!-- 13. THE LOOP (DARK CARD) -->
+  <g transform="translate(972 2225)">
+    <rect width="390" height="480" rx="34" fill="#25265C"/>
+    <text x="28" y="52" class="eyebrow light" opacity=".75">THE SIGNATURE LOOP</text>
+    <text x="28" y="96" class="serif title light">Windows in.</text>
+    <text x="28" y="130" class="serif title light">Plans out.</text>
+    <path d="M68 168h238M306 168l-18-13M306 168l-18 13" stroke="#C9F26B" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <g transform="translate(28 200)">
+      <circle cx="26" cy="26" r="26" fill="#C9F26B"/><text x="26" y="33" class="section center">1</text>
+      <text x="70" y="22" class="label light">Set a window</text>
+      <text x="70" y="44" class="small light" opacity=".72">When you are actually free</text>
+    </g>
+    <g transform="translate(28 273)">
+      <circle cx="26" cy="26" r="26" fill="#A9B4F7"/><text x="26" y="33" class="section center">2</text>
+      <text x="70" y="22" class="label light">Circles fill the week</text>
+      <text x="70" y="44" class="small light" opacity=".72">RSVPs, not feeds</text>
+    </g>
+    <g transform="translate(28 346)">
+      <circle cx="26" cy="26" r="26" fill="#FF977A"/><text x="26" y="33" class="section center">3</text>
+      <text x="70" y="22" class="label light">Overlaps become people</text>
+      <text x="70" y="44" class="small light" opacity=".72">Mutual hi, then a warm room</text>
+    </g>
+    <g transform="translate(28 419)">
+      <circle cx="26" cy="26" r="26" fill="#FFC86B"/><text x="26" y="33" class="section center">4</text>
+      <text x="70" y="22" class="label light">Every plan ends settled</text>
+      <text x="70" y="44" class="small light" opacity=".72">Splits, recaps, see you next week</text>
+    </g>
+  </g>
+
+  <!-- 14. SUBTRACTED -->
+  <g transform="translate(1426 2225)">
+    <rect width="390" height="480" rx="34" fill="#FEFCF8" stroke="#E0E3F2"/>
+    <text x="28" y="52" class="eyebrow muted">SUBTRACTED FROM V1</text>
+    <text x="28" y="92" class="serif section">Less app. More life.</text>
+    <g transform="translate(28 130)">
+      <text x="0" y="20" class="label">Public plan feed</text><line x1="0" y1="15" x2="130" y2="15" stroke="#B44C38" stroke-width="2"/><text x="0" y="40" class="small muted">Noise plus a safety surface</text>
+      <text x="0" y="88" class="label">Profile browsing</text><line x1="0" y1="83" x2="146" y2="83" stroke="#B44C38" stroke-width="2"/><text x="0" y="108" class="small muted">A creepy default</text>
+      <text x="0" y="156" class="label">Cold DMs</text><line x1="0" y1="151" x2="94" y2="151" stroke="#B44C38" stroke-width="2"/><text x="0" y="176" class="small muted">Chat only exists inside plans now</text>
+      <text x="0" y="224" class="label">Approval queues</text><line x1="0" y1="219" x2="152" y2="219" stroke="#B44C38" stroke-width="2"/><text x="0" y="244" class="small muted">Circles trust; overlaps consent</text>
+      <text x="0" y="292" class="label">Follower counts</text><line x1="0" y1="287" x2="142" y2="287" stroke="#B44C38" stroke-width="2"/><text x="0" y="312" class="small muted">Nothing to farm here</text>
+    </g>
+  </g>
+
+  <!-- 15. KEPT -->
+  <g transform="translate(1880 2225)">
+    <rect width="390" height="480" rx="34" fill="#E9EDFF"/>
+    <text x="28" y="52" class="eyebrow muted">KEPT FROM V1</text>
+    <text x="28" y="92" class="serif section">The parts that worked.</text>
+    <g transform="translate(28 130)">
+      <circle cx="12" cy="12" r="12" fill="#25265C"/><path d="M6 12l4 4 8-9" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="38" y="17" class="label">Natural-language create</text>
+      <text x="38" y="37" class="small muted">"Sketch walk Sunday" becomes a plan</text>
+    </g>
+    <g transform="translate(28 210)">
+      <circle cx="12" cy="12" r="12" fill="#25265C"/><path d="M6 12l4 4 8-9" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="38" y="17" class="label">Live arrival mode</text>
+      <text x="38" y="37" class="small muted">3 here, 2 en route, I'm here</text>
+    </g>
+    <g transform="translate(28 290)">
+      <circle cx="12" cy="12" r="12" fill="#25265C"/><path d="M6 12l4 4 8-9" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="38" y="17" class="label">Plan-scoped chat and polls</text>
+      <text x="38" y="37" class="small muted">Every message belongs to a plan</text>
+    </g>
+    <g transform="translate(28 370)">
+      <circle cx="12" cy="12" r="12" fill="#25265C"/><path d="M6 12l4 4 8-9" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="38" y="17" class="label">Splits without awkwardness</text>
+      <text x="38" y="37" class="small muted">Settled by the time you get home</text>
+    </g>
+  </g>
+
+  <text x="64" y="3050" class="small muted">OutThere v2: intimacy is the default, strangers are a symmetric exception, and safety is what the product refuses to make possible.</text>
+</svg>
