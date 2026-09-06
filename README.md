@@ -1,4 +1,4 @@
-# OutThere — Product Base Doc
+# OutThere — Product Base Doc · V4
 
 **Intimate plans first. Strangers only through mutual consent.**
 The single source of truth for what we're building. Everything lives here;
@@ -35,7 +35,9 @@ to these three.
 
 - **Person** — phone-verified account (verification is the floor, not a
   filter — see §11). Optional selfie-verified badge. Vibe tags, home area
-  (coarse), free Opens.
+  (coarse), free Opens, and a self-entered OutThere display name. The name a
+  viewer sees may be replaced locally by that viewer's matching phone-contact
+  label under the rules in §12; this never changes the person's account name.
 - **Circle** — invite-only group, 3–15 members ("small stays warm"). Members
   can all create plans. Roles: owner + co-hosts for settings only.
 - **Plan** — scoped to any mix of: circles, direct people, or link-only
@@ -58,6 +60,10 @@ to these three.
 
 ## 4. Circles
 
+- **CIRCLES opens the circle list**, never an arbitrary sample circle. Each row
+  shows member count, the next plan and open-loop count; selecting a row opens
+  that circle's members, next plan and Board. Sleeping circles are grouped
+  separately with a one-tap wake action.
 - Invite-only, always. Growth via share links (WhatsApp-first), table QRs,
   or when an overlap becomes a friendship.
 - Inside a circle: no approvals for plans — just RSVP. Trust is structural.
@@ -222,10 +228,13 @@ Guardrails:
 
 ## 10. Money — Splits
 
-- Expenses attach to plans; balances are **netted per person across all
-  plans** ("you owe Aarav ₹120 net"), never two directional fragments.
-- Views: net balance card, by-plan ledger, by-person ledger; settle via UPI
-  intent links.
+- Expenses attach to plans; every plan has one explicit currency. Balances are
+  **netted per person within the same currency across plans** ("you owe Aarav
+  ₹120 net"), never two directional fragments. Different currencies remain
+  separate unless everyone affected explicitly accepts a conversion.
+- Views: plan-room MONEY for the current plan, plus **You → Overall splits** for
+  cross-plan balances by person, recent plan ledgers and settlement actions.
+  Settlement uses a regional payment adapter (UPI intent links in India).
 - Reminders: private, rate-limited (max 1 per person per 7 days), framed as
   gentle nudges. Settle-all sweeps available.
 - Principle: **money never blocks a plan.** Settling is async forever.
@@ -253,6 +262,8 @@ Guardrails:
 ### Structural guarantees
 - No search, no public profiles, no follower anything.
 - Phone numbers shared only inside confirmed plans, never in warm rooms.
+- Address-book labels are viewer-local aliases. They are never shown to the
+  named person, other members, hosts, or matches, and never become profile data.
 - Wraps attendee-scoped. Nothing discoverable.
 
 ### Boundaries
@@ -268,23 +279,87 @@ Guardrails:
 - **Content moderation:** quips, room messages, and photo captions run
   filters from day one; report-on-any-artifact.
 
-## 12. App architecture & design system
+## 12. Language, device formats & names
 
-### Navigation (v3 — shipped in demo)
+### Product decision
+- The default is **Auto**, which follows the language and locale of the current
+  device. A person may choose a different app language for that device.
+- Language is available from the top-right of the phone login and OTP screens,
+  so it can be changed before an account or profile exists. The same choice is
+  later available under **You → Language & device**.
+- There is **no separate Region selector**. Region would duplicate device
+  settings and could create contradictory states such as an India region with
+  US dates and UK distance preferences.
+- Device locale controls date order, 12/24-hour time, week start, number
+  formatting and distance units. These update when the device settings change.
+- The language choice is device-specific. A phone may use Hindi while the same
+  account's tablet follows English; neither device overwrites the other.
+- V4 has no "Offer translations" setting and does not automatically translate
+  user-created plan names or messages. Authored content remains as written.
+
+### Complete language support
+- A supported app language covers navigation, onboarding, notifications,
+  safety/reporting flows, help, permission prompts and no-app web plan cards —
+  not only the main screens.
+- Web plan cards follow the guest browser/device language when supported, with
+  English as the fallback. There is no translation control on the card.
+- Layouts must handle longer labels, multi-line text, non-Latin scripts,
+  right-to-left direction, appropriate font fallbacks and system text scaling.
+- Phone onboarding may suggest a calling code from the device, but it remains
+  editable; language never determines a person's country.
+
+### Regional behavior without a Region control
+- Device locale supplies presentation preferences. The plan venue supplies
+  operational context such as time zone, local day boundaries and city-density
+  rules. Neither requires a user-selected Region value.
+- Places retain structured address data and can render it in the device's
+  familiar order, script and measurement units without changing the saved pin.
+- Weekends, holidays and local quiet-hour suggestions come from the plan venue,
+  not from the app language.
+- Payment rails are adapters: UPI in India and appropriate providers elsewhere.
+  Product logic deals in explicit currencies rather than assuming ₹ or UPI.
+- Safety, moderation, support and jurisdiction-specific requirements must be
+  reviewed for every launch market; changing the device locale never changes
+  the rules governing an account or incident.
+
+### Dates, time zones and travel
+- A plan stores an absolute time plus its venue time zone. Venue time is the
+  source of truth for start, expiry, polls, check-ins and plan-day state.
+- Someone currently in another time zone sees the venue time first and their
+  local equivalent where it prevents a mistake. Relative labels such as
+  "tonight" and "tomorrow" also include an absolute date when ambiguity exists.
+- The daily digest uses the current device time zone. Safety rules such as the
+  post-9 PM check-in use the plan venue's local time.
+
+### Contact-name resolution
+For every person rendered to a viewer:
+1. If the viewer granted Contacts permission and a normalized phone-number
+   match exists on that device, show the viewer's contact name.
+2. Otherwise, show the person's self-entered OutThere display name.
+
+Contact permission is optional. Matching and displayed aliases are local to the
+viewer; they do not rename accounts or reveal how one person saved another.
+Contacts access being revoked immediately returns the UI to OutThere names.
+
+## 13. App architecture & design system
+
+### Navigation (v4 — shipped in demo)
 Bottom-anchored only, thumb-first; nothing floats to the top.
 **TONIGHT · CIRCLES · [＋] · INBOX · YOU** — [＋] opens the action sheet
 (Plan / Ripple / Open / New circle); INBOX holds everything waiting on you
 (RSVP deadlines, ripples, overlap cards, nudges, settlements). CREATE is gone
 as a tab; OVERLAPS live in INBOX as cards; every circle keeps a Board of open
-loops. Plan rooms swap the main bar for four tabs — **LIVE · CHAT · ALBUM ·
-MONEY** — and Wrap closes the loop, saving highlights to Scrapbook.
+loops. CIRCLES opens the full active/sleeping circle list before any circle
+detail. YOU includes Scrapbook, Overall splits, Safety, Language & device, and
+privacy controls. Plan rooms swap the main bar for four tabs — **LIVE · CHAT ·
+ALBUM · MONEY** — and Wrap closes the loop, saving highlights to Scrapbook.
 
-### V3 naming (same engine, simpler words)
+### V4 naming (same engine, simpler words)
 Open (was Window) · Hello (was Warm Room) · Wrap (was Recap) ·
 In/Maybe/Out (was Yes/Maybe/No) · plan-room tabs (was NOW/WIRE/SPLITS) ·
 Album: dump-first, hide-if-you-want, auto-deduped · Scrapbook: cross-plan
-media shelf. Artifacts: `outthere-v3-design.svg` (design sheet) ·
-`outthere-v3-demo.html` (interactive demo).
+media shelf. Artifacts: `outthere-v3-design.svg` (current design sheet) ·
+`index-v4.html` (interactive V4 demo).
 
 ### TODAY triage order (anti-clutter contract)
 1. Live plan now (if any) — pinned
@@ -305,14 +380,14 @@ Avatars use initials in prototypes; real avatars ship with moderation.
 ### Theming
 System-following light/dark with manual override; all surfaces tokenized.
 
-## 13. Notifications
+## 14. Notifications
 
 Hard budget: daily digest ≤6 items, priority order — plan-day changes >
 RSVP deadlines > ripple milestones > settlement events > ambient.
 Realtime only for: plan-day logistics, arrivals (if opted in), check-ins,
 safety flags. Zero engagement spam; no streaks, no FOMO mechanics.
 
-## 14. Growth & cold start
+## 15. Growth & cold start
 
 - Activation without a circle: solo value first (go Open, browse-free
    planning, link invites), circle-building prompted gently after first plan.
@@ -321,9 +396,10 @@ safety flags. Zero engagement spam; no streaks, no FOMO mechanics.
   keep overlaps alive in thin areas (§7).
 - Launch geography: Bengaluru urban cores; distance bands tuned per density.
 
-## 15. Roadmap
+## 16. Roadmap
 
-- **P0 — believable loop:** auth, circles + invites, plans + RSVP (circle /
+- **P0 — believable loop:** auth, device-following language and formats,
+  localized web plan cards, circles + invites, plans + RSVP (circle /
   direct / link-only), ripples basic (compose → tap → tally), live mode,
    splits with netting (manual IOU ok), Opens + overlaps engine, block /
   report / pause, web plan cards.
@@ -333,13 +409,13 @@ safety flags. Zero engagement spam; no streaks, no FOMO mechanics.
 - **P2 — texture:** colleague templates (lunch roulette), recurring/standing
   plans, quiet hours, city expansion tooling, highlights-only albums.
 
-## 16. Metrics
+## 17. Metrics
 
 - North star: **plans-that-happened per active user per week.**
 - Guardrails: overlap→plan ≥25%; ripple→plan ≥40%; block rate <1%; users with
   ≥1 circle of ≥3 members by week 4 ≥60%; digest opt-out <5%.
 
-## 17. Open questions
+## 18. Open questions
 
 - Plus-one guests: does the host's approval suffice, or a lightweight
   host-vouches flow? (Guest access expiry decided: plan end + 7d.)
@@ -347,3 +423,5 @@ safety flags. Zero engagement spam; no streaks, no FOMO mechanics.
 - Distance band granularity vs density tuning per city.
 - Under-18 policy: proposal is strict 18+; needs final call.
 - Standing/recurring plans: how do instances, wraps, and splits nest?
+- Which languages ship at Bengaluru launch, and who owns end-to-end quality for
+  notifications, safety copy, moderation and support in each one?
