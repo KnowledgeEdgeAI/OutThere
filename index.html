@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>OutThere v4 · Language & Device — Clickable Prototype</title>
+  <title>OutThere · A little more out there</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
   <style>
@@ -1537,6 +1537,167 @@
         white-space: normal
       }
     }
+
+    /* Open layouts: quiet surfaces, generous spacing, and a single accent. */
+    :root {
+      --page: #eeede9; --headbg: rgba(238,237,233,.94);
+      --phbg: #faf9f6; --surf: #fff; --soft: #efeee9; --line: #e2e1dc;
+      --text: #242723; --mut: #72766e; --faint: #858980;
+      --coral: #c65636; --lilac: #8a927d; --lilacbg: #eceee6;
+      --butterbg: #f3efdf; --peachbg: #f5eae2; --mintbg: #e8eee7;
+      --mint: #628772; --pos: #426b50; --pillbg: #292e27;
+      --inkg: #292e27; --minttile: #e3eadf;
+    }
+    html.dark {
+      --page: #202124; --headbg: rgba(32,33,36,.94);
+      --phbg: #292a2d; --surf: #333438; --soft: #35363a; --line: #424348;
+      --text: #f3f1ed; --mut: #b3b1ae; --faint: #9d9ca0;
+      --coral: #e18b68; --lilac: #8a927d; --lilacbg: #292e25;
+      --butterbg: #322f24; --peachbg: #342923; --mintbg: #243027;
+      --mint: #85a58c; --pos: #a0c7a7;
+      --pillbg: #eeece7; --pillfg: #292a2d; --minttile: #334039; --inkg: #36383c; --togoff: #55565c;
+    }
+    body { -webkit-font-smoothing: antialiased; }
+    header { border: 0; gap: 10px; padding-inline: 24px; }
+    .hbtn, select.scrsel { border-color: transparent; background: transparent; color: var(--text); }
+    .phone { box-shadow: 0 24px 70px #00000015; border-color: #00000014; }
+    html.dark .phone { border-color: #ffffff12; box-shadow: 0 24px 70px #00000035; }
+    .screen { top: 58px; padding-top: 12px; }
+    .pad { padding-inline: 20px; }
+    h1.title { font-size: 33px; font-weight: 700; line-height: 1.12; letter-spacing: -1.3px; margin: 14px 0 10px; }
+    h2.sec { font-weight: 700; margin-top: 28px; }
+    .sub { line-height: 1.55; }
+    .eb { font-weight: 500; font-size: 10px; letter-spacing: 1.5px; margin: 28px 0 8px; }
+    .small { line-height: 1.55; }
+    .rowit { background: transparent; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; margin: 0; padding: 19px 0; gap: 12px; }
+    .rowit .t b { font-weight: 500; font-size: 15px; line-height: 1.4; }
+    .rowit .t span { display: block; line-height: 1.5; margin-top: 3px; }
+    .card { background: transparent; border: 0; border-radius: 0; padding: 22px 0; margin-top: 4px; border-bottom: 1px solid var(--line); }
+    .card.darkc { background: var(--inkg); border: 0; border-radius: 18px; padding: 22px; margin-top: 22px; }
+    #s-circles .card.darkc, #s-safety .card.darkc {
+      background: transparent; color: var(--text); padding: 24px 0; border-radius: 0; border-bottom: 1px solid var(--line);
+    }
+    #s-circles .card.darkc .eb, #s-safety .card.darkc .eb { color: var(--mut); }
+    .card .t { flex: 1; min-width: 0; }
+    .card .t b, .card .t span { display: block; }
+    .card .t span { font-size: 12px; color: var(--mut); margin-top: 5px; line-height: 1.5; }
+    .btn { border-radius: 12px; font-weight: 700; margin-top: 22px; }
+    .btn.mini { border-radius: 10px; }
+    .btn.dark { background: var(--pillbg); color: var(--pillfg); }
+    .btn.ghost { border-width: 1px; }
+    .chip { border-radius: 7px; font-weight: 500; letter-spacing: .1px; }
+    .circbtn { background: transparent; }
+    .backbar { padding-inline: 20px; }
+    .tabbar { padding-inline: 14px; }
+    .tab { font-size: 10px; letter-spacing: .1px; font-weight: 500; }
+    .tab.active .ic { background: transparent; }
+    .tab.active .ic svg { stroke: var(--coral); }
+    .tab.active { color: var(--coral); }
+    .tab .newic { background: #292e27; }
+    .circlethumb { border-radius: 50%; width: 42px; height: 42px; font-size: 14px; }
+    .circlecount { background: transparent; padding: 0; color: var(--mut); font-weight: 500; }
+    .devicecell { border: 0; border-radius: 0; background: transparent; padding: 12px 0; }
+    .devicecell + .devicecell { padding-left: 12px; border-left: 1px solid var(--line); }
+    #s-you > .pad > div:first-child { flex-direction: column; align-items: flex-start !important; gap: 20px !important; padding: 12px 0 16px; }
+    #s-you > .pad > div:first-child .avatar { width: 70px !important; height: 70px !important; font-size: 22px !important; background: var(--soft) !important; color: var(--text); }
+    #s-you .rowit .avatar { background: transparent !important; color: var(--mut) !important; font-size: 18px; width: 24px; }
+    #s-welcome .rowit { border: 1px solid var(--line); border-radius: 12px; padding: 14px; margin-top: 12px; }
+    .langopt.on { background: var(--soft); border-color: var(--line); }
+    .langopt { padding-inline: 10px; }
+    button:focus-visible, [tabindex]:focus-visible, a:focus-visible, select:focus-visible { outline: 2px solid var(--coral); outline-offset: 4px; }
+    [data-go]:hover .chev, [data-toast]:hover .chev { color: var(--text); }
+    .plans-topline { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; }
+    .plans-topline .eb { margin: 0; }
+    .profile-link { border: 0; cursor: pointer; background: var(--soft); color: var(--text); }
+    .plans-heading { display: flex; align-items: center; justify-content: space-between; margin-top: 22px; }
+    .plans-heading h1 { font-size: 40px; margin: 0; letter-spacing: -1.8px; }
+    .text-action { border: 0; padding: 10px 0 10px 12px; background: transparent; font-size: 13px; font-weight: 500; cursor: pointer; color: var(--coral); }
+    .plans-intro { margin: 9px 0 24px; }
+    .agenda-heading { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--line); padding-bottom: 12px; margin: 28px 0 0; }
+    .agenda-heading h2 { font-size: 15px; font-weight: 500; margin: 0; }
+    .agenda-heading span { font-size: 11px; color: var(--mut); }
+    .live-plan { padding: 20px 0 23px; }
+    .live-kicker { color: var(--pos); font-size: 11px; display: flex; gap: 7px; align-items: center; }
+    .live-kicker::before { content: ''; width: 6px; height: 6px; background: var(--pos); border-radius: 50%; }
+    .live-plan h2 { font-size: 28px; font-weight: 500; letter-spacing: -.8px; margin: 10px 0 6px; }
+    .plan-location { font-size: 13px; color: var(--mut); margin: 0; }
+    .attendance { display: flex; align-items: center; margin-top: 18px; }
+    .attendance .avatar { border: 2px solid var(--phbg); margin-right: -7px; width: 28px; height: 28px; font-size: 8px; }
+    .attendance .small { margin-left: 16px; color: var(--mut); }
+    .plan-actions { display: flex; gap: 10px; margin-top: 20px; }
+    .plan-actions .btn { flex: 1; height: 42px; }
+    .plan-actions .btn:first-child { background: var(--pillbg); color: var(--pillfg); }
+    .open-note { display: flex; align-items: center; gap: 12px; padding: 16px 0; border-block: 1px solid var(--line); cursor: pointer; }
+    .open-note .open-symbol { color: var(--pos); font-size: 24px; }
+    .open-note .t { flex: 1; }
+    .open-note b { font-weight: 500; font-size: 13px; }
+    .open-note p { font-size: 12px; color: var(--mut); margin: 3px 0 0; }
+    .agenda-item { width: 100%; text-align: left; display: flex; gap: 18px; align-items: center; padding: 20px 0; background: transparent; border: 0; border-bottom: 1px solid var(--line); cursor: pointer; }
+    .agenda-date { width: 30px; flex: none; text-align: center; color: var(--mut); font-size: 9px; letter-spacing: .8px; }
+    .agenda-date strong { display: block; font-size: 26px; line-height: 1.2; font-weight: 400; color: var(--text); letter-spacing: -1px; margin-top: 3px; }
+    .agenda-copy { flex: 1; min-width: 0; }
+    .agenda-copy b { display: block; font-weight: 500; font-size: 15px; }
+    .agenda-copy span { display: block; font-size: 12px; color: var(--mut); margin-top: 5px; line-height: 1.5; }
+    .reply-link { display: flex; width: 100%; align-items: center; gap: 14px; border: 0; text-align: left; background: transparent; padding: 21px 0; cursor: pointer; }
+    .reply-count { color: var(--coral); font-size: 25px; font-weight: 400; }
+    .reply-link .t { flex: 1; }
+    .reply-link b { font-size: 13px; font-weight: 500; }
+    .reply-link p { font-size: 12px; color: var(--mut); margin: 4px 0 0; }
+    @media (max-width: 480px) {
+      header { padding-inline: 12px; gap: 6px; }
+      header .brand span, #prevBtn, #nextBtn, #hintsBtn, #restartBtn, header a.hbtn, .scrname { display: none; }
+      header .brand .mark { display: block; }
+      select.scrsel { margin-left: auto; max-width: 116px; }
+      .stage { padding: 54px 0 0; }
+      .phone { border: 0; border-radius: 0; box-shadow: none; }
+      .stage > .caption { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
+
+    /* Plan navigation belongs to the plan, above its content. */
+    .plan-header { position: absolute; top: 58px; left: 0; right: 0; height: 50px; padding: 0 20px; display: none; align-items: center; justify-content: space-between; z-index: 36; background: var(--phbg); }
+    .plan-header.show { display: flex; }
+    .plan-header b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 240px; font-size: 14px; font-weight: 500; }
+    #planbar { top: 108px; bottom: auto; height: 48px; padding: 0 24px; border-top: 0; border-bottom: 1px solid var(--line); gap: 20px; }
+    #planbar .ptab { flex: 1; align-self: stretch; padding: 0; font-size: 13px; letter-spacing: 0; font-weight: 500; border-bottom-width: 2px; color: var(--mut); }
+    #planbar .ptab.active { color: var(--text); border-bottom-color: var(--coral); }
+    .screen[data-tab="plan"] { top: 156px; padding-top: 20px; padding-bottom: 36px; }
+    .screen[data-tab="plan"] > .backbar { display: none; }
+    .ui-icon { width: 21px; height: 21px; display: inline-block; vertical-align: middle; flex: none; }
+    .circbtn { width: 42px; height: 42px; }
+    .island { background: #191a1e; }
+    html.dark .toggle.on::after { background: #292a2d; }
+    .settings-form { margin-top: 24px; }
+    .settings-field { display: block; border-bottom: 1px solid var(--line); padding: 16px 0; }
+    .settings-field > span { display: block; color: var(--mut); font-size: 12px; margin-bottom: 9px; }
+    .settings-field input, .settings-field select { display: block; width: 100%; min-width: 0; background: transparent; border: 0; color: var(--text); font: inherit; font-size: 16px; padding: 5px 0; border-radius: 0; }
+    .settings-field select option { background: var(--phbg); }
+    .settings-field input:focus-visible, .settings-field select:focus-visible { outline: 2px solid var(--coral); outline-offset: 5px; }
+    .settings-form h2 { font-size: 18px; font-weight: 500; margin: 32px 0 0; letter-spacing: -.3px; }
+    .setting-check { display: flex; align-items: center; gap: 14px; border-bottom: 1px solid var(--line); padding: 20px 0; cursor: pointer; }
+    .setting-check > span { flex: 1; font-size: 14px; line-height: 1.5; }
+    .setting-check small { display: block; color: var(--mut); font-size: 12px; margin-top: 4px; }
+    .setting-check input { width: 19px; height: 19px; accent-color: var(--coral); cursor: pointer; }
+    .settings-help { color: var(--mut); font-size: 12px; line-height: 1.6; margin: 16px 0; }
+    .member-role { color: var(--mut); font-size: 12px; }
+    .rowit[data-go]:hover, .rowit[data-toast]:hover, .agenda-item:hover { background: color-mix(in srgb, var(--text) 4%, transparent); }
+
+    .chat-composer { display: none; position: absolute; bottom: 0; left: 0; right: 0; padding: 12px 16px 24px; background: var(--phbg); z-index: 36; }
+    .chat-composer.show { display: block; }
+    .composer-row { display: flex; gap: 8px; align-items: center; }
+    .chat-composer .inputbar { flex: 1; min-width: 0; margin: 0; border: 0; background: var(--soft); border-radius: 28px; padding: 5px 14px 5px 5px; gap: 4px; min-height: 50px; }
+    .chat-composer .inputbar:focus-within { box-shadow: 0 0 0 1px var(--faint); }
+    .chat-composer input { font-size: 15px; min-height: 40px; }
+    .chat-composer .artbtn { width: 40px; height: 40px; background: transparent; color: var(--mut); }
+    .chat-composer .sendbtn { width: 50px; height: 50px; display: grid; place-items: center; background: var(--coral); color: var(--phbg); }
+    .chat-composer .sendbtn:disabled { background: var(--soft); color: var(--faint); cursor: default; }
+    #s-chat { padding-bottom: 108px; }
+    .attachment-menu { position: absolute; bottom: 92px; left: 16px; right: 16px; border: 1px solid var(--line); border-radius: 20px; padding: 18px 10px; background: var(--surf); box-shadow: 0 8px 30px #00000020; display: flex; justify-content: space-around; }
+    .attachment-menu[hidden] { display: none; }
+    .attachment-menu button { display: flex; flex-direction: column; align-items: center; gap: 10px; border: 0; background: transparent; cursor: pointer; font-size: 12px; padding: 8px 14px; }
+    .attachment-menu button > span:first-child { width: 42px; height: 42px; border-radius: 50%; background: var(--soft); display: grid; place-items: center; color: var(--coral); }
+    .wayfinding-arrow { flex: none; color: var(--mut); font-size: 21px; font-weight: 400; margin-left: auto; transition: transform .18s, color .18s; }
+    :is(.agenda-item,.open-note,.reply-link,.rowit):hover > .wayfinding-arrow { color: var(--coral); transform: translate(2px,-2px); }
   </style>
 </head>
 
@@ -1633,53 +1794,47 @@
           </section>
 
           <section class="screen" id="s-tonight" data-tab="main" data-tabnav="tonight"
-            data-cap="<b>Tonight.</b> Your day in one glance — live plan, Open status, what's waiting on you.">
+            data-cap="<b>Plans.</b> A little room for real life. Today, what's next, and the people you're seeing.">
             <div class="pad">
-              <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px">
-                <span class="small muted" style="font-weight:700;letter-spacing:1px">SAT · AUG 22 · INDIRANAGAR</span>
-                <span class="avatar" style="background:var(--lilacbg);color:var(--tintfg)">DG</span>
+              <div class="plans-topline">
+                <span class="eb">Saturday, August 22</span>
+                <button class="avatar profile-link" data-go="s-you" aria-label="Your profile">DG</button>
               </div>
-              <h1 class="title">Tonight looks good.</h1>
-              <p class="sub">2 plans ahead · you're Open 5–8 PM.</p>
-              <div class="rowit" data-go="s-inbox">
-                <div class="t"><span class="eb" style="margin:0 0 3px">Waiting on you</span><b>Brunch RSVP · Sara's
-                    ripple</b></div>
-                <span class="badge" style="position:static">2</span><span class="chev">›</span>
-              </div>
-              <div class="card darkc">
-                <div class="eb lt" style="margin:0 0 4px">Live · 6:30 PM · Toit, Indiranagar</div>
-                <b style="font-size:22px;letter-spacing:-.5px">Office dinner</b>
-                <div style="display:flex;align-items:center;gap:6px;margin-top:12px">
-                  <span class="avatar sm" style="background:var(--coral)">AK</span>
-                  <span class="avatar sm" style="background:var(--lilac)">SG</span>
-                  <span class="avatar sm" style="background:var(--butter);color:var(--ink)">RN</span>
-                  <span class="small" style="opacity:.78;margin-left:4px">3 here · 2 en route</span>
+              <div class="plans-heading"><h1 class="title">Your plans</h1><button class="text-action" data-go="s-newplan">＋ Make a plan</button></div>
+              <p class="sub plans-intro">Good company. Something to look forward to.</p>
+              <div class="agenda-heading"><h2>Today</h2><span>Indiranagar</span></div>
+              <article class="live-plan">
+                <div class="live-kicker">Happening now · 6:30 PM</div>
+                <h2>Office dinner</h2>
+                <p class="plan-location">Toit, Indiranagar</p>
+                <div class="attendance">
+                  <span class="avatar" style="background:var(--coral)">AK</span>
+                  <span class="avatar" style="background:var(--lilac)">SG</span>
+                  <span class="avatar" style="background:var(--butter);color:var(--ink)">RN</span>
+                  <span class="small">3 here · 2 on their way</span>
                 </div>
-                <div style="display:flex;gap:8px;margin-top:14px">
-                  <button class="btn mini" id="imHere" style="flex:1">I'm here</button>
-                  <button class="btn mini ghost" data-toast="Directions opened — pinned spot, not live tracking"
-                    style="flex:1;color:#fff;border-color:rgba(255,255,255,.35)">Directions</button>
+                <div class="plan-actions">
+                  <button class="btn mini" id="imHere">I'm here</button>
+                  <button class="btn mini ghost" data-toast="Directions opened — pinned spot, not live tracking">Directions ↗</button>
                 </div>
+              </article>
+              <div class="open-note" data-go="s-overlap" role="button" tabindex="0">
+                <span class="open-symbol" aria-hidden="true">◌</span>
+                <div class="t"><b>You're Open · 5–8 PM</b><p>2 people overlap with your evening</p></div>
               </div>
-              <div class="card lilacbg" data-go="s-overlap"
-                style="display:flex;align-items:center;gap:14px;cursor:pointer">
-                <span class="avatar" style="background:rgba(139,140,240,.28);color:var(--tintfg)">☾</span>
-                <div class="t"><b>You're Open · Sat 5–8 PM</b><span>2 overlaps waiting · tap to peek</span></div>
-                <span class="chev">›</span>
-              </div>
-              <div class="eb">Tomorrow · Sun</div>
-              <div class="rowit" data-toast="After it ends, it wraps itself — money, photos, next seed">
-                <span class="dateb"><b>SUN</b><span>23</span></span>
-                <div class="t"><b>Round 2: sunset badminton</b><span>5:00 PM · Cubbon Park · 6 going</span></div>
-                <span class="chev">›</span>
-              </div>
-              <div class="rowit" data-toast="Sara is hosting — RSVP straight from the plan card">
-                <span class="dateb" style="background:var(--peachbg)"><b>MON</b><span>24</span></span>
-                <div class="t"><b>Clay and coffee</b><span>11:00 AM · Sara is hosting · 3 going</span></div>
-                <span class="chev">›</span>
-              </div>
-              <p class="small muted" style="text-align:center;margin-top:16px">Everything else lands in your 9 PM
-                digest.</p>
+              <div class="agenda-heading"><h2>Up next</h2><span>2 plans</span></div>
+              <button class="agenda-item" data-go="s-live">
+                <span class="agenda-date">SUN<strong>23</strong></span>
+                <span class="agenda-copy"><b>Sunset badminton</b><span>5:00 PM · Cubbon Park<br>Flat 402 · 6 going</span></span>
+              </button>
+              <button class="agenda-item" data-toast="Sara is hosting — RSVP straight from the plan card">
+                <span class="agenda-date">MON<strong>24</strong></span>
+                <span class="agenda-copy"><b>Clay and coffee</b><span>11:00 AM · Sara is hosting<br>3 going</span></span>
+              </button>
+              <button class="reply-link" data-go="s-inbox">
+                <span class="reply-count">02</span><span class="t"><b>A couple of things need you</b><p>Brunch RSVP · Sara's ripple</p></span>
+              </button>
+              <p class="small muted" style="margin:10px 0 0">The rest can wait for your 9 PM digest.</p>
             </div>
           </section>
 
@@ -1704,24 +1859,24 @@
               <div class="rowit" data-go="s-circle-detail">
                 <span class="circlethumb" style="background:var(--peachbg)">402</span>
                 <div class="t"><b>Flat 402</b><span>4 people · brunch Sat · 2 open loops</span></div>
-                <span class="circlecount">2 OPEN</span><span class="chev">›</span>
+                <span class="circlecount">2 OPEN</span>
               </div>
               <div class="rowit" data-toast="Office crew — 11 people · next: dinner tonight">
                 <span class="circlethumb" style="background:var(--lilacbg)">OC</span>
                 <div class="t"><b>Office crew</b><span>11 people · dinner tonight · 1 RSVP</span></div>
-                <span class="badge" style="position:static">1</span><span class="chev">›</span>
+                <span class="badge" style="position:static">1</span>
               </div>
               <div class="rowit" data-toast="Sunday cyclists — 6 people · no upcoming plan">
                 <span class="circlethumb" style="background:var(--mintbg);color:var(--pos)">SC</span>
                 <div class="t"><b>Sunday cyclists</b><span>6 people · quiet this week</span></div>
-                <span class="chev">›</span>
+
               </div>
 
               <div class="eb">Sleeping</div>
               <div class="rowit soft" data-toast="Wake this circle with one tap">
                 <span class="circlethumb" style="background:var(--soft);color:var(--mut)">CC</span>
                 <div class="t"><b>College crew</b><span>5 people · asleep after 60 quiet days</span></div>
-                <span class="chev">›</span>
+
               </div>
               <p class="small muted" style="text-align:center;margin-top:16px">Circles stay small: 3–15 people,
                 invite-only.</p>
@@ -1731,7 +1886,7 @@
           <section class="screen" id="s-circle-detail" data-tab="main" data-tabnav="circles"
             data-cap="<b>Flat 402.</b> A circle detail page with members, the next plan and its Board of open loops.">
             <div class="backbar"><button class="circbtn" data-go="s-circles">‹</button><button class="circbtn"
-                data-toast="Circle settings — roles, plus-ones, auto-sleep">•••</button></div>
+                data-go="s-circle-settings" aria-label="Circle settings"><span data-icon="settings"></span></button></div>
             <div class="pad">
               <h1 class="title">Flat 402</h1>
               <p class="sub">4 people · your building · since March</p>
@@ -1758,17 +1913,17 @@
               <div class="rowit lilacbg" data-go="s-ripple">
                 <span class="avatar sm" style="background:rgba(139,140,240,.3);color:var(--tintfg)">〜</span>
                 <div class="t"><b>Who's in Sunday? · ripple</b><span>3 in · 1 maybe · ends in 19h</span></div>
-                <span class="chev">›</span>
+
               </div>
               <div class="rowit" data-toast="Poll auto-closes at plan start — result pins as a decision">
                 <span class="avatar sm" style="background:var(--butterbg);color:var(--tintfg)">▤</span>
                 <div class="t"><b>Filter coffee after?</b><span>Poll · 4 yes · closes at start</span></div>
-                <span class="chev">›</span>
+
               </div>
-              <div class="rowit" data-toast="Link copied — anyone with it asks to join, you approve">
+              <div class="rowit" data-go="s-circle-settings">
                 <span class="avatar sm" style="background:var(--lilacbg);color:var(--tintfg)">＋</span>
-                <div class="t"><b>Invite link · settings</b><span>outthere.app/c/flat402</span></div>
-                <span class="chev">›</span>
+                <div class="t"><b>Invites &amp; settings</b><span>outthere.app/c/flat402</span></div>
+
               </div>
             </div>
           </section>
@@ -1798,11 +1953,10 @@
                   data-toast="Link invite on — plan gets a signed, expiring URL"></button>
               </div>
               <div class="rowit" data-toast="Fuzzy time — “around 5” is fine. Changes later become a mini poll.">
-                <div class="t"><b>Sat 5:00 PM</b><span>fuzzy — “around 5”</span></div><span class="chev">›</span>
+                <div class="t"><b>Sat 5:00 PM</b><span>fuzzy — “around 5”</span></div>
               </div>
               <div class="rowit" data-toast="Pinned meeting point — recipients tap “Got it”, receipts not blue ticks">
-                <div class="t"><b>Cubbon Park, Gate 2</b><span>pinned meeting point</span></div><span
-                  class="chev">›</span>
+                <div class="t"><b>Cubbon Park, Gate 2</b><span>pinned meeting point</span></div>
               </div>
               <button class="btn" id="sendPlan">Send plan →</button>
               <p class="small muted" style="text-align:center;margin-top:12px">Inside circles there are no approvals —
@@ -1872,12 +2026,12 @@
                     style="position:absolute;inset:0;border:2px solid var(--lilac);border-radius:50%;transform:translateX(5px)"></span></span>
                 <div class="t"><b>Sat 5–8 PM · badminton · &lt;1 km</b><span>Anonymous until you both say hi</span>
                 </div>
-                <span class="chev">›</span>
+
               </div>
               <div class="rowit" data-go="s-overlap">
                 <span class="avatar sm" style="background:transparent;border:2px solid var(--coral)"></span>
                 <div class="t"><b>Sun 9–11 AM · chai · 2 km</b><span>Anonymous until you both say hi</span></div>
-                <span class="chev">›</span>
+
               </div>
               <div class="eb">Money</div>
               <div class="rowit mintbg" data-go="s-money">
@@ -1892,7 +2046,7 @@
           <section class="screen" id="s-live" data-tab="plan" data-tabnav="live"
             data-cap="<b>Live.</b> Plan day: arrivals with rings (mint = here, butter = en route), the pinned spot with Got-it receipts, polls that close at start.">
             <div class="backbar"><button class="circbtn" data-go="s-tonight">‹</button><button class="circbtn"
-                data-toast="Plan settings — guests, plus-ones, cancel with grace">•••</button></div>
+                data-go="s-plan-settings" aria-label="Plan settings"><span data-icon="settings"></span></button></div>
             <div class="pad">
               <div style="display:flex;align-items:center;gap:8px;margin-top:4px">
                 <span class="chip" style="background:var(--coral);color:#fff">● LIVE</span>
@@ -1980,15 +2134,6 @@
               <p class="eb" style="text-align:center;margin:16px 0 0">No typing dots · no read receipts · presence =
                 arrival</p>
             </div>
-            <div class="pad">
-              <div class="inputbar">
-                <button class="artbtn" data-toast="Pin a place or a time change — it becomes a card">📍</button>
-                <button class="artbtn" data-toast="Poll — chips here and on Live, closes at start">▤</button>
-                <button class="artbtn" data-toast="Forward a booking — it becomes a ticket card">🎟</button>
-                <input id="msgInput" placeholder="Say something…">
-                <button class="sendbtn" id="msgSend">↑</button>
-              </div>
-            </div>
           </section>
 
           <section class="screen" id="s-album" data-tab="plan" data-tabnav="album"
@@ -1996,7 +2141,7 @@
             <div class="backbar"><button class="circbtn" data-go="s-tonight">‹</button><span class="eb"
                 style="margin:0">Album · Round 2</span></div>
             <div class="pad">
-              <h1 class="title">Dump it all. Sorted.</h1>
+              <h1 class="title">Shared album</h1>
               <div class="card mintbg" style="display:flex;gap:12px;align-items:center">
                 <div class="avatar sm" style="background:var(--mint);color:#fff">✓</div>
                 <div><b style="font-size:13.5px">Seen by the 6 who were there</b><br><span class="small muted">Tap hide
@@ -2045,7 +2190,7 @@
             <div class="backbar"><button class="circbtn" data-go="s-tonight">‹</button><span class="eb"
                 style="margin:0">Money · netted</span></div>
             <div class="pad">
-              <h1 class="title">One number, not ten.</h1>
+              <h1 class="title">Plan expenses</h1>
               <div class="card darkc" style="display:flex;align-items:center;gap:12px">
                 <div style="flex:1">
                   <div class="eb lt" style="margin:0 0 4px">You owe · net of 3 plans</div>
@@ -2129,8 +2274,7 @@
               <h1 class="title">Go Open.</h1>
               <p class="sub">A quiet signal. Matched, never posted.</p>
               <div class="rowit" data-toast="Coarse window — never live location">
-                <div class="t"><b>Sat · 5:00–8:00 PM</b><span>coarse window, not live location</span></div><span
-                  class="chev">›</span>
+                <div class="t"><b>Sat · 5:00–8:00 PM</b><span>coarse window, not live location</span></div>
               </div>
               <div class="eb">Up for</div>
               <div class="chipline" style="margin-top:0">
@@ -2138,8 +2282,7 @@
                   class="chip">Anything easy</button>
               </div>
               <div class="rowit" data-toast="Distance band only — neighbourhood stays coarse">
-                <div class="t"><b>Within 2 km of Indiranagar</b><span>distance band only</span></div><span
-                  class="chev">›</span>
+                <div class="t"><b>Within 2 km of Indiranagar</b><span>distance band only</span></div>
               </div>
               <div class="eb">Comfort filters</div>
               <div class="card" style="padding:6px 18px">
@@ -2223,15 +2366,13 @@
                 <button class="btn mini dark" id="lockIt" style="margin-top:12px">Lock it in</button>
               </div>
               <div class="rowit" data-toast="One 48h extension — locking plans with strangers takes logistics">
-                <div class="t"><b>Need more time?</b><span>One +48h extension, then it closes itself</span></div><span
-                  class="chev">›</span>
+                <div class="t"><b>Need more time?</b><span>One +48h extension, then it closes itself</span></div>
               </div>
               <div class="card soft"><span class="small">First names only until a plan locks.</span><br><span
                   class="small muted">Then full profiles unlock — for both of you.</span></div>
               <div class="rowit" data-toast="Report · Block · Pause — reachable in one tap throughout">
                 <span class="avatar sm" style="background:var(--peachbg);color:var(--tintfg)">🛡</span>
-                <div class="t"><b>Report · Block · Pause</b><span>one tap, always</span></div><span
-                  class="chev">›</span>
+                <div class="t"><b>Report · Block · Pause</b><span>one tap, always</span></div>
               </div>
             </div>
             <div class="seg">
@@ -2245,7 +2386,7 @@
             data-cap="<b>Safety.</b> Structural, not settings — ghost mode, check-ins, 2-tap reports with human review.">
             <div class="backbar"><button class="circbtn" data-go="s-you">‹</button><span></span></div>
             <div class="pad">
-              <h1 class="title">Safety, built in.</h1>
+              <h1 class="title">Safety &amp; privacy</h1>
               <p class="sub">Structural, not settings. Boring on purpose.</p>
               <div class="card darkc" style="display:flex;align-items:center;gap:12px">
                 <div style="flex:1">
@@ -2255,8 +2396,7 @@
                 <button class="toggle" id="tglPause"></button>
               </div>
               <div class="rowit" data-toast="Blocked: silent, mutual, instant — they never learn">
-                <div class="t"><b>Blocked · 2 people</b><span>Instant, silent, mutual.</span></div><span
-                  class="chev">›</span>
+                <div class="t"><b>Blocked · 2 people</b><span>Instant, silent, mutual.</span></div>
               </div>
               <div class="card peachy" style="display:flex;align-items:center;gap:12px">
                 <div style="flex:1">
@@ -2267,11 +2407,11 @@
               </div>
               <div class="rowit" data-toast="Women-only matching — selfie-verified, applied symmetrically">
                 <div class="t"><b>Women-only · selfie-verified</b><span>Symmetric. Both ways or not at all.</span></div>
-                <span class="chev">›</span>
+
               </div>
               <div class="rowit" data-toast="Report: 2 taps → human review → serious flags pause matches instantly">
                 <div class="t"><b>Reports — 2 taps. Humans review.</b><span>Serious flags suspend matches
-                    immediately.</span></div><span class="chev">›</span>
+                    immediately.</span></div>
               </div>
               <p class="small muted" style="text-align:center;margin-top:16px">No search exists. No public profiles.
                 Nothing discoverable.</p>
@@ -2301,21 +2441,18 @@
               <div class="rowit" data-toast="Album opens — 18 photos · 2 videos · everyone consented by default">
                 <span class="cover" style="background:var(--suntile)"></span>
                 <div class="t"><b>Round 2 · badminton</b><span>Sat 22 · Flat 402 · 18 photos · 2 videos</span></div>
-                <span class="chev">›</span>
+
               </div>
               <div class="rowit" data-toast="Album opens — 9 photos · 1 video">
                 <span class="cover" style="background:var(--lilacbg)"></span>
-                <div class="t"><b>Office dinner</b><span>Fri 15 · Work circle · 9 photos · 1 video</span></div><span
-                  class="chev">›</span>
+                <div class="t"><b>Office dinner</b><span>Fri 15 · Work circle · 9 photos · 1 video</span></div>
               </div>
               <div class="rowit" data-toast="Album opens — 31 photos">
                 <span class="cover" style="background:var(--skytile)"></span>
-                <div class="t"><b>Court trial + chai</b><span>Sun 27 Jul · Flat 402 · 31 photos</span></div><span
-                  class="chev">›</span>
+                <div class="t"><b>Court trial + chai</b><span>Sun 27 Jul · Flat 402 · 31 photos</span></div>
               </div>
               <div class="rowit" data-toast="Link copied — signed, expiring. You choose the expiry.">
-                <div class="t"><b>Share shelf</b><span>One signed, expiring link — everything on it</span></div><span
-                  class="chev">›</span>
+                <div class="t"><b>Share shelf</b><span>One signed, expiring link — everything on it</span></div>
               </div>
             </div>
           </section>
@@ -2333,32 +2470,28 @@
               <div class="eb">Yours</div>
               <div class="rowit" data-go="s-scrapbook">
                 <span class="avatar sm" style="background:var(--butterbg);color:var(--tintfg)">★</span>
-                <div class="t"><b>Scrapbook</b><span>Every plan's media, one shelf</span></div><span
-                  class="chev">›</span>
+                <div class="t"><b>Scrapbook</b><span>Every plan's media, one shelf</span></div>
               </div>
               <div class="rowit" data-go="s-splits">
                 <span class="avatar sm" style="background:var(--mintbg);color:var(--pos)">₹</span>
-                <div class="t"><b>Overall splits</b><span>2 open balances · across every plan</span></div><span
-                  class="chev">›</span>
+                <div class="t"><b>Your balances</b><span>2 open balances · across every plan</span></div>
               </div>
               <div class="rowit" data-go="s-safety">
                 <span class="avatar sm" style="background:var(--peachbg);color:var(--tintfg)">🛡</span>
-                <div class="t"><b>Safety</b><span>Ghost mode, check-ins, reports</span></div><span class="chev">›</span>
+                <div class="t"><b>Safety</b><span>Ghost mode, check-ins, reports</span></div>
               </div>
               <div class="rowit" data-go="s-language">
                 <span class="avatar sm" style="background:var(--lilacbg);color:var(--tintfg)">Aa</span>
                 <div class="t"><b>Language &amp; device</b><span id="languageSummary">Auto · English · local
-                    formats</span></div><span class="chev">›</span>
+                    formats</span></div>
               </div>
               <div class="rowit" data-toast="Who sees what — structural by default, not a settings maze">
                 <span class="avatar sm" style="background:var(--lilacbg);color:var(--tintfg)">◐</span>
-                <div class="t"><b>Who sees what</b><span>Circle · Match · Nearby — fixed, honest</span></div><span
-                  class="chev">›</span>
+                <div class="t"><b>Who sees what</b><span>Circle · Match · Nearby — fixed, honest</span></div>
               </div>
               <div class="rowit" data-toast="Invite link copied — circles grow by hand, never by search">
                 <span class="avatar sm" style="background:var(--mintbg);color:var(--pos)">＋</span>
-                <div class="t"><b>Start a circle</b><span>Invite-only, 3–15, always</span></div><span
-                  class="chev">›</span>
+                <div class="t"><b>Start a circle</b><span>Invite-only, 3–15, always</span></div>
               </div>
               <p class="small muted" style="text-align:center;margin-top:18px">Export my data · Delete account</p>
             </div>
@@ -2369,7 +2502,7 @@
             <div class="backbar"><button class="circbtn" data-go="s-you">‹</button><button class="circbtn"
                 data-toast="Export your splits ledger">•••</button></div>
             <div class="pad">
-              <h1 class="title">Overall splits</h1>
+              <h1 class="title">Your balances</h1>
               <p class="sub">Every plan, netted by person.</p>
 
               <div class="grid2">
@@ -2405,13 +2538,11 @@
               <div class="eb">Recent plan ledgers</div>
               <div class="rowit" data-go="s-money">
                 <span class="cover" style="background:var(--suntile)"></span>
-                <div class="t"><b>Round 2 · badminton</b><span>₹180 each · settled</span></div><span
-                  class="chev">›</span>
+                <div class="t"><b>Round 2 · badminton</b><span>₹180 each · settled</span></div>
               </div>
               <div class="rowit" data-toast="Office dinner ledger — 5 expenses, 1 balance open">
                 <span class="cover" style="background:var(--lilacbg)"></span>
-                <div class="t"><b>Office dinner</b><span>5 expenses · 1 balance open</span></div><span
-                  class="chev">›</span>
+                <div class="t"><b>Office dinner</b><span>5 expenses · 1 balance open</span></div>
               </div>
               <p class="small muted" style="text-align:center;margin-top:14px">Different currencies stay separate.
                 Nudges are private and rate-limited.</p>
@@ -2430,7 +2561,7 @@
               <button class="rowit" id="openLanguagePicker" aria-haspopup="dialog" aria-expanded="false">
                 <span class="avatar sm" style="background:var(--lilacbg);color:var(--text)">文</span>
                 <span class="t"><b id="languageCurrent">Auto · English</b><span>Tap to choose a
-                    language</span></span><span class="chev">›</span>
+                    language</span></span>
               </button>
 
               <div class="eb">Formats · from this device</div>
@@ -2441,6 +2572,45 @@
               </div>
               <p class="small muted" style="margin:9px 2px 0">These update with the device. There is no separate region
                 selector.</p>
+            </div>
+          </section>
+
+
+          <section class="screen" id="s-plan-settings" data-cap="<b>Plan settings.</b> Edit the details and guest preferences. Changes are saved on this device for the demo.">
+            <div class="backbar"><button class="circbtn" data-go="s-live" aria-label="Back to plan"><span data-icon="back"></span></button><span class="eb" style="margin:0">Round 2</span></div>
+            <div class="pad"><h1 class="title">Plan settings</h1><p class="sub">The details, with room to change your mind.</p>
+              <form class="settings-form" id="planSettingsForm">
+                <label class="settings-field"><span>Plan name</span><input name="name" value="Round 2 · badminton" required maxlength="60"></label>
+                <label class="settings-field"><span>When</span><input name="when" value="Sat 5:00 PM" required maxlength="60"></label>
+                <label class="settings-field"><span>Meeting point</span><input name="place" value="Cubbon Park, Gate 2" required maxlength="100"></label>
+                <h2>Guests &amp; invites</h2>
+                <div class="rowit"><span class="avatar sm" style="background:var(--lilac)">402</span><div class="t"><b>Flat 402</b><span>6 people going · you're hosting</span></div></div>
+                <label class="setting-check"><span>Allow plus-ones<small>Guests can bring one more person.</small></span><input type="checkbox" name="plusOnes" checked></label>
+                <label class="setting-check"><span>Invite by link<small>People outside the circle ask to join.</small></span><input type="checkbox" name="linkInvite" checked></label>
+                <h2>Notifications</h2>
+                <label class="setting-check"><span>Plan-day updates<small>Arrivals, meeting point changes and polls.</small></span><input type="checkbox" name="updates" checked></label>
+                <button class="btn dark" type="submit">Save changes</button>
+                <p class="settings-help">Demo settings are saved on this device.</p>
+              </form>
+            </div>
+          </section>
+          <section class="screen" id="s-circle-settings" data-cap="<b>Circle settings.</b> The circle's name, people and invite preferences. Saved locally in this demo.">
+            <div class="backbar"><button class="circbtn" data-go="s-circle-detail" aria-label="Back to circle"><span data-icon="back"></span></button><span class="eb" style="margin:0">Your circle</span></div>
+            <div class="pad"><h1 class="title">Circle settings</h1><p class="sub">A little space for your people.</p>
+              <form class="settings-form" id="circleSettingsForm">
+                <label class="settings-field"><span>Circle name</span><input name="name" value="Flat 402" required maxlength="40"></label>
+                <h2>People <span class="muted small">· 4</span></h2>
+                <div class="rowit"><span class="avatar sm" style="background:var(--coral)">DG</span><div class="t"><b>Divya · you</b></div><span class="member-role">Host</span></div>
+                <div class="rowit"><span class="avatar sm" style="background:var(--lilac)">SG</span><div class="t"><b>Sara</b></div><span class="member-role">Member</span></div>
+                <div class="rowit"><span class="avatar sm" style="background:var(--mint)">RN</span><div class="t"><b>Rohan</b></div><span class="member-role">Member</span></div>
+                <div class="rowit"><span class="avatar sm" style="background:var(--lilac)">MJ</span><div class="t"><b>Maya</b></div><span class="member-role">Member</span></div>
+                <h2>Invites &amp; activity</h2>
+                <label class="setting-check"><span>Members can invite<small>New people still need your approval.</small></span><input type="checkbox" name="memberInvites" checked></label>
+                <label class="setting-check"><span>Allow plus-ones by default<small>You can change this for each plan.</small></span><input type="checkbox" name="plusOnes"></label>
+                <label class="setting-check"><span>Quiet after 60 days<small>Put an inactive circle to sleep until its next plan.</small></span><input type="checkbox" name="autoSleep" checked></label>
+                <label class="setting-check"><span>Include in evening digest<small>A single catch-up for this circle's activity.</small></span><input type="checkbox" name="digest" checked></label>
+                <button class="btn dark" type="submit">Save changes</button><p class="settings-help">Demo settings are saved on this device.</p>
+              </form>
             </div>
           </section>
 
@@ -2569,7 +2739,22 @@
           </div>
         </div>
 
+        <div class="chat-composer" id="chatComposer">
+          <div class="attachment-menu" id="chatAttachments" hidden aria-label="Add to your plan">
+            <button type="button" data-toast="Pin a place or a time change — it becomes a card"><span data-icon="pin"></span><span>Location</span></button>
+            <button type="button" data-toast="Poll — chips here and on Live, closes at start"><span data-icon="poll"></span><span>Poll</span></button>
+            <button type="button" data-toast="Forward a booking — it becomes a ticket card"><span data-icon="ticket"></span><span>Booking</span></button>
+          </div>
+          <div class="composer-row">
+            <div class="inputbar">
+              <button type="button" class="artbtn" id="attachToggle" aria-label="Add attachment" aria-expanded="false" aria-controls="chatAttachments"><span data-icon="plus"></span></button>
+              <input id="msgInput" placeholder="Message" aria-label="Message" autocomplete="off">
+            </div>
+            <button type="button" class="sendbtn" id="msgSend" aria-label="Send message" disabled><span data-icon="send"></span></button>
+          </div>
+        </div>
         <div class="tabbar" id="mainbar"></div>
+        <div class="plan-header" id="planHeader"><button class="circbtn" data-go="s-tonight" aria-label="Back to plans"><span data-icon="back"></span></button><b id="planHeaderName">Round 2 · badminton</b><button class="circbtn" data-go="s-plan-settings" aria-label="Plan settings"><span data-icon="settings"></span></button></div>
         <div class="tabbar" id="planbar" style="justify-content:space-around;align-items:center"></div>
         <div class="toast" id="toast"></div>
       </div>
@@ -2582,7 +2767,7 @@
 
   <script>
     const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
-    const STORY = ["s-welcome", "s-otp", "s-tonight", "s-circles", "s-circle-detail", "s-newplan", "s-ripple", "s-inbox", "s-live", "s-chat", "s-album", "s-money", "s-wrap", "s-open", "s-overlap", "s-hello", "s-scrapbook", "s-you", "s-splits", "s-language", "s-safety", "s-webcard"];
+    const STORY = ["s-welcome", "s-otp", "s-tonight", "s-circles", "s-circle-detail", "s-newplan", "s-ripple", "s-inbox", "s-live", "s-chat", "s-album", "s-money", "s-wrap", "s-open", "s-overlap", "s-hello", "s-scrapbook", "s-you", "s-splits", "s-language", "s-safety", "s-plan-settings", "s-circle-settings", "s-webcard"];
     let cur = null;
 
     const ICONS = {
@@ -2593,12 +2778,69 @@
       you: '<svg width="20" height="20" viewBox="-10 -10 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cy="-3" r="5.4"/><path d="M-8.5 9c2-6.5 15-6.5 17 0"/></svg>'
     };
 
-    const MAINNAV = [["tonight", "TONIGHT", "s-tonight"], ["circles", "CIRCLES", "s-circles"], ["new", "＋", ""], ["inbox", "INBOX", "s-inbox"], ["you", "YOU", "s-you"]];
-    const PLANNAV = [["live", "LIVE", "s-live"], ["chat", "CHAT", "s-chat"], ["album", "ALBUM", "s-album"], ["money", "MONEY", "s-money"]];
+
+    const lineIcons = {
+      inbox: '<path d="M4 11 2 17v4h20v-4l-2-6M2 17h6l2 3h4l2-3h6M12 3v11m-4-4 4 4 4-4"/>',
+      send: '<path d="m4 4 17 8-17 8 3-8-3-8zM7 12h14"/>',
+      pin: '<path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 0 1 14 0z"/><circle cx="12" cy="10" r="2"/>',
+      poll: '<path d="M5 20V10m7 10V4m7 16v-7"/>',
+      ticket: '<path d="M3 7h18v4a2 2 0 0 0 0 4v4H3v-4a2 2 0 0 0 0-4zM15 7v2m0 3v2m0 3v2"/>',
+      settings: '<path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="3" fill="var(--phbg)"/><circle cx="15" cy="17" r="3" fill="var(--phbg)"/>',
+      back: '<path d="m14 6-6 6 6 6"/>',
+      calendar: '<rect x="4" y="5" width="16" height="16" rx="3"/><path d="M8 3v4m8-4v4M4 10h16m-11 5h2"/>',
+      album: '<rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="9" cy="9" r="1"/><path d="m4 17 5-5 4 4 3-3 4 4"/>',
+      wallet: '<rect x="3" y="5" width="18" height="15" rx="3"/><path d="M3 9h18m-5 5h5"/>',
+      shield: '<path d="m12 3 8 3v6c0 4-5 7-8 9-3-2-8-5-8-9V6z"/><path d="m8 12 3 3 5-6"/>',
+      globe: '<circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/>',
+      eye: '<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+      people: '<circle cx="9" cy="8" r="3"/><path d="M3 21v-2a6 6 0 0 1 12 0v2m1-16a3 3 0 0 1 0 6m2 4a5 5 0 0 1 3 4v2"/>',
+      plus: '<path d="M12 5v14M5 12h14"/>'
+    };
+    function icon(name) { return `<svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${lineIcons[name]}</svg>`; }
+    $$('[data-icon]').forEach(el => el.innerHTML = icon(el.dataset.icon));
+    $$('#s-tonight .agenda-item, #s-tonight .open-note, #s-tonight .reply-link, #s-circles .rowit[data-go], #s-you .rowit[data-go="s-scrapbook"], #s-scrapbook .rowit').forEach(el => {
+      const arrow = document.createElement('span'); arrow.className = 'wayfinding-arrow'; arrow.textContent = '↗'; arrow.setAttribute('aria-hidden', 'true'); el.appendChild(arrow);
+    });
+    const profileIcons = ['album','wallet','shield','globe','eye','plus'];
+    $$('#s-you .rowit .avatar').forEach((el, i) => el.innerHTML = icon(profileIcons[i]));
+    $$('.circbtn').filter(el => el.textContent.trim() === '‹').forEach(el => { el.innerHTML = icon('back'); el.setAttribute('aria-label','Back'); });
+    ICONS.inbox = icon('inbox'); ICONS.circles = icon('people');
+
+    function bindSettings(formId, key, apply) {
+      const form = document.getElementById(formId);
+      function values() { return Object.fromEntries([...form.elements].filter(el => el.name).map(el => [el.name, el.type === 'checkbox' ? el.checked : el.value.trim()])); }
+      try {
+        const saved = JSON.parse(localStorage.getItem(key) || 'null');
+        if (saved) { [...form.elements].filter(el => el.name && Object.hasOwn(saved, el.name)).forEach(el => { if (el.type === 'checkbox') el.checked = !!saved[el.name]; else el.value = saved[el.name]; }); apply(values()); }
+      } catch { /* Keep defaults if stored demo preferences are unavailable. */ }
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const data = values();
+        if (Object.values(data).some(value => typeof value === 'string' && !value)) { toast('Please fill in the plan or circle details.'); return; }
+        try { localStorage.setItem(key, JSON.stringify(data)); apply(data); toast('Changes saved on this device'); }
+        catch { toast('Could not save. Please try again.'); }
+      });
+    }
+    bindSettings('planSettingsForm', 'ot-plan-settings', data => {
+      $('#s-live h1').textContent = data.name;
+      $('#s-live .sub').textContent = `${data.when} · ${data.place}`;
+      $('#planHeaderName').textContent = data.name;
+      $('#s-tonight .agenda-copy b').textContent = data.name;
+      $('#s-tonight .agenda-copy span').textContent = `${data.when} · ${data.place} · 6 going`;
+    });
+    bindSettings('circleSettingsForm', 'ot-circle-settings', data => {
+      $('#s-circle-detail h1').textContent = data.name;
+      $('#s-circles [data-go="s-circle-detail"] .t b').textContent = data.name;
+      $('#s-plan-settings .rowit .t b').textContent = data.name;
+      $('#s-newplan [data-circle="Flat 402"]').previousElementSibling.querySelector('b').textContent = data.name;
+    });
+
+    const MAINNAV = [["tonight", "Plans", "s-tonight"], ["circles", "Circles", "s-circles"], ["new", "＋", ""], ["inbox", "Inbox", "s-inbox"], ["you", "You", "s-you"]];
+    const PLANNAV = [["live", "Live", "s-live"], ["chat", "Chat", "s-chat"], ["album", "Album", "s-album"], ["money", "Money", "s-money"]];
     const mainbar = $("#mainbar"), planbar = $("#planbar");
     MAINNAV.forEach(([k, label, target]) => {
       const b = document.createElement("button"); b.className = "tab"; b.dataset.tabnav = k; b.dataset.go = target;
-      if (k === "new") { b.innerHTML = `<span class="newic">${ICONS.plus}</span>NEW`; b.onclick = openSheet; }
+      if (k === "new") { b.innerHTML = `<span class="newic">${ICONS.plus}</span>New`; b.onclick = openSheet; }
       else { b.innerHTML = `<span class="ic">${ICONS[k]}</span>${label}${k === "inbox" ? '<span class="badge">2</span>' : ''}`; b.addEventListener("click", () => go(target)); }
       mainbar.appendChild(b);
     });
@@ -2611,29 +2853,34 @@
       if (!id) return;
       const scr = document.getElementById(id); if (!scr) return;
       if (cur && cur !== id) window._prev = cur;
-      $$(".screen").forEach(s => s.classList.remove("active"));
-      scr.classList.add("active"); cur = id;
+      $$(".screen").forEach(s => { s.classList.remove("active"); s.inert = true; s.setAttribute("aria-hidden", "true"); });
+      scr.inert = false; scr.removeAttribute("aria-hidden"); scr.classList.add("active"); cur = id;
       scr.scrollTop = 0;
       $("#cap").innerHTML = scr.dataset.cap || "";
       const h = scr.querySelector("h1");
-      $("#scrName").textContent = h ? h.textContent : id.replace("s-", "");
+      $("#scrName").textContent = h ? h.textContent : ({"s-newplan":"Make a plan", "s-chat":"Plan chat", "s-overlap":"Your overlap", "s-hello":"Say hello"}[id] || id.replace("s-", ""));
       $("#scrSel").value = id;
       const t = scr.dataset.tab;
       mainbar.classList.toggle("show", t === "main");
       planbar.classList.toggle("show", t === "plan");
+      $("#planHeader").classList.toggle("show", t === "plan");
+      $("#chatComposer").classList.toggle("show", id === "s-chat");
+      $("#chatAttachments").hidden = true;
+      $("#attachToggle").setAttribute("aria-expanded", "false");
       const nav = t === "main" ? mainbar : planbar;
-      if (nav) nav.querySelectorAll(".tab,.ptab").forEach(b => b.classList.toggle("active", b.dataset.tabnav === scr.dataset.tabnav));
+      if (nav) nav.querySelectorAll(".tab,.ptab").forEach(b => { const active = b.dataset.tabnav === scr.dataset.tabnav; b.classList.toggle("active", active); if (active) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current"); });
     }
+    $("#s-tonight [data-go=\"s-live\"]").addEventListener("click", () => go("s-live"));
     function next(d = 1) { let i = STORY.indexOf(cur); if (i < 0) i = 0; i = (i + d + STORY.length) % STORY.length; go(STORY[i]); }
     $("#nextBtn").onclick = () => next(1); $("#prevBtn").onclick = () => next(-1);
 
     const sel = $("#scrSel");
-    STORY.forEach(id => { const o = document.createElement("option"); o.value = id; o.textContent = document.getElementById(id).querySelector("h1")?.textContent || id; sel.appendChild(o); });
+    STORY.forEach(id => { const o = document.createElement("option"); o.value = id; o.textContent = document.getElementById(id).querySelector("h1")?.textContent || ({"s-newplan":"Make a plan", "s-chat":"Plan chat", "s-overlap":"Your overlap", "s-hello":"Say hello"}[id] || id.replace("s-", "")); sel.appendChild(o); });
     sel.onchange = e => go(e.target.value);
     $("#restartBtn").onclick = () => location.reload();
     $("#hintsBtn").onclick = e => { document.body.classList.toggle("hints"); e.currentTarget.classList.toggle("on"); };
     addEventListener("keydown", e => {
-      if (e.target.tagName === "INPUT" || e.target.isContentEditable) return;
+      if (["INPUT", "SELECT", "TEXTAREA"].includes(e.target.tagName) || e.target.isContentEditable) return;
       const k = e.key.toLowerCase();
       if (e.key === "ArrowRight") next(1); else if (e.key === "ArrowLeft") next(-1);
       else if (k === "h") $("#hintsBtn").click();
@@ -2666,6 +2913,15 @@
       }
       const pk = e.target.closest(".chip");
       if (pk && pk.parentElement && pk.parentElement.classList.contains("chipline") && pk.closest(".chipline").querySelectorAll(".chip").length > 2 && !pk.dataset.toast) {/* filter rows toggle */ }
+    });
+
+    // Give the existing clickable rows keyboard parity with buttons.
+    $$(".screen [data-go], .screen [data-toast]").forEach(el => {
+      if (el.matches("button, a, input") || el.querySelector("button, input")) return;
+      el.setAttribute("role", "button"); el.tabIndex = 0;
+      el.addEventListener("keydown", e => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); el.click(); }
+      });
     });
 
     /* RSVP segments */
@@ -2736,8 +2992,15 @@
     function sendMsg() {
       const v = msgInput.value.trim(); if (!v) return;
       const r = document.createElement("div"); r.className = "msgrow"; const b = document.createElement("div"); b.className = "bub me"; b.textContent = v; r.appendChild(b);
-      msgList.appendChild(r); msgInput.value = ""; msgList.scrollIntoView({ block: "end" });
+      msgList.appendChild(r); msgInput.value = ""; $("#msgSend").disabled = true; $("#s-chat").scrollTop = $("#s-chat").scrollHeight; msgInput.focus();
     }
+    const attachToggle = $('#attachToggle'), attachments = $('#chatAttachments');
+    function closeAttachments() { attachments.hidden = true; attachToggle.setAttribute('aria-expanded', 'false'); }
+    attachToggle.onclick = () => { attachments.hidden = !attachments.hidden; attachToggle.setAttribute('aria-expanded', String(!attachments.hidden)); };
+    attachments.addEventListener('click', e => { if (e.target.closest('button')) { closeAttachments(); msgInput.focus(); } });
+    document.addEventListener('click', e => { if (!e.target.closest('#chatComposer')) closeAttachments(); });
+    $('#chatComposer').addEventListener('keydown', e => { if (e.key === 'Escape') { closeAttachments(); attachToggle.focus(); } });
+    msgInput.addEventListener('input', () => { $('#msgSend').disabled = !msgInput.value.trim(); });
     $("#msgSend").onclick = sendMsg;
     msgInput.addEventListener("keydown", e => { if (e.key === "Enter") sendMsg(); });
     $("#claimBtn").onclick = e => { e.currentTarget.textContent = "claimed ✓"; e.currentTarget.classList.add("mintc"); toast("“shuttle tubes — you” posted to the plan"); };
@@ -2816,11 +3079,15 @@
     applyLanguagePref();
 
     function fit() {
-      const s = Math.min(1, (innerHeight - 190) / 844, (innerWidth - 36) / 392);
-      const fb = $("#fitbox"), ph = $("#phone"); ph.style.transform = `scale(${s})`; fb.style.width = 390 * s + "px"; fb.style.height = 844 * s + "px";
+      const mobile = innerWidth <= 480;
+      const s = mobile ? innerWidth / 390 : Math.max(.25, Math.min(1, (innerHeight - 190) / 844, (innerWidth - 36) / 392));
+      const height = mobile ? (innerHeight - 54) / s : 844;
+      const fb = $("#fitbox"), ph = $("#phone");
+      ph.style.height = height + "px"; ph.style.transform = `scale(${s})`;
+      fb.style.width = 390 * s + "px"; fb.style.height = height * s + "px";
     }
     addEventListener("resize", fit); fit();
-    go("s-welcome");
+    go(location.hash === "#welcome" ? "s-welcome" : "s-tonight");
   </script>
 </body>
 
