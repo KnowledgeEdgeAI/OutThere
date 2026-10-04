@@ -1540,164 +1540,1848 @@
 
     /* Open layouts: quiet surfaces, generous spacing, and a single accent. */
     :root {
-      --page: #eeede9; --headbg: rgba(238,237,233,.94);
-      --phbg: #faf9f6; --surf: #fff; --soft: #efeee9; --line: #e2e1dc;
-      --text: #242723; --mut: #72766e; --faint: #858980;
-      --coral: #c65636; --lilac: #8a927d; --lilacbg: #eceee6;
-      --butterbg: #f3efdf; --peachbg: #f5eae2; --mintbg: #e8eee7;
-      --mint: #628772; --pos: #426b50; --pillbg: #292e27;
-      --inkg: #292e27; --minttile: #e3eadf;
+      --page: #eeede9;
+      --headbg: rgba(238, 237, 233, .94);
+      --phbg: #faf9f6;
+      --surf: #fff;
+      --soft: #efeee9;
+      --line: #e2e1dc;
+      --text: #242723;
+      --mut: #72766e;
+      --faint: #858980;
+      --coral: #c65636;
+      --lilac: #8a927d;
+      --lilacbg: #eceee6;
+      --butterbg: #f3efdf;
+      --peachbg: #f5eae2;
+      --mintbg: #e8eee7;
+      --mint: #628772;
+      --pos: #426b50;
+      --pillbg: #292e27;
+      --inkg: #292e27;
+      --minttile: #e3eadf;
     }
+
     html.dark {
-      --page: #202124; --headbg: rgba(32,33,36,.94);
-      --phbg: #292a2d; --surf: #333438; --soft: #35363a; --line: #424348;
-      --text: #f3f1ed; --mut: #b3b1ae; --faint: #9d9ca0;
-      --coral: #e18b68; --lilac: #8a927d; --lilacbg: #292e25;
-      --butterbg: #322f24; --peachbg: #342923; --mintbg: #243027;
-      --mint: #85a58c; --pos: #a0c7a7;
-      --pillbg: #eeece7; --pillfg: #292a2d; --minttile: #334039; --inkg: #36383c; --togoff: #55565c;
+      --page: #202124;
+      --headbg: rgba(32, 33, 36, .94);
+      --phbg: #292a2d;
+      --surf: #333438;
+      --soft: #35363a;
+      --line: #424348;
+      --text: #f3f1ed;
+      --mut: #b3b1ae;
+      --faint: #9d9ca0;
+      --coral: #e18b68;
+      --lilac: #8a927d;
+      --lilacbg: #292e25;
+      --butterbg: #322f24;
+      --peachbg: #342923;
+      --mintbg: #243027;
+      --mint: #85a58c;
+      --pos: #a0c7a7;
+      --pillbg: #eeece7;
+      --pillfg: #292a2d;
+      --minttile: #334039;
+      --inkg: #36383c;
+      --togoff: #55565c;
     }
-    body { -webkit-font-smoothing: antialiased; }
-    header { border: 0; gap: 10px; padding-inline: 24px; }
-    .hbtn, select.scrsel { border-color: transparent; background: transparent; color: var(--text); }
-    .phone { box-shadow: 0 24px 70px #00000015; border-color: #00000014; }
-    html.dark .phone { border-color: #ffffff12; box-shadow: 0 24px 70px #00000035; }
-    .screen { top: 58px; padding-top: 12px; }
-    .pad { padding-inline: 20px; }
-    h1.title { font-size: 33px; font-weight: 700; line-height: 1.12; letter-spacing: -1.3px; margin: 14px 0 10px; }
-    h2.sec { font-weight: 700; margin-top: 28px; }
-    .sub { line-height: 1.55; }
-    .eb { font-weight: 500; font-size: 10px; letter-spacing: 1.5px; margin: 28px 0 8px; }
-    .small { line-height: 1.55; }
-    .rowit { background: transparent; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; margin: 0; padding: 19px 0; gap: 12px; }
-    .rowit .t b { font-weight: 500; font-size: 15px; line-height: 1.4; }
-    .rowit .t span { display: block; line-height: 1.5; margin-top: 3px; }
-    .card { background: transparent; border: 0; border-radius: 0; padding: 22px 0; margin-top: 4px; border-bottom: 1px solid var(--line); }
-    .card.darkc { background: var(--inkg); border: 0; border-radius: 18px; padding: 22px; margin-top: 22px; }
-    #s-circles .card.darkc, #s-safety .card.darkc {
-      background: transparent; color: var(--text); padding: 24px 0; border-radius: 0; border-bottom: 1px solid var(--line);
+
+    body {
+      -webkit-font-smoothing: antialiased;
     }
-    #s-circles .card.darkc .eb, #s-safety .card.darkc .eb { color: var(--mut); }
-    .card .t { flex: 1; min-width: 0; }
-    .card .t b, .card .t span { display: block; }
-    .card .t span { font-size: 12px; color: var(--mut); margin-top: 5px; line-height: 1.5; }
-    .btn { border-radius: 12px; font-weight: 700; margin-top: 22px; }
-    .btn.mini { border-radius: 10px; }
-    .btn.dark { background: var(--pillbg); color: var(--pillfg); }
-    .btn.ghost { border-width: 1px; }
-    .chip { border-radius: 7px; font-weight: 500; letter-spacing: .1px; }
-    .circbtn { background: transparent; }
-    .backbar { padding-inline: 20px; }
-    .tabbar { padding-inline: 14px; }
-    .tab { font-size: 10px; letter-spacing: .1px; font-weight: 500; }
-    .tab.active .ic { background: transparent; }
-    .tab.active .ic svg { stroke: var(--coral); }
-    .tab.active { color: var(--coral); }
-    .tab .newic { background: #292e27; }
-    .circlethumb { border-radius: 50%; width: 42px; height: 42px; font-size: 14px; }
-    .circlecount { background: transparent; padding: 0; color: var(--mut); font-weight: 500; }
-    .devicecell { border: 0; border-radius: 0; background: transparent; padding: 12px 0; }
-    .devicecell + .devicecell { padding-left: 12px; border-left: 1px solid var(--line); }
-    #s-you > .pad > div:first-child { flex-direction: column; align-items: flex-start !important; gap: 20px !important; padding: 12px 0 16px; }
-    #s-you > .pad > div:first-child .avatar { width: 70px !important; height: 70px !important; font-size: 22px !important; background: var(--soft) !important; color: var(--text); }
-    #s-you .rowit .avatar { background: transparent !important; color: var(--mut) !important; font-size: 18px; width: 24px; }
-    #s-welcome .rowit { border: 1px solid var(--line); border-radius: 12px; padding: 14px; margin-top: 12px; }
-    .langopt.on { background: var(--soft); border-color: var(--line); }
-    .langopt { padding-inline: 10px; }
-    button:focus-visible, [tabindex]:focus-visible, a:focus-visible, select:focus-visible { outline: 2px solid var(--coral); outline-offset: 4px; }
-    [data-go]:hover .chev, [data-toast]:hover .chev { color: var(--text); }
-    .plans-topline { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; }
-    .plans-topline .eb { margin: 0; }
-    .profile-link { border: 0; cursor: pointer; background: var(--soft); color: var(--text); }
-    .plans-heading { display: flex; align-items: center; justify-content: space-between; margin-top: 22px; }
-    .plans-heading h1 { font-size: 40px; margin: 0; letter-spacing: -1.8px; }
-    .text-action { border: 0; padding: 10px 0 10px 12px; background: transparent; font-size: 13px; font-weight: 500; cursor: pointer; color: var(--coral); }
-    .plans-intro { margin: 9px 0 24px; }
-    .agenda-heading { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--line); padding-bottom: 12px; margin: 28px 0 0; }
-    .agenda-heading h2 { font-size: 15px; font-weight: 500; margin: 0; }
-    .agenda-heading span { font-size: 11px; color: var(--mut); }
-    .live-plan { padding: 20px 0 23px; }
-    .live-kicker { color: var(--pos); font-size: 11px; display: flex; gap: 7px; align-items: center; }
-    .live-kicker::before { content: ''; width: 6px; height: 6px; background: var(--pos); border-radius: 50%; }
-    .live-plan h2 { font-size: 28px; font-weight: 500; letter-spacing: -.8px; margin: 10px 0 6px; }
-    .plan-location { font-size: 13px; color: var(--mut); margin: 0; }
-    .attendance { display: flex; align-items: center; margin-top: 18px; }
-    .attendance .avatar { border: 2px solid var(--phbg); margin-right: -7px; width: 28px; height: 28px; font-size: 8px; }
-    .attendance .small { margin-left: 16px; color: var(--mut); }
-    .plan-actions { display: flex; gap: 10px; margin-top: 20px; }
-    .plan-actions .btn { flex: 1; height: 42px; }
-    .plan-actions .btn:first-child { background: var(--pillbg); color: var(--pillfg); }
-    .open-note { display: flex; align-items: center; gap: 12px; padding: 16px 0; border-block: 1px solid var(--line); cursor: pointer; }
-    .open-note .open-symbol { color: var(--pos); font-size: 24px; }
-    .open-note .t { flex: 1; }
-    .open-note b { font-weight: 500; font-size: 13px; }
-    .open-note p { font-size: 12px; color: var(--mut); margin: 3px 0 0; }
-    .agenda-item { width: 100%; text-align: left; display: flex; gap: 18px; align-items: center; padding: 20px 0; background: transparent; border: 0; border-bottom: 1px solid var(--line); cursor: pointer; }
-    .agenda-date { width: 30px; flex: none; text-align: center; color: var(--mut); font-size: 9px; letter-spacing: .8px; }
-    .agenda-date strong { display: block; font-size: 26px; line-height: 1.2; font-weight: 400; color: var(--text); letter-spacing: -1px; margin-top: 3px; }
-    .agenda-copy { flex: 1; min-width: 0; }
-    .agenda-copy b { display: block; font-weight: 500; font-size: 15px; }
-    .agenda-copy span { display: block; font-size: 12px; color: var(--mut); margin-top: 5px; line-height: 1.5; }
-    .reply-link { display: flex; width: 100%; align-items: center; gap: 14px; border: 0; text-align: left; background: transparent; padding: 21px 0; cursor: pointer; }
-    .reply-count { color: var(--coral); font-size: 25px; font-weight: 400; }
-    .reply-link .t { flex: 1; }
-    .reply-link b { font-size: 13px; font-weight: 500; }
-    .reply-link p { font-size: 12px; color: var(--mut); margin: 4px 0 0; }
+
+    header {
+      border: 0;
+      gap: 10px;
+      padding-inline: 24px;
+    }
+
+    .hbtn,
+    select.scrsel {
+      border-color: transparent;
+      background: transparent;
+      color: var(--text);
+    }
+
+    .phone {
+      box-shadow: 0 24px 70px #00000015;
+      border-color: #00000014;
+    }
+
+    html.dark .phone {
+      border-color: #ffffff12;
+      box-shadow: 0 24px 70px #00000035;
+    }
+
+    .screen {
+      top: 58px;
+      padding-top: 12px;
+    }
+
+    .pad {
+      padding-inline: 20px;
+    }
+
+    h1.title {
+      font-size: 33px;
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -1.3px;
+      margin: 14px 0 10px;
+    }
+
+    h2.sec {
+      font-weight: 700;
+      margin-top: 28px;
+    }
+
+    .sub {
+      line-height: 1.55;
+    }
+
+    .eb {
+      font-weight: 500;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      margin: 28px 0 8px;
+    }
+
+    .small {
+      line-height: 1.55;
+    }
+
+    .rowit {
+      background: transparent;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      border-radius: 0;
+      margin: 0;
+      padding: 19px 0;
+      gap: 12px;
+    }
+
+    .rowit .t b {
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+    .rowit .t span {
+      display: block;
+      line-height: 1.5;
+      margin-top: 3px;
+    }
+
+    .card {
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      padding: 22px 0;
+      margin-top: 4px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .card.darkc {
+      background: var(--inkg);
+      border: 0;
+      border-radius: 18px;
+      padding: 22px;
+      margin-top: 22px;
+    }
+
+    #s-circles .card.darkc,
+    #s-safety .card.darkc {
+      background: transparent;
+      color: var(--text);
+      padding: 24px 0;
+      border-radius: 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    #s-circles .card.darkc .eb,
+    #s-safety .card.darkc .eb {
+      color: var(--mut);
+    }
+
+    .card .t {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .card .t b,
+    .card .t span {
+      display: block;
+    }
+
+    .card .t span {
+      font-size: 12px;
+      color: var(--mut);
+      margin-top: 5px;
+      line-height: 1.5;
+    }
+
+    .btn {
+      border-radius: 12px;
+      font-weight: 700;
+      margin-top: 22px;
+    }
+
+    .btn.mini {
+      border-radius: 10px;
+    }
+
+    .btn.dark {
+      background: var(--pillbg);
+      color: var(--pillfg);
+    }
+
+    .btn.ghost {
+      border-width: 1px;
+    }
+
+    .chip {
+      border-radius: 7px;
+      font-weight: 500;
+      letter-spacing: .1px;
+    }
+
+    .circbtn {
+      background: transparent;
+    }
+
+    .backbar {
+      padding-inline: 20px;
+    }
+
+    .tabbar {
+      padding-inline: 14px;
+    }
+
+    .tab {
+      font-size: 10px;
+      letter-spacing: .1px;
+      font-weight: 500;
+    }
+
+    .tab.active .ic {
+      background: transparent;
+    }
+
+    .tab.active .ic svg {
+      stroke: var(--coral);
+    }
+
+    .tab.active {
+      color: var(--coral);
+    }
+
+    .tab .newic {
+      background: #292e27;
+    }
+
+    .circlethumb {
+      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+      font-size: 14px;
+    }
+
+    .circlecount {
+      background: transparent;
+      padding: 0;
+      color: var(--mut);
+      font-weight: 500;
+    }
+
+    .devicecell {
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      padding: 12px 0;
+    }
+
+    .devicecell+.devicecell {
+      padding-left: 12px;
+      border-left: 1px solid var(--line);
+    }
+
+    #s-you>.pad>div:first-child {
+      flex-direction: column;
+      align-items: flex-start !important;
+      gap: 20px !important;
+      padding: 12px 0 16px;
+    }
+
+    #s-you>.pad>div:first-child .avatar {
+      width: 70px !important;
+      height: 70px !important;
+      font-size: 22px !important;
+      background: var(--soft) !important;
+      color: var(--text);
+    }
+
+    #s-you .rowit .avatar {
+      background: transparent !important;
+      color: var(--mut) !important;
+      font-size: 18px;
+      width: 24px;
+    }
+
+    #s-welcome .rowit {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px;
+      margin-top: 12px;
+    }
+
+    .langopt.on {
+      background: var(--soft);
+      border-color: var(--line);
+    }
+
+    .langopt {
+      padding-inline: 10px;
+    }
+
+    button:focus-visible,
+    [tabindex]:focus-visible,
+    a:focus-visible,
+    select:focus-visible {
+      outline: 2px solid var(--coral);
+      outline-offset: 4px;
+    }
+
+    [data-go]:hover .chev,
+    [data-toast]:hover .chev {
+      color: var(--text);
+    }
+
+    .plans-topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 8px;
+    }
+
+    .plans-topline .eb {
+      margin: 0;
+    }
+
+    .profile-link {
+      border: 0;
+      cursor: pointer;
+      background: var(--soft);
+      color: var(--text);
+    }
+
+    .plans-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 22px;
+    }
+
+    .plans-heading h1 {
+      font-size: 40px;
+      margin: 0;
+      letter-spacing: -1.8px;
+    }
+
+    .text-action {
+      border: 0;
+      padding: 10px 0 10px 12px;
+      background: transparent;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      color: var(--coral);
+    }
+
+    .plans-intro {
+      margin: 9px 0 24px;
+    }
+
+    .agenda-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 12px;
+      margin: 28px 0 0;
+    }
+
+    .agenda-heading h2 {
+      font-size: 15px;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .agenda-heading span {
+      font-size: 11px;
+      color: var(--mut);
+    }
+
+    .live-plan {
+      padding: 20px 0 23px;
+    }
+
+    .live-kicker {
+      color: var(--pos);
+      font-size: 11px;
+      display: flex;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .live-kicker::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--pos);
+      border-radius: 50%;
+    }
+
+    .live-plan h2 {
+      font-size: 28px;
+      font-weight: 500;
+      letter-spacing: -.8px;
+      margin: 10px 0 6px;
+    }
+
+    .plan-location {
+      font-size: 13px;
+      color: var(--mut);
+      margin: 0;
+    }
+
+    .attendance {
+      display: flex;
+      align-items: center;
+      margin-top: 18px;
+    }
+
+    .attendance .avatar {
+      border: 2px solid var(--phbg);
+      margin-right: -7px;
+      width: 28px;
+      height: 28px;
+      font-size: 8px;
+    }
+
+    .attendance .small {
+      margin-left: 16px;
+      color: var(--mut);
+    }
+
+    .plan-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .plan-actions .btn {
+      flex: 1;
+      height: 42px;
+    }
+
+    .plan-actions .btn:first-child {
+      background: var(--pillbg);
+      color: var(--pillfg);
+    }
+
+    .open-note {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 0;
+      border-block: 1px solid var(--line);
+      cursor: pointer;
+    }
+
+    .open-note .open-symbol {
+      color: var(--pos);
+      font-size: 24px;
+    }
+
+    .open-note .t {
+      flex: 1;
+    }
+
+    .open-note b {
+      font-weight: 500;
+      font-size: 13px;
+    }
+
+    .open-note p {
+      font-size: 12px;
+      color: var(--mut);
+      margin: 3px 0 0;
+    }
+
+    .agenda-item {
+      width: 100%;
+      text-align: left;
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      padding: 20px 0;
+      background: transparent;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      cursor: pointer;
+    }
+
+    .agenda-date {
+      width: 30px;
+      flex: none;
+      text-align: center;
+      color: var(--mut);
+      font-size: 9px;
+      letter-spacing: .8px;
+    }
+
+    .agenda-date strong {
+      display: block;
+      font-size: 26px;
+      line-height: 1.2;
+      font-weight: 400;
+      color: var(--text);
+      letter-spacing: -1px;
+      margin-top: 3px;
+    }
+
+    .agenda-copy {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .agenda-copy b {
+      display: block;
+      font-weight: 500;
+      font-size: 15px;
+    }
+
+    .agenda-copy span {
+      display: block;
+      font-size: 12px;
+      color: var(--mut);
+      margin-top: 5px;
+      line-height: 1.5;
+    }
+
+    .reply-link {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      gap: 14px;
+      border: 0;
+      text-align: left;
+      background: transparent;
+      padding: 21px 0;
+      cursor: pointer;
+    }
+
+    .reply-count {
+      color: var(--coral);
+      font-size: 25px;
+      font-weight: 400;
+    }
+
+    .reply-link .t {
+      flex: 1;
+    }
+
+    .reply-link b {
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .reply-link p {
+      font-size: 12px;
+      color: var(--mut);
+      margin: 4px 0 0;
+    }
+
     @media (max-width: 480px) {
-      header { padding-inline: 12px; gap: 6px; }
-      header .brand span, #prevBtn, #nextBtn, #hintsBtn, #restartBtn, header a.hbtn, .scrname { display: none; }
-      header .brand .mark { display: block; }
-      select.scrsel { margin-left: auto; max-width: 116px; }
-      .stage { padding: 54px 0 0; }
-      .phone { border: 0; border-radius: 0; box-shadow: none; }
-      .stage > .caption { display: none; }
+      header {
+        padding-inline: 12px;
+        gap: 6px;
+      }
+
+      header .brand span,
+      #prevBtn,
+      #nextBtn,
+      #hintsBtn,
+      #restartBtn,
+      header a.hbtn,
+      .scrname {
+        display: none;
+      }
+
+      header .brand .mark {
+        display: block;
+      }
+
+      select.scrsel {
+        margin-left: auto;
+        max-width: 116px;
+      }
+
+      .stage {
+        padding: 54px 0 0;
+      }
+
+      .phone {
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .stage>.caption {
+        display: none;
+      }
     }
-    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+        animation: none !important;
+      }
+    }
 
     /* Plan navigation belongs to the plan, above its content. */
-    .plan-header { position: absolute; top: 58px; left: 0; right: 0; height: 50px; padding: 0 20px; display: none; align-items: center; justify-content: space-between; z-index: 36; background: var(--phbg); }
-    .plan-header.show { display: flex; }
-    .plan-header b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 240px; font-size: 14px; font-weight: 500; }
-    #planbar { top: 108px; bottom: auto; height: 48px; padding: 0 24px; border-top: 0; border-bottom: 1px solid var(--line); gap: 20px; }
-    #planbar .ptab { flex: 1; align-self: stretch; padding: 0; font-size: 13px; letter-spacing: 0; font-weight: 500; border-bottom-width: 2px; color: var(--mut); }
-    #planbar .ptab.active { color: var(--text); border-bottom-color: var(--coral); }
-    .screen[data-tab="plan"] { top: 156px; padding-top: 20px; padding-bottom: 36px; }
-    .screen[data-tab="plan"] > .backbar { display: none; }
-    .ui-icon { width: 21px; height: 21px; display: inline-block; vertical-align: middle; flex: none; }
-    .circbtn { width: 42px; height: 42px; }
-    .island { background: #191a1e; }
-    html.dark .toggle.on::after { background: #292a2d; }
-    .settings-form { margin-top: 24px; }
-    .settings-field { display: block; border-bottom: 1px solid var(--line); padding: 16px 0; }
-    .settings-field > span { display: block; color: var(--mut); font-size: 12px; margin-bottom: 9px; }
-    .settings-field input, .settings-field select { display: block; width: 100%; min-width: 0; background: transparent; border: 0; color: var(--text); font: inherit; font-size: 16px; padding: 5px 0; border-radius: 0; }
-    .settings-field select option { background: var(--phbg); }
-    .settings-field input:focus-visible, .settings-field select:focus-visible { outline: 2px solid var(--coral); outline-offset: 5px; }
-    .settings-form h2 { font-size: 18px; font-weight: 500; margin: 32px 0 0; letter-spacing: -.3px; }
-    .setting-check { display: flex; align-items: center; gap: 14px; border-bottom: 1px solid var(--line); padding: 20px 0; cursor: pointer; }
-    .setting-check > span { flex: 1; font-size: 14px; line-height: 1.5; }
-    .setting-check small { display: block; color: var(--mut); font-size: 12px; margin-top: 4px; }
-    .setting-check input { width: 19px; height: 19px; accent-color: var(--coral); cursor: pointer; }
-    .settings-help { color: var(--mut); font-size: 12px; line-height: 1.6; margin: 16px 0; }
-    .member-role { color: var(--mut); font-size: 12px; }
-    .rowit[data-go]:hover, .rowit[data-toast]:hover, .agenda-item:hover { background: color-mix(in srgb, var(--text) 4%, transparent); }
+    .plan-header {
+      position: absolute;
+      top: 58px;
+      left: 0;
+      right: 0;
+      height: 50px;
+      padding: 0 20px;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 36;
+      background: var(--phbg);
+    }
 
-    .chat-composer { display: none; position: absolute; bottom: 0; left: 0; right: 0; padding: 12px 16px 24px; background: var(--phbg); z-index: 36; }
-    .chat-composer.show { display: block; }
-    .composer-row { display: flex; gap: 8px; align-items: center; }
-    .chat-composer .inputbar { flex: 1; min-width: 0; margin: 0; border: 0; background: var(--soft); border-radius: 28px; padding: 5px 14px 5px 5px; gap: 4px; min-height: 50px; }
-    .chat-composer .inputbar:focus-within { box-shadow: 0 0 0 1px var(--faint); }
-    .chat-composer input { font-size: 15px; min-height: 40px; }
-    .chat-composer .artbtn { width: 40px; height: 40px; background: transparent; color: var(--mut); }
-    .chat-composer .sendbtn { width: 50px; height: 50px; display: grid; place-items: center; background: var(--coral); color: var(--phbg); }
-    .chat-composer .sendbtn:disabled { background: var(--soft); color: var(--faint); cursor: default; }
-    #s-chat { padding-bottom: 108px; }
-    .attachment-menu { position: absolute; bottom: 92px; left: 16px; right: 16px; border: 1px solid var(--line); border-radius: 20px; padding: 18px 10px; background: var(--surf); box-shadow: 0 8px 30px #00000020; display: flex; justify-content: space-around; }
-    .attachment-menu[hidden] { display: none; }
-    .attachment-menu button { display: flex; flex-direction: column; align-items: center; gap: 10px; border: 0; background: transparent; cursor: pointer; font-size: 12px; padding: 8px 14px; }
-    .attachment-menu button > span:first-child { width: 42px; height: 42px; border-radius: 50%; background: var(--soft); display: grid; place-items: center; color: var(--coral); }
-    .wayfinding-arrow { flex: none; color: var(--mut); font-size: 21px; font-weight: 400; margin-left: auto; transition: transform .18s, color .18s; }
-    :is(.agenda-item,.open-note,.reply-link,.rowit):hover > .wayfinding-arrow { color: var(--coral); transform: translate(2px,-2px); }
+    .plan-header.show {
+      display: flex;
+    }
+
+    .plan-header b {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 240px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    #planbar {
+      top: 108px;
+      bottom: auto;
+      height: 48px;
+      padding: 0 24px;
+      border-top: 0;
+      border-bottom: 1px solid var(--line);
+      gap: 20px;
+    }
+
+    #planbar .ptab {
+      flex: 1;
+      align-self: stretch;
+      padding: 0;
+      font-size: 13px;
+      letter-spacing: 0;
+      font-weight: 500;
+      border-bottom-width: 2px;
+      color: var(--mut);
+    }
+
+    #planbar .ptab.active {
+      color: var(--text);
+      border-bottom-color: var(--coral);
+    }
+
+    .screen[data-tab="plan"] {
+      top: 156px;
+      padding-top: 20px;
+      padding-bottom: 36px;
+    }
+
+    .screen[data-tab="plan"]>.backbar {
+      display: none;
+    }
+
+    .ui-icon {
+      width: 21px;
+      height: 21px;
+      display: inline-block;
+      vertical-align: middle;
+      flex: none;
+    }
+
+    .circbtn {
+      width: 42px;
+      height: 42px;
+    }
+
+    .island {
+      background: #191a1e;
+    }
+
+    html.dark .toggle.on::after {
+      background: #292a2d;
+    }
+
+    .settings-form {
+      margin-top: 24px;
+    }
+
+    .settings-field {
+      display: block;
+      border-bottom: 1px solid var(--line);
+      padding: 16px 0;
+    }
+
+    .settings-field>span {
+      display: block;
+      color: var(--mut);
+      font-size: 12px;
+      margin-bottom: 9px;
+    }
+
+    .settings-field input,
+    .settings-field select {
+      display: block;
+      width: 100%;
+      min-width: 0;
+      background: transparent;
+      border: 0;
+      color: var(--text);
+      font: inherit;
+      font-size: 16px;
+      padding: 5px 0;
+      border-radius: 0;
+    }
+
+    .settings-field select option {
+      background: var(--phbg);
+    }
+
+    .settings-field input:focus-visible,
+    .settings-field select:focus-visible {
+      outline: 2px solid var(--coral);
+      outline-offset: 5px;
+    }
+
+    .settings-form h2 {
+      font-size: 18px;
+      font-weight: 500;
+      margin: 32px 0 0;
+      letter-spacing: -.3px;
+    }
+
+    .setting-check {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      border-bottom: 1px solid var(--line);
+      padding: 20px 0;
+      cursor: pointer;
+    }
+
+    .setting-check>span {
+      flex: 1;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .setting-check small {
+      display: block;
+      color: var(--mut);
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    .setting-check input {
+      width: 19px;
+      height: 19px;
+      accent-color: var(--coral);
+      cursor: pointer;
+    }
+
+    .settings-help {
+      color: var(--mut);
+      font-size: 12px;
+      line-height: 1.6;
+      margin: 16px 0;
+    }
+
+    .member-role {
+      color: var(--mut);
+      font-size: 12px;
+    }
+
+    .rowit[data-go]:hover,
+    .rowit[data-toast]:hover,
+    .agenda-item:hover {
+      background: color-mix(in srgb, var(--text) 4%, transparent);
+    }
+
+    .chat-composer {
+      display: none;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 12px 16px 24px;
+      background: var(--phbg);
+      z-index: 36;
+    }
+
+    .chat-composer.show {
+      display: block;
+    }
+
+    .composer-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .chat-composer .inputbar {
+      flex: 1;
+      min-width: 0;
+      margin: 0;
+      border: 0;
+      background: var(--soft);
+      border-radius: 28px;
+      padding: 5px 14px 5px 5px;
+      gap: 4px;
+      min-height: 50px;
+    }
+
+    .chat-composer .inputbar:focus-within {
+      box-shadow: 0 0 0 1px var(--faint);
+    }
+
+    .chat-composer input {
+      font-size: 15px;
+      min-height: 40px;
+    }
+
+    .chat-composer .artbtn {
+      width: 40px;
+      height: 40px;
+      background: transparent;
+      color: var(--mut);
+    }
+
+    .chat-composer .sendbtn {
+      width: 50px;
+      height: 50px;
+      display: grid;
+      place-items: center;
+      background: var(--coral);
+      color: var(--phbg);
+    }
+
+    .chat-composer .sendbtn:disabled {
+      background: var(--soft);
+      color: var(--faint);
+      cursor: default;
+    }
+
+    #s-chat {
+      padding-bottom: 108px;
+    }
+
+    .attachment-menu {
+      position: absolute;
+      bottom: 92px;
+      left: 16px;
+      right: 16px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 18px 10px;
+      background: var(--surf);
+      box-shadow: 0 8px 30px #00000020;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .attachment-menu[hidden] {
+      display: none;
+    }
+
+    .attachment-menu button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      font-size: 12px;
+      padding: 8px 14px;
+    }
+
+    .attachment-menu button>span:first-child {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--soft);
+      display: grid;
+      place-items: center;
+      color: var(--coral);
+    }
+
+    .wayfinding-arrow {
+      flex: none;
+      color: var(--mut);
+      font-size: 21px;
+      font-weight: 400;
+      margin-left: auto;
+      transition: transform .18s, color .18s;
+    }
+
+    :is(.agenda-item, .open-note, .reply-link, .rowit):hover>.wayfinding-arrow {
+      color: var(--coral);
+      transform: translate(2px, -2px);
+    }
+
+    .creation-field {
+      display: block;
+      margin: 18px 0;
+    }
+
+    .creation-field>span {
+      display: block;
+      color: var(--mut);
+      font-size: 12px;
+      margin-bottom: 7px;
+    }
+
+    .creation-field :is(input, select, textarea),
+    .slot-editor :is(input, select) {
+      width: 100%;
+      min-width: 0;
+      border: 1px solid var(--line);
+      background: var(--soft);
+      color: var(--text);
+      border-radius: 12px;
+      padding: 12px;
+      font: inherit;
+      font-size: 16px;
+    }
+
+    .creation-field textarea {
+      min-height: 94px;
+      resize: vertical;
+    }
+
+    .creation-flow small {
+      display: block;
+      color: var(--mut);
+      font-size: 12px;
+      line-height: 1.5;
+      margin-top: 5px;
+    }
+
+    .creation-flow details {
+      border-bottom: 1px solid var(--line);
+      padding: 16px 0;
+    }
+
+    .creation-flow summary {
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .creation-check {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 48px;
+      padding: 12px 0;
+    }
+
+    .creation-check>span {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .creation-check input {
+      width: 19px;
+      height: 19px;
+      accent-color: var(--coral);
+      flex: none;
+    }
+
+    .creation-action {
+      border: 0;
+      background: transparent;
+      color: var(--coral);
+      padding: 12px 0;
+      min-height: 44px;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .creation-error {
+      color: var(--coral);
+      font-size: 13px;
+      margin: 12px 0;
+    }
+
+    .slot-editor {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .slot-editor .slot-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .slot-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .slot-grid label {
+      min-width: 0;
+      font-size: 12px;
+      color: var(--mut);
+    }
+
+    .slot-grid input,
+    .slot-grid select {
+      margin-top: 6px;
+    }
+
+    .ripple-slot {
+      width: 100%;
+      text-align: left;
+      padding: 14px;
+      margin: 9px 0;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      color: var(--text);
+      border-radius: 12px;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .ripple-slot[aria-pressed=true] {
+      border-color: var(--lilac);
+      box-shadow: inset 0 0 0 1px var(--lilac);
+    }
+
+    .reply-choices {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .reply-choices button {
+      padding: 11px;
+      min-height: 44px;
+      font: inherit;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: var(--soft);
+      cursor: pointer;
+    }
+
+    .reply-choices button[aria-pressed=true] {
+      background: var(--pillbg);
+      color: var(--pillfg);
+    }
+
+    .creation-count {
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    .creation-link {
+      display: block;
+      width: 100%;
+      overflow-wrap: anywhere;
+      padding: 12px;
+      margin: 10px 0;
+      background: var(--soft);
+      border-radius: 10px;
+      font-size: 12px;
+    }
+
+    .creation-flow :is(button, input, textarea, select):focus-visible {
+      outline: 2px solid var(--lilac);
+      outline-offset: 3px;
+    }
+
+
+    .overlap-card {
+      position: relative;
+      width: 100%;
+      text-align: left;
+      padding: 20px 28px 20px 0;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      background: transparent;
+      color: var(--text);
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .overlap-card>span:first-child {
+      display: block;
+      font-weight: 500;
+    }
+
+    .overlap-arrow {
+      position: absolute;
+      top: 24px;
+      right: 4px;
+      color: var(--mut);
+    }
+
+    .overlap-plan-detail,
+    .overlap-invite {
+      border-bottom: 1px solid var(--line);
+      padding: 18px 0;
+    }
+
+    .overlap-message {
+      padding: 12px 14px;
+      background: var(--soft);
+      border-radius: 12px;
+      margin: 10px 0;
+      overflow-wrap: anywhere;
+    }
+
+    .overlap-end {
+      display: block;
+      margin-top: 18px;
+    }
+
+    /* Mutual Hello is a temporary conversation, separate from the main tabs. */
+    .hello-chat-header {
+      position: absolute;
+      top: 58px;
+      left: 0;
+      right: 0;
+      min-height: 76px;
+      padding: 10px 16px;
+      display: none;
+      align-items: center;
+      gap: 9px;
+      background: var(--phbg);
+      border-bottom: 1px solid var(--line);
+      z-index: 38;
+    }
+
+    .hello-chat-header.show {
+      display: flex;
+    }
+
+    .hello-chat-heading {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .hello-chat-heading h1 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 500;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .hello-chat-heading small {
+      display: block;
+      margin-top: 4px;
+      font-size: 11px;
+      color: var(--mut);
+    }
+
+    .hello-chat-invite {
+      border: 0;
+      border-radius: 9px;
+      padding: 10px;
+      min-height: 42px;
+      background: var(--coral);
+      color: var(--phbg);
+      font: inherit;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    .hello-chat-options {
+      position: static;
+      padding: 0;
+      border: 0;
+    }
+
+    .hello-chat-options>summary {
+      list-style: none;
+      width: 38px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      font-size: 22px;
+    }
+
+    .hello-chat-options>summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .hello-chat-menu {
+      position: absolute;
+      right: 12px;
+      top: 69px;
+      width: min(320px, calc(100% - 24px));
+      max-height: 420px;
+      overflow: auto;
+      padding: 12px 18px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: var(--phbg);
+      box-shadow: 0 12px 30px #00000020;
+      z-index: 40;
+    }
+
+    .hello-chat-menu small {
+      font-size: 12px;
+      color: var(--mut);
+      line-height: 1.5;
+      display: block;
+    }
+
+    .hello-chat-menu details {
+      padding: 12px 0;
+    }
+
+    .hello-chat-menu summary {
+      cursor: pointer;
+    }
+
+    .hello-chat-menu .creation-field {
+      margin: 12px 0;
+    }
+
+    .hello-chat-menu button {
+      width: 100%;
+      text-align: left;
+    }
+
+    #s-hello.hello-chat-mode {
+      top: 134px;
+      bottom: 83px;
+      padding: 0;
+    }
+
+    #s-hello.hello-chat-mode>.backbar {
+      display: none;
+    }
+
+    #s-hello.hello-chat-mode>.pad {
+      padding: 0 18px 18px;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hello-chat-note {
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--mut);
+      padding: 18px 12px;
+    }
+
+    .hello-chat-empty {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 8px;
+      padding: 60px 18px;
+      color: var(--mut);
+    }
+
+    .hello-chat-empty b {
+      font-weight: 500;
+      font-size: 16px;
+      color: var(--text);
+    }
+
+    .hello-chat-empty small {
+      max-width: 230px;
+    }
+
+    .hello-chat-log {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 12px 0 4px;
+    }
+
+    .hello-chat-bubble {
+      align-self: flex-start;
+      max-width: 82%;
+      padding: 12px 14px;
+      background: var(--soft);
+      color: var(--text);
+      border-radius: 16px 16px 16px 4px;
+      font-size: 15px;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+
+    .hello-chat-bubble.me {
+      align-self: flex-end;
+      background: var(--pillbg);
+      color: var(--pillfg);
+      border-radius: 16px 16px 4px 16px;
+    }
+
+    .hello-chat-bubble .bubble-time {
+      display: block;
+      font-size: 10px;
+      margin-top: 5px;
+      text-align: right;
+      opacity: .72;
+      color: inherit;
+    }
+
+    .hello-chat-composer {
+      display: none;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 38;
+      padding: 13px 16px 22px;
+      background: var(--phbg);
+      border-top: 1px solid var(--line);
+      align-items: flex-end;
+      gap: 10px;
+    }
+
+    .hello-chat-composer.show {
+      display: flex;
+    }
+
+    .hello-chat-composer textarea {
+      flex: 1;
+      min-width: 0;
+      resize: none;
+      max-height: 100px;
+      min-height: 44px;
+      height: 44px;
+      padding: 11px 14px;
+      font: inherit;
+      font-size: 16px;
+      line-height: 20px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--soft);
+      color: var(--text);
+    }
+
+    .hello-chat-composer button {
+      width: 44px;
+      height: 44px;
+      border: 0;
+      border-radius: 50%;
+      background: var(--coral);
+      color: var(--phbg);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      flex: none;
+    }
+
+    .hello-chat-composer button:disabled {
+      background: var(--soft);
+      color: var(--mut);
+      cursor: default;
+    }
+
+    .hello-chat-composer :is(textarea, button):focus-visible,
+    .hello-chat-header :is(button, summary):focus-visible {
+      outline: 2px solid var(--lilac);
+      outline-offset: 3px;
+    }
+
+    /* Shared material system. Glass is reserved for the floating control layer. */
+    :root {
+      --page: radial-gradient(ellipse at 25% 0%, #f3ebe5, transparent 60%), #eceeea;
+      --headbg: rgba(248, 248, 245, .8);
+      --phbg: #fbfaf7;
+      --text: #272c2c;
+      --mut: #626c6b;
+      --line: #dfe3df;
+      --soft: #f0f1ed;
+      --glass: rgba(255, 255, 255, .78);
+      --glass-edge: rgba(255, 255, 255, .95);
+      --glass-outline: rgba(38, 48, 45, .1);
+      --glass-shadow: 0 10px 30px #25393212, inset 0 1px 0 var(--glass-edge);
+    }
+
+    html.dark {
+      --page: radial-gradient(ellipse at 25% 0%, #2a3030, transparent 60%), #191d20;
+      --headbg: rgba(28, 33, 36, .82);
+      --phbg: #202629;
+      --text: #f1f3ef;
+      --mut: #b0bbb9;
+      --line: #3b4547;
+      --soft: #2c3437;
+      --glass: rgba(41, 49, 53, .86);
+      --glass-edge: rgba(255, 255, 255, .14);
+      --glass-outline: rgba(255, 255, 255, .13);
+      --glass-shadow: 0 10px 30px #00000030, inset 0 1px 0 var(--glass-edge);
+    }
+
+    .phone {
+      --accent: #a64d36;
+      --accent-rgb: 166, 77, 54;
+      --wash-rgb: 226, 181, 150;
+      background: radial-gradient(ellipse 520px 340px at 100% 0%, rgba(var(--wash-rgb), .24), transparent 78%), var(--phbg);
+    }
+
+    .phone[data-mood="sage"] {
+      --accent: #3e705b;
+      --accent-rgb: 62, 112, 91;
+      --wash-rgb: 151, 193, 163;
+    }
+
+    .phone[data-mood="blue"] {
+      --accent: #436d9e;
+      --accent-rgb: 67, 109, 158;
+      --wash-rgb: 157, 187, 219;
+    }
+
+    .phone[data-mood="plum"] {
+      --accent: #806184;
+      --accent-rgb: 128, 97, 132;
+      --wash-rgb: 198, 169, 201;
+    }
+
+    .phone[data-mood="teal"] {
+      --accent: #317574;
+      --accent-rgb: 49, 117, 116;
+      --wash-rgb: 151, 202, 195;
+    }
+
+    .phone[data-mood="gold"] {
+      --accent: #87632b;
+      --accent-rgb: 135, 99, 43;
+      --wash-rgb: 222, 198, 145;
+    }
+
+    html.dark .phone {
+      --accent: #efac91;
+      --accent-rgb: 239, 172, 145;
+    }
+
+    html.dark .phone[data-mood="sage"] {
+      --accent: #a5ceb1;
+      --accent-rgb: 165, 206, 177;
+    }
+
+    html.dark .phone[data-mood="blue"] {
+      --accent: #a6c9ef;
+      --accent-rgb: 166, 201, 239;
+    }
+
+    html.dark .phone[data-mood="plum"] {
+      --accent: #d3b2da;
+      --accent-rgb: 211, 178, 218;
+    }
+
+    html.dark .phone[data-mood="teal"] {
+      --accent: #99d4cd;
+      --accent-rgb: 153, 212, 205;
+    }
+
+    html.dark .phone[data-mood="gold"] {
+      --accent: #e2c48e;
+      --accent-rgb: 226, 196, 142;
+    }
+
+    .screen {
+      padding-bottom: 126px;
+    }
+
+    h1.title {
+      font-size: 34px;
+      font-weight: 500;
+      letter-spacing: -1.35px;
+      line-height: 1.15;
+    }
+
+
+    .plans-heading {
+      align-items: flex-end;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .plans-heading h1 {
+      font-size: 37px;
+      letter-spacing: -1.6px;
+    }
+
+    .plans-heading .text-action {
+      white-space: nowrap;
+      font-size: 12px;
+      padding-bottom: 5px;
+    }
+
+    .sub {
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .eb {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.4px;
+    }
+
+    h2.sec {
+      font-weight: 500;
+      letter-spacing: -.5px;
+    }
+
+    .agenda-heading h2 {
+      font-weight: 600;
+    }
+
+    .live-plan {
+      margin: 16px 0;
+      padding: 20px;
+      border-radius: 22px;
+      background: rgba(var(--wash-rgb), .14);
+      border: 1px solid rgba(var(--accent-rgb), .13);
+    }
+
+    .live-plan h2 {
+      font-size: 27px;
+      margin-top: 12px;
+    }
+
+    .live-kicker {
+      font-size: 10px;
+    }
+
+    .plan-actions .btn {
+      margin-top: 0;
+    }
+
+    .open-note {
+      border-top: 0;
+      padding: 14px 0 20px;
+    }
+
+    .agenda-date {
+      border-radius: 12px;
+      background: rgba(var(--wash-rgb), .16);
+      width: 44px;
+      padding: 8px 4px;
+    }
+
+    .agenda-date strong {
+      font-size: 24px;
+      color: var(--accent);
+    }
+
+    .agenda-item {
+      gap: 14px;
+    }
+
+    .reply-count,
+    .text-action,
+    .creation-action,
+    .wayfinding-arrow:hover {
+      color: var(--accent);
+    }
+
+    #s-circles .card.darkc {
+      padding: 20px;
+      margin-top: 24px;
+      border-radius: 20px;
+      background: rgba(var(--wash-rgb), .16);
+      border: 1px solid rgba(var(--accent-rgb), .12);
+    }
+
+    #s-circles .card.darkc .avatar {
+      background: var(--accent) !important;
+      color: var(--phbg);
+    }
+
+    #s-you>.pad>div:first-child {
+      padding-top: 16px;
+      gap: 18px !important;
+    }
+
+    #s-you>.pad>div:first-child .avatar {
+      background: rgba(var(--wash-rgb), .27) !important;
+      color: var(--accent);
+      border: 1px solid rgba(var(--accent-rgb), .16);
+    }
+
+    #s-inbox .card.peachy,
+    #s-inbox .card.lilacbg {
+      background: rgba(var(--wash-rgb), .12);
+      border: 1px solid rgba(var(--accent-rgb), .13);
+      border-radius: 18px;
+      padding: 18px;
+      margin-top: 12px;
+    }
+
+    .btn {
+      border-radius: 16px;
+      font-weight: 600;
+      background: var(--accent);
+      color: var(--phbg);
+    }
+
+    .btn.dark,
+    .plan-actions .btn:first-child {
+      background: var(--accent);
+      color: var(--phbg);
+    }
+
+    .btn.ghost {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--line);
+    }
+
+    .chip {
+      border-radius: 999px;
+      padding-inline: 10px;
+    }
+
+    :is(button, input, textarea, select, summary, [tabindex]):focus-visible {
+      outline: 2px solid var(--accent, var(--coral));
+      outline-offset: 4px;
+    }
+
+    .creation-flow :is(button, input, textarea, select):focus-visible {
+      outline-color: var(--accent);
+    }
+
+    .creation-field :is(input, select, textarea),
+    .slot-editor :is(input, select) {
+      background: rgba(var(--wash-rgb), .1);
+      border-radius: 14px;
+    }
+
+    .ripple-slot[aria-pressed=true] {
+      border-color: var(--accent);
+      box-shadow: inset 0 0 0 1px var(--accent);
+    }
+
+    .creation-check input,
+    .setting-check input {
+      accent-color: var(--accent);
+    }
+
+    #mainbar,
+    #planbar,
+    .circbtn,
+    .profile-link,
+    .sheet .menu,
+    .attachment-menu,
+    .hello-chat-menu {
+      background: var(--glass);
+      border: 1px solid var(--glass-outline);
+      box-shadow: var(--glass-shadow);
+      -webkit-backdrop-filter: blur(24px) saturate(1.35);
+      backdrop-filter: blur(24px) saturate(1.35);
+    }
+
+    #mainbar {
+      left: 12px;
+      right: 12px;
+      bottom: 18px;
+      height: 72px;
+      border-radius: 30px;
+      padding: 7px 6px;
+      align-items: center;
+      gap: 2px;
+    }
+
+    #mainbar .tab {
+      flex: 1;
+      min-width: 0;
+      width: auto;
+      gap: 2px;
+      padding: 4px 0;
+      border-radius: 23px;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0;
+      min-height: 55px;
+    }
+
+    #mainbar .tab.active {
+      background: rgba(var(--accent-rgb), .1);
+      color: var(--accent);
+    }
+
+    #mainbar .tab.active .ic {
+      background: transparent;
+    }
+
+    #mainbar .tab.active .ic svg {
+      stroke: currentColor;
+    }
+
+    #mainbar .tab .ic {
+      height: 28px;
+    }
+
+    #mainbar .tab .newic {
+      background: var(--accent);
+      width: 29px;
+      height: 29px;
+      margin: 0;
+    }
+
+    #mainbar .tab .newic svg {
+      stroke: var(--phbg);
+    }
+
+    #mainbar .badge {
+      top: 0;
+      right: 8px;
+      border: 2px solid var(--phbg);
+      height: 18px;
+    }
+
+    .plan-header {
+      background: transparent;
+    }
+
+    #planbar {
+      left: 18px;
+      right: 18px;
+      top: 112px;
+      height: 42px;
+      border-radius: 22px;
+      padding: 4px;
+      gap: 3px;
+    }
+
+    #planbar .ptab {
+      border: 0;
+      border-radius: 18px;
+      font-size: 12px;
+    }
+
+    #planbar .ptab.active {
+      background: rgba(var(--accent-rgb), .12);
+      color: var(--accent);
+    }
+
+    .screen[data-tab="plan"] {
+      top: 166px;
+    }
+
+    .sheet .menu {
+      left: 10px;
+      right: 10px;
+      bottom: 12px;
+      border-radius: 28px;
+      padding-bottom: 20px;
+    }
+
+    .chat-composer,
+    .hello-chat-composer {
+      background: linear-gradient(transparent, var(--phbg) 24%);
+    }
+
+    .hello-chat-header {
+      background: var(--phbg);
+    }
+
+    .chat-composer .sendbtn,
+    .hello-chat-composer button,
+    .hello-chat-invite {
+      background: var(--accent);
+      color: var(--phbg);
+    }
+
+    .chat-composer .sendbtn:disabled,
+    .hello-chat-composer button:disabled {
+      background: var(--soft);
+      color: var(--mut);
+    }
+
+    @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+
+      #mainbar,
+      #planbar,
+      .circbtn,
+      .profile-link,
+      .sheet .menu,
+      .attachment-menu,
+      .hello-chat-menu {
+        background: var(--phbg);
+      }
+    }
+
+    @media (prefers-reduced-transparency: reduce) {
+
+      #mainbar,
+      #planbar,
+      .circbtn,
+      .profile-link,
+      .sheet .menu,
+      .attachment-menu,
+      .hello-chat-menu {
+        background: var(--phbg);
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+      }
+    }
+
+    @media (prefers-contrast: more) {
+
+      #mainbar,
+      #planbar,
+      .circbtn,
+      .sheet .menu,
+      .attachment-menu,
+      .hello-chat-menu {
+        background: var(--phbg);
+        border-color: var(--mut);
+      }
+
+      .sub,
+      .small,
+      .eb {
+        color: var(--text);
+      }
+    }
   </style>
 </head>
 
@@ -1738,7 +3422,7 @@
             </div>
             <div class="pad" style="text-align:center">
               <h1 class="title" style="margin-top:18px">Plans start close.</h1>
-              <p class="sub">For your people — and the right strangers.</p>
+
             </div>
             <div class="pad">
               <div class="eb" style="margin-top:26px">Your phone number</div>
@@ -1756,7 +3440,7 @@
               <div class="card soft" style="display:flex;gap:12px;align-items:center">
                 <div class="avatar sm" style="background:var(--mintbg);color:var(--pos)">✓</div>
                 <div><b style="font-size:13.5px">No public profiles</b><br><span class="small muted">Strangers meet
-                    through mutual Opens only.</span></div>
+                    through mutual connections only.</span></div>
               </div>
               <div class="card soft" style="display:flex;gap:12px;align-items:center">
                 <div class="avatar sm" style="background:var(--mintbg);color:var(--pos)">✓</div>
@@ -1800,9 +3484,12 @@
                 <span class="eb">Saturday, August 22</span>
                 <button class="avatar profile-link" data-go="s-you" aria-label="Your profile">DG</button>
               </div>
-              <div class="plans-heading"><h1 class="title">Your plans</h1><button class="text-action" data-go="s-newplan">＋ Make a plan</button></div>
-              <p class="sub plans-intro">Good company. Something to look forward to.</p>
-              <div class="agenda-heading"><h2>Today</h2><span>Indiranagar</span></div>
+              <div class="plans-heading">
+                <h1 class="title">Your plans</h1><button class="text-action" data-go="s-newplan">＋ Make a plan</button>
+              </div>
+              <div class="agenda-heading">
+                <h2>Today</h2><span>Indiranagar</span>
+              </div>
               <article class="live-plan">
                 <div class="live-kicker">Happening now · 6:30 PM</div>
                 <h2>Office dinner</h2>
@@ -1815,24 +3502,33 @@
                 </div>
                 <div class="plan-actions">
                   <button class="btn mini" id="imHere">I'm here</button>
-                  <button class="btn mini ghost" data-toast="Directions opened — pinned spot, not live tracking">Directions ↗</button>
+                  <button class="btn mini ghost"
+                    data-toast="Directions opened — pinned spot, not live tracking">Directions ↗</button>
                 </div>
               </article>
               <div class="open-note" data-go="s-overlap" role="button" tabindex="0">
                 <span class="open-symbol" aria-hidden="true">◌</span>
-                <div class="t"><b>You're Open · 5–8 PM</b><p>2 people overlap with your evening</p></div>
+                <div class="t"><b>You're Open · 5–8 PM</b>
+                  <p>A few open plans may fit</p>
+                </div>
               </div>
-              <div class="agenda-heading"><h2>Up next</h2><span>2 plans</span></div>
+              <div class="agenda-heading">
+                <h2>Up next</h2><span>2 plans</span>
+              </div>
               <button class="agenda-item" data-go="s-live">
                 <span class="agenda-date">SUN<strong>23</strong></span>
-                <span class="agenda-copy"><b>Sunset badminton</b><span>5:00 PM · Cubbon Park<br>Flat 402 · 6 going</span></span>
+                <span class="agenda-copy"><b>Sunset badminton</b><span>5:00 PM · Cubbon Park<br>Flat 402 · 6
+                    going</span></span>
               </button>
               <button class="agenda-item" data-toast="Sara is hosting — RSVP straight from the plan card">
                 <span class="agenda-date">MON<strong>24</strong></span>
-                <span class="agenda-copy"><b>Clay and coffee</b><span>11:00 AM · Sara is hosting<br>3 going</span></span>
+                <span class="agenda-copy"><b>Clay and coffee</b><span>11:00 AM · Sara is hosting<br>3
+                    going</span></span>
               </button>
               <button class="reply-link" data-go="s-inbox">
-                <span class="reply-count">02</span><span class="t"><b>A couple of things need you</b><p>Brunch RSVP · Sara's ripple</p></span>
+                <span class="reply-count">02</span><span class="t"><b>A couple of things need you</b>
+                  <p>Brunch RSVP · Sara's ripple</p>
+                </span>
               </button>
               <p class="small muted" style="margin:10px 0 0">The rest can wait for your 9 PM digest.</p>
             </div>
@@ -1844,7 +3540,7 @@
               <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px">
                 <div>
                   <h1 class="title" style="margin-bottom:2px">Circles</h1>
-                  <p class="sub" style="margin:0">Your people, grouped by context.</p>
+
                 </div>
                 <button class="circbtn" data-toast="Create a new invite-only circle">＋</button>
               </div>
@@ -1886,7 +3582,8 @@
           <section class="screen" id="s-circle-detail" data-tab="main" data-tabnav="circles"
             data-cap="<b>Flat 402.</b> A circle detail page with members, the next plan and its Board of open loops.">
             <div class="backbar"><button class="circbtn" data-go="s-circles">‹</button><button class="circbtn"
-                data-go="s-circle-settings" aria-label="Circle settings"><span data-icon="settings"></span></button></div>
+                data-go="s-circle-settings" aria-label="Circle settings"><span data-icon="settings"></span></button>
+            </div>
             <div class="pad">
               <h1 class="title">Flat 402</h1>
               <p class="sub">4 people · your building · since March</p>
@@ -1928,82 +3625,41 @@
             </div>
           </section>
 
-          <section class="screen" id="s-newplan" data-tab="main" data-tabnav="new"
-            data-cap="<b>New plan.</b> One screen. Natural language parses into when / where / who — send and RSVPs roll in, no approvals.">
-            <div class="backbar"><button class="hbtn" data-go="s-tonight"
-                style="border:0;background:none;font-size:12px;font-weight:800;color:var(--mut)">CANCEL</button><span
+          <section class="screen creation-flow" id="s-newplan" data-tab="main" data-tabnav="new"
+            data-cap="<b>New plan.</b> Explicit details, individual invitations and optional circle discovery. Media stays with plan members.">
+            <div class="backbar"><button class="circbtn" data-go="s-tonight" aria-label="Cancel plan">‹</button><span
                 class="eb" style="margin:0">New plan</span></div>
-            <div class="pad">
-              <div class="feelbox" contenteditable="true">casual badminton, then filter coffee</div>
-              <div class="chipline">
-                <span class="chip butterc">SAT 5:00 PM ✓</span><span class="chip butterc">CUBBON PARK ✓</span>
-                <span class="small muted" style="align-self:center">auto-filled from your words</span>
-              </div>
-              <div class="eb">Who</div>
-              <div class="rowit"><span class="avatar sm" style="background:var(--lilac)">◍</span>
-                <div class="t"><b>Flat 402</b><span>4 people</span></div><button class="toggle on"
-                  data-circle="Flat 402"></button>
-              </div>
-              <div class="rowit"><span class="avatar sm" style="background:var(--peachbg);color:var(--tintfg)">◍</span>
-                <div class="t"><b>Office crew</b><span>11 people</span></div><button class="toggle"
-                  data-circle="Office crew"></button>
-              </div>
-              <div class="rowit"><span class="avatar sm" style="background:var(--mintbg);color:var(--pos)">🔗</span>
-                <div class="t"><b>Link invite</b><span>Anyone asks, you approve</span></div><button class="toggle on"
-                  data-toast="Link invite on — plan gets a signed, expiring URL"></button>
-              </div>
-              <div class="rowit" data-toast="Fuzzy time — “around 5” is fine. Changes later become a mini poll.">
-                <div class="t"><b>Sat 5:00 PM</b><span>fuzzy — “around 5”</span></div>
-              </div>
-              <div class="rowit" data-toast="Pinned meeting point — recipients tap “Got it”, receipts not blue ticks">
-                <div class="t"><b>Cubbon Park, Gate 2</b><span>pinned meeting point</span></div>
-              </div>
-              <button class="btn" id="sendPlan">Send plan →</button>
-              <p class="small muted" style="text-align:center;margin-top:12px">Inside circles there are no approvals —
-                just RSVP.</p>
-            </div>
+            <div class="pad" id="planCreateBody"></div>
           </section>
-
-          <section class="screen" id="s-ripple" data-tab="main" data-tabnav="new"
-            data-cap="<b>Ripple.</b> The soft ask — a feeling and a slot, not a plan. Taps not chat; the tally ranks slots and converges.">
-            <div class="backbar"><button class="circbtn" data-go="s-tonight">‹</button><span class="eb"
-                style="margin:0">Ends in 19h</span></div>
-            <div class="pad">
-              <h1 class="title">Ripple</h1>
-              <p class="sub">The soft ask — a feeling and a slot, not a plan.</p>
-              <div class="card peachy">
-                <div class="eb" style="margin:0 0 4px">You asked · 2h ago</div>
-                <b style="font-size:15px">“anyone up for badminton this weekend?”</b>
-                <div class="chipline"><span class="chip">SAT 5–8</span><span class="chip">SUN 9–11</span></div>
-                <p class="small muted" style="margin:10px 0 0">To Flat 402 + Aarav · voice note 0:12</p>
-              </div>
-              <div class="eb">Responses · taps, not chat</div>
-              <div class="chipline" style="margin-top:0">
-                <span class="chip mintc">3 IN</span><span class="chip butterc">1 MAYBE</span><span class="chip">1
-                  OUT</span>
-              </div>
-              <div class="quip"><span class="avatar sm" style="background:var(--coral)">AK</span>“loser buys the chai”
-              </div>
-              <div class="quip"><span class="avatar sm" style="background:var(--lilac)">SG</span>“in if it's under 40°”
-              </div>
-              <div class="eb">Slots ranked</div>
-              <div class="slotrow"><span style="font-weight:800;font-size:12px">SAT 5–8</span>
-                <div class="bar"><i style="width:80%"></i></div><b>4</b>
-              </div>
-              <div class="slotrow"><span style="font-weight:800;font-size:12px">SUN 9–11</span>
-                <div class="bar"><i class="b2" style="width:40%"></i></div><b>2</b>
-              </div>
-              <button class="btn" id="convertRipple">Turn into a plan · Sat 5–8</button>
-              <p class="small muted" style="text-align:center;margin-top:12px;cursor:pointer" data-go="s-open"><u>or
-                  widen into an Open for the weekend</u></p>
-            </div>
+          <section class="screen creation-flow" id="s-newripple" data-tab="main" data-tabnav="new"
+            data-cap="<b>New ripple.</b> An idea and your people. Optional dated time windows; replies close before the earliest suggested start.">
+            <div class="backbar"><button class="circbtn" data-go="s-tonight" aria-label="Cancel ripple">‹</button><span
+                class="eb" style="margin:0">New ripple</span></div>
+            <div class="pad" id="rippleCreateBody"></div>
+          </section>
+          <section class="screen creation-flow" id="s-ripple" data-tab="main" data-tabnav="new"
+            data-cap="<b>Ripple.</b> Interest, availability and a reviewed handoff to a plan. The initial ripple uses sample responses; new ripples start with none.">
+            <div class="backbar"><button class="circbtn" data-go="s-tonight" aria-label="Back to plans">‹</button><span
+                class="eb" style="margin:0">Ripple</span></div>
+            <div class="pad" id="rippleBody"></div>
+          </section>
+          <section class="screen creation-flow" id="s-ripple-reply" data-tab="main" data-tabnav="inbox"
+            data-cap="<b>Reply.</b> Preview as a recipient. Multiple times can work; interest never becomes attendance automatically.">
+            <div class="backbar"><button class="circbtn" data-go="s-ripple" aria-label="Back to ripple">‹</button></div>
+            <div class="pad" id="rippleReplyBody"></div>
+          </section>
+          <section class="screen creation-flow" id="s-created-plan" data-tab="main" data-tabnav="new"
+            data-cap="<b>Your plan.</b> Manage circle discovery, replace or revoke links, and remove members. Access behavior is demonstrated locally; backend enforcement is not connected.">
+            <div class="backbar"><button class="circbtn" data-go="s-tonight" aria-label="Back to plans">‹</button><span
+                class="eb" style="margin:0">Your plan</span></div>
+            <div class="pad" id="createdPlanBody"></div>
           </section>
 
           <section class="screen" id="s-inbox" data-tab="main" data-tabnav="inbox"
             data-cap="<b>Inbox.</b> Everything waiting on you — RSVP deadlines, ripples, overlap cards, gentle money nudges. Nothing else.">
             <div class="pad">
               <h1 class="title">Inbox</h1>
-              <p class="sub">Everything waiting on you. Nothing else.</p>
+
               <div class="eb">Answer today</div>
               <div class="card peachy" id="rsvpAsk">
                 <div class="eb" style="margin:0 0 4px">RSVP · closes 8 PM</div>
@@ -2024,13 +3680,15 @@
                 <span class="avatar sm"
                   style="background:transparent;border:2px solid var(--coral);color:transparent;position:relative">·<span
                     style="position:absolute;inset:0;border:2px solid var(--lilac);border-radius:50%;transform:translateX(5px)"></span></span>
-                <div class="t"><b>Sat 5–8 PM · badminton · &lt;1 km</b><span>Anonymous until you both say hi</span>
+                <div class="t"><b>Badminton, then coffee</b><span>Plan details stay private until you accept an
+                    invitation</span>
                 </div>
 
               </div>
               <div class="rowit" data-go="s-overlap">
                 <span class="avatar sm" style="background:transparent;border:2px solid var(--coral)"></span>
-                <div class="t"><b>Sun 9–11 AM · chai · 2 km</b><span>Anonymous until you both say hi</span></div>
+                <div class="t"><b>Board games &amp; chai</b><span>Plan details stay private until you accept an
+                    invitation</span></div>
 
               </div>
               <div class="eb">Money</div>
@@ -2266,120 +3924,21 @@
             </div>
           </section>
 
-          <section class="screen" id="s-open" data-tab="main" data-tabnav="new"
-            data-cap="<b>Open.</b> A quiet availability signal — matched, never posted. Self-expiring, comfort filters on, k-anonymity gated.">
-            <div class="backbar"><button class="circbtn" data-go="s-tonight">‹</button><span class="eb"
-                style="margin:0">Self-expiring</span></div>
-            <div class="pad">
-              <h1 class="title">Go Open.</h1>
-              <p class="sub">A quiet signal. Matched, never posted.</p>
-              <div class="rowit" data-toast="Coarse window — never live location">
-                <div class="t"><b>Sat · 5:00–8:00 PM</b><span>coarse window, not live location</span></div>
-              </div>
-              <div class="eb">Up for</div>
-              <div class="chipline" style="margin-top:0">
-                <button class="chip on">Badminton ✓</button><button class="chip">Chai ✓</button><button
-                  class="chip">Anything easy</button>
-              </div>
-              <div class="rowit" data-toast="Distance band only — neighbourhood stays coarse">
-                <div class="t"><b>Within 2 km of Indiranagar</b><span>distance band only</span></div>
-              </div>
-              <div class="eb">Comfort filters</div>
-              <div class="card" style="padding:6px 18px">
-                <div
-                  style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)">
-                  <div style="flex:1"><b style="font-size:14px">Women-only matches</b><br><span
-                      class="small muted">needs selfie-verified badge — honest filter</span></div><button
-                    class="toggle on"></button>
-                </div>
-                <div style="display:flex;align-items:center;gap:12px;padding:12px 0">
-                  <div style="flex:1"><b style="font-size:14px">Phone-verified people only</b><br><span
-                      class="small muted">the floor everyone already passes</span></div><button
-                    class="toggle on"></button>
-                </div>
-              </div>
-              <div class="card suny">
-                <span class="small">Closes itself at 8 PM. Never on your profile —</span><br>
-                <span class="small">it only ever matches.</span>
-              </div>
-              <button class="btn" id="goOpen">Go Open</button>
-              <p class="small muted" style="text-align:center;margin-top:12px">Max 2 Opens · card delivery jittered ±20
-                min</p>
-            </div>
+          <section class="screen creation-flow" id="s-open" data-tab="main" data-tabnav="new"
+            data-cap="<b>Go Open.</b> Private availability and matching preferences. The prototype uses sample matches; live location matching is not connected.">
+            <div class="backbar"><button class="circbtn" data-go="s-tonight" aria-label="Back to plans">‹</button></div>
+            <div class="pad" id="openBody"></div>
           </section>
-
-          <section class="screen" id="s-overlap" data-tab="main" data-tabnav="inbox"
-            data-cap="<b>Overlap.</b> Two Opens meeting. Anonymous until both say hi — pass quietly and nothing ever happens.">
-            <div class="pad">
-              <div style="display:flex;justify-content:space-between;margin-top:6px">
-                <span class="eb" style="margin:0">Overlap · Saturday evening</span>
-                <span class="eb" style="margin:0">&lt; 1 km</span>
-              </div>
-              <div class="venn">
-                <div class="l"></div>
-                <div class="r"></div>
-                <b style="left:74px;top:78px">DG</b><b style="left:174px;top:78px">AK</b>
-                <i style="left:86px">You</i><i style="left:186px">Aarav</i>
-              </div>
-              <div class="pad" style="text-align:center;padding:0 24px">
-                <h2 class="sec" style="margin-top:6px">Your evenings overlap.</h2>
-                <p class="sub">Same window, same vibes, 900 m apart.</p>
-                <div class="chipline" style="justify-content:center">
-                  <span class="chip">Badminton</span><span class="chip">Chai</span><span class="chip">Both free
-                    5–8</span>
-                </div>
-              </div>
-              <div class="card lilacbg">
-                <span class="small">Nothing shows until you both tap hi — then a private Hello opens for 24h.</span>
-                <b style="display:block;margin-top:6px">Zero cold messages. Ever.</b>
-              </div>
-              <button class="btn" data-go="s-hello" data-toast="Hi sent — quiet, until it isn't mutual">Say hi</button>
-              <p class="small muted" style="text-align:center;margin-top:12px;cursor:pointer" id="passQuiet"><u>Pass
-                  quietly — they'll never know</u></p>
-              <p class="eb" style="text-align:center;margin-top:14px">Cards only when ≥3 people could match</p>
-            </div>
+          <section class="screen creation-flow" id="s-overlap" data-tab="main" data-tabnav="inbox"
+            data-cap="<b>Overlaps.</b> Small batches of open-plan matches. Either side can initiate; chat requires mutual interest. Go Open sees plan names only until an invitation is accepted.">
+            <div class="backbar"><button class="circbtn" data-go="s-inbox" aria-label="Back to inbox">‹</button></div>
+            <div class="pad" id="overlapBody"></div>
           </section>
-
-          <section class="screen" id="s-hello"
-            data-cap="<b>Hello room.</b> Opens on mutual hi. 24h to say the plan out loud and lock it — first names until lock, safety one tap away.">
-            <div class="backbar"><button class="circbtn" data-go="s-inbox">‹</button><span></span></div>
-            <div class="pad" style="text-align:center">
-              <b style="font-size:19px;letter-spacing:-.4px">You + Aarav</b><br>
-              <span class="small muted">Hello · closes in <b id="wmClock" style="color:var(--text)">21:04</b></span>
-              <div style="height:4px;border-radius:2px;background:var(--soft);margin-top:10px;overflow:hidden">
-                <div id="wmBar" style="height:4px;border-radius:2px;background:var(--coral);width:78%"></div>
-              </div>
+          <section class="screen creation-flow" id="s-hello" data-tab="main" data-tabnav="inbox"
+            data-cap="<b>Private connection.</b> Mutual hello unlocks chat. Accepting a creator's invitation unlocks plan details. Either side can close the connection, and pending connections expire.">
+            <div class="backbar"><button class="circbtn" data-go="s-overlap" aria-label="Back to overlaps">‹</button>
             </div>
-            <div class="pad">
-              <div class="sysbub">You both said hi. Say the plan out loud.</div>
-              <div class="msgrow">
-                <span class="avatar sm" style="background:var(--coral)">AK</span>
-                <div class="bub">Court 3 is free at 5.<br>Loser buys the chai?</div>
-              </div>
-              <div class="msgrow">
-                <div class="bub me">Deal. Bring the good racquets?</div>
-              </div>
-              <div class="card mintg">
-                <div class="eb" style="margin:0 0 4px">Proposal</div>
-                <b style="font-size:16px">Tomorrow · 5:00 PM</b>
-                <p class="small muted" style="margin:4px 0 0">Court 3, Cubbon Park Gate 2</p>
-                <button class="btn mini dark" id="lockIt" style="margin-top:12px">Lock it in</button>
-              </div>
-              <div class="rowit" data-toast="One 48h extension — locking plans with strangers takes logistics">
-                <div class="t"><b>Need more time?</b><span>One +48h extension, then it closes itself</span></div>
-              </div>
-              <div class="card soft"><span class="small">First names only until a plan locks.</span><br><span
-                  class="small muted">Then full profiles unlock — for both of you.</span></div>
-              <div class="rowit" data-toast="Report · Block · Pause — reachable in one tap throughout">
-                <span class="avatar sm" style="background:var(--peachbg);color:var(--tintfg)">🛡</span>
-                <div class="t"><b>Report · Block · Pause</b><span>one tap, always</span></div>
-              </div>
-            </div>
-            <div class="seg">
-              <button class="ptab active">ROOM</button>
-              <button class="ptab" data-toast="Profile: first names until lock">PROFILE</button>
-              <button class="ptab" data-toast="Safety: block, pause, report — one tap">SAFETY</button>
-            </div>
+            <div class="pad" id="helloBody"></div>
           </section>
 
           <section class="screen" id="s-safety" data-tab="main" data-tabnav="you"
@@ -2387,7 +3946,7 @@
             <div class="backbar"><button class="circbtn" data-go="s-you">‹</button><span></span></div>
             <div class="pad">
               <h1 class="title">Safety &amp; privacy</h1>
-              <p class="sub">Structural, not settings. Boring on purpose.</p>
+
               <div class="card darkc" style="display:flex;align-items:center;gap:12px">
                 <div style="flex:1">
                   <div class="eb lt" style="margin:0 0 4px">Pause</div><b>Ghost mode</b><br><span class="small"
@@ -2422,7 +3981,7 @@
             data-cap="<b>Scrapbook.</b> The memory ledger — every plan you showed up to on one shelf, auto-filled from albums, shareable as one expiring link.">
             <div class="pad">
               <h1 class="title">Scrapbook</h1>
-              <p class="sub">Every plan you showed up to — one shelf.</p>
+
               <div class="chipline" style="margin-top:12px">
                 <button class="chip on">All ▾</button><button class="chip">Flat 402</button><button class="chip">Office
                   crew</button><button class="chip">2026</button>
@@ -2470,7 +4029,7 @@
               <div class="eb">Yours</div>
               <div class="rowit" data-go="s-scrapbook">
                 <span class="avatar sm" style="background:var(--butterbg);color:var(--tintfg)">★</span>
-                <div class="t"><b>Scrapbook</b><span>Every plan's media, one shelf</span></div>
+                <div class="t"><b>Scrapbook</b><span>Good times, kept together</span></div>
               </div>
               <div class="rowit" data-go="s-splits">
                 <span class="avatar sm" style="background:var(--mintbg);color:var(--pos)">₹</span>
@@ -2489,10 +4048,6 @@
                 <span class="avatar sm" style="background:var(--lilacbg);color:var(--tintfg)">◐</span>
                 <div class="t"><b>Who sees what</b><span>Circle · Match · Nearby — fixed, honest</span></div>
               </div>
-              <div class="rowit" data-toast="Invite link copied — circles grow by hand, never by search">
-                <span class="avatar sm" style="background:var(--mintbg);color:var(--pos)">＋</span>
-                <div class="t"><b>Start a circle</b><span>Invite-only, 3–15, always</span></div>
-              </div>
               <p class="small muted" style="text-align:center;margin-top:18px">Export my data · Delete account</p>
             </div>
           </section>
@@ -2503,7 +4058,7 @@
                 data-toast="Export your splits ledger">•••</button></div>
             <div class="pad">
               <h1 class="title">Your balances</h1>
-              <p class="sub">Every plan, netted by person.</p>
+
 
               <div class="grid2">
                 <div class="card peachy" style="margin-top:0">
@@ -2576,40 +4131,70 @@
           </section>
 
 
-          <section class="screen" id="s-plan-settings" data-cap="<b>Plan settings.</b> Edit the details and guest preferences. Changes are saved on this device for the demo.">
-            <div class="backbar"><button class="circbtn" data-go="s-live" aria-label="Back to plan"><span data-icon="back"></span></button><span class="eb" style="margin:0">Round 2</span></div>
-            <div class="pad"><h1 class="title">Plan settings</h1><p class="sub">The details, with room to change your mind.</p>
+          <section class="screen" id="s-plan-settings"
+            data-cap="<b>Plan settings.</b> Edit the details and guest preferences. Changes are saved on this device for the demo.">
+            <div class="backbar"><button class="circbtn" data-go="s-live" aria-label="Back to plan"><span
+                  data-icon="back"></span></button><span class="eb" style="margin:0">Round 2</span></div>
+            <div class="pad">
+              <h1 class="title">Plan settings</h1>
+
               <form class="settings-form" id="planSettingsForm">
-                <label class="settings-field"><span>Plan name</span><input name="name" value="Round 2 · badminton" required maxlength="60"></label>
-                <label class="settings-field"><span>When</span><input name="when" value="Sat 5:00 PM" required maxlength="60"></label>
-                <label class="settings-field"><span>Meeting point</span><input name="place" value="Cubbon Park, Gate 2" required maxlength="100"></label>
+                <label class="settings-field"><span>Plan name</span><input name="name" value="Round 2 · badminton"
+                    required maxlength="60"></label>
+                <label class="settings-field"><span>When</span><input name="when" value="Sat 5:00 PM" required
+                    maxlength="60"></label>
+                <label class="settings-field"><span>Meeting point</span><input name="place" value="Cubbon Park, Gate 2"
+                    required maxlength="100"></label>
                 <h2>Guests &amp; invites</h2>
-                <div class="rowit"><span class="avatar sm" style="background:var(--lilac)">402</span><div class="t"><b>Flat 402</b><span>6 people going · you're hosting</span></div></div>
-                <label class="setting-check"><span>Allow plus-ones<small>Guests can bring one more person.</small></span><input type="checkbox" name="plusOnes" checked></label>
-                <label class="setting-check"><span>Invite by link<small>People outside the circle ask to join.</small></span><input type="checkbox" name="linkInvite" checked></label>
+                <div class="rowit"><span class="avatar sm" style="background:var(--lilac)">402</span>
+                  <div class="t"><b>Flat 402</b><span>6 people going · you're hosting</span></div>
+                </div>
+                <label class="setting-check"><span>Allow plus-ones<small>Guests can bring one more
+                      person.</small></span><input type="checkbox" name="plusOnes" checked></label>
+                <label class="setting-check"><span>Invite by link<small>People outside the circle ask to
+                      join.</small></span><input type="checkbox" name="linkInvite" checked></label>
                 <h2>Notifications</h2>
-                <label class="setting-check"><span>Plan-day updates<small>Arrivals, meeting point changes and polls.</small></span><input type="checkbox" name="updates" checked></label>
+                <label class="setting-check"><span>Plan-day updates<small>Arrivals, meeting point changes and
+                      polls.</small></span><input type="checkbox" name="updates" checked></label>
                 <button class="btn dark" type="submit">Save changes</button>
                 <p class="settings-help">Demo settings are saved on this device.</p>
               </form>
             </div>
           </section>
-          <section class="screen" id="s-circle-settings" data-cap="<b>Circle settings.</b> The circle's name, people and invite preferences. Saved locally in this demo.">
-            <div class="backbar"><button class="circbtn" data-go="s-circle-detail" aria-label="Back to circle"><span data-icon="back"></span></button><span class="eb" style="margin:0">Your circle</span></div>
-            <div class="pad"><h1 class="title">Circle settings</h1><p class="sub">A little space for your people.</p>
+          <section class="screen" id="s-circle-settings"
+            data-cap="<b>Circle settings.</b> The circle's name, people and invite preferences. Saved locally in this demo.">
+            <div class="backbar"><button class="circbtn" data-go="s-circle-detail" aria-label="Back to circle"><span
+                  data-icon="back"></span></button><span class="eb" style="margin:0">Your circle</span></div>
+            <div class="pad">
+              <h1 class="title">Circle settings</h1>
+
               <form class="settings-form" id="circleSettingsForm">
-                <label class="settings-field"><span>Circle name</span><input name="name" value="Flat 402" required maxlength="40"></label>
+                <label class="settings-field"><span>Circle name</span><input name="name" value="Flat 402" required
+                    maxlength="40"></label>
                 <h2>People <span class="muted small">· 4</span></h2>
-                <div class="rowit"><span class="avatar sm" style="background:var(--coral)">DG</span><div class="t"><b>Divya · you</b></div><span class="member-role">Host</span></div>
-                <div class="rowit"><span class="avatar sm" style="background:var(--lilac)">SG</span><div class="t"><b>Sara</b></div><span class="member-role">Member</span></div>
-                <div class="rowit"><span class="avatar sm" style="background:var(--mint)">RN</span><div class="t"><b>Rohan</b></div><span class="member-role">Member</span></div>
-                <div class="rowit"><span class="avatar sm" style="background:var(--lilac)">MJ</span><div class="t"><b>Maya</b></div><span class="member-role">Member</span></div>
+                <div class="rowit"><span class="avatar sm" style="background:var(--coral)">DG</span>
+                  <div class="t"><b>Divya · you</b></div><span class="member-role">Host</span>
+                </div>
+                <div class="rowit"><span class="avatar sm" style="background:var(--lilac)">SG</span>
+                  <div class="t"><b>Sara</b></div><span class="member-role">Member</span>
+                </div>
+                <div class="rowit"><span class="avatar sm" style="background:var(--mint)">RN</span>
+                  <div class="t"><b>Rohan</b></div><span class="member-role">Member</span>
+                </div>
+                <div class="rowit"><span class="avatar sm" style="background:var(--lilac)">MJ</span>
+                  <div class="t"><b>Maya</b></div><span class="member-role">Member</span>
+                </div>
                 <h2>Invites &amp; activity</h2>
-                <label class="setting-check"><span>Members can invite<small>New people still need your approval.</small></span><input type="checkbox" name="memberInvites" checked></label>
-                <label class="setting-check"><span>Allow plus-ones by default<small>You can change this for each plan.</small></span><input type="checkbox" name="plusOnes"></label>
-                <label class="setting-check"><span>Quiet after 60 days<small>Put an inactive circle to sleep until its next plan.</small></span><input type="checkbox" name="autoSleep" checked></label>
-                <label class="setting-check"><span>Include in evening digest<small>A single catch-up for this circle's activity.</small></span><input type="checkbox" name="digest" checked></label>
-                <button class="btn dark" type="submit">Save changes</button><p class="settings-help">Demo settings are saved on this device.</p>
+                <label class="setting-check"><span>Members can invite<small>New people still need your
+                      approval.</small></span><input type="checkbox" name="memberInvites" checked></label>
+                <label class="setting-check"><span>Allow plus-ones by default<small>You can change this for each
+                      plan.</small></span><input type="checkbox" name="plusOnes"></label>
+                <label class="setting-check"><span>Quiet after 60 days<small>Put an inactive circle to sleep until its
+                      next plan.</small></span><input type="checkbox" name="autoSleep" checked></label>
+                <label class="setting-check"><span>Include in evening digest<small>A single catch-up for this circle's
+                      activity.</small></span><input type="checkbox" name="digest" checked></label>
+                <button class="btn dark" type="submit">Save changes</button>
+                <p class="settings-help">Demo settings are saved on this device.</p>
               </form>
             </div>
           </section>
@@ -2727,7 +4312,7 @@
             <button class="opt" data-go="s-newplan"><span class="ic"
                 style="background:var(--peachbg)">＋</span><span><b>New plan</b><span>What · when · who — in one
                   screen</span></span></button>
-            <button class="opt" data-go="s-ripple"><span class="ic"
+            <button class="opt" data-go="s-newripple"><span class="ic"
                 style="background:var(--lilacbg)">≈</span><span><b>Toss a ripple</b><span>The soft ask — a feeling and a
                   slot</span></span></button>
             <button class="opt" data-go="s-open"><span class="ic" style="background:var(--butterbg)">◐</span><span><b>Go
@@ -2741,20 +4326,34 @@
 
         <div class="chat-composer" id="chatComposer">
           <div class="attachment-menu" id="chatAttachments" hidden aria-label="Add to your plan">
-            <button type="button" data-toast="Pin a place or a time change — it becomes a card"><span data-icon="pin"></span><span>Location</span></button>
-            <button type="button" data-toast="Poll — chips here and on Live, closes at start"><span data-icon="poll"></span><span>Poll</span></button>
-            <button type="button" data-toast="Forward a booking — it becomes a ticket card"><span data-icon="ticket"></span><span>Booking</span></button>
+            <button type="button" data-toast="Pin a place or a time change — it becomes a card"><span
+                data-icon="pin"></span><span>Location</span></button>
+            <button type="button" data-toast="Poll — chips here and on Live, closes at start"><span
+                data-icon="poll"></span><span>Poll</span></button>
+            <button type="button" data-toast="Forward a booking — it becomes a ticket card"><span
+                data-icon="ticket"></span><span>Booking</span></button>
           </div>
           <div class="composer-row">
             <div class="inputbar">
-              <button type="button" class="artbtn" id="attachToggle" aria-label="Add attachment" aria-expanded="false" aria-controls="chatAttachments"><span data-icon="plus"></span></button>
+              <button type="button" class="artbtn" id="attachToggle" aria-label="Add attachment" aria-expanded="false"
+                aria-controls="chatAttachments"><span data-icon="plus"></span></button>
               <input id="msgInput" placeholder="Message" aria-label="Message" autocomplete="off">
             </div>
-            <button type="button" class="sendbtn" id="msgSend" aria-label="Send message" disabled><span data-icon="send"></span></button>
+            <button type="button" class="sendbtn" id="msgSend" aria-label="Send message" disabled><span
+                data-icon="send"></span></button>
           </div>
         </div>
+        <div class="hello-chat-header" id="helloChatHeader"></div>
+        <div class="hello-chat-composer" id="helloChatComposer">
+          <textarea id="overlapMessage" rows="1" maxlength="240" aria-label="Message" placeholder="Message"
+            autocomplete="off"></textarea>
+          <button type="button" id="sendOverlapMessage" aria-label="Send message" disabled></button>
+        </div>
         <div class="tabbar" id="mainbar"></div>
-        <div class="plan-header" id="planHeader"><button class="circbtn" data-go="s-tonight" aria-label="Back to plans"><span data-icon="back"></span></button><b id="planHeaderName">Round 2 · badminton</b><button class="circbtn" data-go="s-plan-settings" aria-label="Plan settings"><span data-icon="settings"></span></button></div>
+        <div class="plan-header" id="planHeader"><button class="circbtn" data-go="s-tonight"
+            aria-label="Back to plans"><span data-icon="back"></span></button><b id="planHeaderName">Round 2 ·
+            badminton</b><button class="circbtn" data-go="s-plan-settings" aria-label="Plan settings"><span
+              data-icon="settings"></span></button></div>
         <div class="tabbar" id="planbar" style="justify-content:space-around;align-items:center"></div>
         <div class="toast" id="toast"></div>
       </div>
@@ -2762,12 +4361,13 @@
     <div class="caption" id="cap"></div>
     <div class="caption" style="margin-top:-10px;font-size:12px"><span class="kbd">←</span> <span class="kbd">→</span>
       story &nbsp;·&nbsp; <span class="kbd">H</span> hints &nbsp;·&nbsp; <span class="kbd">T</span> theme &nbsp;·&nbsp;
-      <span class="kbd">R</span> restart &nbsp;·&nbsp; tap the bars below — everything is thumb-first</div>
+      <span class="kbd">R</span> restart &nbsp;·&nbsp; tap the bars below — everything is thumb-first
+    </div>
   </div>
 
   <script>
     const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
-    const STORY = ["s-welcome", "s-otp", "s-tonight", "s-circles", "s-circle-detail", "s-newplan", "s-ripple", "s-inbox", "s-live", "s-chat", "s-album", "s-money", "s-wrap", "s-open", "s-overlap", "s-hello", "s-scrapbook", "s-you", "s-splits", "s-language", "s-safety", "s-plan-settings", "s-circle-settings", "s-webcard"];
+    const STORY = ["s-welcome", "s-otp", "s-tonight", "s-circles", "s-circle-detail", "s-newplan", "s-newripple", "s-ripple", "s-ripple-reply", "s-inbox", "s-live", "s-chat", "s-album", "s-money", "s-wrap", "s-open", "s-overlap", "s-hello", "s-scrapbook", "s-you", "s-splits", "s-language", "s-safety", "s-plan-settings", "s-circle-settings", "s-webcard"];
     let cur = null;
 
     const ICONS = {
@@ -2801,9 +4401,9 @@
     $$('#s-tonight .agenda-item, #s-tonight .open-note, #s-tonight .reply-link, #s-circles .rowit[data-go], #s-you .rowit[data-go="s-scrapbook"], #s-scrapbook .rowit').forEach(el => {
       const arrow = document.createElement('span'); arrow.className = 'wayfinding-arrow'; arrow.textContent = '↗'; arrow.setAttribute('aria-hidden', 'true'); el.appendChild(arrow);
     });
-    const profileIcons = ['album','wallet','shield','globe','eye','plus'];
+    const profileIcons = ['album', 'wallet', 'shield', 'globe', 'eye', 'plus'];
     $$('#s-you .rowit .avatar').forEach((el, i) => el.innerHTML = icon(profileIcons[i]));
-    $$('.circbtn').filter(el => el.textContent.trim() === '‹').forEach(el => { el.innerHTML = icon('back'); el.setAttribute('aria-label','Back'); });
+    $$('.circbtn').filter(el => el.textContent.trim() === '‹').forEach(el => { el.innerHTML = icon('back'); el.setAttribute('aria-label', 'Back'); });
     ICONS.inbox = icon('inbox'); ICONS.circles = icon('people');
 
     function bindSettings(formId, key, apply) {
@@ -2832,7 +4432,6 @@
       $('#s-circle-detail h1').textContent = data.name;
       $('#s-circles [data-go="s-circle-detail"] .t b').textContent = data.name;
       $('#s-plan-settings .rowit .t b').textContent = data.name;
-      $('#s-newplan [data-circle="Flat 402"]').previousElementSibling.querySelector('b').textContent = data.name;
     });
 
     const MAINNAV = [["tonight", "Plans", "s-tonight"], ["circles", "Circles", "s-circles"], ["new", "＋", ""], ["inbox", "Inbox", "s-inbox"], ["you", "You", "s-you"]];
@@ -2849,16 +4448,39 @@
       b.addEventListener("click", () => go(target)); planbar.appendChild(b);
     });
 
+    // Subtle page colors provide identity without decorative taglines.
+    const PAGE_DESIGN = {
+      's-welcome': 'warm', 's-otp': 'warm',
+      's-tonight': 'warm',
+      's-circles': 'sage', 's-circle-detail': 'sage',
+      's-newplan': 'warm', 's-created-plan': 'warm',
+      's-newripple': 'plum', 's-ripple': 'plum',
+      's-ripple-reply': 'plum', 's-inbox': 'blue',
+      's-live': 'warm', 's-chat': 'blue',
+      's-album': 'gold', 's-money': 'teal',
+      's-wrap': 'gold', 's-open': 'teal',
+      's-overlap': 'teal', 's-hello': 'teal',
+      's-scrapbook': 'gold', 's-you': 'plum',
+      's-splits': 'teal', 's-language': 'plum',
+      's-safety': 'sage', 's-plan-settings': 'warm',
+      's-circle-settings': 'sage', 's-webcard': 'warm'
+    };
+    Object.entries(PAGE_DESIGN).forEach(([id, mood]) => {
+      const screen = document.getElementById(id);
+      screen.dataset.mood = mood;
+    });
+
     function go(id) {
       if (!id) return;
       const scr = document.getElementById(id); if (!scr) return;
       if (cur && cur !== id) window._prev = cur;
       $$(".screen").forEach(s => { s.classList.remove("active"); s.inert = true; s.setAttribute("aria-hidden", "true"); });
       scr.inert = false; scr.removeAttribute("aria-hidden"); scr.classList.add("active"); cur = id;
+      $("#phone").dataset.mood = scr.dataset.mood || 'warm';
       scr.scrollTop = 0;
       $("#cap").innerHTML = scr.dataset.cap || "";
       const h = scr.querySelector("h1");
-      $("#scrName").textContent = h ? h.textContent : ({"s-newplan":"Make a plan", "s-chat":"Plan chat", "s-overlap":"Your overlap", "s-hello":"Say hello"}[id] || id.replace("s-", ""));
+      $("#scrName").textContent = h ? h.textContent : ({ "s-newplan": "Make a plan", "s-chat": "Plan chat", "s-overlap": "Your overlap", "s-hello": "Say hello" }[id] || id.replace("s-", ""));
       $("#scrSel").value = id;
       const t = scr.dataset.tab;
       mainbar.classList.toggle("show", t === "main");
@@ -2869,13 +4491,14 @@
       $("#attachToggle").setAttribute("aria-expanded", "false");
       const nav = t === "main" ? mainbar : planbar;
       if (nav) nav.querySelectorAll(".tab,.ptab").forEach(b => { const active = b.dataset.tabnav === scr.dataset.tabnav; b.classList.toggle("active", active); if (active) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current"); });
+      window.syncHelloChat?.();
     }
     $("#s-tonight [data-go=\"s-live\"]").addEventListener("click", () => go("s-live"));
     function next(d = 1) { let i = STORY.indexOf(cur); if (i < 0) i = 0; i = (i + d + STORY.length) % STORY.length; go(STORY[i]); }
     $("#nextBtn").onclick = () => next(1); $("#prevBtn").onclick = () => next(-1);
 
     const sel = $("#scrSel");
-    STORY.forEach(id => { const o = document.createElement("option"); o.value = id; o.textContent = document.getElementById(id).querySelector("h1")?.textContent || ({"s-newplan":"Make a plan", "s-chat":"Plan chat", "s-overlap":"Your overlap", "s-hello":"Say hello"}[id] || id.replace("s-", "")); sel.appendChild(o); });
+    STORY.forEach(id => { const o = document.createElement("option"); o.value = id; o.textContent = document.getElementById(id).querySelector("h1")?.textContent || ({ "s-newplan": "Make a plan", "s-chat": "Plan chat", "s-overlap": "Your overlap", "s-hello": "Say hello" }[id] || id.replace("s-", "")); sel.appendChild(o); });
     sel.onchange = e => go(e.target.value);
     $("#restartBtn").onclick = () => location.reload();
     $("#hintsBtn").onclick = e => { document.body.classList.toggle("hints"); e.currentTarget.classList.toggle("on"); };
@@ -2951,12 +4574,6 @@
     $("#gotIt").onclick = e => { e.currentTarget.textContent = "Got it ✓ 6/6"; e.currentTarget.disabled = true; toast("Receipt sent — no blue ticks, just certainty"); };
     $("#pollYes").onclick = e => { if (!e.currentTarget.classList.contains("on")) { e.currentTarget.classList.add("on"); e.currentTarget.textContent = "Yes · 5 ✓"; toast("Voted — poll updates for everyone"); } };
 
-    /* new plan */
-    $("#sendPlan").onclick = () => { toast("Plan sent — RSVPs roll in, no approvals needed"); setTimeout(() => go("s-tonight"), 800); };
-
-    /* ripple */
-    $("#convertRipple").onclick = () => { toast("Plan drafted — 4 pre-invited, best slot pre-filled"); setTimeout(() => go("s-newplan"), 800); };
-
     /* album */
     $("#addPhotos").onclick = e => { e.currentTarget.textContent = "Uploading…"; setTimeout(() => { e.currentTarget.textContent = "＋ Add 2 more"; toast("2 uploaded · 1 duplicate copy merged automatically"); }, 900); };
     $$("#s-album .hideb").forEach(b => b.onclick = e => {
@@ -2978,15 +4595,6 @@
     $("#saveScrap").onclick = () => { toast("Highlights saved — your Scrapbook, always yours"); setTimeout(() => go("s-scrapbook"), 800); };
     $("#seedIn").onclick = e => { if (!e.currentTarget.classList.contains("on")) { e.currentTarget.classList.add("on"); e.currentTarget.textContent = "In ✓"; toast("Seeded — Saturday plan drafted for 4, ripple optional"); } };
 
-    /* open */
-    $("#goOpen").onclick = () => { toast("You're Open till 8 PM — listening quietly"); setTimeout(() => go("s-overlap"), 1100); };
-
-    /* overlap */
-    $("#passQuiet").onclick = e => { e.currentTarget.innerHTML = "<u>Passed. Nothing was sent — they'll never know.</u>"; e.currentTarget.style.opacity = .6; };
-
-    /* hello */
-    $("#lockIt").onclick = () => { toast("Plan locked — full profiles unlocked for both ✓"); setTimeout(() => go("s-live"), 900); };
-
     /* chat */
     const msgInput = $("#msgInput"), msgList = $("#msgList");
     function sendMsg() {
@@ -3004,14 +4612,6 @@
     $("#msgSend").onclick = sendMsg;
     msgInput.addEventListener("keydown", e => { if (e.key === "Enter") sendMsg(); });
     $("#claimBtn").onclick = e => { e.currentTarget.textContent = "claimed ✓"; e.currentTarget.classList.add("mintc"); toast("“shuttle tubes — you” posted to the plan"); };
-
-    /* timers */
-    let wmSecs = 21 * 3600 + 4 * 60;
-    setInterval(() => {
-      wmSecs = Math.max(0, wmSecs - 1);
-      const wc = $("#wmClock"); if (wc) wc.textContent = Math.floor(wmSecs / 3600) + ":" + String(Math.floor(wmSecs % 3600 / 60)).padStart(2, "0");
-      const wb = $("#wmBar"); if (wb) wb.style.width = (wmSecs / (24 * 3600) * 100) + "%";
-    }, 1000);
 
     /* otp */
     const otpBoxes = $$(".otp"), btnFill = $("#btnOtpFill"), btnGo = $("#btnOtpGo");
@@ -3088,6 +4688,406 @@
     }
     addEventListener("resize", fit); fit();
     go(location.hash === "#welcome" ? "s-welcome" : "s-tonight");
+  </script>
+  <script>
+    /* Local interaction prototype: invites, sharing and access require server enforcement in the app. */
+    (() => {
+      const people = ['Sara', 'Rohan', 'Maya', 'Aarav', 'Rina', 'Kabir'];
+      const circles = { 'Flat 402': ['Sara', 'Rohan', 'Maya'], 'Office crew': ['Rohan', 'Rina', 'Kabir'] };
+      const preset = { morning: ['09:00', '12:00'], afternoon: ['12:00', '17:00'], evening: ['17:00', '21:00'] };
+      const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+      const dateValue = date => `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+      const tomorrow = () => { const d = new Date(); d.setDate(d.getDate() + 1); return dateValue(d); };
+      const datetimeValue = date => `${dateValue(date)}T${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
+      const pretty = value => new Date(value).toLocaleString(undefined, { weekday: 'short', day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit' });
+      const audience = item => [...new Set([...item.people, ...item.circles.flatMap(c => circles[c])])];
+      function slotBounds(slot) {
+        const times = slot.window === 'custom' ? [slot.start, slot.end] : preset[slot.window];
+        return { start: new Date(`${slot.date}T${times?.[0] || ''}`).getTime(), end: new Date(`${slot.date}T${times?.[1] || ''}`).getTime() };
+      }
+      function deadline(item, now = Date.now()) {
+        const requested = now + item.hours * 3600000;
+        const first = item.slots.length ? Math.min(...item.slots.map(s => slotBounds(s).start)) : Infinity;
+        return Math.min(requested, first - 30 * 60000);
+      }
+      function validateSlots(item, now = Date.now()) {
+        for (const slot of item.slots) {
+          const { start, end } = slotBounds(slot);
+          if (!Number.isFinite(start) || !Number.isFinite(end)) return 'Choose a date and time window for each suggestion.';
+          if (end <= start) return 'The end time must be after the start, on the same date.';
+          if (start <= now + 30 * 60000) return 'Choose a time more than 30 minutes away so people have time to reply.';
+        }
+        const keys = item.slots.map(s => JSON.stringify(slotBounds(s)));
+        if (new Set(keys).size !== keys.length) return 'These times are the same. Remove one or choose a different time.';
+        return '';
+      }
+      const slotLabel = slot => {
+        const { start, end } = slotBounds(slot);
+        if (!Number.isFinite(start) || !Number.isFinite(end)) return 'Choose date & time';
+        return `${pretty(start)}–${new Date(end).toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' })}${slot.note ? ' · ' + slot.note : ''}`;
+      };
+      let draft = { ask: '', slots: [], people: [], circles: [], place: '', hours: 48 };
+      const sampleSlot = { id: 'sample-sat', date: tomorrow(), window: 'evening', start: '17:00', end: '20:00', note: '' };
+      const secondDate = new Date(`${tomorrow()}T12:00`); secondDate.setDate(secondDate.getDate() + 1);
+      let ripple = { ask: 'Anyone up for badminton, then coffee?', slots: [sampleSlot, { ...sampleSlot, id: 'sample-sun', date: dateValue(secondDate), window: 'morning' }], people: ['Aarav'], circles: ['Flat 402'], place: '', hours: 48, replies: { Sara: { choice: 'Up for it', slots: ['sample-sat'] }, Rohan: { choice: 'Up for it', slots: ['sample-sat', 'sample-sun'] }, Aarav: { choice: 'Up for it', slots: ['sample-sun'] }, Maya: { choice: 'Another time', slots: [], note: 'Next weekend?' } } };
+      ripple.closesAt = deadline(ripple);
+      let selectedSlot = sampleSlot.id;
+      let plan = { name: '', when: '', place: '', people: [], circles: [] };
+      let createdPlan = null, converting = false, replyPerson = 'Sara', replyChoice = '', replySlots = [];
+      const field = (key, label, value, type = 'text') => `<label class="creation-field"><span>${label}</span><input data-field="${key}" type="${type}" value="${esc(value)}" ${type === 'text' ? 'maxlength="120"' : ''}></label>`;
+      const check = (kind, value, checked, subtitle = '', disabled = false) => `<label class="creation-check"><span>${esc(value)}${subtitle ? `<small>${esc(subtitle)}</small>` : ''}</span><input type="checkbox" data-list="${kind}" value="${esc(value)}" ${checked ? 'checked' : ''} ${disabled ? 'disabled' : ''}></label>`;
+      function picker(item, kind, label, circleSharing = false) {
+        const choices = kind === 'circles' ? Object.keys(circles) : people;
+        return `<details><summary>${label}<small>${esc(item[kind].join(', ') || (kind === 'people' ? 'No one selected' : 'Not shared with circles'))}</small></summary>${choices.map(value => check(kind, value, item[kind].includes(value), kind === 'circles' ? (circleSharing ? 'Members can discover and join; media requires membership' : 'Every member can see and respond') : '')).join('')}</details>`;
+      }
+      function read(container, item) {
+        container.querySelectorAll('[data-field]').forEach(el => item[el.dataset.field] = el.value);
+      }
+      function readDraft() {
+        read($('#rippleCreateBody'), draft);
+        draft.hours = Number($('#rippleHours').value);
+        draft.slots.forEach(slot => {
+          const el = $(`#rippleCreateBody [data-slot-id="${slot.id}"]`);
+          if (el) el.querySelectorAll('[data-slot-field]').forEach(input => slot[input.dataset.slotField] = input.value);
+        });
+      }
+      function error(container, message) { container.querySelector('[role=alert]').textContent = message; }
+      function renderCreate() {
+        $('#rippleCreateBody').innerHTML = `<h1 class="title">Toss a ripple</h1><label class="creation-field"><span>What are you thinking?</span><textarea data-field="ask" maxlength="240" placeholder="Anyone up for something outdoorsy?">${esc(draft.ask)}</textarea></label><div class="eb">When might work? · optional</div><small>Choose dates and rough windows. Add a note if you like.</small><div id="rippleSlotEditors">${draft.slots.map((slot, i) => `<div class="slot-editor" data-slot-id="${slot.id}"><div class="slot-heading"><b>Suggestion ${i + 1}</b><button type="button" class="creation-action" data-remove-slot="${slot.id}">Remove</button></div><div class="slot-grid"><label>Date<input type="date" data-slot-field="date" min="${dateValue(new Date())}" value="${slot.date}"></label><label>Time window<select data-slot-field="window">${['morning', 'afternoon', 'evening', 'custom'].map(w => `<option value="${w}" ${w === slot.window ? 'selected' : ''}>${{ morning: 'Morning · 9–12', afternoon: 'Afternoon · 12–5', evening: 'Evening · 5–9', custom: 'Choose times' }[w]}</option>`).join('')}</select></label></div>${slot.window === 'custom' ? `<div class="slot-grid"><label>From<input type="time" data-slot-field="start" value="${slot.start}"></label><label>Until<input type="time" data-slot-field="end" value="${slot.end}"></label></div>` : ''}<label class="creation-field"><span>Time note · optional</span><input type="text" data-slot-field="note" maxlength="80" value="${esc(slot.note)}" placeholder="e.g. after work, around 6"></label></div>`).join('')}</div>${draft.slots.length < 2 ? '<button type="button" class="creation-action" id="addRippleSlot">＋ Add a date & time</button>' : ''}<small>Time notes don’t change the selected window. Times use this device’s time zone.</small>${picker(draft, 'circles', 'Share with circles')}${picker(draft, 'people', 'Ask specific people')}<small>To leave a member out, select people individually instead of sharing with their circle.</small><details><summary>Place idea · optional<small>${esc(draft.place || 'Decide together')}</small></summary>${field('place', 'A rough place is enough', draft.place)}</details><details><summary>Reply window<small id="rippleDeadlineSummary"></small></summary><label class="creation-field"><span>Give people up to</span><select id="rippleHours">${[24, 48, 72].map(h => `<option value="${h}" ${draft.hours === h ? 'selected' : ''}>${h} hours</option>`).join('')}</select></label><small>Closes 30 minutes before the earliest suggested start, if that comes sooner.</small></details><p id="rippleDeadline" class="small muted" aria-live="polite"></p><div role="alert" class="creation-error"></div><button type="button" class="btn" id="sendRipple">Send ripple · ${audience(draft).length} people →</button>`;
+        updateDeadline();
+      }
+      function updateDeadline() {
+        readDraft();
+        const warning = validateSlots(draft), closes = deadline(draft);
+        $('#rippleDeadlineSummary').textContent = warning ? 'Check suggested times' : pretty(closes);
+        $('#rippleDeadline').textContent = warning || `Replies close ${pretty(closes)}${draft.slots.length && closes < Date.now() + draft.hours * 3600000 - 1000 ? ' · before the earliest suggestion' : ''}.`;
+      }
+      function renderRipple() {
+        const closed = ripple.closed || Date.now() >= ripple.closesAt;
+        const interested = audience(ripple).filter(n => ripple.replies[n]?.choice === 'Up for it');
+        $('#rippleBody').innerHTML = `<h1 class="title">Ripple</h1><small>${closed ? 'Closed' : `Replies close ${pretty(ripple.closesAt)}`}</small><h2 style="font-size:23px;font-weight:500">${esc(ripple.ask)}</h2><small>${esc([...ripple.circles, ...ripple.people].join(' + '))}${ripple.place ? ' · ' + esc(ripple.place) : ''}</small><div class="rowit"><div class="t"><b><span class="creation-count">${interested.length}</span> interested</b><span>${audience(ripple).filter(n => !ripple.replies[n]).length} haven’t replied · ${audience(ripple).length} people asked</span></div></div><details><summary>See responses</summary>${audience(ripple).map(n => `<div class="rowit"><div class="t"><b>${esc(n)}</b><span>${esc(ripple.replies[n]?.choice || 'Waiting for a reply')}${ripple.replies[n]?.note ? ' · ' + esc(ripple.replies[n].note) : ''}</span></div></div>`).join('')}</details><div class="eb">Which time works?</div>${ripple.slots.length ? ripple.slots.map(slot => { const available = interested.filter(n => (!ripple.replies[n].slots.length || ripple.replies[n].slots.includes(slot.id))); return `<button type="button" class="ripple-slot" data-pick-slot="${slot.id}" aria-pressed="${selectedSlot === slot.id}">${esc(slotLabel(slot))}<small>${available.length} interested${available.length ? ' · ' + esc(available.join(', ')) : ''}</small></button>`; }).join('') : '<small>No time suggested yet. Choose one when you make a plan.</small>'}<small>Each person counts once, even if multiple times work.</small>${closed ? `<p class="small muted">${ripple.planCreated ? 'A plan was created. Replies did not automatically become RSVPs.' : 'This ripple has closed. You can start a fresh one.'}</p>` : '<button type="button" class="btn" id="convertRipple">Make it a plan →</button><button type="button" class="creation-action" id="previewRippleReply">Preview replying as a recipient</button><br><button type="button" class="creation-action" id="closeRipple">Close ripple</button>'}<button type="button" class="btn ghost" data-go="s-newripple">New ripple</button>`;
+      }
+      function renderReply() {
+        const list = audience(ripple);
+        if (!list.includes(replyPerson)) replyPerson = list[0];
+        $('#rippleReplyBody').innerHTML = `<h1 class="title">Reply to ripple</h1><label class="creation-field"><span>Preview as</span><select id="rippleReplyPerson">${list.map(n => `<option ${n === replyPerson ? 'selected' : ''}>${n}</option>`).join('')}</select></label><h2 style="font-size:22px;font-weight:500">${esc(ripple.ask)}</h2><div class="reply-choices">${['Up for it', 'Another time', 'Can’t make it'].map(c => `<button type="button" data-reply-choice="${c}" aria-pressed="${replyChoice === c}">${c}</button>`).join('')}</div>${replyChoice === 'Up for it' ? `<div class="eb">Which times work? · select any</div>${ripple.slots.map(slot => check('replySlots', slot.id, replySlots.includes(slot.id), slotLabel(slot)).replace(`<span>${slot.id}`, '<span>Available')).join('')}<small>Leave times unselected if you’re flexible.</small>` : ''}${field('replyNote', replyChoice === 'Another time' ? 'Suggest another date / time · optional' : 'A short note · optional', ripple.replies[replyPerson]?.note || '')}<small>Interest isn’t a commitment. You can change your reply until ${pretty(ripple.closesAt)}.</small><div role="alert" class="creation-error"></div><button type="button" class="btn" id="saveRippleReply">Save reply</button>`;
+      }
+      function renderPlan() {
+        $('#planCreateBody').innerHTML = `<h1 class="title">${converting ? 'Make it a plan' : 'New plan'}</h1>${converting ? '<p class="sub">Confirm the details. Interest isn’t an RSVP.</p>' : ''}${field('name', 'Plan name', plan.name)}${field('when', 'Date & time', plan.when, 'datetime-local')}${field('place', 'Meeting place', plan.place)}${converting ? '<small>Times are suggestions until you confirm this plan.</small>' : ''}${picker(plan, 'people', 'Invite people')}${converting ? audience(ripple).filter(n => ripple.replies[n]?.choice === 'Up for it').map(n => `<small>${esc(n)}: ${esc(ripple.slots.filter(slot => ripple.replies[n].slots.includes(slot.id)).map(slotLabel).join(' / ') || 'Flexible')}</small>`).join('') : ''}${picker(plan, 'circles', 'Share with circles', true)}<small id="planAccessHint">${plan.circles.length ? 'Uninvited circle members can still see and join. Media is only for plan members.' : plan.people.length ? 'Visible to you and invitees. Media is only for plan members.' : 'Just you for now. Invite people or enable a link later.'}</small><div role="alert" class="creation-error"></div><button type="button" class="btn" id="sendPlan">Create plan →</button>`;
+      }
+      function renderCreated() {
+        const p = createdPlan;
+        const invited = p.people.filter(n => !p.members.includes(n));
+        $('#createdPlanBody').innerHTML = `<h1 class="title">${esc(p.name)}</h1><p class="sub">${esc(pretty(p.when))}<br>${esc(p.place)}</p><div class="eb">Going · ${p.members.length + 1}</div><div class="rowit"><div class="t"><b>You</b><span>Creator / admin</span></div></div>${p.members.map(n => `<div class="rowit"><div class="t"><b>${n}</b><span>Plan member · media access</span></div><button type="button" class="creation-action" data-remove-member="${n}">Remove</button></div>`).join('')}<div class="eb">Invited · ${invited.length}</div><small>${esc(invited.join(', ') || 'No invitations pending')}</small><details><summary>Share with circles<small>${esc(p.circles.join(', ') || 'Off · invite or link access only')}</small></summary>${Object.keys(circles).map(c => check('createdCircles', c, p.circles.includes(c), 'Members can discover and join; media stays with plan members')).join('')}<small>Removing a circle removes discovery and its join route. Existing plan members stay.</small></details><label class="creation-check"><span>Find matches · Go open<small>Only your plan name is shown until an invitation is accepted</small></span><input type="checkbox" id="createdPlanMatching" ${p.discoverable ? 'checked' : ''}></label>${p.discoverable ? '<button type="button" class="creation-action" id="seePlanMatches">See this plan’s overlaps</button>' : ''}<label class="creation-check"><span>Join requests by link<small>You approve new members</small></span><input type="checkbox" id="createdPlanLink" ${p.link ? 'checked' : ''}></label>${p.link ? `<span class="creation-link">outthere.app/p/${esc(p.link)}</span><button type="button" class="creation-action" id="replacePlanLink">Replace link</button><small>Replacing or deleting it invalidates the previous link.</small>` : ''}<small>Removed members lose access and need admin approval to return.</small><details><summary>Preview joining as someone else</summary><label class="creation-field"><span>Person</span><select id="joinPreviewPerson">${people.map(n => `<option>${n}</option>`).join('')}</select></label><button type="button" class="creation-action" id="joinPreview">Try joining</button><button type="button" class="creation-action" id="approvePreview">Approve pending request</button><small id="joinPreviewStatus" aria-live="polite"></small></details><button type="button" class="btn ghost" data-go="s-tonight">Back to plans</button>`;
+      }
+      $('#rippleCreateBody').addEventListener('input', updateDeadline);
+      $('#rippleCreateBody').addEventListener('change', e => {
+        readDraft();
+        if (e.target.dataset.slotField === 'window') { renderCreate(); return; }
+        if (e.target.dataset.list) {
+          const k = e.target.dataset.list, v = e.target.value;
+          draft[k] = e.target.checked ? [...new Set([...draft[k], v])] : draft[k].filter(n => n !== v);
+          e.target.closest('details').querySelector('summary small').textContent = draft[k].join(', ') || (k === 'people' ? 'No one selected' : 'Not shared with circles');
+          $('#sendRipple').textContent = `Send ripple · ${audience(draft).length} people →`;
+        }
+        updateDeadline();
+      });
+      $('#rippleCreateBody').addEventListener('click', e => {
+        readDraft();
+        const remove = e.target.closest('[data-remove-slot]');
+        if (remove) { draft.slots = draft.slots.filter(s => s.id !== remove.dataset.removeSlot); renderCreate(); }
+        if (e.target.id === 'addRippleSlot') { draft.slots.push({ id: crypto.randomUUID(), date: tomorrow(), window: 'evening', start: '17:00', end: '20:00', note: '' }); renderCreate(); }
+        if (e.target.id === 'sendRipple') {
+          const message = !draft.ask.trim() ? 'Add an idea to ask about.' : !audience(draft).length ? 'Choose at least one person or circle.' : validateSlots(draft);
+          if (message) { error($('#rippleCreateBody'), message); return; }
+          ripple = { ...structuredClone(draft), closesAt: deadline(draft), replies: {} };
+          selectedSlot = ripple.slots[0]?.id || '';
+          renderRipple(); go('s-ripple'); toast('Ripple sent — replies stay quiet');
+        }
+      });
+      $('#rippleBody').addEventListener('click', e => {
+        const button = e.target.closest('button'); if (!button) return;
+        if (button.dataset.pickSlot) { selectedSlot = button.dataset.pickSlot; renderRipple(); }
+        if (button.id === 'previewRippleReply') { replyPerson = audience(ripple)[0]; replyChoice = ripple.replies[replyPerson]?.choice || ''; replySlots = [...(ripple.replies[replyPerson]?.slots || [])]; renderReply(); go('s-ripple-reply'); }
+        if (button.id === 'closeRipple') { ripple.closed = true; renderRipple(); }
+        if (button.id === 'convertRipple') {
+          if (ripple.closed || Date.now() >= ripple.closesAt) { renderRipple(); toast('This ripple has closed'); return; }
+          const chosen = ripple.slots.find(slot => slot.id === selectedSlot);
+          converting = true;
+          plan = { name: ripple.ask, when: chosen ? datetimeValue(new Date(slotBounds(chosen).start)) : '', place: ripple.place, people: audience(ripple).filter(n => ripple.replies[n]?.choice === 'Up for it'), circles: [] };
+          renderPlan(); go('s-newplan');
+        }
+      });
+      $('#rippleReplyBody').addEventListener('change', e => {
+        if (e.target.id === 'rippleReplyPerson') { replyPerson = e.target.value; replyChoice = ripple.replies[replyPerson]?.choice || ''; replySlots = [...(ripple.replies[replyPerson]?.slots || [])]; renderReply(); }
+        if (e.target.dataset.list === 'replySlots') replySlots = e.target.checked ? [...new Set([...replySlots, e.target.value])] : replySlots.filter(id => id !== e.target.value);
+      });
+      $('#rippleReplyBody').addEventListener('click', e => {
+        const button = e.target.closest('button'); if (!button) return;
+        if (button.dataset.replyChoice) { replyChoice = button.dataset.replyChoice; renderReply(); }
+        if (button.id === 'saveRippleReply') {
+          if (ripple.closed || Date.now() >= ripple.closesAt) { error($('#rippleReplyBody'), 'This ripple has closed. Replies can no longer change.'); return; }
+          if (!replyChoice) { error($('#rippleReplyBody'), 'Choose a response first.'); return; }
+          ripple.replies[replyPerson] = { choice: replyChoice, slots: replyChoice === 'Up for it' ? [...replySlots] : [], note: $('#rippleReplyBody [data-field=replyNote]').value.slice(0, 140) };
+          renderRipple(); go('s-ripple'); toast('Reply saved — change it until this ripple closes');
+        }
+      });
+      $('#planCreateBody').addEventListener('change', e => {
+        read($('#planCreateBody'), plan);
+        if (e.target.dataset.list) {
+          const k = e.target.dataset.list, v = e.target.value;
+          plan[k] = e.target.checked ? [...new Set([...plan[k], v])] : plan[k].filter(n => n !== v);
+          e.target.closest('details').querySelector('summary small').textContent = plan[k].join(', ') || (k === 'people' ? 'No one selected' : 'Not shared with circles');
+          $('#planAccessHint').textContent = plan.circles.length ? 'Uninvited circle members can still see and join. Media is only for plan members.' : plan.people.length ? 'Visible to you and invitees. Media is only for plan members.' : 'Just you for now. Invite people or enable a link later.';
+        }
+      });
+      $('#planCreateBody').addEventListener('click', e => {
+        if (e.target.id !== 'sendPlan') return;
+        read($('#planCreateBody'), plan);
+        if (!plan.name.trim() || !plan.place.trim() || !plan.when || !Number.isFinite(new Date(plan.when).getTime())) { error($('#planCreateBody'), 'Add a name, date, time and meeting place.'); return; }
+        if (new Date(plan.when).getTime() <= Date.now()) { error($('#planCreateBody'), 'Choose a future date and time.'); return; }
+        createdPlan = { ...structuredClone(plan), id: crypto.randomUUID(), members: [], removed: [], pending: [], link: null, discoverable: false, matchLimit: 5 };
+        if (converting) { ripple.closed = true; ripple.planCreated = true; renderRipple(); }
+        renderCreated(); go('s-created-plan'); toast('Plan created — invitations aren’t RSVPs');
+      });
+      $('#createdPlanBody').addEventListener('change', e => {
+        if (e.target.dataset.list === 'createdCircles') { const v = e.target.value; createdPlan.circles = e.target.checked ? [...new Set([...createdPlan.circles, v])] : createdPlan.circles.filter(c => c !== v); renderCreated(); }
+        if (e.target.id === 'createdPlanMatching') { createdPlan.discoverable = e.target.checked; window.dispatchEvent(new CustomEvent('outthere:plan-matching', { detail: structuredClone(createdPlan) })); renderCreated(); }
+        if (e.target.id === 'createdPlanLink') { createdPlan.link = e.target.checked ? crypto.randomUUID() : null; renderCreated(); }
+      });
+      $('#createdPlanBody').addEventListener('click', e => {
+        const button = e.target.closest('button'); if (!button) return;
+        const p = createdPlan;
+        if (button.id === 'seePlanMatches') window.dispatchEvent(new CustomEvent('outthere:show-plan-matches'));
+        if (button.dataset.removeMember) { const n = button.dataset.removeMember; p.members = p.members.filter(x => x !== n); p.people = p.people.filter(x => x !== n); p.removed = [...new Set([...p.removed, n])]; window.dispatchEvent(new CustomEvent('outthere:member-removed', { detail: { planId: `created-${p.id}`, name: n } })); renderCreated(); toast('Member removed — access revoked in this demo'); }
+        if (button.id === 'replacePlanLink') { p.link = crypto.randomUUID(); renderCreated(); toast('Old link revoked'); }
+        if (['joinPreview', 'approvePreview'].includes(button.id)) {
+          const n = $('#joinPreviewPerson').value;
+          const status = $('#joinPreviewStatus');
+          if (p.members.includes(n)) { status.textContent = 'Already a member · media available.'; return; }
+          if (button.id === 'approvePreview') {
+            if (!p.pending.includes(n)) { status.textContent = 'No pending request for this person.'; return; }
+            p.pending = p.pending.filter(x => x !== n); p.removed = p.removed.filter(x => x !== n); p.members.push(n); renderCreated(); toast(`${n} approved · media access available`); return;
+          }
+          if (!p.removed.includes(n) && (p.people.includes(n) || p.circles.some(c => circles[c].includes(n)))) { p.members.push(n); renderCreated(); toast(`${n} joined · media access available`); }
+          else if (p.link || p.removed.includes(n)) { p.pending = [...new Set([...p.pending, n])]; status.textContent = 'Request pending · admin approval required; no media access yet.'; }
+          else status.textContent = 'Cannot join: no invitation, shared circle or active link.';
+        }
+      });
+      window.addEventListener('outthere:matched-member', e => {
+        if (!createdPlan || e.detail.planId !== `created-${createdPlan.id}`) return;
+        const { name, joined } = e.detail;
+        createdPlan.members = joined ? [...new Set([...createdPlan.members, name])] : createdPlan.members.filter(n => n !== name);
+        if (joined) createdPlan.removed = createdPlan.removed.filter(n => n !== name);
+        renderCreated();
+      });
+      document.querySelector('#sheet [data-go="s-newplan"]').addEventListener('click', () => { converting = false; plan = { name: '', when: '', place: '', people: [], circles: [] }; renderPlan(); });
+      setInterval(() => { if (cur === 's-ripple' && !ripple.closed && Date.now() >= ripple.closesAt) renderRipple(); }, 1000);
+      renderCreate(); renderRipple(); renderReply(); renderPlan();
+      window.outthereCreation = { slotBounds, deadline, validateSlots };
+    })();
+
+  </script>
+  <script>
+    /* Match data and enforcement are local preview state, not a live location service. */
+    (() => {
+      const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+      const time = value => new Date(value).toLocaleString(undefined, { weekday: 'short', day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit' });
+      const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate() + 1); tomorrow.setHours(17, 0, 0, 0);
+      const planNames = ['Badminton, then coffee', 'A slow Sunday walk', 'Board games & chai', 'An easy cycle ride', 'Sketching outdoors', 'Weekend pottery', 'A little book swap', 'Lunch and a catch-up'];
+      const plans = planNames.map((name, i) => ({ id: `public-${i}`, name, place: ['Cubbon Park, Gate 2', 'Ulsoor Lake entrance', 'Third Wave, Indiranagar'][i % 3], when: tomorrow.getTime() + i * 3600000, closes: tomorrow.getTime() + i * 3600000 - 30 * 60000, discoverable: true, limit: 5, radius: 2 }));
+      const candidates = ['Aarav', 'Mira', 'Kabir', 'Rina', 'Sara', 'Rohan', 'Maya', 'Dev', 'Aanya', 'Neha'];
+      let view = 'open', hostPlanId = plans[0].id, activeId = null;
+      let open = { active: true, until: tomorrow.getTime() + 4 * 3600000, limit: 5, radius: 2, area: 'Indiranagar', vibe: 'Badminton / chai' };
+      const matches = new Map();
+      const getPlan = id => plans.find(p => p.id === id);
+      function edge(planId, personIndex = 0) {
+        const id = `${planId}:${personIndex}`;
+        if (!matches.has(id)) matches.set(id, { id, planId, personIndex, userHello: false, hostHello: false, invitation: false, joined: false, ended: false, messages: [], expires: Math.min(open.until, getPlan(planId).closes, Date.now() + 24 * 3600000) });
+        return matches.get(id);
+      }
+      function live(m, now = Date.now()) { return !m.ended && open.active && getPlan(m.planId)?.discoverable && now < m.expires && now < open.until && now < getPlan(m.planId).closes; }
+      function connected(m) { return live(m) && (m.joined || (m.userHello && m.hostHello)); }
+      function status(m) {
+        if (!live(m)) return 'Connection closed';
+        if (m.joined) return 'Invite accepted';
+        if (m.invitation) return view === 'open' ? 'Invitation waiting for you' : 'Invitation sent';
+        if (connected(m)) return 'Mutual hello';
+        if (view === 'open' ? m.userHello : m.hostHello) return 'Hello sent';
+        if (view === 'open' ? m.hostHello : m.userHello) return 'Hello received';
+        return 'A possible overlap';
+      }
+      function permitted(m, action, actor = view, now = Date.now()) {
+        if (!live(m, now)) return false;
+        if (action === 'invite' || action === 'withdraw') return actor === 'host' && !m.joined && (action !== 'withdraw' || m.invitation);
+        if (action === 'accept' || action === 'decline') return actor === 'open' && m.invitation && !m.joined;
+        if (action === 'message') return connected(m);
+        if (action === 'hello') return !m.joined && !(actor === 'open' ? m.userHello : m.hostHello);
+        return action === 'end';
+      }
+      function act(m, action, actor = view, now = Date.now()) {
+        if (!permitted(m, action, actor, now)) return false;
+        if (action === 'hello') m[actor === 'open' ? 'userHello' : 'hostHello'] = true;
+        if (action === 'invite') m.invitation = true;
+        if (action === 'withdraw') m.invitation = false;
+        if (action === 'accept') {
+          m.joined = true; m.invitation = false;
+          window.dispatchEvent(new CustomEvent('outthere:matched-member', { detail: { planId: m.planId, name: candidates[m.personIndex], joined: true } }));
+        }
+        if (action === 'decline' || action === 'end') {
+          if (m.joined) window.dispatchEvent(new CustomEvent('outthere:matched-member', { detail: { planId: m.planId, name: candidates[m.personIndex], joined: false } }));
+          m.ended = true; m.joined = false; m.invitation = false; m.messages = [];
+        }
+        return true;
+      }
+      function visible(m) {
+        const p = getPlan(m.planId);
+        // Never render hidden details or messages into the recipient DOM before acceptance / mutual hello.
+        return { name: p.name, status: status(m), ...(live(m) && m.joined ? { when: p.when, place: p.place } : {}) };
+      }
+      function perspective() {
+        return `<details><summary>Preview another perspective</summary><label class="creation-field"><span>View as</span><select id="overlapPerspective"><option value="open" ${view === 'open' ? 'selected' : ''}>Person who went Open</option><option value="host" ${view === 'host' ? 'selected' : ''}>Plan creator</option></select></label>${view === 'host' ? `<label class="creation-field"><span>Your open plan</span><select id="overlapHostPlan">${plans.filter(p => p.discoverable).map(p => `<option value="${p.id}" ${p.id === hostPlanId ? 'selected' : ''}>${esc(p.name)}</option>`).join('')}</select></label>` : ''}</details>`;
+      }
+      function currentBatch() {
+        return view === 'open' ? plans.filter(p => p.discoverable).slice(0, open.limit).map(p => edge(p.id)) : Array.from({ length: getPlan(hostPlanId)?.limit || 5 }, (_, i) => edge(hostPlanId, i));
+      }
+      function renderOpen() {
+        $('#openBody').innerHTML = `<h1 class="title">Go Open</h1><label class="creation-field"><span>Available until</span><input type="datetime-local" id="openUntil" value="${localDate(open.until)}"></label><label class="creation-field"><span>Your area · used privately for matching</span><input type="text" id="openArea" value="${esc(open.area)}" maxlength="60"></label><label class="creation-field"><span>Up for</span><input type="text" id="openVibe" value="${esc(open.vibe)}" maxlength="100"></label><label class="creation-field"><span>Within</span><select id="openRadius">${[2, 5, 10].map(k => `<option value="${k}" ${k === open.radius ? 'selected' : ''}>${k} km</option>`).join('')}</select></label><label class="creation-field"><span>Keep matches small</span><select id="openLimit"><option value="5" ${open.limit === 5 ? 'selected' : ''}>Up to 5 plans</option><option value="10" ${open.limit === 10 ? 'selected' : ''}>Up to 10 plans</option></select></label><small>Your availability and location aren’t displayed to matches. You see plan names; details unlock after accepting an invitation.</small><div class="creation-error" role="alert"></div><button type="button" class="btn" id="goOpen">${open.active ? 'Save Open & see overlaps' : 'Go Open'}</button>${open.active ? '<button type="button" class="creation-action" id="endOpen">End this Open</button>' : ''}`;
+      }
+      function localDate(value) { const d = new Date(value); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}T${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`; }
+      function renderMatches() {
+        const batch = currentBatch().filter(m => live(m));
+        $('#overlapBody').innerHTML = `<h1 class="title">Overlaps</h1>${view === 'host' ? `<p class="sub">${esc(getPlan(hostPlanId)?.name || 'Your plan')}</p>` : ''}${perspective()}<div class="eb">${batch.length} possible ${view === 'open' ? 'plans' : 'connections'} · up to ${view === 'open' ? open.limit : getPlan(hostPlanId)?.limit || 5}</div>${[true, false].map(isChat => { const group = batch.filter(m => connected(m) === isChat); return group.length ? `<div class="eb">${isChat ? 'Chats' : 'Possible matches'} · ${group.length}</div>` + group.map(m => `<button type="button" class="overlap-card" data-overlap-id="${m.id}"><span>${view === 'open' ? esc(visible(m).name) : connected(m) ? esc(candidates[m.personIndex]) : `Match ${m.personIndex + 1}`}</span><small>${isChat ? 'Private hello · ' + remaining(m) : esc(status(m))}</small><span class="overlap-arrow" aria-hidden="true">›</span></button>`).join('') : ''; }).join('') || '<p class="small muted">No active overlaps. Your choices stay private.</p>'}<small>${view === 'open' ? 'Only plan names are shared here. No meeting places, times, profiles or exact distances.' : 'Location, availability and plan preferences help match privately. No map or public profile list.'}</small>${view === 'host' ? `<details><summary>Matching settings</summary><label class="creation-field"><span>Maximum matches for this plan</span><select id="hostMatchLimit"><option value="5" ${getPlan(hostPlanId).limit === 5 ? 'selected' : ''}>5 people</option><option value="10" ${getPlan(hostPlanId).limit === 10 ? 'selected' : ''}>10 people</option></select></label><label class="creation-field"><span>Match within</span><select id="hostMatchRadius">${[2, 5, 10].map(k => `<option value="${k}" ${k === getPlan(hostPlanId).radius ? 'selected' : ''}>${k} km</option>`).join('')}</select></label><button type="button" class="creation-action" id="stopPlanMatching">Stop matching this plan</button></details>` : '<button type="button" class="creation-action" data-go="s-open">Edit or end your Open</button>'}`;
+      }
+      function remaining(m) {
+        const minutes = Math.max(1, Math.ceil((Math.min(m.expires, open.until, getPlan(m.planId).closes) - Date.now()) / 60000));
+        return minutes >= 60 ? `Disappears in ${Math.floor(minutes / 60)}h ${minutes % 60}m` : `Disappears in ${minutes}m`;
+      }
+      function syncHelloChat() {
+        const m = matches.get(activeId), show = cur === 's-hello' && m && connected(m);
+        $('#helloChatHeader').classList.toggle('show', !!show);
+        $('#helloChatComposer').classList.toggle('show', !!show);
+        if (cur === 's-hello') $('#mainbar').classList.toggle('show', !show);
+        if (!show) { $('#overlapMessage').value = ''; $('#sendOverlapMessage').disabled = true; $('#s-hello').style.removeProperty('bottom'); }
+        else requestAnimationFrame(() => { $('#s-hello').style.bottom = $('#helloChatComposer').offsetHeight + 'px'; });
+      }
+      function renderChat(m) {
+        const p = getPlan(m.planId);
+        const person = view === 'host' ? candidates[m.personIndex] : 'Plan creator';
+        $('#s-hello').classList.add('hello-chat-mode');
+        $('#helloChatHeader').innerHTML = `<button type="button" class="circbtn" data-go="s-overlap" aria-label="Back to overlaps">${icon('back')}</button><div class="hello-chat-heading"><h1>${esc(person)}</h1><small id="helloExpiry">${remaining(m)}</small></div>${view === 'host' && !m.joined && !m.invitation ? '<button type="button" class="hello-chat-invite" data-match-action="invite">Invite</button>' : ''}<details class="hello-chat-options"><summary aria-label="Conversation options">•••</summary><div class="hello-chat-menu"><b>${esc(p.name)}</b><small>${view === 'host' || m.joined ? `${esc(time(p.when))}<br>${esc(p.place)}` : 'Time and place unlock after you accept an invitation.'}</small>${view === 'host' && m.invitation ? '<button type="button" class="creation-action" data-match-action="withdraw">Withdraw invitation</button>' : ''}${perspective()}<button type="button" class="creation-action" data-match-action="end">${m.joined ? view === 'host' ? 'Remove guest & unmatch' : 'Leave plan & unmatch' : 'Unmatch'}</button><small>This deletes the conversation for both sides.</small></div></details>`;
+        $('#helloBody').innerHTML = `<div class="hello-chat-note">${esc(p.name)}<br>Private hello · disappears when it ends</div>${m.invitation ? view === 'open' ? '<div class="overlap-invite"><b>You’re invited to the plan</b><small>Accept to join and reveal the time and meeting place.</small><button type="button" class="btn" data-match-action="accept">Accept invitation</button><button type="button" class="btn ghost" data-match-action="decline">Decline quietly</button></div>' : '<div class="hello-chat-note">Plan invitation sent · waiting for their reply</div>' : m.joined ? '<div class="hello-chat-note">Invitation accepted · plan details are in conversation options</div>' : ''}${m.messages.length ? '' : '<div class="hello-chat-empty"><b>You both said hello</b><small>Start with a little hello. Joining the plan is a separate choice.</small></div>'}<div id="overlapMessages" class="hello-chat-log" role="log" aria-label="Messages" aria-live="polite" aria-relevant="additions text">${m.messages.map(msg => `<div class="hello-chat-bubble${msg.actor === view ? ' me' : ''}" aria-label="${msg.actor === view ? 'You' : esc(person)}">${esc(msg.text)}${msg.at ? `<small class="bubble-time">${new Date(msg.at).toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' })}</small>` : ''}</div>`).join('')}</div>`;
+        $('#sendOverlapMessage').innerHTML = icon('send');
+        syncHelloChat();
+        if (cur === 's-hello') requestAnimationFrame(() => { const screen = $('#s-hello'); screen.scrollTop = screen.scrollHeight; });
+      }
+      function closeChatView() {
+        activeId = null;
+        $('#s-hello').classList.remove('hello-chat-mode');
+        $('#helloChatHeader').innerHTML = '';
+        $('#helloBody').innerHTML = '<h1 class="title">Hello</h1><p class="sub">Choose an active overlap to begin.</p><button class="btn ghost" data-go="s-overlap">See overlaps</button>';
+        syncHelloChat();
+        if (cur === 's-hello') { go('s-overlap'); toast('Connection closed · conversation removed'); }
+      }
+
+      function renderConnection() {
+        const m = matches.get(activeId);
+        if (!m || !live(m)) { if (m) { m.messages = []; m.invitation = false; } closeChatView(); return; }
+        if (connected(m)) { renderChat(m); return; }
+        $('#s-hello').classList.remove('hello-chat-mode');
+        $('#helloChatHeader').innerHTML = '';
+        syncHelloChat();
+        const p = getPlan(m.planId), v = visible(m), isLive = live(m), mutual = connected(m);
+        const ownHello = view === 'open' ? m.userHello : m.hostHello;
+        const otherHello = view === 'open' ? m.hostHello : m.userHello;
+        $('#helloBody').innerHTML = `<h1 class="title">${view === 'open' ? esc(p.name) : mutual ? esc(candidates[m.personIndex]) : `Match ${m.personIndex + 1}`}</h1><p class="sub">${esc(status(m))}</p>${perspective()}${!isLive ? '<p class="small muted">This connection is no longer available. No further hellos, invites or messages can be sent.</p><button type="button" class="btn ghost" data-go="s-overlap">Back to overlaps</button>' : `<small>Connection expires automatically. Either side can end it at any time.</small>${view === 'open' && !m.joined ? '<p class="small muted">The plan’s meeting place and time stay private until you accept its invitation.</p>' : ''}${view === 'host' ? `<div class="overlap-plan-detail"><b>Your plan</b><small>${esc(p.name)}<br>${esc(time(p.when))}<br>${esc(p.place)}</small></div>` : m.joined ? `<div class="overlap-plan-detail"><b>You joined this plan</b><small>${esc(time(v.when))}<br>${esc(v.place)}</small><small>Plan-member media access is now available.</small></div>` : ''}${!m.joined ? ownHello ? `<p class="small muted">${mutual ? 'You both said hello.' : 'Your hello is waiting. No free-text messages yet.'}</p>` : `<button type="button" class="btn ${m.invitation && view === 'open' ? 'ghost' : ''}" data-match-action="hello">${otherHello ? 'Say hello back' : 'Send hello'}</button>` : ''}${view === 'host' && !m.joined ? m.invitation ? '<p class="small muted">Invitation pending. The person chooses whether to join.</p><button type="button" class="creation-action" data-match-action="withdraw">Withdraw invitation</button>' : '<button type="button" class="btn" data-match-action="invite">Send plan invitation</button>' : ''}${view === 'open' && m.invitation ? '<div class="overlap-invite"><b>You’re invited</b><small>Accept to join and reveal the time and meeting place. You can leave the plan later.</small><button type="button" class="btn" data-match-action="accept">Accept invitation</button><button type="button" class="btn ghost" data-match-action="decline">Decline quietly</button></div>' : ''}${mutual ? `<div class="eb">Private hello</div><small>${m.joined ? 'Invitation accepted by both sides.' : 'Mutual hello · you can talk, but you haven’t joined the plan.'}</small><div id="overlapMessages">${m.messages.map(msg => `<div class="overlap-message"><small>${msg.actor === view ? 'You' : view === 'open' ? 'Plan creator' : esc(candidates[m.personIndex])}</small>${esc(msg.text)}</div>`).join('')}</div><label class="creation-field"><span>Message</span><input type="text" id="overlapMessage" maxlength="240" autocomplete="off" placeholder="Say hello…"></label><button type="button" class="creation-action" id="sendOverlapMessage">Send message</button>` : '<small>No chat until there is mutual interest. You can pass without explaining.</small>'}<button type="button" class="creation-action overlap-end" data-match-action="end">${m.joined ? view === 'open' ? 'Leave plan & end connection' : 'Remove guest & end connection' : 'End connection quietly'}</button><small>Closing is final for this overlap. No read receipts or rejection reason is shared.</small>`}`;
+      }
+      function renderAll() { renderMatches(); renderConnection(); }
+      function changePerspective(value) {
+        view = value;
+        if (activeId && view === 'host') hostPlanId = matches.get(activeId).planId;
+        renderAll();
+      }
+      $('#openBody').addEventListener('click', e => {
+        if (e.target.id === 'goOpen') {
+          const until = new Date($('#openUntil').value).getTime();
+          if (!Number.isFinite(until) || until <= Date.now() || !$('#openArea').value.trim()) { $('#openBody [role=alert]').textContent = 'Choose a future closing time and your area.'; return; }
+          const restarting = !open.active;
+          open = { active: true, until, area: $('#openArea').value.trim(), vibe: $('#openVibe').value.trim(), radius: Number($('#openRadius').value), limit: Number($('#openLimit').value) };
+          if (restarting) matches.clear();
+          previouslyLive = true;
+          matches.forEach(m => m.expires = Math.min(m.expires, until));
+          view = 'open'; renderOpen(); renderAll(); go('s-overlap');
+        }
+        if (e.target.id === 'endOpen') { open.active = false; matches.forEach(m => { m.ended = true; m.invitation = false; m.messages = []; }); renderOpen(); renderAll(); go('s-overlap'); toast('Open ended'); }
+      });
+      for (const id of ['overlapBody', 'helloBody', 'helloChatHeader']) {
+        $(`#${id}`).addEventListener('change', e => {
+          if (e.target.id === 'overlapPerspective') changePerspective(e.target.value);
+          if (e.target.id === 'overlapHostPlan') { hostPlanId = e.target.value; if (id !== 'overlapBody') { activeId = edge(hostPlanId).id; } renderAll(); }
+          if (e.target.id === 'hostMatchLimit') { getPlan(hostPlanId).limit = Number(e.target.value); renderMatches(); }
+          if (e.target.id === 'hostMatchRadius') getPlan(hostPlanId).radius = Number(e.target.value);
+        });
+      }
+      $('#overlapBody').addEventListener('click', e => {
+        const button = e.target.closest('button'); if (!button) return;
+        if (button.dataset.overlapId) { activeId = button.dataset.overlapId; renderConnection(); go('s-hello'); }
+        if (button.id === 'stopPlanMatching') { getPlan(hostPlanId).discoverable = false; matches.forEach(m => { if (m.planId === hostPlanId) { m.ended = true; m.invitation = false; m.messages = []; } }); hostPlanId = plans.find(p => p.discoverable)?.id || plans[0].id; renderAll(); }
+      });
+      function handleHelloAction(e) {
+        const button = e.target.closest('button'); if (!button) return;
+        const m = matches.get(activeId); if (!m) return;
+        if (button.dataset.matchAction) { if (!act(m, button.dataset.matchAction)) toast('This action is no longer available'); renderAll(); }
+      }
+      $('#helloBody').addEventListener('click', handleHelloAction);
+      $('#helloChatHeader').addEventListener('click', handleHelloAction);
+      function sendHelloMessage() {
+        const m = matches.get(activeId), input = $('#overlapMessage');
+        if (!m || !permitted(m, 'message')) { renderAll(); return; }
+        const text = input.value.trim();
+        if (text) {
+          m.messages.push({ actor: view, text: text.slice(0, 240), at: Date.now() });
+          input.value = ''; input.style.height = '44px'; $('#sendOverlapMessage').disabled = true;
+          renderConnection(); input.focus();
+        }
+      }
+      $('#sendOverlapMessage').addEventListener('click', sendHelloMessage);
+      $('#overlapMessage').addEventListener('input', e => {
+        $('#sendOverlapMessage').disabled = !e.target.value.trim();
+        e.target.style.height = '44px';
+        e.target.style.height = Math.min(100, e.target.scrollHeight) + 'px';
+        $('#s-hello').style.bottom = $('#helloChatComposer').offsetHeight + 'px';
+      });
+      $('#overlapMessage').addEventListener('keydown', e => {
+        if (e.key === 'Enter' && !e.shiftKey && !e.isComposing) { e.preventDefault(); sendHelloMessage(); }
+      });
+      window.syncHelloChat = syncHelloChat;
+      window.addEventListener('outthere:plan-matching', e => {
+        const source = e.detail, id = `created-${source.id}`;
+        let p = getPlan(id);
+        if (!p) { p = { id }; plans.unshift(p); }
+        Object.assign(p, { name: source.name, when: new Date(source.when).getTime(), place: source.place, closes: new Date(source.when).getTime() - 30 * 60000, discoverable: source.discoverable, limit: source.matchLimit || 5, radius: 2 });
+        if (!p.discoverable) matches.forEach(m => { if (m.planId === id) { m.ended = true; m.invitation = false; m.messages = []; } });
+        hostPlanId = id;
+        renderAll();
+      });
+      window.addEventListener('outthere:member-removed', e => {
+        matches.forEach(m => { if (m.planId === e.detail.planId && candidates[m.personIndex] === e.detail.name) { m.ended = true; m.joined = false; m.invitation = false; m.messages = []; } });
+        renderAll();
+      });
+      window.addEventListener('outthere:show-plan-matches', () => { view = 'host'; activeId = null; renderAll(); go('s-overlap'); });
+      let previouslyLive = true;
+      setInterval(() => {
+        const active = matches.get(activeId);
+        if (active && live(active) && $('#helloExpiry')) $('#helloExpiry').textContent = remaining(active);
+        const expired = [...matches.values()].some(m => !m.ended && !live(m));
+        if (expired) { matches.forEach(m => { if (!live(m)) { m.ended = true; m.invitation = false; m.messages = []; } }); renderAll(); }
+        if (open.active && Date.now() >= open.until && previouslyLive) { previouslyLive = false; open.active = false; renderOpen(); renderAll(); }
+      }, 1000);
+      renderOpen(); renderAll();
+      window.outthereOverlaps = { matches, plans, edge, live, connected, permitted, act, visible, getOpen: () => open, renderAll };
+    })();
+
   </script>
 </body>
 
