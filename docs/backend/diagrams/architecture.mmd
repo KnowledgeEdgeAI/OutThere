@@ -1,0 +1,6 @@
+flowchart LR
+  app["App: local history and pending actions"] <-->|"HTTPS sessions and WSS app traffic"| backend["Backend: access, product rules and delivery"]
+  backend <-->|"Read and commit"| database["Relational database: records, changes and jobs"]
+  database -->|"Durable jobs"| worker["Worker: delayed tasks and retries"]
+  worker -.->|"Same product rules"| backend
+  app -->|"Authorized HTTPS transfers"| objects["Object storage: media and update bundles"]

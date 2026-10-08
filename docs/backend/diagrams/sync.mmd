@@ -1,0 +1,14 @@
+sequenceDiagram
+  participant sender as Sender local store
+  participant backend as Backend
+  participant database as Relational database
+  participant recipient as Recipient local store
+  sender->>sender: Save pending message and action ID
+  sender->>backend: WSS command
+  backend->>database: Check access and commit message, receipt, changes and jobs
+  database-->>backend: Committed
+  backend-->>sender: Saved acknowledgement
+  backend-->>recipient: WSS authorized change
+  recipient->>recipient: Save message and cursor locally
+  recipient->>backend: After reconnect, sync from saved cursor
+  backend-->>recipient: Missing authorized changes or fresh snapshot

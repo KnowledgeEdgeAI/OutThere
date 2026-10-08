@@ -1,0 +1,6 @@
+{
+  "searchableAttributes": ["name", "city", "tags"],
+  "filterableAttributes": ["_geo", "city", "tags"],
+  "sortableAttributes": ["_geo"],
+  "displayedAttributes": ["id", "name", "city", "tags", "_geo"]
+}

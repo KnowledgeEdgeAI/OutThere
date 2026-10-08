@@ -4,6 +4,8 @@
 The single source of truth for what we're building. Everything lives here;
 decisions get recorded, not debated twice.
 
+**Development:** [Run the Python backend](backend/README.md) · [Backend design](docs/backend/index.html) · [UI prototype](index.html) · [Android & iPhone UI client](mobile/README.md)
+
 ---
 
 ## 1. Principles

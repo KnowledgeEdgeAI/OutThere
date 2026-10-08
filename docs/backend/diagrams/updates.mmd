@@ -1,0 +1,8 @@
+flowchart LR
+  bundle["Signed compatible update"] --> store["Object storage and HTTPS manifest"]
+  store --> test["Test release"]
+  test --> rollout["Gradual OTA rollout"]
+  rollout --> healthy{"Healthy?"}
+  healthy -->|"Yes"| continueRelease["Continue rollout"]
+  healthy -->|"No"| rollback["Previous compatible bundle"]
+  native["Native runtime change"] --> storeRelease["App store release"]

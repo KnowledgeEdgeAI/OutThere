@@ -3382,6 +3382,75 @@
         color: var(--text);
       }
     }
+
+    /* Linked place + arrival-time route builder. */
+    .route-heading {min-height:32px;display:flex;align-items:center;justify-content:space-between;margin:25px 0 12px}
+    .route-heading h2 {font-size:18px;font-weight:500;margin:0;letter-spacing:-.5px}
+    .route-tag {font-size:10px;color:var(--accent);background:rgba(var(--wash-rgb),.2);padding:6px 9px;border-radius:20px}
+    .route-map {position:relative;overflow:hidden;border-radius:20px;border:1px solid var(--line);background:#e8eae0;color:#4d655a}
+    .route-map svg {display:block;width:100%;height:155px}
+    .route-map-footer {position:relative;padding:8px 12px;display:flex;justify-content:space-between;align-items:center;font-size:10px;color:#40544b}
+    .route-map-footer span {background:#fffffff0;padding:6px 9px;border-radius:8px}
+    .route-map-footer button {border:0;background:#fff;padding:6px 10px;border-radius:8px;font-size:10px;color:#40544b;cursor:pointer}
+    .route-stop {position:relative;display:block;margin:0}
+    .route-stop.route-single {display:block}
+    .route-number {width:26px;height:26px;border-radius:50%;background:var(--accent);color:var(--phbg);display:grid;place-items:center;font-size:11px;margin-top:17px;z-index:1}
+    .route-stop-card {background:none;border:0;border-radius:0;overflow:hidden;border-bottom:1px solid var(--line);padding:2px 0 10px}
+    .route-place {position:relative;display:flex;align-items:center;gap:12px;padding:14px 0 10px;width:100%;background:none;border:0;text-align:left;cursor:pointer}
+    .route-place::after {content:'';position:absolute;left:9px;top:calc(50% + 13px);bottom:-10px;width:1px;background:var(--mut);opacity:.4;pointer-events:none}
+    .route-place>span {flex:1;min-width:0}
+    .route-place b {display:block;font-size:15px;font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .route-place.route-empty b {color:var(--mut)}
+    .route-place small {font-size:11px;line-height:1.6;margin:4px 0 0}
+    .route-field-icon {width:19px;height:19px;flex:none;color:var(--mut);stroke-width:1.5}
+    .route-stop-bottom {display:flex;align-items:center;gap:8px}
+    .route-time {display:flex;align-items:center;gap:12px;background:none;border:0;border-radius:0;font-size:14px;padding:10px 0;cursor:pointer;color:var(--text);text-align:left;min-height:44px}
+    .route-time.route-empty {color:var(--mut)}
+    .route-remove {margin-left:auto;border:0;background:none;color:var(--mut);cursor:pointer;font-size:11px;padding:8px}
+    .route-stop:last-child .route-stop-card {border-bottom:0}
+    .route-add {width:100%;height:44px;display:flex;align-items:center;gap:12px;padding:0;margin:0;border:0;background:none;border-radius:0;color:var(--accent);cursor:pointer}
+    .route-add::before,.route-add::after {content:'';height:1px;flex:1;background:var(--line)}
+    .route-add-symbol {width:20px;height:20px;display:grid;place-items:center;background:none;flex:none}
+    .route-add:hover {color:var(--text)}
+    .route-add svg {width:17px;height:17px}
+    .route-map-preview {margin:18px 0 22px}
+    .route-note {font-size:11px!important;line-height:1.6;margin:10px 0 16px!important}
+    .route-sheet-backdrop {position:absolute;inset:0;z-index:70;background:#10171488;display:flex;align-items:flex-end;backdrop-filter:blur(3px)}
+    .route-sheet {width:100%;max-height:88%;overflow:auto;background:var(--phbg);border:1px solid var(--line);border-radius:28px 28px 0 0;padding:10px 22px 30px;scrollbar-width:none}
+    .route-handle {width:35px;height:4px;border-radius:5px;background:var(--line);margin:0 auto 17px}
+    .route-sheet-head {display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+    .route-sheet h2 {font-size:24px;font-weight:500;letter-spacing:-.8px;margin:0}
+    .route-close {width:30px;height:30px;border:1px solid var(--line);border-radius:50%;background:none;cursor:pointer;font-size:18px}
+    .route-sheet small {display:block;color:var(--mut);font-size:11px;line-height:1.6}
+    .route-search {display:flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:13px;padding:13px;margin:18px 0 14px;background:var(--surf)}
+    .route-search input {width:100%;min-width:0;border:0;background:none;color:var(--text);font:inherit;font-size:13px;outline:none}
+    .route-result {display:flex;gap:12px;width:100%;border:0;border-bottom:1px solid var(--line);background:none;text-align:left;padding:13px 0;cursor:pointer;align-items:center}
+    .route-result .place-symbol {width:35px;height:35px;border-radius:11px;display:grid;place-items:center;background:rgba(var(--wash-rgb),.18);color:var(--accent)}
+    .route-result b {font-size:13px;font-weight:500}
+    .route-result small {font-size:10px}
+    .route-pin-toggle {display:flex;justify-content:space-between;align-items:center;margin:17px 0;width:100%;border:0;background:none;color:var(--accent);font-size:12px;cursor:pointer;padding:0}
+    .route-pin-map svg {height:220px;cursor:crosshair;touch-action:none}
+    .route-pin-map .route-map-footer {pointer-events:none}
+    .route-day-chips {display:flex;gap:8px;margin:18px 0 12px}
+    .route-day-chips button {flex:1;background:none;border:1px solid var(--line);border-radius:13px;padding:11px 6px;cursor:pointer;font-size:12px}
+    .route-day-chips button small {font-size:10px;margin-top:3px}
+    .route-day-chips button[aria-pressed=true],.route-time-chips button[aria-pressed=true] {background:rgba(var(--wash-rgb),.22);border-color:var(--accent);color:var(--accent)}
+    .route-date-row {display:flex;align-items:center;justify-content:space-between;margin:16px 0;font-size:12px}
+    .route-date-row input {color:var(--text);background:var(--surf);border:1px solid var(--line);border-radius:9px;padding:9px;font:inherit;color-scheme:light dark;max-width:175px}
+    .route-clock {background:rgba(var(--wash-rgb),.12);border:1px solid var(--line);border-radius:18px;padding:22px;text-align:center;margin:18px 0}
+    .route-clock label {display:block;font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px}
+    .route-clock input {font:inherit;font-size:36px;letter-spacing:-1px;border:0;color:var(--text);background:none;max-width:100%;color-scheme:light dark}
+    .route-time-chips {display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0 18px}
+    .route-time-chips button {border:1px solid var(--line);background:none;border-radius:10px;padding:10px 3px;font-size:12px;cursor:pointer}
+    .route-sheet .creation-error {font-size:12px;min-height:18px}
+    .route-created-list {margin:15px 0 25px}
+    .route-created-list div {display:flex;align-items:center;gap:12px;padding:10px 0;font-size:12px}
+    .route-created-list .route-number {margin:0;flex:none}
+    html.dark .route-map {background:#273c34}
+    html.dark .route-map svg>rect {fill:#293e36}
+    html.dark .route-map .map-block {fill:#344b3e}
+    html.dark .route-map .map-street {stroke:#506157}
+    html.dark .route-map .map-label {fill:#9fb2a3}
   </style>
 </head>
 
@@ -3627,8 +3696,7 @@
 
           <section class="screen creation-flow" id="s-newplan" data-tab="main" data-tabnav="new"
             data-cap="<b>New plan.</b> Explicit details, individual invitations and optional circle discovery. Media stays with plan members.">
-            <div class="backbar"><button class="circbtn" data-go="s-tonight" aria-label="Cancel plan">‹</button><span
-                class="eb" style="margin:0">New plan</span></div>
+            <div class="backbar"><button class="circbtn" data-go="s-tonight" aria-label="Cancel plan">‹</button></div>
             <div class="pad" id="planCreateBody"></div>
           </section>
           <section class="screen creation-flow" id="s-newripple" data-tab="main" data-tabnav="new"
@@ -4687,7 +4755,7 @@
       fb.style.width = 390 * s + "px"; fb.style.height = height * s + "px";
     }
     addEventListener("resize", fit); fit();
-    go(location.hash === "#welcome" ? "s-welcome" : "s-tonight");
+    go(location.hash === "#welcome" ? "s-welcome" : location.hash === "#newplan" ? "s-newplan" : "s-tonight");
   </script>
   <script>
     /* Local interaction prototype: invites, sharing and access require server enforcement in the app. */
@@ -4772,13 +4840,100 @@
         if (!list.includes(replyPerson)) replyPerson = list[0];
         $('#rippleReplyBody').innerHTML = `<h1 class="title">Reply to ripple</h1><label class="creation-field"><span>Preview as</span><select id="rippleReplyPerson">${list.map(n => `<option ${n === replyPerson ? 'selected' : ''}>${n}</option>`).join('')}</select></label><h2 style="font-size:22px;font-weight:500">${esc(ripple.ask)}</h2><div class="reply-choices">${['Up for it', 'Another time', 'Can’t make it'].map(c => `<button type="button" data-reply-choice="${c}" aria-pressed="${replyChoice === c}">${c}</button>`).join('')}</div>${replyChoice === 'Up for it' ? `<div class="eb">Which times work? · select any</div>${ripple.slots.map(slot => check('replySlots', slot.id, replySlots.includes(slot.id), slotLabel(slot)).replace(`<span>${slot.id}`, '<span>Available')).join('')}<small>Leave times unselected if you’re flexible.</small>` : ''}${field('replyNote', replyChoice === 'Another time' ? 'Suggest another date / time · optional' : 'A short note · optional', ripple.replies[replyPerson]?.note || '')}<small>Interest isn’t a commitment. You can change your reply until ${pretty(ripple.closesAt)}.</small><div role="alert" class="creation-error"></div><button type="button" class="btn" id="saveRippleReply">Save reply</button>`;
       }
-      function renderPlan() {
-        $('#planCreateBody').innerHTML = `<h1 class="title">${converting ? 'Make it a plan' : 'New plan'}</h1>${converting ? '<p class="sub">Confirm the details. Interest isn’t an RSVP.</p>' : ''}${field('name', 'Plan name', plan.name)}${field('when', 'Date & time', plan.when, 'datetime-local')}${field('place', 'Meeting place', plan.place)}${converting ? '<small>Times are suggestions until you confirm this plan.</small>' : ''}${picker(plan, 'people', 'Invite people')}${converting ? audience(ripple).filter(n => ripple.replies[n]?.choice === 'Up for it').map(n => `<small>${esc(n)}: ${esc(ripple.slots.filter(slot => ripple.replies[n].slots.includes(slot.id)).map(slotLabel).join(' / ') || 'Flexible')}</small>`).join('') : ''}${picker(plan, 'circles', 'Share with circles', true)}<small id="planAccessHint">${plan.circles.length ? 'Uninvited circle members can still see and join. Media is only for plan members.' : plan.people.length ? 'Visible to you and invitees. Media is only for plan members.' : 'Just you for now. Invite people or enable a link later.'}</small><div role="alert" class="creation-error"></div><button type="button" class="btn" id="sendPlan">Create plan →</button>`;
+
+      const demoPlaces = [
+        {name:'Third Wave Coffee', address:'100 Feet Road, Indiranagar', x:82,y:145, symbol:'☕'},
+        {name:'Indiranagar Metro', address:'CMH Road, Indiranagar',x:172,y:67,symbol:'↗'},
+        {name:'Toit', address:'100 Feet Road, Indiranagar',x:253,y:107,symbol:'◈'},
+        {name:'Defence Colony Park',address:'Defence Colony, Indiranagar',x:224,y:183,symbol:'♧'},
+        {name:'Blue Tokai Coffee',address:'12th Main, Indiranagar',x:121,y:198,symbol:'☕'},
+        {name:'Bangalore Badminton Academy',address:'HAL 2nd Stage, Bengaluru',x:291,y:211,symbol:'⌁'}
+      ];
+      let routeSheet = null;
+      function ensureStops() {
+        if (!plan.stops) plan.stops = [{id:crypto.randomUUID(), place:plan.place || '', address:'', when:plan.when || '',x:null,y:null}];
       }
+      function syncRoute() { plan.place = plan.stops[0]?.place || ''; plan.when = plan.stops[0]?.when || ''; }
+      const shortTime = value => new Date(value).toLocaleTimeString(undefined,{hour:'numeric',minute:'2-digit'});
+      function routeMap(stops, pinMode = false, example = true) {
+        const points = stops.filter(s => Number.isFinite(s.x) && Number.isFinite(s.y));
+        return `<div class="route-map${pinMode ? ' route-pin-map' : ''}"><svg viewBox="0 0 342 260" preserveAspectRatio="none" role="img" aria-label="Illustrative Indiranagar map${pinMode ? ', tap to place a pin' : stops.length > 1 ? ' with numbered stops' : ' with a place pin'}"><rect width="342" height="260" fill="#e8eae0"/><g class="map-block" fill="#d9e2d1"><rect x="15" y="14" width="55" height="45" rx="9"/><rect x="95" y="13" width="55" height="45" rx="8"/><rect x="188" y="12" width="100" height="37" rx="7"/><rect x="18" y="92" width="43" height="47" rx="8"/><rect x="99" y="95" width="47" height="55" rx="8"/><rect x="192" y="96" width="38" height="44" rx="8"/><rect x="278" y="71" width="55" height="61" rx="8"/><rect x="190" y="167" width="60" height="50" rx="12" fill="#bfd2ae"/><rect x="18" y="181" width="46" height="52" rx="8"/><rect x="99" y="181" width="49" height="51" rx="8"/></g><g class="map-street" fill="none" stroke="#fffdf5" stroke-width="12"><path d="M80 0V260M170 0V260M260 0V260M0 78H342M0 160H342M0 241H342"/></g><g class="map-label" fill="#7d8b7b" font-family="sans-serif" font-size="8" letter-spacing="1"><text x="103" y="37">INDIRANAGAR</text><text x="101" y="76">CMH ROAD</text><text x="12" y="158">12TH MAIN</text><text x="199" y="188">DEFENCE</text><text x="199" y="201">COLONY</text></g>${points.length > 1 ? `<polyline points="${points.map(p=>`${p.x},${p.y}`).join(' ')}" fill="none" stroke="#bb7152" stroke-width="3" stroke-dasharray="5 4" stroke-linejoin="round"/>` : ''}${stops.map((p,i)=>Number.isFinite(p.x)&&Number.isFinite(p.y)?`<g class="map-pin"><circle cx="${p.x}" cy="${p.y}" r="16" fill="#bb7152" opacity=".15"/><circle cx="${p.x}" cy="${p.y}" r="11" fill="#ad644a" stroke="#fff" stroke-width="2"/><text x="${p.x}" y="${p.y+3.5}" text-anchor="middle" fill="white" font-size="10" font-family="sans-serif">${pinMode || stops.length === 1 ? '•' : i+1}</text></g>`:'').join('')}</svg><div class="route-map-footer"><span>${pinMode ? 'Tap anywhere to drop a pin' : points.length ? `${points.length===1?'Meeting place':`${points.length} places · route preview`}` : 'Your places will appear here'}</span>${pinMode || !example?'':'<button type="button" id="routeExample">Try an example ↗</button>'}</div></div>`;
+      }
+      const routeIcon = kind => `<svg class="route-field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${kind === 'pin' ? '<path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.5"/>' : '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'}</svg>`;
+      function routeMarkup(stops, editable=true) {
+        const multiple = stops.length > 1;
+        if (!editable) return `${routeMap(stops,false,false)}<div class="route-created-list">${stops.map((stop,i)=>`<div>${routeIcon('pin')}<span>${esc(stop.place)}<small>${esc(pretty(stop.when))}</small></span></div>`).join('')}</div>`;
+        return `<div class="route-heading"><h2>When & where</h2></div><div>${stops.map((stop,i)=>`<div class="route-stop${multiple ? '' : ' route-single'}"><div class="route-stop-card"><button type="button" class="route-place${stop.place ? '' : ' route-empty'}" data-place-stop="${i}">${routeIcon('pin')}<span><b>${esc(stop.place || 'Search a place or drop a pin')}</b>${stop.address ? `<small>${esc(stop.address)}</small>` : ''}</span></button><div class="route-stop-bottom"><button type="button" class="route-time${stop.when ? '' : ' route-empty'}" data-time-stop="${i}">${routeIcon('clock')}<span>${stop.when ? esc(new Date(stop.when).toLocaleDateString(undefined,{month:'short',day:'numeric'})+' · '+shortTime(stop.when)) : 'Choose date & time'}</span></button>${multiple ? `<button type="button" class="route-remove" data-remove-stop="${i}" aria-label="Remove stop ${i+1}">Remove</button>` : ''}</div></div></div>`).join('')}</div><button type="button" class="route-add" id="addRouteStop" aria-label="Add another stop" title="Add another stop"><span class="route-add-symbol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="route-map-preview">${routeMap(stops,false,false)}</div>`;
+      }
+      function renderPlan() {
+        ensureStops(); syncRoute();
+        $('#planCreateBody').innerHTML = `<h1 class="title">${converting ? 'Make it a plan' : 'New plan'}</h1>${field('name', 'Plan name', plan.name).replace('maxlength="120"','maxlength="120" placeholder="e.g. Coffee & a little exploring"')}${routeMarkup(plan.stops)}${picker(plan, 'people', 'Invite people')}${converting ? '<small>Interest isn’t an RSVP. Confirm your stops before inviting people.</small>' : ''}${picker(plan, 'circles', 'Share with circles', true)}<small id="planAccessHint">${plan.circles.length ? 'Uninvited circle members can still see and join. Media is only for plan members.' : plan.people.length ? 'Visible to you and invitees. Media is only for plan members.' : 'Just you for now. Invite people or enable a link later.'}</small><div role="alert" class="creation-error"></div><button type="button" class="btn" id="sendPlan">Create plan →</button>`;
+      }
+      function closeRouteSheet() { if(!routeSheet)return;const target=routeSheet.returnFocus;routeSheet.el.remove();routeSheet=null;target?.focus(); }
+      function openRouteSheet(kind, index, returnFocus) {
+        closeRouteSheet();
+        const stop=plan.stops[index];
+        const el=document.createElement('div');el.className='route-sheet-backdrop';
+        routeSheet={kind,index,el,returnFocus,selected:stop.place?{name:stop.place,address:stop.address,x:stop.x,y:stop.y}:null,when:stop.when || (index && plan.stops[index-1].when ? datetimeValue(new Date(new Date(plan.stops[index-1].when).getTime()+60*60000)) : `${tomorrow()}T17:00`)};
+        $('#phone').append(el);
+        if(kind==='place') {
+          el.innerHTML=`<section class="route-sheet" role="dialog" aria-modal="true" aria-labelledby="routeSheetTitle"><div class="route-handle"></div><div class="route-sheet-head"><h2 id="routeSheetTitle">Find your ${index?'next stop':'place'}</h2><button class="route-close" aria-label="Close picker">×</button></div><small>${plan.stops.length > 1 ? `Stop ${index+1} · ` : ''}Bengaluru</small><label class="route-search">⌕ <input id="routeSearch" placeholder="Search places, cafés, parks…" autocomplete="off" aria-label="Search sample places" aria-controls="routeResults"></label><small>Sample places · Indiranagar</small><div id="routeResults"></div><button class="route-pin-toggle" id="showPinMap">⌖ Drop a pin instead <span>↗</span></button><div id="routePinArea" hidden>${routeMap(routeSheet.selected?[{...routeSheet.selected}]:[],true)}<label class="creation-field"><span>Pin name</span><input id="routePinName" maxlength="120" value="Pinned place" placeholder="e.g. Meet at the park gate"></label></div><small id="routePlaceSelected" aria-live="polite"></small><div class="creation-error" role="alert"></div><button type="button" class="btn" id="saveRoutePlace" disabled>Use this place →</button><small style="text-align:center;margin-top:10px">Illustrative map · sample search results</small></section>`;
+          renderPlaceResults('');
+          el.querySelector('#routeSearch').addEventListener('input',e=>renderPlaceResults(e.target.value));
+          el.querySelector('.route-pin-map svg').addEventListener('click',e=>{
+            const svg=e.currentTarget;const pt=svg.createSVGPoint();pt.x=e.clientX;pt.y=e.clientY;const pos=pt.matrixTransform(svg.getScreenCTM().inverse());
+            selectRoutePlace({name:el.querySelector('#routePinName').value.trim()||'Pinned place',address:'Custom pin · Indiranagar demo map',x:Math.max(12,Math.min(330,pos.x)),y:Math.max(12,Math.min(248,pos.y))});
+            const map=el.querySelector('.route-pin-map');map.querySelectorAll('.map-pin, g[data-custom-pin]').forEach(n=>n.remove());
+            const g=document.createElementNS('http://www.w3.org/2000/svg','g');g.dataset.customPin='true';g.innerHTML=`<circle cx="${routeSheet.selected.x}" cy="${routeSheet.selected.y}" r="11" fill="#ad644a" stroke="white" stroke-width="2"/>`;svg.append(g);
+          });
+          el.querySelector('#routePinName').addEventListener('input',e=>{if(routeSheet.selected?.address.startsWith('Custom pin'))selectRoutePlace({...routeSheet.selected,name:e.target.value.trim()||'Pinned place'});});
+        } else renderRouteTime();
+        el.addEventListener('click',handleRouteSheet);
+        el.addEventListener('keydown',e=>{
+          if(e.key==='Escape')closeRouteSheet();
+          if(e.key==='Tab'){const focusable=[...el.querySelectorAll('button:not([disabled]),input')].filter(n=>n.getClientRects().length);const first=focusable[0],last=focusable.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}
+        });
+        el.querySelector(kind==='place'?'#routeSearch':'.route-close').focus();
+      }
+      function renderPlaceResults(query) {
+        const results=demoPlaces.filter(p=>`${p.name} ${p.address}`.toLowerCase().includes(query.toLowerCase().trim()));
+        $('#routeResults').innerHTML=results.length?results.map(p=>`<button type="button" class="route-result" data-demo-place="${demoPlaces.indexOf(p)}"><span class="place-symbol">${p.symbol}</span><span><b>${esc(p.name)}</b><small>${esc(p.address)}</small></span></button>`).join(''):'<p class="small muted">No sample places found. Try “coffee” or drop a pin.</p>';
+      }
+      function selectRoutePlace(place) {routeSheet.selected=place;$('#routePlaceSelected').textContent=`Selected: ${place.name}`;$('#saveRoutePlace').disabled=false;}
+      function renderRouteTime() {
+        const r=routeSheet;const selectedDate=r.when.split('T')[0];
+        r.el.innerHTML=`<section class="route-sheet" role="dialog" aria-modal="true" aria-labelledby="routeSheetTitle"><div class="route-handle"></div><div class="route-sheet-head"><h2 id="routeSheetTitle">When to arrive?</h2><button class="route-close" aria-label="Close picker">×</button></div><small>${plan.stops.length > 1 ? `Stop ${r.index+1} · ` : ''}${esc(plan.stops[r.index].place || 'Your meeting place')}</small><div class="route-day-chips">${[0,1,2].map((offset)=>{const d=new Date();d.setDate(d.getDate()+offset);const date=dateValue(d);return `<button type="button" data-route-day="${date}" aria-pressed="${selectedDate===date}">${['Today','Tomorrow',d.toLocaleDateString(undefined,{weekday:'short'})][offset]}<small>${d.toLocaleDateString(undefined,{month:'short',day:'numeric'})}</small></button>`;}).join('')}</div><label class="route-date-row">Another date<input type="date" id="routeDate" min="${dateValue(new Date())}" value="${selectedDate}"></label><div class="route-clock"><label for="routeTime">Arrival time</label><input id="routeTime" type="time" value="${r.when.split('T')[1]}"></div><small>${r.index && plan.stops[r.index-1].when?`After stop ${r.index}: ${esc(pretty(plan.stops[r.index-1].when))}`:'Pick a time, or type your own.'}</small><div class="route-time-chips">${['16:00','17:00','17:30','18:00','18:30','19:00'].map(t=>`<button type="button" data-route-clock="${t}" aria-pressed="${r.when.endsWith(t)}">${shortTime(`${selectedDate}T${t}`)}</button>`).join('')}</div><small>Times follow this device’s time zone.</small><div class="creation-error" role="alert"></div><button type="button" class="btn" id="saveRouteTime">Set arrival time →</button></section>`;
+        r.el.querySelector('#routeDate').addEventListener('change',()=>{r.when=`${$('#routeDate').value}T${$('#routeTime').value}`;r.el.querySelectorAll('[data-route-day]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.routeDay===$('#routeDate').value));});
+        r.el.querySelector('#routeTime').addEventListener('input',()=>r.el.querySelectorAll('[data-route-clock]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.routeClock===$('#routeTime').value)));
+      }
+      function handleRouteSheet(e) {
+        const b=e.target.closest('button');const r=routeSheet;if(!r)return;
+        if(e.target===r.el || b?.classList.contains('route-close')){closeRouteSheet();return;}
+        if(!b)return;
+        if(b.dataset.demoPlace!==undefined)selectRoutePlace(demoPlaces[Number(b.dataset.demoPlace)]);
+        if(b.id==='showPinMap'){const area=$('#routePinArea');area.hidden=!area.hidden;$('#routeResults').hidden=!area.hidden;b.innerHTML=area.hidden?'⌖ Drop a pin instead <span>↗</span>':'⌖ Tap the map to choose a spot <span>⌄</span>';}
+        if(b.id==='saveRoutePlace' && r.selected){Object.assign(plan.stops[r.index],{place:r.selected.name,address:r.selected.address,x:r.selected.x,y:r.selected.y});closeRouteSheet();renderPlan();$(`[data-place-stop="${r.index}"]`).focus();}
+        if(b.dataset.routeDay){$('#routeDate').value=b.dataset.routeDay;r.el.querySelectorAll('[data-route-day]').forEach(n=>n.setAttribute('aria-pressed',n===b));}
+        if(b.dataset.routeClock){$('#routeTime').value=b.dataset.routeClock;r.el.querySelectorAll('[data-route-clock]').forEach(n=>n.setAttribute('aria-pressed',n===b));}
+        if(b.id==='saveRouteTime'){
+          const when=`${$('#routeDate').value}T${$('#routeTime').value}`;const time=new Date(when).getTime();const prev=plan.stops[r.index-1],next=plan.stops[r.index+1];
+          const message=!Number.isFinite(time)?'Choose a date and arrival time.':time<=Date.now()?'Choose an arrival time in the future.':prev?.when&&time<=new Date(prev.when).getTime()?'Choose a time after the previous stop.':next?.when&&time>=new Date(next.when).getTime()?'Choose a time before the next stop, or change its time first.':'';
+          if(message){error(r.el,message);return;}
+          plan.stops[r.index].when=when;closeRouteSheet();renderPlan();$(`[data-time-stop="${r.index}"]`).focus();
+        }
+      }
+      $('#planCreateBody').addEventListener('click',e=>{
+        read($('#planCreateBody'),plan);const b=e.target.closest('button');if(!b)return;ensureStops();
+        if(b.dataset.placeStop!==undefined)openRouteSheet('place',Number(b.dataset.placeStop),b);
+        if(b.dataset.timeStop!==undefined)openRouteSheet('time',Number(b.dataset.timeStop),b);
+        if(b.dataset.removeStop!==undefined){plan.stops.splice(Number(b.dataset.removeStop),1);renderPlan();}
+        if(b.id==='addRouteStop'){plan.stops.push({id:crypto.randomUUID(),place:'',address:'',when:'',x:null,y:null});renderPlan();const last=$(`[data-place-stop="${plan.stops.length-1}"]`);last.scrollIntoView({block:'center',behavior:'smooth'});openRouteSheet('place',plan.stops.length-1,last);}
+        if(b.id==='routeExample'){plan.stops=[demoPlaces[0],demoPlaces[3],demoPlaces[2]].map((p,i)=>({id:crypto.randomUUID(),place:p.name,address:p.address,x:p.x,y:p.y,when:`${tomorrow()}T${['17:00','18:00','19:00'][i]}`}));if(!plan.name)plan.name='Coffee & a little exploring';renderPlan();}
+      });
       function renderCreated() {
         const p = createdPlan;
         const invited = p.people.filter(n => !p.members.includes(n));
-        $('#createdPlanBody').innerHTML = `<h1 class="title">${esc(p.name)}</h1><p class="sub">${esc(pretty(p.when))}<br>${esc(p.place)}</p><div class="eb">Going · ${p.members.length + 1}</div><div class="rowit"><div class="t"><b>You</b><span>Creator / admin</span></div></div>${p.members.map(n => `<div class="rowit"><div class="t"><b>${n}</b><span>Plan member · media access</span></div><button type="button" class="creation-action" data-remove-member="${n}">Remove</button></div>`).join('')}<div class="eb">Invited · ${invited.length}</div><small>${esc(invited.join(', ') || 'No invitations pending')}</small><details><summary>Share with circles<small>${esc(p.circles.join(', ') || 'Off · invite or link access only')}</small></summary>${Object.keys(circles).map(c => check('createdCircles', c, p.circles.includes(c), 'Members can discover and join; media stays with plan members')).join('')}<small>Removing a circle removes discovery and its join route. Existing plan members stay.</small></details><label class="creation-check"><span>Find matches · Go open<small>Only your plan name is shown until an invitation is accepted</small></span><input type="checkbox" id="createdPlanMatching" ${p.discoverable ? 'checked' : ''}></label>${p.discoverable ? '<button type="button" class="creation-action" id="seePlanMatches">See this plan’s overlaps</button>' : ''}<label class="creation-check"><span>Join requests by link<small>You approve new members</small></span><input type="checkbox" id="createdPlanLink" ${p.link ? 'checked' : ''}></label>${p.link ? `<span class="creation-link">outthere.app/p/${esc(p.link)}</span><button type="button" class="creation-action" id="replacePlanLink">Replace link</button><small>Replacing or deleting it invalidates the previous link.</small>` : ''}<small>Removed members lose access and need admin approval to return.</small><details><summary>Preview joining as someone else</summary><label class="creation-field"><span>Person</span><select id="joinPreviewPerson">${people.map(n => `<option>${n}</option>`).join('')}</select></label><button type="button" class="creation-action" id="joinPreview">Try joining</button><button type="button" class="creation-action" id="approvePreview">Approve pending request</button><small id="joinPreviewStatus" aria-live="polite"></small></details><button type="button" class="btn ghost" data-go="s-tonight">Back to plans</button>`;
+        $('#createdPlanBody').innerHTML = `<h1 class="title">${esc(p.name)}</h1><p class="sub">${esc(pretty(p.when))}<br>${esc(p.place)}</p>${p.stops ? routeMarkup(p.stops, false) : ''}<div class="eb">Going · ${p.members.length + 1}</div><div class="rowit"><div class="t"><b>You</b><span>Creator / admin</span></div></div>${p.members.map(n => `<div class="rowit"><div class="t"><b>${n}</b><span>Plan member · media access</span></div><button type="button" class="creation-action" data-remove-member="${n}">Remove</button></div>`).join('')}<div class="eb">Invited · ${invited.length}</div><small>${esc(invited.join(', ') || 'No invitations pending')}</small><details><summary>Share with circles<small>${esc(p.circles.join(', ') || 'Off · invite or link access only')}</small></summary>${Object.keys(circles).map(c => check('createdCircles', c, p.circles.includes(c), 'Members can discover and join; media stays with plan members')).join('')}<small>Removing a circle removes discovery and its join route. Existing plan members stay.</small></details><label class="creation-check"><span>Find matches · Go open<small>Only your plan name is shown until an invitation is accepted</small></span><input type="checkbox" id="createdPlanMatching" ${p.discoverable ? 'checked' : ''}></label>${p.discoverable ? '<button type="button" class="creation-action" id="seePlanMatches">See this plan’s overlaps</button>' : ''}<label class="creation-check"><span>Join requests by link<small>You approve new members</small></span><input type="checkbox" id="createdPlanLink" ${p.link ? 'checked' : ''}></label>${p.link ? `<span class="creation-link">outthere.app/p/${esc(p.link)}</span><button type="button" class="creation-action" id="replacePlanLink">Replace link</button><small>Replacing or deleting it invalidates the previous link.</small>` : ''}<small>Removed members lose access and need admin approval to return.</small><details><summary>Preview joining as someone else</summary><label class="creation-field"><span>Person</span><select id="joinPreviewPerson">${people.map(n => `<option>${n}</option>`).join('')}</select></label><button type="button" class="creation-action" id="joinPreview">Try joining</button><button type="button" class="creation-action" id="approvePreview">Approve pending request</button><small id="joinPreviewStatus" aria-live="polite"></small></details><button type="button" class="btn ghost" data-go="s-tonight">Back to plans</button>`;
       }
       $('#rippleCreateBody').addEventListener('input', updateDeadline);
       $('#rippleCreateBody').addEventListener('change', e => {
@@ -4844,6 +4999,9 @@
       $('#planCreateBody').addEventListener('click', e => {
         if (e.target.id !== 'sendPlan') return;
         read($('#planCreateBody'), plan);
+        ensureStops(); syncRoute();
+        const invalidStop = plan.stops.findIndex((s,i) => !s.place.trim() || !s.when || !Number.isFinite(new Date(s.when).getTime()) || new Date(s.when).getTime() <= Date.now() || (i > 0 && new Date(s.when).getTime() <= new Date(plan.stops[i-1].when).getTime()));
+        if (invalidStop >= 0) { error($('#planCreateBody'), `Stop ${invalidStop+1}: choose a place and a future arrival time after the previous stop.`); return; }
         if (!plan.name.trim() || !plan.place.trim() || !plan.when || !Number.isFinite(new Date(plan.when).getTime())) { error($('#planCreateBody'), 'Add a name, date, time and meeting place.'); return; }
         if (new Date(plan.when).getTime() <= Date.now()) { error($('#planCreateBody'), 'Choose a future date and time.'); return; }
         createdPlan = { ...structuredClone(plan), id: crypto.randomUUID(), members: [], removed: [], pending: [], link: null, discoverable: false, matchLimit: 5 };

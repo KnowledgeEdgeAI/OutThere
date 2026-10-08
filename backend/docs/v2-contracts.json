@@ -1,0 +1,5060 @@
+{
+  "auth.login": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "phone": {
+          "maxLength": 40,
+          "minLength": 8,
+          "title": "Phone",
+          "type": "string"
+        },
+        "installation_id": {
+          "format": "uuid",
+          "title": "Installation Id",
+          "type": "string"
+        },
+        "platform": {
+          "enum": [
+            "ios",
+            "android",
+            "web"
+          ],
+          "title": "Platform",
+          "type": "string"
+        },
+        "name": {
+          "anyOf": [
+            {
+              "maxLength": 80,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Name"
+        }
+      },
+      "required": [
+        "phone",
+        "installation_id",
+        "platform"
+      ],
+      "title": "Login",
+      "type": "object"
+    }
+  },
+  "auth.resume": {
+    "type": "query",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "access_token": {
+          "maxLength": 256,
+          "minLength": 32,
+          "title": "Access Token",
+          "type": "string"
+        },
+        "device_id": {
+          "format": "uuid",
+          "title": "Device Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "access_token",
+        "device_id"
+      ],
+      "title": "Resume",
+      "type": "object"
+    }
+  },
+  "auth.refresh": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "refresh_token": {
+          "maxLength": 256,
+          "minLength": 32,
+          "title": "Refresh Token",
+          "type": "string"
+        },
+        "device_id": {
+          "format": "uuid",
+          "title": "Device Id",
+          "type": "string"
+        },
+        "renewal_id": {
+          "format": "uuid",
+          "title": "Renewal Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "refresh_token",
+        "device_id",
+        "renewal_id"
+      ],
+      "title": "Renewal",
+      "type": "object"
+    }
+  },
+  "auth.logout": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {},
+      "title": "Empty",
+      "type": "object"
+    }
+  },
+  "profile.get": {
+    "type": "query",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "user_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "User Id"
+        }
+      },
+      "title": "ProfileGet",
+      "type": "object"
+    }
+  },
+  "profile.update": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "dp_media_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Dp Media Id"
+        },
+        "name": {
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "name",
+        "expected_version"
+      ],
+      "title": "ProfileUpdate",
+      "type": "object"
+    }
+  },
+  "device.list": {
+    "type": "query",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {},
+      "title": "Empty",
+      "type": "object"
+    }
+  },
+  "device.revoke": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "device_id": {
+          "format": "uuid",
+          "title": "Device Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "device_id"
+      ],
+      "title": "DeviceRevoke",
+      "type": "object"
+    }
+  },
+  "ping": {
+    "type": "query",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {},
+      "title": "Empty",
+      "type": "object"
+    }
+  },
+  "circle.list": {
+    "type": "query",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "after": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "After"
+        },
+        "limit": {
+          "default": 50,
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Limit",
+          "type": "integer"
+        }
+      },
+      "title": "Page",
+      "type": "object"
+    }
+  },
+  "circle.get": {
+    "type": "query",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "circle_id": {
+          "format": "uuid",
+          "title": "Circle Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "circle_id"
+      ],
+      "title": "CircleId",
+      "type": "object"
+    }
+  },
+  "circle.create": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "circle_id": {
+          "format": "uuid",
+          "title": "Circle Id",
+          "type": "string"
+        },
+        "name": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "kind": {
+          "default": "social",
+          "enum": [
+            "social",
+            "work"
+          ],
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "required": [
+        "circle_id",
+        "name"
+      ],
+      "title": "CircleCreate",
+      "type": "object"
+    }
+  },
+  "circle.update": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "circle_id": {
+          "format": "uuid",
+          "title": "Circle Id",
+          "type": "string"
+        },
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        },
+        "name": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "circle_id",
+        "expected_version",
+        "name"
+      ],
+      "title": "CircleUpdate",
+      "type": "object"
+    }
+  },
+  "circle.invite": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "circle_id": {
+          "format": "uuid",
+          "title": "Circle Id",
+          "type": "string"
+        },
+        "user_id": {
+          "format": "uuid",
+          "title": "User Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "circle_id",
+        "user_id"
+      ],
+      "title": "CirclePerson",
+      "type": "object"
+    }
+  },
+  "circle.invitation.accept": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "circle_id": {
+          "format": "uuid",
+          "title": "Circle Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "circle_id"
+      ],
+      "title": "CircleId",
+      "type": "object"
+    }
+  },
+  "circle.invitation.decline": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "circle_id": {
+          "format": "uuid",
+          "title": "Circle Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "circle_id"
+      ],
+      "title": "CircleId",
+      "type": "object"
+    }
+  },
+  "circle.leave": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "circle_id": {
+          "format": "uuid",
+          "title": "Circle Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "circle_id"
+      ],
+      "title": "CircleId",
+      "type": "object"
+    }
+  },
+  "circle.member.remove": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "circle_id": {
+          "format": "uuid",
+          "title": "Circle Id",
+          "type": "string"
+        },
+        "user_id": {
+          "format": "uuid",
+          "title": "User Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "circle_id",
+        "user_id"
+      ],
+      "title": "CirclePerson",
+      "type": "object"
+    }
+  },
+  "circle.member.role": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "circle_id": {
+          "format": "uuid",
+          "title": "Circle Id",
+          "type": "string"
+        },
+        "user_id": {
+          "format": "uuid",
+          "title": "User Id",
+          "type": "string"
+        },
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        },
+        "role": {
+          "enum": [
+            "admin",
+            "member"
+          ],
+          "title": "Role",
+          "type": "string"
+        }
+      },
+      "required": [
+        "circle_id",
+        "user_id",
+        "expected_version",
+        "role"
+      ],
+      "title": "CircleRole",
+      "type": "object"
+    }
+  },
+  "circle.owner.transfer": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "circle_id": {
+          "format": "uuid",
+          "title": "Circle Id",
+          "type": "string"
+        },
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        },
+        "user_id": {
+          "format": "uuid",
+          "title": "User Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "circle_id",
+        "expected_version",
+        "user_id"
+      ],
+      "title": "CircleTransfer",
+      "type": "object"
+    }
+  },
+  "circle.sleep": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "circle_id": {
+          "format": "uuid",
+          "title": "Circle Id",
+          "type": "string"
+        },
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "circle_id",
+        "expected_version"
+      ],
+      "title": "CircleEdit",
+      "type": "object"
+    }
+  },
+  "circle.wake": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "circle_id": {
+          "format": "uuid",
+          "title": "Circle Id",
+          "type": "string"
+        },
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "circle_id",
+        "expected_version"
+      ],
+      "title": "CircleEdit",
+      "type": "object"
+    }
+  },
+  "plan.list": {
+    "type": "query",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "after": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "After"
+        },
+        "limit": {
+          "default": 50,
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Limit",
+          "type": "integer"
+        }
+      },
+      "title": "Page",
+      "type": "object"
+    }
+  },
+  "plan.get": {
+    "type": "query",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "plan_id"
+      ],
+      "title": "PlanId",
+      "type": "object"
+    }
+  },
+  "plan.create": {
+    "type": "command",
+    "payload": {
+      "$defs": {
+        "Stop": {
+          "additionalProperties": false,
+          "properties": {
+            "stop_id": {
+              "format": "uuid",
+              "title": "Stop Id",
+              "type": "string"
+            },
+            "order": {
+              "maximum": 49,
+              "minimum": 0,
+              "title": "Order",
+              "type": "integer"
+            },
+            "label": {
+              "maxLength": 240,
+              "minLength": 1,
+              "title": "Label",
+              "type": "string"
+            },
+            "latitude": {
+              "anyOf": [
+                {
+                  "maximum": 90,
+                  "minimum": -90,
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Latitude"
+            },
+            "longitude": {
+              "anyOf": [
+                {
+                  "maximum": 180,
+                  "minimum": -180,
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Longitude"
+            },
+            "place_id": {
+              "anyOf": [
+                {
+                  "maxLength": 240,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Place Id"
+            },
+            "arrival_at": {
+              "anyOf": [
+                {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Arrival At"
+            }
+          },
+          "required": [
+            "stop_id",
+            "order",
+            "label"
+          ],
+          "title": "Stop",
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "circle_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Circle Id"
+        },
+        "starts_at": {
+          "format": "date-time",
+          "title": "Starts At",
+          "type": "string"
+        },
+        "ends_at": {
+          "format": "date-time",
+          "title": "Ends At",
+          "type": "string"
+        },
+        "venue_timezone": {
+          "default": "Asia/Kolkata",
+          "title": "Venue Timezone",
+          "type": "string"
+        },
+        "place_label": {
+          "default": "",
+          "maxLength": 240,
+          "title": "Place Label",
+          "type": "string"
+        },
+        "latitude": {
+          "anyOf": [
+            {
+              "maximum": 90,
+              "minimum": -90,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Latitude"
+        },
+        "longitude": {
+          "anyOf": [
+            {
+              "maximum": 180,
+              "minimum": -180,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Longitude"
+        },
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "visibility": {
+          "default": "private",
+          "enum": [
+            "private",
+            "public",
+            "link"
+          ],
+          "title": "Visibility",
+          "type": "string"
+        },
+        "currency": {
+          "default": "INR",
+          "pattern": "^[A-Z]{3}$",
+          "title": "Currency",
+          "type": "string"
+        },
+        "capacity": {
+          "default": 15,
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Capacity",
+          "type": "integer"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 10,
+          "title": "Tags",
+          "type": "array"
+        },
+        "circle_ids": {
+          "items": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "maxItems": 15,
+          "title": "Circle Ids",
+          "type": "array"
+        },
+        "invitee_ids": {
+          "items": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "maxItems": 100,
+          "title": "Invitee Ids",
+          "type": "array"
+        },
+        "stops": {
+          "items": {
+            "$ref": "#/$defs/Stop"
+          },
+          "maxItems": 50,
+          "title": "Stops",
+          "type": "array"
+        }
+      },
+      "required": [
+        "title",
+        "starts_at",
+        "ends_at",
+        "plan_id"
+      ],
+      "title": "PlanCreate",
+      "type": "object"
+    }
+  },
+  "plan.update": {
+    "type": "command",
+    "payload": {
+      "$defs": {
+        "Stop": {
+          "additionalProperties": false,
+          "properties": {
+            "stop_id": {
+              "format": "uuid",
+              "title": "Stop Id",
+              "type": "string"
+            },
+            "order": {
+              "maximum": 49,
+              "minimum": 0,
+              "title": "Order",
+              "type": "integer"
+            },
+            "label": {
+              "maxLength": 240,
+              "minLength": 1,
+              "title": "Label",
+              "type": "string"
+            },
+            "latitude": {
+              "anyOf": [
+                {
+                  "maximum": 90,
+                  "minimum": -90,
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Latitude"
+            },
+            "longitude": {
+              "anyOf": [
+                {
+                  "maximum": 180,
+                  "minimum": -180,
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Longitude"
+            },
+            "place_id": {
+              "anyOf": [
+                {
+                  "maxLength": 240,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Place Id"
+            },
+            "arrival_at": {
+              "anyOf": [
+                {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Arrival At"
+            }
+          },
+          "required": [
+            "stop_id",
+            "order",
+            "label"
+          ],
+          "title": "Stop",
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "circle_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Circle Id"
+        },
+        "starts_at": {
+          "format": "date-time",
+          "title": "Starts At",
+          "type": "string"
+        },
+        "ends_at": {
+          "format": "date-time",
+          "title": "Ends At",
+          "type": "string"
+        },
+        "venue_timezone": {
+          "default": "Asia/Kolkata",
+          "title": "Venue Timezone",
+          "type": "string"
+        },
+        "place_label": {
+          "default": "",
+          "maxLength": 240,
+          "title": "Place Label",
+          "type": "string"
+        },
+        "latitude": {
+          "anyOf": [
+            {
+              "maximum": 90,
+              "minimum": -90,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Latitude"
+        },
+        "longitude": {
+          "anyOf": [
+            {
+              "maximum": 180,
+              "minimum": -180,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Longitude"
+        },
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "visibility": {
+          "default": "private",
+          "enum": [
+            "private",
+            "public",
+            "link"
+          ],
+          "title": "Visibility",
+          "type": "string"
+        },
+        "currency": {
+          "default": "INR",
+          "pattern": "^[A-Z]{3}$",
+          "title": "Currency",
+          "type": "string"
+        },
+        "capacity": {
+          "default": 15,
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Capacity",
+          "type": "integer"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 10,
+          "title": "Tags",
+          "type": "array"
+        },
+        "circle_ids": {
+          "items": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "maxItems": 15,
+          "title": "Circle Ids",
+          "type": "array"
+        },
+        "invitee_ids": {
+          "items": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "maxItems": 100,
+          "title": "Invitee Ids",
+          "type": "array"
+        },
+        "stops": {
+          "items": {
+            "$ref": "#/$defs/Stop"
+          },
+          "maxItems": 50,
+          "title": "Stops",
+          "type": "array"
+        },
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "title",
+        "starts_at",
+        "ends_at",
+        "plan_id",
+        "expected_version"
+      ],
+      "title": "PlanUpdate",
+      "type": "object"
+    }
+  },
+  "plan.cancel": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "plan_id",
+        "expected_version"
+      ],
+      "title": "PlanEdit",
+      "type": "object"
+    }
+  },
+  "plan.invite": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "user_id": {
+          "format": "uuid",
+          "title": "User Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "plan_id",
+        "user_id"
+      ],
+      "title": "PlanPerson",
+      "type": "object"
+    }
+  },
+  "plan.join.request": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "plan_id"
+      ],
+      "title": "PlanId",
+      "type": "object"
+    }
+  },
+  "plan.join.approve": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "user_id": {
+          "format": "uuid",
+          "title": "User Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "plan_id",
+        "user_id"
+      ],
+      "title": "PlanPerson",
+      "type": "object"
+    }
+  },
+  "plan.join.decline": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "user_id": {
+          "format": "uuid",
+          "title": "User Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "plan_id",
+        "user_id"
+      ],
+      "title": "PlanPerson",
+      "type": "object"
+    }
+  },
+  "plan.leave": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "plan_id"
+      ],
+      "title": "PlanId",
+      "type": "object"
+    }
+  },
+  "plan.member.remove": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "user_id": {
+          "format": "uuid",
+          "title": "User Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "plan_id",
+        "user_id"
+      ],
+      "title": "PlanPerson",
+      "type": "object"
+    }
+  },
+  "plan.rsvp": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        },
+        "rsvp": {
+          "enum": [
+            "in",
+            "maybe",
+            "out"
+          ],
+          "title": "Rsvp",
+          "type": "string"
+        }
+      },
+      "required": [
+        "plan_id",
+        "expected_version",
+        "rsvp"
+      ],
+      "title": "Rsvp",
+      "type": "object"
+    }
+  },
+  "plan.arrival.update": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "expected_version": {
+          "minimum": 0,
+          "title": "Expected Version",
+          "type": "integer"
+        },
+        "state": {
+          "enum": [
+            "not_started",
+            "on_way",
+            "arrived"
+          ],
+          "title": "State",
+          "type": "string"
+        }
+      },
+      "required": [
+        "plan_id",
+        "expected_version",
+        "state"
+      ],
+      "title": "ArrivalUpdate",
+      "type": "object"
+    }
+  },
+  "sync.start": {
+    "type": "query",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "after": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "After"
+        },
+        "limit": {
+          "default": 50,
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Limit",
+          "type": "integer"
+        }
+      },
+      "title": "Page",
+      "type": "object"
+    }
+  },
+  "sync.page": {
+    "type": "query",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "snapshot_id": {
+          "format": "uuid",
+          "title": "Snapshot Id",
+          "type": "string"
+        },
+        "after": {
+          "default": 0,
+          "minimum": 0,
+          "title": "After",
+          "type": "integer"
+        },
+        "limit": {
+          "default": 50,
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Limit",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "snapshot_id"
+      ],
+      "title": "SyncPage",
+      "type": "object"
+    }
+  },
+  "sync.resume": {
+    "type": "query",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "cursor": {
+          "minimum": 0,
+          "title": "Cursor",
+          "type": "integer"
+        },
+        "epoch": {
+          "minimum": 1,
+          "title": "Epoch",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "cursor",
+        "epoch"
+      ],
+      "title": "SyncResume",
+      "type": "object"
+    }
+  },
+  "sync.ack": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "cursor": {
+          "minimum": 0,
+          "title": "Cursor",
+          "type": "integer"
+        },
+        "epoch": {
+          "minimum": 1,
+          "title": "Epoch",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "cursor",
+        "epoch"
+      ],
+      "title": "SyncResume",
+      "type": "object"
+    }
+  },
+  "room.get": {
+    "type": "query",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "room_id": {
+          "format": "uuid",
+          "title": "Room Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "room_id"
+      ],
+      "title": "Room",
+      "type": "object"
+    }
+  },
+  "message.send": {
+    "type": "command",
+    "payload": {
+      "$defs": {
+        "Image": {
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "enum": [
+                "image",
+                "video"
+              ],
+              "title": "Kind",
+              "type": "string"
+            },
+            "media_ids": {
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              },
+              "maxItems": 10,
+              "minItems": 1,
+              "title": "Media Ids",
+              "type": "array"
+            },
+            "caption": {
+              "anyOf": [
+                {
+                  "maxLength": 4000,
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Caption"
+            }
+          },
+          "required": [
+            "kind",
+            "media_ids"
+          ],
+          "title": "Image",
+          "type": "object"
+        },
+        "Link": {
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "link",
+              "title": "Kind",
+              "type": "string"
+            },
+            "url": {
+              "format": "uri",
+              "maxLength": 2083,
+              "minLength": 1,
+              "title": "Url",
+              "type": "string"
+            },
+            "text": {
+              "anyOf": [
+                {
+                  "maxLength": 4000,
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Text"
+            }
+          },
+          "required": [
+            "kind",
+            "url"
+          ],
+          "title": "Link",
+          "type": "object"
+        },
+        "Location": {
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "location",
+              "title": "Kind",
+              "type": "string"
+            },
+            "latitude": {
+              "maximum": 90,
+              "minimum": -90,
+              "title": "Latitude",
+              "type": "number"
+            },
+            "longitude": {
+              "maximum": 180,
+              "minimum": -180,
+              "title": "Longitude",
+              "type": "number"
+            },
+            "label": {
+              "maxLength": 240,
+              "minLength": 1,
+              "title": "Label",
+              "type": "string"
+            }
+          },
+          "required": [
+            "kind",
+            "latitude",
+            "longitude",
+            "label"
+          ],
+          "title": "Location",
+          "type": "object"
+        },
+        "Text": {
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "text",
+              "title": "Kind",
+              "type": "string"
+            },
+            "text": {
+              "maxLength": 4000,
+              "minLength": 1,
+              "title": "Text",
+              "type": "string"
+            }
+          },
+          "required": [
+            "kind",
+            "text"
+          ],
+          "title": "Text",
+          "type": "object"
+        },
+        "Voice": {
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "voice",
+              "title": "Kind",
+              "type": "string"
+            },
+            "media_id": {
+              "format": "uuid",
+              "title": "Media Id",
+              "type": "string"
+            },
+            "duration_seconds": {
+              "exclusiveMinimum": 0,
+              "maximum": 600,
+              "title": "Duration Seconds",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "kind",
+            "media_id",
+            "duration_seconds"
+          ],
+          "title": "Voice",
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "room_id": {
+          "format": "uuid",
+          "title": "Room Id",
+          "type": "string"
+        },
+        "message_id": {
+          "format": "uuid",
+          "title": "Message Id",
+          "type": "string"
+        },
+        "content": {
+          "discriminator": {
+            "mapping": {
+              "image": "#/$defs/Image",
+              "link": "#/$defs/Link",
+              "location": "#/$defs/Location",
+              "text": "#/$defs/Text",
+              "video": "#/$defs/Image",
+              "voice": "#/$defs/Voice"
+            },
+            "propertyName": "kind"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/Text"
+            },
+            {
+              "$ref": "#/$defs/Link"
+            },
+            {
+              "$ref": "#/$defs/Location"
+            },
+            {
+              "$ref": "#/$defs/Image"
+            },
+            {
+              "$ref": "#/$defs/Voice"
+            }
+          ],
+          "title": "Content"
+        }
+      },
+      "required": [
+        "room_id",
+        "message_id",
+        "content"
+      ],
+      "title": "Send",
+      "type": "object"
+    }
+  },
+  "delivery.pull": {
+    "type": "query",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "after": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "After"
+        },
+        "limit": {
+          "default": 50,
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Limit",
+          "type": "integer"
+        }
+      },
+      "title": "Pull",
+      "type": "object"
+    }
+  },
+  "delivery.ack": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "event_ids": {
+          "items": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "maxItems": 100,
+          "minItems": 1,
+          "title": "Event Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "event_ids"
+      ],
+      "title": "Ack",
+      "type": "object"
+    }
+  },
+  "delivery.status": {
+    "type": "query",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "message_ids": {
+          "items": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "maxItems": 100,
+          "minItems": 1,
+          "title": "Message Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "message_ids"
+      ],
+      "title": "Status",
+      "type": "object"
+    }
+  },
+  "typing.update": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "room_id": {
+          "format": "uuid",
+          "title": "Room Id",
+          "type": "string"
+        },
+        "active": {
+          "title": "Active",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "room_id",
+        "active"
+      ],
+      "title": "Typing",
+      "type": "object"
+    }
+  },
+  "delivery.media.ack": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "event_id": {
+          "format": "uuid",
+          "title": "Event Id",
+          "type": "string"
+        },
+        "media_id": {
+          "format": "uuid",
+          "title": "Media Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "event_id",
+        "media_id"
+      ],
+      "title": "MediaAck",
+      "type": "object"
+    }
+  },
+  "message.reaction.add": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "room_id": {
+          "format": "uuid",
+          "title": "Room Id",
+          "type": "string"
+        },
+        "message_id": {
+          "format": "uuid",
+          "title": "Message Id",
+          "type": "string"
+        },
+        "emoji": {
+          "maxLength": 16,
+          "minLength": 1,
+          "title": "Emoji",
+          "type": "string"
+        }
+      },
+      "required": [
+        "room_id",
+        "message_id",
+        "emoji"
+      ],
+      "title": "Reaction",
+      "type": "object"
+    }
+  },
+  "message.reaction.remove": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "room_id": {
+          "format": "uuid",
+          "title": "Room Id",
+          "type": "string"
+        },
+        "message_id": {
+          "format": "uuid",
+          "title": "Message Id",
+          "type": "string"
+        },
+        "emoji": {
+          "maxLength": 16,
+          "minLength": 1,
+          "title": "Emoji",
+          "type": "string"
+        }
+      },
+      "required": [
+        "room_id",
+        "message_id",
+        "emoji"
+      ],
+      "title": "Reaction",
+      "type": "object"
+    }
+  },
+  "expense.list": {
+    "type": "query",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "after": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "After"
+        },
+        "limit": {
+          "default": 50,
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Limit",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "plan_id"
+      ],
+      "title": "List",
+      "type": "object"
+    }
+  },
+  "expense.create": {
+    "type": "command",
+    "payload": {
+      "$defs": {
+        "Share": {
+          "additionalProperties": false,
+          "properties": {
+            "user_id": {
+              "format": "uuid",
+              "title": "User Id",
+              "type": "string"
+            },
+            "amount_minor": {
+              "maximum": 1000000000000,
+              "minimum": 0,
+              "title": "Amount Minor",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "user_id",
+            "amount_minor"
+          ],
+          "title": "Share",
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "expense_id": {
+          "format": "uuid",
+          "title": "Expense Id",
+          "type": "string"
+        },
+        "payer_id": {
+          "format": "uuid",
+          "title": "Payer Id",
+          "type": "string"
+        },
+        "amount_minor": {
+          "exclusiveMinimum": 0,
+          "maximum": 1000000000000,
+          "title": "Amount Minor",
+          "type": "integer"
+        },
+        "currency": {
+          "pattern": "^[A-Z]{3}$",
+          "title": "Currency",
+          "type": "string"
+        },
+        "description": {
+          "maxLength": 240,
+          "minLength": 1,
+          "title": "Description",
+          "type": "string"
+        },
+        "shares": {
+          "items": {
+            "$ref": "#/$defs/Share"
+          },
+          "maxItems": 100,
+          "title": "Shares",
+          "type": "array"
+        },
+        "equal_user_ids": {
+          "items": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "maxItems": 100,
+          "title": "Equal User Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "plan_id",
+        "expense_id",
+        "payer_id",
+        "amount_minor",
+        "currency",
+        "description"
+      ],
+      "title": "Create",
+      "type": "object"
+    }
+  },
+  "expense.correct": {
+    "type": "command",
+    "payload": {
+      "$defs": {
+        "Share": {
+          "additionalProperties": false,
+          "properties": {
+            "user_id": {
+              "format": "uuid",
+              "title": "User Id",
+              "type": "string"
+            },
+            "amount_minor": {
+              "maximum": 1000000000000,
+              "minimum": 0,
+              "title": "Amount Minor",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "user_id",
+            "amount_minor"
+          ],
+          "title": "Share",
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "expense_id": {
+          "format": "uuid",
+          "title": "Expense Id",
+          "type": "string"
+        },
+        "payer_id": {
+          "format": "uuid",
+          "title": "Payer Id",
+          "type": "string"
+        },
+        "amount_minor": {
+          "exclusiveMinimum": 0,
+          "maximum": 1000000000000,
+          "title": "Amount Minor",
+          "type": "integer"
+        },
+        "currency": {
+          "pattern": "^[A-Z]{3}$",
+          "title": "Currency",
+          "type": "string"
+        },
+        "description": {
+          "maxLength": 240,
+          "minLength": 1,
+          "title": "Description",
+          "type": "string"
+        },
+        "shares": {
+          "items": {
+            "$ref": "#/$defs/Share"
+          },
+          "maxItems": 100,
+          "title": "Shares",
+          "type": "array"
+        },
+        "equal_user_ids": {
+          "items": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "maxItems": 100,
+          "title": "Equal User Ids",
+          "type": "array"
+        },
+        "replaces_id": {
+          "format": "uuid",
+          "title": "Replaces Id",
+          "type": "string"
+        },
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "plan_id",
+        "expense_id",
+        "payer_id",
+        "amount_minor",
+        "currency",
+        "description",
+        "replaces_id",
+        "expected_version"
+      ],
+      "title": "Correct",
+      "type": "object"
+    }
+  },
+  "expense.void": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "expense_id": {
+          "format": "uuid",
+          "title": "Expense Id",
+          "type": "string"
+        },
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "plan_id",
+        "expense_id",
+        "expected_version"
+      ],
+      "title": "Void",
+      "type": "object"
+    }
+  },
+  "balance.list": {
+    "type": "query",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "plan_id"
+      ],
+      "title": "PlanId",
+      "type": "object"
+    }
+  },
+  "split.remind": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "expense_id": {
+          "format": "uuid",
+          "title": "Expense Id",
+          "type": "string"
+        },
+        "user_id": {
+          "format": "uuid",
+          "title": "User Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "plan_id",
+        "expense_id",
+        "user_id"
+      ],
+      "title": "Remind",
+      "type": "object"
+    }
+  },
+  "settlement.propose": {
+    "type": "command",
+    "payload": {
+      "$defs": {
+        "Allocate": {
+          "additionalProperties": false,
+          "properties": {
+            "expense_id": {
+              "format": "uuid",
+              "title": "Expense Id",
+              "type": "string"
+            },
+            "amount_minor": {
+              "exclusiveMinimum": 0,
+              "maximum": 1000000000000,
+              "title": "Amount Minor",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "expense_id",
+            "amount_minor"
+          ],
+          "title": "Allocate",
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "settlement_id": {
+          "format": "uuid",
+          "title": "Settlement Id",
+          "type": "string"
+        },
+        "to_user_id": {
+          "format": "uuid",
+          "title": "To User Id",
+          "type": "string"
+        },
+        "currency": {
+          "pattern": "^[A-Z]{3}$",
+          "title": "Currency",
+          "type": "string"
+        },
+        "allocations": {
+          "items": {
+            "$ref": "#/$defs/Allocate"
+          },
+          "maxItems": 100,
+          "minItems": 1,
+          "title": "Allocations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "plan_id",
+        "settlement_id",
+        "to_user_id",
+        "currency",
+        "allocations"
+      ],
+      "title": "Propose",
+      "type": "object"
+    }
+  },
+  "settlement.confirm": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "settlement_id": {
+          "format": "uuid",
+          "title": "Settlement Id",
+          "type": "string"
+        },
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "plan_id",
+        "settlement_id",
+        "expected_version"
+      ],
+      "title": "SettlementEdit",
+      "type": "object"
+    }
+  },
+  "settlement.reject": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "settlement_id": {
+          "format": "uuid",
+          "title": "Settlement Id",
+          "type": "string"
+        },
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "plan_id",
+        "settlement_id",
+        "expected_version"
+      ],
+      "title": "SettlementEdit",
+      "type": "object"
+    }
+  },
+  "settlement.reverse": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "settlement_id": {
+          "format": "uuid",
+          "title": "Settlement Id",
+          "type": "string"
+        },
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        },
+        "reversal_id": {
+          "format": "uuid",
+          "title": "Reversal Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "plan_id",
+        "settlement_id",
+        "expected_version",
+        "reversal_id"
+      ],
+      "title": "Reverse",
+      "type": "object"
+    }
+  },
+  "album.list": {
+    "type": "query",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "after": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "After"
+        },
+        "limit": {
+          "default": 50,
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Limit",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "plan_id"
+      ],
+      "title": "List",
+      "type": "object"
+    }
+  },
+  "album.get": {
+    "type": "query",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "album_id": {
+          "format": "uuid",
+          "title": "Album Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "album_id"
+      ],
+      "title": "AlbumId",
+      "type": "object"
+    }
+  },
+  "album.create": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "album_id": {
+          "format": "uuid",
+          "title": "Album Id",
+          "type": "string"
+        },
+        "title": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "plan_id",
+        "album_id",
+        "title"
+      ],
+      "title": "AlbumCreate",
+      "type": "object"
+    }
+  },
+  "album.update": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "album_id": {
+          "format": "uuid",
+          "title": "Album Id",
+          "type": "string"
+        },
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        },
+        "title": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "album_id",
+        "expected_version",
+        "title"
+      ],
+      "title": "AlbumUpdate",
+      "type": "object"
+    }
+  },
+  "album.delete": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "album_id": {
+          "format": "uuid",
+          "title": "Album Id",
+          "type": "string"
+        },
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "album_id",
+        "expected_version"
+      ],
+      "title": "AlbumEdit",
+      "type": "object"
+    }
+  },
+  "album.media.add": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "media_id": {
+          "format": "uuid",
+          "title": "Media Id",
+          "type": "string"
+        },
+        "album_id": {
+          "format": "uuid",
+          "title": "Album Id",
+          "type": "string"
+        },
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "media_id",
+        "album_id",
+        "expected_version"
+      ],
+      "title": "AlbumItem",
+      "type": "object"
+    }
+  },
+  "album.media.remove": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "media_id": {
+          "format": "uuid",
+          "title": "Media Id",
+          "type": "string"
+        },
+        "album_id": {
+          "format": "uuid",
+          "title": "Album Id",
+          "type": "string"
+        },
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "media_id",
+        "album_id",
+        "expected_version"
+      ],
+      "title": "AlbumItem",
+      "type": "object"
+    }
+  },
+  "album.media.hide": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "media_id": {
+          "format": "uuid",
+          "title": "Media Id",
+          "type": "string"
+        },
+        "album_id": {
+          "format": "uuid",
+          "title": "Album Id",
+          "type": "string"
+        },
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "media_id",
+        "album_id",
+        "expected_version"
+      ],
+      "title": "AlbumItem",
+      "type": "object"
+    }
+  },
+  "media.prepare": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "media_id": {
+          "format": "uuid",
+          "title": "Media Id",
+          "type": "string"
+        },
+        "plan_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Plan Id"
+        },
+        "room_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Room Id"
+        },
+        "purpose": {
+          "pattern": "^(album|chat|profile)$",
+          "title": "Purpose",
+          "type": "string"
+        },
+        "mime": {
+          "pattern": "^(image/(jpeg|png|webp)|audio/(wav|mp4)|video/mp4)$",
+          "title": "Mime",
+          "type": "string"
+        },
+        "byte_size": {
+          "exclusiveMinimum": 0,
+          "maximum": 52428800,
+          "title": "Byte Size",
+          "type": "integer"
+        },
+        "checksum": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Checksum",
+          "type": "string"
+        }
+      },
+      "required": [
+        "media_id",
+        "purpose",
+        "mime",
+        "byte_size",
+        "checksum"
+      ],
+      "title": "Prepare",
+      "type": "object"
+    }
+  },
+  "media.complete": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "media_id": {
+          "format": "uuid",
+          "title": "Media Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "media_id"
+      ],
+      "title": "MediaId",
+      "type": "object"
+    }
+  },
+  "media.abort": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "media_id": {
+          "format": "uuid",
+          "title": "Media Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "media_id"
+      ],
+      "title": "MediaId",
+      "type": "object"
+    }
+  },
+  "media.read": {
+    "type": "query",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "media_id": {
+          "format": "uuid",
+          "title": "Media Id",
+          "type": "string"
+        },
+        "variant": {
+          "default": "original",
+          "pattern": "^(original|thumbnail)$",
+          "title": "Variant",
+          "type": "string"
+        }
+      },
+      "required": [
+        "media_id"
+      ],
+      "title": "Read",
+      "type": "object"
+    }
+  },
+  "media.share.create": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "album_id": {
+          "format": "uuid",
+          "title": "Album Id",
+          "type": "string"
+        },
+        "media_id": {
+          "format": "uuid",
+          "title": "Media Id",
+          "type": "string"
+        },
+        "expires_in_seconds": {
+          "default": 3600,
+          "maximum": 86400,
+          "minimum": 60,
+          "title": "Expires In Seconds",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "album_id",
+        "media_id"
+      ],
+      "title": "ShareCreate",
+      "type": "object"
+    }
+  },
+  "media.share.revoke": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "share_id": {
+          "format": "uuid",
+          "title": "Share Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "share_id"
+      ],
+      "title": "ShareRevoke",
+      "type": "object"
+    }
+  },
+  "media.promote": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "album_id": {
+          "format": "uuid",
+          "title": "Album Id",
+          "type": "string"
+        },
+        "media_id": {
+          "format": "uuid",
+          "title": "Media Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "album_id",
+        "media_id"
+      ],
+      "title": "Promote",
+      "type": "object"
+    }
+  },
+  "artifact.point.get": {
+    "type": "query",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "artifact_id": {
+          "format": "uuid",
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "plan_id",
+        "artifact_id",
+        "expected_version"
+      ],
+      "title": "Edit",
+      "type": "object"
+    }
+  },
+  "artifact.list": {
+    "type": "query",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "plan_id"
+      ],
+      "title": "PlanId",
+      "type": "object"
+    }
+  },
+  "artifact.create": {
+    "type": "command",
+    "payload": {
+      "$defs": {
+        "Bring": {
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "bring",
+              "title": "Kind",
+              "type": "string"
+            },
+            "items": {
+              "items": {
+                "$ref": "#/$defs/BringItem"
+              },
+              "maxItems": 50,
+              "minItems": 1,
+              "title": "Items",
+              "type": "array"
+            }
+          },
+          "required": [
+            "kind",
+            "items"
+          ],
+          "title": "Bring",
+          "type": "object"
+        },
+        "BringItem": {
+          "additionalProperties": false,
+          "properties": {
+            "item_id": {
+              "format": "uuid",
+              "title": "Item Id",
+              "type": "string"
+            },
+            "label": {
+              "maxLength": 100,
+              "minLength": 1,
+              "title": "Label",
+              "type": "string"
+            }
+          },
+          "required": [
+            "item_id",
+            "label"
+          ],
+          "title": "BringItem",
+          "type": "object"
+        },
+        "Location": {
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "location",
+              "title": "Kind",
+              "type": "string"
+            },
+            "label": {
+              "maxLength": 240,
+              "minLength": 1,
+              "title": "Label",
+              "type": "string"
+            },
+            "latitude": {
+              "maximum": 90,
+              "minimum": -90,
+              "title": "Latitude",
+              "type": "number"
+            },
+            "longitude": {
+              "maximum": 180,
+              "minimum": -180,
+              "title": "Longitude",
+              "type": "number"
+            }
+          },
+          "required": [
+            "kind",
+            "label",
+            "latitude",
+            "longitude"
+          ],
+          "title": "Location",
+          "type": "object"
+        },
+        "Note": {
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "note",
+              "title": "Kind",
+              "type": "string"
+            },
+            "text": {
+              "maxLength": 4000,
+              "minLength": 1,
+              "title": "Text",
+              "type": "string"
+            }
+          },
+          "required": [
+            "kind",
+            "text"
+          ],
+          "title": "Note",
+          "type": "object"
+        },
+        "Option": {
+          "additionalProperties": false,
+          "properties": {
+            "option_id": {
+              "format": "uuid",
+              "title": "Option Id",
+              "type": "string"
+            },
+            "label": {
+              "maxLength": 100,
+              "minLength": 1,
+              "title": "Label",
+              "type": "string"
+            }
+          },
+          "required": [
+            "option_id",
+            "label"
+          ],
+          "title": "Option",
+          "type": "object"
+        },
+        "PersonalLocation": {
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "personal_location",
+              "title": "Kind",
+              "type": "string"
+            },
+            "label": {
+              "maxLength": 240,
+              "minLength": 1,
+              "title": "Label",
+              "type": "string"
+            },
+            "latitude": {
+              "maximum": 90,
+              "minimum": -90,
+              "title": "Latitude",
+              "type": "number"
+            },
+            "longitude": {
+              "maximum": 180,
+              "minimum": -180,
+              "title": "Longitude",
+              "type": "number"
+            },
+            "captured_at": {
+              "format": "date-time",
+              "title": "Captured At",
+              "type": "string"
+            },
+            "expires_in_seconds": {
+              "default": 900,
+              "maximum": 3600,
+              "minimum": 60,
+              "title": "Expires In Seconds",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "kind",
+            "label",
+            "latitude",
+            "longitude",
+            "captured_at"
+          ],
+          "title": "PersonalLocation",
+          "type": "object"
+        },
+        "Poll": {
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "poll",
+              "title": "Kind",
+              "type": "string"
+            },
+            "question": {
+              "maxLength": 240,
+              "minLength": 1,
+              "title": "Question",
+              "type": "string"
+            },
+            "options": {
+              "items": {
+                "$ref": "#/$defs/Option"
+              },
+              "maxItems": 6,
+              "minItems": 2,
+              "title": "Options",
+              "type": "array"
+            },
+            "closes_at": {
+              "anyOf": [
+                {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Closes At"
+            }
+          },
+          "required": [
+            "kind",
+            "question",
+            "options"
+          ],
+          "title": "Poll",
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "artifact_id": {
+          "format": "uuid",
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "data": {
+          "discriminator": {
+            "mapping": {
+              "bring": "#/$defs/Bring",
+              "location": "#/$defs/Location",
+              "note": "#/$defs/Note",
+              "personal_location": "#/$defs/PersonalLocation",
+              "poll": "#/$defs/Poll"
+            },
+            "propertyName": "kind"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/Note"
+            },
+            {
+              "$ref": "#/$defs/Poll"
+            },
+            {
+              "$ref": "#/$defs/Location"
+            },
+            {
+              "$ref": "#/$defs/PersonalLocation"
+            },
+            {
+              "$ref": "#/$defs/Bring"
+            }
+          ],
+          "title": "Data"
+        }
+      },
+      "required": [
+        "plan_id",
+        "artifact_id",
+        "data"
+      ],
+      "title": "Create",
+      "type": "object"
+    }
+  },
+  "artifact.update": {
+    "type": "command",
+    "payload": {
+      "$defs": {
+        "Bring": {
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "bring",
+              "title": "Kind",
+              "type": "string"
+            },
+            "items": {
+              "items": {
+                "$ref": "#/$defs/BringItem"
+              },
+              "maxItems": 50,
+              "minItems": 1,
+              "title": "Items",
+              "type": "array"
+            }
+          },
+          "required": [
+            "kind",
+            "items"
+          ],
+          "title": "Bring",
+          "type": "object"
+        },
+        "BringItem": {
+          "additionalProperties": false,
+          "properties": {
+            "item_id": {
+              "format": "uuid",
+              "title": "Item Id",
+              "type": "string"
+            },
+            "label": {
+              "maxLength": 100,
+              "minLength": 1,
+              "title": "Label",
+              "type": "string"
+            }
+          },
+          "required": [
+            "item_id",
+            "label"
+          ],
+          "title": "BringItem",
+          "type": "object"
+        },
+        "Location": {
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "location",
+              "title": "Kind",
+              "type": "string"
+            },
+            "label": {
+              "maxLength": 240,
+              "minLength": 1,
+              "title": "Label",
+              "type": "string"
+            },
+            "latitude": {
+              "maximum": 90,
+              "minimum": -90,
+              "title": "Latitude",
+              "type": "number"
+            },
+            "longitude": {
+              "maximum": 180,
+              "minimum": -180,
+              "title": "Longitude",
+              "type": "number"
+            }
+          },
+          "required": [
+            "kind",
+            "label",
+            "latitude",
+            "longitude"
+          ],
+          "title": "Location",
+          "type": "object"
+        },
+        "Note": {
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "note",
+              "title": "Kind",
+              "type": "string"
+            },
+            "text": {
+              "maxLength": 4000,
+              "minLength": 1,
+              "title": "Text",
+              "type": "string"
+            }
+          },
+          "required": [
+            "kind",
+            "text"
+          ],
+          "title": "Note",
+          "type": "object"
+        },
+        "Option": {
+          "additionalProperties": false,
+          "properties": {
+            "option_id": {
+              "format": "uuid",
+              "title": "Option Id",
+              "type": "string"
+            },
+            "label": {
+              "maxLength": 100,
+              "minLength": 1,
+              "title": "Label",
+              "type": "string"
+            }
+          },
+          "required": [
+            "option_id",
+            "label"
+          ],
+          "title": "Option",
+          "type": "object"
+        },
+        "PersonalLocation": {
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "personal_location",
+              "title": "Kind",
+              "type": "string"
+            },
+            "label": {
+              "maxLength": 240,
+              "minLength": 1,
+              "title": "Label",
+              "type": "string"
+            },
+            "latitude": {
+              "maximum": 90,
+              "minimum": -90,
+              "title": "Latitude",
+              "type": "number"
+            },
+            "longitude": {
+              "maximum": 180,
+              "minimum": -180,
+              "title": "Longitude",
+              "type": "number"
+            },
+            "captured_at": {
+              "format": "date-time",
+              "title": "Captured At",
+              "type": "string"
+            },
+            "expires_in_seconds": {
+              "default": 900,
+              "maximum": 3600,
+              "minimum": 60,
+              "title": "Expires In Seconds",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "kind",
+            "label",
+            "latitude",
+            "longitude",
+            "captured_at"
+          ],
+          "title": "PersonalLocation",
+          "type": "object"
+        },
+        "Poll": {
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "poll",
+              "title": "Kind",
+              "type": "string"
+            },
+            "question": {
+              "maxLength": 240,
+              "minLength": 1,
+              "title": "Question",
+              "type": "string"
+            },
+            "options": {
+              "items": {
+                "$ref": "#/$defs/Option"
+              },
+              "maxItems": 6,
+              "minItems": 2,
+              "title": "Options",
+              "type": "array"
+            },
+            "closes_at": {
+              "anyOf": [
+                {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Closes At"
+            }
+          },
+          "required": [
+            "kind",
+            "question",
+            "options"
+          ],
+          "title": "Poll",
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "artifact_id": {
+          "format": "uuid",
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        },
+        "data": {
+          "discriminator": {
+            "mapping": {
+              "bring": "#/$defs/Bring",
+              "location": "#/$defs/Location",
+              "note": "#/$defs/Note",
+              "personal_location": "#/$defs/PersonalLocation",
+              "poll": "#/$defs/Poll"
+            },
+            "propertyName": "kind"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/Note"
+            },
+            {
+              "$ref": "#/$defs/Poll"
+            },
+            {
+              "$ref": "#/$defs/Location"
+            },
+            {
+              "$ref": "#/$defs/PersonalLocation"
+            },
+            {
+              "$ref": "#/$defs/Bring"
+            }
+          ],
+          "title": "Data"
+        }
+      },
+      "required": [
+        "plan_id",
+        "artifact_id",
+        "expected_version",
+        "data"
+      ],
+      "title": "Update",
+      "type": "object"
+    }
+  },
+  "artifact.delete": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "artifact_id": {
+          "format": "uuid",
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "plan_id",
+        "artifact_id",
+        "expected_version"
+      ],
+      "title": "Edit",
+      "type": "object"
+    }
+  },
+  "artifact.respond": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "artifact_id": {
+          "format": "uuid",
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "expected_version": {
+          "minimum": 0,
+          "title": "Expected Version",
+          "type": "integer"
+        },
+        "option_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Option Id"
+        },
+        "item_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Item Id"
+        },
+        "release": {
+          "default": false,
+          "title": "Release",
+          "type": "boolean"
+        },
+        "artifact_version": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Artifact Version"
+        }
+      },
+      "required": [
+        "plan_id",
+        "artifact_id",
+        "expected_version"
+      ],
+      "title": "Respond",
+      "type": "object"
+    }
+  },
+  "artifact.pin": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "artifact_id": {
+          "format": "uuid",
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "expected_version": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expected Version"
+        },
+        "source_message_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Message Id"
+        }
+      },
+      "required": [
+        "plan_id",
+        "artifact_id"
+      ],
+      "title": "Pin",
+      "type": "object"
+    }
+  },
+  "artifact.unpin": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "artifact_id": {
+          "format": "uuid",
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "plan_id",
+        "artifact_id",
+        "expected_version"
+      ],
+      "title": "Edit",
+      "type": "object"
+    }
+  },
+  "poll.close": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "artifact_id": {
+          "format": "uuid",
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "plan_id",
+        "artifact_id",
+        "expected_version"
+      ],
+      "title": "Edit",
+      "type": "object"
+    }
+  },
+  "plan.meeting.set": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "artifact_id": {
+          "format": "uuid",
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        },
+        "confirm_personal": {
+          "default": false,
+          "title": "Confirm Personal",
+          "type": "boolean"
+        },
+        "expected_plan_version": {
+          "minimum": 1,
+          "title": "Expected Plan Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "plan_id",
+        "artifact_id",
+        "expected_version",
+        "expected_plan_version"
+      ],
+      "title": "MeetingSet",
+      "type": "object"
+    }
+  },
+  "wrap.get": {
+    "type": "query",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "plan_id"
+      ],
+      "title": "PlanId",
+      "type": "object"
+    }
+  },
+  "ripple.list": {
+    "type": "query",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "after": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "After"
+        },
+        "limit": {
+          "default": 50,
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Limit",
+          "type": "integer"
+        }
+      },
+      "title": "List",
+      "type": "object"
+    }
+  },
+  "ripple.create": {
+    "type": "command",
+    "payload": {
+      "$defs": {
+        "Slot": {
+          "additionalProperties": false,
+          "properties": {
+            "slot_id": {
+              "format": "uuid",
+              "title": "Slot Id",
+              "type": "string"
+            },
+            "starts_at": {
+              "format": "date-time",
+              "title": "Starts At",
+              "type": "string"
+            },
+            "ends_at": {
+              "format": "date-time",
+              "title": "Ends At",
+              "type": "string"
+            },
+            "venue_timezone": {
+              "title": "Venue Timezone",
+              "type": "string"
+            },
+            "note": {
+              "anyOf": [
+                {
+                  "maxLength": 80,
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Note"
+            }
+          },
+          "required": [
+            "slot_id",
+            "starts_at",
+            "ends_at",
+            "venue_timezone"
+          ],
+          "title": "Slot",
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "ripple_id": {
+          "format": "uuid",
+          "title": "Ripple Id",
+          "type": "string"
+        },
+        "idea": {
+          "maxLength": 240,
+          "minLength": 1,
+          "title": "Idea",
+          "type": "string"
+        },
+        "user_ids": {
+          "items": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "maxItems": 100,
+          "title": "User Ids",
+          "type": "array"
+        },
+        "circle_ids": {
+          "items": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "maxItems": 15,
+          "title": "Circle Ids",
+          "type": "array"
+        },
+        "slots": {
+          "items": {
+            "$ref": "#/$defs/Slot"
+          },
+          "maxItems": 2,
+          "title": "Slots",
+          "type": "array"
+        },
+        "place_hint": {
+          "anyOf": [
+            {
+              "maxLength": 240,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Place Hint"
+        },
+        "reply_window_seconds": {
+          "default": 86400,
+          "maximum": 604800,
+          "minimum": 60,
+          "title": "Reply Window Seconds",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "ripple_id",
+        "idea"
+      ],
+      "title": "Create",
+      "type": "object"
+    }
+  },
+  "ripple.respond": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "ripple_id": {
+          "format": "uuid",
+          "title": "Ripple Id",
+          "type": "string"
+        },
+        "expected_version": {
+          "minimum": 0,
+          "title": "Expected Version",
+          "type": "integer"
+        },
+        "choice": {
+          "pattern": "^(up_for_it|another_time|cannot)$",
+          "title": "Choice",
+          "type": "string"
+        },
+        "selected_slot_ids": {
+          "items": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "maxItems": 2,
+          "title": "Selected Slot Ids",
+          "type": "array"
+        },
+        "note": {
+          "anyOf": [
+            {
+              "maxLength": 140,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Note"
+        }
+      },
+      "required": [
+        "ripple_id",
+        "expected_version",
+        "choice"
+      ],
+      "title": "Respond",
+      "type": "object"
+    }
+  },
+  "ripple.convert": {
+    "type": "command",
+    "payload": {
+      "$defs": {
+        "PlanCreate": {
+          "additionalProperties": false,
+          "properties": {
+            "title": {
+              "maxLength": 160,
+              "minLength": 1,
+              "title": "Title",
+              "type": "string"
+            },
+            "circle_id": {
+              "anyOf": [
+                {
+                  "format": "uuid",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Circle Id"
+            },
+            "starts_at": {
+              "format": "date-time",
+              "title": "Starts At",
+              "type": "string"
+            },
+            "ends_at": {
+              "format": "date-time",
+              "title": "Ends At",
+              "type": "string"
+            },
+            "venue_timezone": {
+              "default": "Asia/Kolkata",
+              "title": "Venue Timezone",
+              "type": "string"
+            },
+            "place_label": {
+              "default": "",
+              "maxLength": 240,
+              "title": "Place Label",
+              "type": "string"
+            },
+            "latitude": {
+              "anyOf": [
+                {
+                  "maximum": 90,
+                  "minimum": -90,
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Latitude"
+            },
+            "longitude": {
+              "anyOf": [
+                {
+                  "maximum": 180,
+                  "minimum": -180,
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Longitude"
+            },
+            "plan_id": {
+              "format": "uuid",
+              "title": "Plan Id",
+              "type": "string"
+            },
+            "visibility": {
+              "default": "private",
+              "enum": [
+                "private",
+                "public",
+                "link"
+              ],
+              "title": "Visibility",
+              "type": "string"
+            },
+            "currency": {
+              "default": "INR",
+              "pattern": "^[A-Z]{3}$",
+              "title": "Currency",
+              "type": "string"
+            },
+            "capacity": {
+              "default": 15,
+              "maximum": 100,
+              "minimum": 1,
+              "title": "Capacity",
+              "type": "integer"
+            },
+            "tags": {
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 10,
+              "title": "Tags",
+              "type": "array"
+            },
+            "circle_ids": {
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              },
+              "maxItems": 15,
+              "title": "Circle Ids",
+              "type": "array"
+            },
+            "invitee_ids": {
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              },
+              "maxItems": 100,
+              "title": "Invitee Ids",
+              "type": "array"
+            },
+            "stops": {
+              "items": {
+                "$ref": "#/$defs/Stop"
+              },
+              "maxItems": 50,
+              "title": "Stops",
+              "type": "array"
+            }
+          },
+          "required": [
+            "title",
+            "starts_at",
+            "ends_at",
+            "plan_id"
+          ],
+          "title": "PlanCreate",
+          "type": "object"
+        },
+        "Stop": {
+          "additionalProperties": false,
+          "properties": {
+            "stop_id": {
+              "format": "uuid",
+              "title": "Stop Id",
+              "type": "string"
+            },
+            "order": {
+              "maximum": 49,
+              "minimum": 0,
+              "title": "Order",
+              "type": "integer"
+            },
+            "label": {
+              "maxLength": 240,
+              "minLength": 1,
+              "title": "Label",
+              "type": "string"
+            },
+            "latitude": {
+              "anyOf": [
+                {
+                  "maximum": 90,
+                  "minimum": -90,
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Latitude"
+            },
+            "longitude": {
+              "anyOf": [
+                {
+                  "maximum": 180,
+                  "minimum": -180,
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Longitude"
+            },
+            "place_id": {
+              "anyOf": [
+                {
+                  "maxLength": 240,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Place Id"
+            },
+            "arrival_at": {
+              "anyOf": [
+                {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Arrival At"
+            }
+          },
+          "required": [
+            "stop_id",
+            "order",
+            "label"
+          ],
+          "title": "Stop",
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "ripple_id": {
+          "format": "uuid",
+          "title": "Ripple Id",
+          "type": "string"
+        },
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        },
+        "plan": {
+          "$ref": "#/$defs/PlanCreate"
+        }
+      },
+      "required": [
+        "ripple_id",
+        "expected_version",
+        "plan"
+      ],
+      "title": "Convert",
+      "type": "object"
+    }
+  },
+  "ripple.close": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "ripple_id": {
+          "format": "uuid",
+          "title": "Ripple Id",
+          "type": "string"
+        },
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "ripple_id",
+        "expected_version"
+      ],
+      "title": "Edit",
+      "type": "object"
+    }
+  },
+  "block.create": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "user_id": {
+          "format": "uuid",
+          "title": "User Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "user_id"
+      ],
+      "title": "Person",
+      "type": "object"
+    }
+  },
+  "block.delete": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "user_id": {
+          "format": "uuid",
+          "title": "User Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "user_id"
+      ],
+      "title": "Person",
+      "type": "object"
+    }
+  },
+  "block.list": {
+    "type": "query",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {},
+      "title": "Empty",
+      "type": "object"
+    }
+  },
+  "report.create": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "resource_type": {
+          "pattern": "^(plan|artifact|message|user)$",
+          "title": "Resource Type",
+          "type": "string"
+        },
+        "resource_id": {
+          "format": "uuid",
+          "title": "Resource Id",
+          "type": "string"
+        },
+        "reason": {
+          "maxLength": 1000,
+          "minLength": 1,
+          "title": "Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "resource_type",
+        "resource_id",
+        "reason"
+      ],
+      "title": "ReportCreate",
+      "type": "object"
+    }
+  },
+  "profile.pause": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "expected_version"
+      ],
+      "title": "Delete",
+      "type": "object"
+    }
+  },
+  "profile.resume": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "expected_version"
+      ],
+      "title": "Delete",
+      "type": "object"
+    }
+  },
+  "account.delete": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "expected_version"
+      ],
+      "title": "Delete",
+      "type": "object"
+    }
+  },
+  "open.list": {
+    "type": "query",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "after": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "After"
+        },
+        "limit": {
+          "default": 50,
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Limit",
+          "type": "integer"
+        }
+      },
+      "title": "List",
+      "type": "object"
+    }
+  },
+  "open.create": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "latitude": {
+          "maximum": 90,
+          "minimum": -90,
+          "title": "Latitude",
+          "type": "number"
+        },
+        "longitude": {
+          "maximum": 180,
+          "minimum": -180,
+          "title": "Longitude",
+          "type": "number"
+        },
+        "radius_m": {
+          "exclusiveMinimum": 0,
+          "maximum": 100000,
+          "title": "Radius M",
+          "type": "integer"
+        },
+        "open_id": {
+          "format": "uuid",
+          "title": "Open Id",
+          "type": "string"
+        },
+        "starts_at": {
+          "format": "date-time",
+          "title": "Starts At",
+          "type": "string"
+        },
+        "ends_at": {
+          "format": "date-time",
+          "title": "Ends At",
+          "type": "string"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 10,
+          "title": "Tags",
+          "type": "array"
+        }
+      },
+      "required": [
+        "latitude",
+        "longitude",
+        "radius_m",
+        "open_id",
+        "starts_at",
+        "ends_at"
+      ],
+      "title": "Create",
+      "type": "object"
+    }
+  },
+  "open.update": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "latitude": {
+          "maximum": 90,
+          "minimum": -90,
+          "title": "Latitude",
+          "type": "number"
+        },
+        "longitude": {
+          "maximum": 180,
+          "minimum": -180,
+          "title": "Longitude",
+          "type": "number"
+        },
+        "radius_m": {
+          "exclusiveMinimum": 0,
+          "maximum": 100000,
+          "title": "Radius M",
+          "type": "integer"
+        },
+        "open_id": {
+          "format": "uuid",
+          "title": "Open Id",
+          "type": "string"
+        },
+        "starts_at": {
+          "format": "date-time",
+          "title": "Starts At",
+          "type": "string"
+        },
+        "ends_at": {
+          "format": "date-time",
+          "title": "Ends At",
+          "type": "string"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 10,
+          "title": "Tags",
+          "type": "array"
+        },
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "latitude",
+        "longitude",
+        "radius_m",
+        "open_id",
+        "starts_at",
+        "ends_at",
+        "expected_version"
+      ],
+      "title": "Edit",
+      "type": "object"
+    }
+  },
+  "open.close": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "open_id": {
+          "format": "uuid",
+          "title": "Open Id",
+          "type": "string"
+        },
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "open_id",
+        "expected_version"
+      ],
+      "title": "Close",
+      "type": "object"
+    }
+  },
+  "discovery.plans": {
+    "type": "query",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "latitude": {
+          "maximum": 90,
+          "minimum": -90,
+          "title": "Latitude",
+          "type": "number"
+        },
+        "longitude": {
+          "maximum": 180,
+          "minimum": -180,
+          "title": "Longitude",
+          "type": "number"
+        },
+        "radius_m": {
+          "exclusiveMinimum": 0,
+          "maximum": 100000,
+          "title": "Radius M",
+          "type": "integer"
+        },
+        "starts_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Starts At"
+        },
+        "ends_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ends At"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 10,
+          "title": "Tags",
+          "type": "array"
+        },
+        "limit": {
+          "default": 20,
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Limit",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "latitude",
+        "longitude",
+        "radius_m"
+      ],
+      "title": "Search",
+      "type": "object"
+    }
+  },
+  "overlap.list": {
+    "type": "query",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "open_id": {
+          "format": "uuid",
+          "title": "Open Id",
+          "type": "string"
+        },
+        "limit": {
+          "default": 20,
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Limit",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "open_id"
+      ],
+      "title": "Overlaps",
+      "type": "object"
+    }
+  },
+  "overlap.respond": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "overlap_id": {
+          "format": "uuid",
+          "title": "Overlap Id",
+          "type": "string"
+        },
+        "choice": {
+          "pattern": "^(hi|pass)$",
+          "title": "Choice",
+          "type": "string"
+        },
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "overlap_id",
+        "choice",
+        "expected_version"
+      ],
+      "title": "Respond",
+      "type": "object"
+    }
+  },
+  "hello.extend": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "overlap_id": {
+          "format": "uuid",
+          "title": "Overlap Id",
+          "type": "string"
+        },
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "overlap_id",
+        "expected_version"
+      ],
+      "title": "Hello",
+      "type": "object"
+    }
+  },
+  "hello.plan.create": {
+    "type": "command",
+    "payload": {
+      "$defs": {
+        "PlanCreate": {
+          "additionalProperties": false,
+          "properties": {
+            "title": {
+              "maxLength": 160,
+              "minLength": 1,
+              "title": "Title",
+              "type": "string"
+            },
+            "circle_id": {
+              "anyOf": [
+                {
+                  "format": "uuid",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Circle Id"
+            },
+            "starts_at": {
+              "format": "date-time",
+              "title": "Starts At",
+              "type": "string"
+            },
+            "ends_at": {
+              "format": "date-time",
+              "title": "Ends At",
+              "type": "string"
+            },
+            "venue_timezone": {
+              "default": "Asia/Kolkata",
+              "title": "Venue Timezone",
+              "type": "string"
+            },
+            "place_label": {
+              "default": "",
+              "maxLength": 240,
+              "title": "Place Label",
+              "type": "string"
+            },
+            "latitude": {
+              "anyOf": [
+                {
+                  "maximum": 90,
+                  "minimum": -90,
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Latitude"
+            },
+            "longitude": {
+              "anyOf": [
+                {
+                  "maximum": 180,
+                  "minimum": -180,
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Longitude"
+            },
+            "plan_id": {
+              "format": "uuid",
+              "title": "Plan Id",
+              "type": "string"
+            },
+            "visibility": {
+              "default": "private",
+              "enum": [
+                "private",
+                "public",
+                "link"
+              ],
+              "title": "Visibility",
+              "type": "string"
+            },
+            "currency": {
+              "default": "INR",
+              "pattern": "^[A-Z]{3}$",
+              "title": "Currency",
+              "type": "string"
+            },
+            "capacity": {
+              "default": 15,
+              "maximum": 100,
+              "minimum": 1,
+              "title": "Capacity",
+              "type": "integer"
+            },
+            "tags": {
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 10,
+              "title": "Tags",
+              "type": "array"
+            },
+            "circle_ids": {
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              },
+              "maxItems": 15,
+              "title": "Circle Ids",
+              "type": "array"
+            },
+            "invitee_ids": {
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              },
+              "maxItems": 100,
+              "title": "Invitee Ids",
+              "type": "array"
+            },
+            "stops": {
+              "items": {
+                "$ref": "#/$defs/Stop"
+              },
+              "maxItems": 50,
+              "title": "Stops",
+              "type": "array"
+            }
+          },
+          "required": [
+            "title",
+            "starts_at",
+            "ends_at",
+            "plan_id"
+          ],
+          "title": "PlanCreate",
+          "type": "object"
+        },
+        "Stop": {
+          "additionalProperties": false,
+          "properties": {
+            "stop_id": {
+              "format": "uuid",
+              "title": "Stop Id",
+              "type": "string"
+            },
+            "order": {
+              "maximum": 49,
+              "minimum": 0,
+              "title": "Order",
+              "type": "integer"
+            },
+            "label": {
+              "maxLength": 240,
+              "minLength": 1,
+              "title": "Label",
+              "type": "string"
+            },
+            "latitude": {
+              "anyOf": [
+                {
+                  "maximum": 90,
+                  "minimum": -90,
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Latitude"
+            },
+            "longitude": {
+              "anyOf": [
+                {
+                  "maximum": 180,
+                  "minimum": -180,
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Longitude"
+            },
+            "place_id": {
+              "anyOf": [
+                {
+                  "maxLength": 240,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Place Id"
+            },
+            "arrival_at": {
+              "anyOf": [
+                {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Arrival At"
+            }
+          },
+          "required": [
+            "stop_id",
+            "order",
+            "label"
+          ],
+          "title": "Stop",
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "overlap_id": {
+          "format": "uuid",
+          "title": "Overlap Id",
+          "type": "string"
+        },
+        "expected_version": {
+          "minimum": 1,
+          "title": "Expected Version",
+          "type": "integer"
+        },
+        "plan": {
+          "$ref": "#/$defs/PlanCreate"
+        }
+      },
+      "required": [
+        "overlap_id",
+        "expected_version",
+        "plan"
+      ],
+      "title": "HelloPlan",
+      "type": "object"
+    }
+  },
+  "places.search": {
+    "type": "query",
+    "payload": {
+      "$defs": {
+        "Area": {
+          "additionalProperties": false,
+          "properties": {
+            "latitude": {
+              "maximum": 90,
+              "minimum": -90,
+              "title": "Latitude",
+              "type": "number"
+            },
+            "longitude": {
+              "maximum": 180,
+              "minimum": -180,
+              "title": "Longitude",
+              "type": "number"
+            },
+            "radius_m": {
+              "exclusiveMinimum": 0,
+              "maximum": 50000,
+              "title": "Radius M",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "latitude",
+            "longitude",
+            "radius_m"
+          ],
+          "title": "Area",
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "query": {
+          "maxLength": 160,
+          "minLength": 2,
+          "title": "Query",
+          "type": "string"
+        },
+        "session_token": {
+          "format": "uuid",
+          "title": "Session Token",
+          "type": "string"
+        },
+        "area": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Area"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "query",
+        "session_token"
+      ],
+      "title": "Search",
+      "type": "object"
+    }
+  },
+  "places.details": {
+    "type": "query",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "place_id": {
+          "maxLength": 240,
+          "minLength": 1,
+          "title": "Place Id",
+          "type": "string"
+        },
+        "session_token": {
+          "format": "uuid",
+          "title": "Session Token",
+          "type": "string"
+        }
+      },
+      "required": [
+        "place_id",
+        "session_token"
+      ],
+      "title": "Details",
+      "type": "object"
+    }
+  },
+  "plan.share.create": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "format": "uuid",
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "expires_in_seconds": {
+          "default": 86400,
+          "maximum": 604800,
+          "minimum": 60,
+          "title": "Expires In Seconds",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "plan_id"
+      ],
+      "title": "Create",
+      "type": "object"
+    }
+  },
+  "plan.share.revoke": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "share_id": {
+          "format": "uuid",
+          "title": "Share Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "share_id"
+      ],
+      "title": "Revoke",
+      "type": "object"
+    }
+  },
+  "plan.share.resolve": {
+    "type": "query",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "share_id": {
+          "format": "uuid",
+          "title": "Share Id",
+          "type": "string"
+        },
+        "token": {
+          "maxLength": 128,
+          "minLength": 32,
+          "title": "Token",
+          "type": "string"
+        }
+      },
+      "required": [
+        "share_id",
+        "token"
+      ],
+      "title": "Resolve",
+      "type": "object"
+    }
+  },
+  "plan.share.join": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "share_id": {
+          "format": "uuid",
+          "title": "Share Id",
+          "type": "string"
+        },
+        "token": {
+          "maxLength": 128,
+          "minLength": 32,
+          "title": "Token",
+          "type": "string"
+        }
+      },
+      "required": [
+        "share_id",
+        "token"
+      ],
+      "title": "Resolve",
+      "type": "object"
+    }
+  },
+  "device.push.register": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {
+        "token": {
+          "maxLength": 4096,
+          "minLength": 16,
+          "title": "Token",
+          "type": "string"
+        },
+        "provider": {
+          "enum": [
+            "apns",
+            "fcm"
+          ],
+          "title": "Provider",
+          "type": "string"
+        },
+        "platform": {
+          "enum": [
+            "ios",
+            "android"
+          ],
+          "title": "Platform",
+          "type": "string"
+        },
+        "enabled_categories": {
+          "items": {
+            "enum": [
+              "messages",
+              "plans",
+              "ripples",
+              "splits"
+            ],
+            "type": "string"
+          },
+          "maxItems": 4,
+          "title": "Enabled Categories",
+          "type": "array"
+        }
+      },
+      "required": [
+        "token",
+        "provider",
+        "platform",
+        "enabled_categories"
+      ],
+      "title": "Register",
+      "type": "object"
+    }
+  },
+  "device.push.unregister": {
+    "type": "command",
+    "payload": {
+      "additionalProperties": false,
+      "properties": {},
+      "title": "Empty",
+      "type": "object"
+    }
+  }
+}

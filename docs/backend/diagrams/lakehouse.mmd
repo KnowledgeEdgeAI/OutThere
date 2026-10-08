@@ -1,0 +1,9 @@
+flowchart LR
+  db["Relational app data"] -->|"Sanitized events"| worker["Analytics job"]
+  worker --> tables["Historical analytical tables"]
+  objects["Object storage"] --> media["Photos, videos and update bundles"]
+  objects --> files["Analytical data files"]
+  files --> tables
+  catalog["Table catalog"] --> tables
+  tables --> query["Analytics query layer"]
+  query --> metrics["Product metrics"]

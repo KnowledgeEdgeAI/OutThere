@@ -1,0 +1,43 @@
+[project]
+name = "outthere-backend"
+version = "0.1.0"
+description = "Small, portable backend for OutThere"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "sqlmodel>=0.0.24,<0.1",
+  "uvicorn[standard]>=0.30,<1",
+  "pydantic-settings>=2.7,<3",
+  "alembic>=1.14,<2",
+  "httpx[http2]>=0.28,<1",
+  "tzdata>=2025.1",
+  "cryptography>=50.0.2",
+  "phonenumbers>=9.0.40",
+  "pillow>=11,<14",
+]
+
+[project.optional-dependencies]
+postgres = ["psycopg[binary]>=3.2,<4"]
+
+[dependency-groups]
+dev = ["pytest>=8,<10", "ruff>=0.11,<1"]
+
+[project.scripts]
+outthere = "outthere.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/outthere"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
